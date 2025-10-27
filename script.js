@@ -98,11 +98,12 @@ document.querySelectorAll('.process-item, .benefit-item, .support-card, .section
     observer.observe(element);
 });
 
-// Parallax effect for hero
+// Parallax effect for hero (disabled on mobile)
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
-    if (hero && scrolled < window.innerHeight) {
+    // Only apply parallax on desktop (screen width > 768px)
+    if (hero && scrolled < window.innerHeight && window.innerWidth > 768) {
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
