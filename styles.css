@@ -1430,7 +1430,7 @@ body {
 
 @media (max-width: 768px) {
     .hero {
-        padding: 100px 0 350px;
+        padding: 100px 0 150px;
         min-height: 210vh;
     }
 
