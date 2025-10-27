@@ -1430,24 +1430,33 @@ body {
 
 @media (max-width: 768px) {
     .hero {
-        padding: 120px 0 60px;
+        padding: 100px 0 200px;
+        min-height: 150vh;
     }
 
     .hero-container {
-        padding: 0 20px;
+        padding: 40px 20px;
+        gap: 50px;
+    }
+
+    .hero-badge {
+        margin-bottom: 24px;
     }
 
     .hero-title {
-        font-size: clamp(32px, 8vw, 48px);
+        font-size: clamp(28px, 7vw, 42px);
+        margin-bottom: 24px;
     }
 
     .hero-description {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 32px;
     }
 
     .hero-cta-wrapper {
         flex-direction: column;
         width: 100%;
+        margin-bottom: 40px;
     }
 
     .hero-btn-primary,
@@ -1459,10 +1468,15 @@ body {
     .hero-stats-grid {
         grid-template-columns: 1fr;
         max-width: 100%;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 14px;
     }
 
     .hero-visual-wrapper {
-        height: 350px;
+        height: 300px;
     }
 
     .hero-gradient-orb {
