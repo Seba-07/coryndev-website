@@ -1816,8 +1816,53 @@ body {
 }
 
 @media (max-width: 768px) {
+    .nav {
+        padding: 2vh 4vw 15vh;
+    }
+
+    .nav-menu {
+        right: 2vw;
+        top: 1.5vh;
+        padding: 6px;
+        gap: 4px;
+        font-size: 12px;
+    }
+
+    .nav-link {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .cta-button-nav {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .logo-container {
+        top: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo-circle {
+        width: 20vw;
+        height: 20vw;
+        max-width: 100px;
+        max-height: 100px;
+        min-width: 80px;
+        min-height: 80px;
+    }
+
+    .logo {
+        width: 22vw;
+        height: 22vw;
+        max-width: 110px;
+        max-height: 110px;
+        min-width: 85px;
+        min-height: 85px;
+    }
+
     .hero {
-        padding: 100px 0 20px;
+        padding: 20vh 0 20px;
         min-height: 210vh;
     }
 
