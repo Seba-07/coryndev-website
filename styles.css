@@ -286,13 +286,13 @@ body {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 32px;
-    margin-top: 60px;
+    gap: 24px;
+    margin-top: 40px;
 }
 
 .service-card {
     background: white;
-    padding: 40px 32px;
+    padding: 32px 28px;
     border-radius: 16px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -385,7 +385,7 @@ body {
 
 /* Products Section */
 .products {
-    padding: 100px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #0a0e27 0%, #111827 50%, #0f172a 100%);
     position: relative;
     z-index: 1;
@@ -420,7 +420,7 @@ body {
 }
 
 .products-grid {
-    margin-top: 60px;
+    margin-top: 40px;
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
@@ -571,10 +571,10 @@ body {
 .product-phone-mockup {
     width: 220px;
     height: 440px;
-    border-radius: 32px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    border: 4px solid rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.15);
     position: relative;
     animation: floatElement 4s ease-in-out infinite;
 }
@@ -611,7 +611,7 @@ body {
 
 /* Testimonials Section */
 .testimonials {
-    padding: 100px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #0a0e27 0%, #1e293b 50%, #0f172a 100%);
     position: relative;
     overflow: hidden;
@@ -646,8 +646,8 @@ body {
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 32px;
-    margin-top: 60px;
+    gap: 24px;
+    margin-top: 40px;
 }
 
 .testimonial-card {
@@ -756,10 +756,10 @@ body {
 /* Hero Section - Modern Redesign */
 .hero {
     position: relative;
-    min-height: 160vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 15vh 0 60vh;
+    padding: 14vh 0 8vh;
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1629 100%);
     overflow: hidden;
 }
@@ -835,10 +835,10 @@ body {
     z-index: 1;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 40px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
 }
 
@@ -926,7 +926,7 @@ body {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin-bottom: 36px;
 }
 
 .hero-btn-primary {
@@ -1063,7 +1063,7 @@ body {
 .hero-visual-wrapper {
     position: relative;
     width: 100%;
-    height: 450px;
+    height: 380px;
 }
 
 .hero-main-image {
@@ -1207,7 +1207,7 @@ body {
 /* Section Headers */
 .section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-tag {
@@ -1254,7 +1254,7 @@ body {
 
 /* Process Section */
 .process {
-    padding: 80px 20px;
+    padding: 60px 20px;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     position: relative;
     z-index: 1;
@@ -1278,18 +1278,18 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 32px;
 }
 
 .process-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 32px;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     border-radius: 24px;
-    padding: 40px;
+    padding: 32px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1410,7 +1410,7 @@ body {
 
 /* Benefits Section */
 .benefits {
-    padding: 100px 20px;
+    padding: 60px 20px;
     background: linear-gradient(180deg, #e0ebff 0%, #ffffff 50%, #f8f9fa 100%);
     position: relative;
     z-index: 1;
@@ -1432,7 +1432,7 @@ body {
 .benefits-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 50px;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -1440,7 +1440,7 @@ body {
 
 .benefits-visual {
     position: relative;
-    height: 600px;
+    height: 450px;
 }
 
 .dashboard-showcase {
@@ -1537,15 +1537,15 @@ body {
 .benefit-list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    margin-top: 40px;
+    gap: 16px;
+    margin-top: 32px;
 }
 
 .benefit-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
+    gap: 16px;
+    padding: 14px;
     border-radius: 16px;
     transition: all 0.3s ease;
 }
@@ -1589,7 +1589,7 @@ body {
 
 /* Pricing & Support Section */
 .pricing-support {
-    padding: 100px 20px;
+    padding: 60px 20px;
     background: linear-gradient(180deg, #f8f9fa 0%, #e8eef5 100%);
     position: relative;
     z-index: 1;
@@ -1598,15 +1598,15 @@ body {
 .support-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
+    gap: 32px;
     max-width: 900px;
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
 }
 
 .support-card {
     background: var(--bg-light);
     border-radius: 24px;
-    padding: 40px;
+    padding: 32px;
     text-align: center;
     transition: all 0.3s ease;
     border: 3px solid transparent;
@@ -1689,10 +1689,10 @@ body {
 
 .post-sale-emphasis {
     max-width: 900px;
-    margin: 0 auto 40px;
+    margin: 0 auto 32px;
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
     border-radius: 24px;
-    padding: 40px 50px;
+    padding: 32px 40px;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -1769,7 +1769,7 @@ body {
 
 /* Contact Section */
 .contact {
-    padding: 100px 20px;
+    padding: 60px 20px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     position: relative;
     overflow: hidden;
@@ -1852,9 +1852,9 @@ body {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     background: var(--white);
-    padding: 50px;
+    padding: 40px;
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -1963,18 +1963,18 @@ body {
 /* Responsive */
 @media (max-width: 1200px) {
     .hero-container {
-        gap: 50px;
+        gap: 40px;
     }
 
     .hero-visual-wrapper {
-        height: 500px;
+        height: 360px;
     }
 }
 
 @media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 40px;
         padding: 0 30px;
     }
 
@@ -1996,7 +1996,7 @@ body {
     }
 
     .hero-visual-wrapper {
-        height: 450px;
+        height: 320px;
     }
 
     .floating-element {
@@ -2005,11 +2005,11 @@ body {
 
     .benefits-layout {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 40px;
     }
 
     .benefits-visual {
-        height: 400px;
+        height: 350px;
     }
 
     .benefits-content .section-title {
@@ -2088,33 +2088,33 @@ body {
     }
 
     .hero {
-        padding: 20vh 0 20px;
-        min-height: 210vh;
+        padding: 16vh 0 20px;
+        min-height: auto;
     }
 
     .hero-container {
-        padding: 60px 20px;
-        gap: 60px;
+        padding: 40px 20px;
+        gap: 32px;
     }
 
     .hero-badge {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
     }
 
     .hero-title {
         font-size: clamp(28px, 7vw, 42px);
-        margin-bottom: 24px;
+        margin-bottom: 20px;
     }
 
     .hero-description {
         font-size: 15px;
-        margin-bottom: 32px;
+        margin-bottom: 28px;
     }
 
     .hero-cta-wrapper {
         flex-direction: column;
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
     }
 
     .hero-btn-primary,
@@ -2134,7 +2134,7 @@ body {
     }
 
     .hero-visual-wrapper {
-        height: 300px;
+        height: 260px;
     }
 
     .hero-gradient-orb {
