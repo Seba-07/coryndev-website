@@ -16,3 +16,7 @@ Thumbs.db
 
 # Backend is in separate repo
 backend/
+
+# Marketing: material generado (se reconstruye con marketing/build.py)
+marketing/out/
+marketing/assets/*.b64

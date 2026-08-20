@@ -1,0 +1,24 @@
+# El backend vive en Railway, no se despliega con el sitio
+backend/
+
+# Material de marketing: se genera y comparte aparte
+marketing/
+
+# Notas de trabajo
+.claude/
+.claude-project.md
+README.md
+
+# Imagenes fuente que el sitio no referencia (~24 MB)
+fondo1.png
+hero-bg.png
+logo.png
+logo_coryn.png
+logo_coryn_clean.png
+logo_coryn_fondo.png
+mascot-coryn.png
+proceso1.png
+proceso2.png
+proceso3.png
+proceso4.png
+proceso5.png

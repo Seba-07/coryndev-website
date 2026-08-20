@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>CORYN · Software a tu medida</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --ink:#0a1730;
+    --navy:#0f2557;
+    --blue:#1e3a8a;
+    --accent:#2563eb;
+    --cyan:#2bb8cf;
+    --muted:#5a6c8c;
+    --soft:#f3f7fd;
+    --line:#dde6f4;
+  }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    color:var(--ink);
+    font-size:10.2pt;
+    line-height:1.5;
+    background:#fff;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    width:210mm; height:297mm;
+    padding:13mm 14mm 0;
+    position:relative;
+    overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+  .page + .page{ page-break-before:always; }
+
+  /* ---------- header ---------- */
+  .head{ display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:9px; }
+  .brand img{ height:34px; }
+  .brand .name{ font-size:22px; font-weight:800; letter-spacing:.14em; color:var(--navy); }
+  .head .meta{ text-align:right; font-size:8.4pt; line-height:1.45; color:var(--muted); }
+  .head .meta b{ color:var(--navy); display:block; font-size:9pt; letter-spacing:.02em; }
+
+  .rule{ height:3px; margin:9px 0 0;
+    background:linear-gradient(90deg,var(--navy) 0%,var(--accent) 45%,var(--cyan) 100%);
+    border-radius:2px; }
+
+  /* ---------- hero ---------- */
+  .eyebrow{ font-size:7.6pt; font-weight:700; letter-spacing:.19em; text-transform:uppercase;
+    color:var(--accent); margin-top:9mm; }
+  h1{ font-size:30pt; line-height:1.07; letter-spacing:-.028em; font-weight:800;
+    color:var(--navy); margin-top:3.5mm; max-width:150mm; }
+  h1 .grad{ background:linear-gradient(100deg,var(--accent),var(--cyan));
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lead{ margin-top:4mm; font-size:11pt; line-height:1.55; color:#33456b; max-width:158mm; }
+  .lead b{ color:var(--navy); font-weight:700; }
+
+  /* ---------- secciones ---------- */
+  .sec{ margin-top:8mm; }
+  .page2 .sec{ margin-top:3.6mm; }
+  .page2 .band{ margin-top:2mm; padding:3.2mm 5mm; }
+  .page2 .cta{ padding:4.6mm 14mm 4.6mm; }
+  .page2 .cta h2{ font-size:15pt; }
+  .page2 .contacts{ margin-top:3.4mm; }
+  .page2 .qr img{ width:23mm; height:23mm; }
+  .sec-title{ font-size:8pt; font-weight:700; letter-spacing:.17em; text-transform:uppercase;
+    color:var(--muted); display:flex; align-items:center; gap:8px; margin-bottom:4mm; }
+  .sec-title::after{ content:''; flex:1; height:1px; background:var(--line); }
+
+  /* dolores */
+  .pains{ display:grid; grid-template-columns:1fr 1fr; gap:3mm; }
+  .pain{ background:var(--soft); border-left:3px solid var(--accent);
+    border-radius:0 7px 7px 0; padding:3.4mm 4mm; font-size:9.4pt; line-height:1.45; color:#2c3e63; }
+  .pain b{ color:var(--navy); }
+
+  /* servicios */
+  .svcs{ display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; }
+  .svc{ border:1px solid var(--line); border-radius:9px; padding:4mm 4mm 4.4mm; background:#fff; }
+  .svc svg{ width:19px; height:19px; stroke:var(--accent); fill:none;
+    stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .svc h3{ font-size:10pt; font-weight:700; color:var(--navy); margin:2.6mm 0 1.4mm; letter-spacing:-.01em; }
+  .svc p{ font-size:8.6pt; line-height:1.45; color:var(--muted); }
+
+  /* ---------- cta oscuro ---------- */
+  .cta{ margin:auto -14mm 0; padding:7mm 14mm 7.5mm;
+    background:linear-gradient(125deg,#0a1730 0%,#132c66 55%,#1b3f8f 100%);
+    color:#fff; display:flex; align-items:center; gap:9mm; }
+  .cta .txt{ flex:1; }
+  .cta h2{ font-size:16pt; font-weight:800; letter-spacing:-.02em; line-height:1.15; }
+  .cta .sub{ font-size:9pt; color:#a9c2ee; margin-top:1.8mm; }
+  .contacts{ margin-top:4.5mm; display:flex; flex-wrap:wrap; gap:2.5mm 4mm; }
+  .contact{ display:flex; align-items:center; gap:6px; font-size:9.6pt; font-weight:600; }
+  .contact svg{ width:14px; height:14px; stroke:var(--cyan); fill:none; stroke-width:1.9;
+    stroke-linecap:round; stroke-linejoin:round; }
+  .contact svg.solid{ width:15px; height:15px; fill:var(--cyan); stroke:none; }
+  .qr{ text-align:center; }
+  .qr .box{ background:#fff; padding:2.4mm; border-radius:8px; }
+  .qr img{ width:26mm; height:26mm; display:block; }
+  .qr span{ display:block; font-size:7.4pt; color:#a9c2ee; margin-top:2mm; letter-spacing:.05em; }
+
+  .credit{ margin:0 -14mm; padding:3.2mm 14mm; background:#071023; color:#8fa8d6;
+    font-size:8.2pt; display:flex; justify-content:space-between; align-items:center; }
+  .credit b{ color:#fff; }
+  .credit .code{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.08em;
+    color:var(--cyan); }
+
+  /* ---------- pagina 2 ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:2.6mm; }
+  .step{ position:relative; padding-top:7mm; }
+  .step .n{ position:absolute; top:0; left:0; font-size:16pt; font-weight:800;
+    color:transparent; background:linear-gradient(120deg,var(--accent),var(--cyan));
+    -webkit-background-clip:text; background-clip:text; letter-spacing:-.03em; }
+  .step h4{ font-size:9.2pt; font-weight:700; color:var(--navy); margin-bottom:1.4mm; line-height:1.25; }
+  .step p{ font-size:8.2pt; line-height:1.42; color:var(--muted); }
+  .step::before{ content:''; position:absolute; top:3.6mm; left:0; right:2.6mm; height:1px;
+    background:var(--line); }
+
+  .whys{ display:grid; grid-template-columns:1fr 1fr; gap:3mm; }
+  .why{ display:flex; gap:3.5mm; padding:3.6mm 4mm; border:1px solid var(--line); border-radius:9px; }
+  .why .dot{ width:7px; height:7px; border-radius:50%; margin-top:4px; flex:none;
+    background:linear-gradient(135deg,var(--accent),var(--cyan)); }
+  .why h4{ font-size:9.6pt; font-weight:700; color:var(--navy); margin-bottom:1.2mm; }
+  .why p{ font-size:8.6pt; line-height:1.45; color:var(--muted); }
+
+  .works{ display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; }
+  .work{ border-radius:9px; padding:4mm; background:var(--soft); border:1px solid var(--line); }
+  .work .tag{ font-size:7.2pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); }
+  .work h4{ font-size:10.4pt; font-weight:800; color:var(--navy); margin:1.6mm 0 1.4mm; letter-spacing:-.01em; }
+  .work p{ font-size:8.4pt; line-height:1.45; color:var(--muted); }
+
+  .faq{ display:grid; grid-template-columns:1fr 1fr; gap:3mm 6mm; }
+  .qa h4{ font-size:9.4pt; font-weight:700; color:var(--navy); margin-bottom:1mm; }
+  .qa p{ font-size:8.6pt; line-height:1.5; color:var(--muted); }
+
+  .band{ margin-top:4mm; background:var(--soft); border:1px solid var(--line);
+    border-left:3px solid var(--cyan); border-radius:0 9px 9px 0; padding:4.5mm 5mm; }
+  .band h4{ font-size:10pt; font-weight:800; color:var(--navy); margin-bottom:1.6mm; }
+  .band p{ font-size:9pt; line-height:1.5; color:#33456b; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGINA 1 ============ -->
+<section class="page">
+  <div class="head">
+    <div class="brand">
+      <img src="{{MARK}}" alt="">
+      <span class="name">CORYN</span>
+    </div>
+    <div class="meta">
+      <b>coryndev.com</b>
+      Desarrollo de software a medida
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <p class="eyebrow">Software 100% personalizado</p>
+  <h1>Que el software se adapte a tu negocio, <span class="grad">y no al revés</span>.</h1>
+  <p class="lead">
+    Creamos páginas web, aplicaciones móviles y sistemas de gestión <b>diseñados desde cero</b>
+    para tu forma de trabajar. Sin plantillas genéricas, sin pagar por funciones que nunca usas
+    y con acompañamiento después de la entrega.
+  </p>
+
+  <div class="sec">
+    <div class="sec-title">¿Te suena conocido?</div>
+    <div class="pains">
+      <div class="pain">Tu operación vive en <b>planillas Excel</b> que solo una persona entiende.</div>
+      <div class="pain">Los pedidos llegan por <b>WhatsApp</b> y alguno siempre se pierde.</div>
+      <div class="pain">Pagas un sistema mensual <b>que no se ajusta</b> a tu proceso real.</div>
+      <div class="pain">No tienes web, o la que tienes <b>no te trae clientes</b>.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">Lo que hacemos</div>
+    <div class="svcs">
+      <div class="svc">
+        <svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 8.5h19M8 21h8"/></svg>
+        <h3>Páginas web</h3>
+        <p>Sitios rápidos y responsivos, optimizados para buscadores y para convertir visitas en clientes.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 5.5h3M12 18.3v.01"/></svg>
+        <h3>Aplicaciones móviles</h3>
+        <p>Aplicaciones para iOS y Android, con notificaciones y funcionamiento sin conexión.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24"><path d="M3 6.5h18M3 12h18M3 17.5h11"/><circle cx="18" cy="17.5" r="2.2"/></svg>
+        <h3>Sistemas ERP / CRM</h3>
+        <p>Inventario, ventas, clientes y reportes en un solo lugar, construidos según tus procesos.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24"><path d="M3 4h3l2.2 10.5h10L21 7H6.6"/><circle cx="10" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg>
+        <h3>Tiendas online</h3>
+        <p>E-commerce con pagos seguros, control de inventario y seguimiento de cada pedido.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24"><path d="M9.5 4.5 6 8l3.5 3.5M14.5 12.5 18 16l-3.5 3.5M13.5 3.5l-3 17"/></svg>
+        <h3>Integraciones</h3>
+        <p>Conectamos tus sistemas actuales, facturación y servicios externos. Menos tareas manuales.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24"><path d="M12 3.2 20 7v6c0 4.2-3.3 7-8 7.8C7.3 20 4 17.2 4 13V7z"/><path d="M9.2 12.2l2 2 3.6-4"/></svg>
+        <h3>Soporte y mejoras</h3>
+        <p>Plan mensual de mantención: tu sistema evoluciona junto con el negocio.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="txt">
+      <h2>La primera reunión es sin costo<br>y sin compromiso.</h2>
+      <p class="sub">Escríbenos, entendemos tu caso y te decimos con honestidad si podemos ayudarte.</p>
+      <div class="contacts">
+        <span class="contact">
+          <svg class="solid" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
+          +56 9 3356 9725
+        </span>
+        <span class="contact">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6 9-6"/></svg>
+          coryn.software@gmail.com
+        </span>
+        <span class="contact">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.2 12h17.6M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></svg>
+          coryndev.com
+        </span>
+      </div>
+    </div>
+    <div class="qr">
+      <div class="box"><img src="{{QR_WA}}" alt="WhatsApp"></div>
+      <span>ESCANEA Y ESCRÍBENOS</span>
+    </div>
+  </div>
+
+  <div class="credit">
+    <span>{{CREDITO}}</span>
+    <span class="code">REF {{REF}}</span>
+  </div>
+</section>
+
+<!-- ============ PAGINA 2 ============ -->
+<section class="page page2">
+  <div class="head">
+    <div class="brand">
+      <img src="{{MARK}}" alt="">
+      <span class="name">CORYN</span>
+    </div>
+    <div class="meta">
+      <b>coryndev.com</b>
+      Cómo trabajamos
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <div class="sec">
+    <div class="sec-title">Nuestro proceso, en 5 pasos</div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Nos conocemos</h4><p>Conversamos de tu negocio y de lo que hoy te hace perder tiempo o dinero.</p></div>
+      <div class="step"><div class="n">02</div><h4>Diseñamos juntos</h4><p>Definimos el alcance y te mostramos cómo se verá antes de programar.</p></div>
+      <div class="step"><div class="n">03</div><h4>Construimos</h4><p>Desarrollamos con demostraciones periódicas para que valides el avance.</p></div>
+      <div class="step"><div class="n">04</div><h4>Probamos</h4><p>Ajustamos junto a tu equipo hasta que funcione como esperas.</p></div>
+      <div class="step"><div class="n">05</div><h4>Te acompañamos</h4><p>Soporte y mejoras mes a mes. El acompañamiento no termina con la entrega.</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">Por qué elegirnos</div>
+    <div class="whys">
+      <div class="why"><span class="dot"></span><div><h4>Hecho a tu medida</h4><p>Nada de plantillas: cada función existe porque tu negocio la necesita.</p></div></div>
+      <div class="why"><span class="dot"></span><div><h4>La post-venta es la prioridad</h4><p>Plan mensual de soporte, mantención y mejoras continuas.</p></div></div>
+      <div class="why"><span class="dot"></span><div><h4>Trato directo</h4><p>Hablas con quien desarrolla, no con un ejecutivo intermedio.</p></div></div>
+      <div class="why"><span class="dot"></span><div><h4>Respuesta en menos de 24 horas</h4><p>Y precios claros: sabes qué incluye antes de firmar.</p></div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">Proyectos reales</div>
+    <div class="works">
+      <div class="work"><div class="tag">Aplicación móvil</div><h4>PrecioRadar</h4><p>Aplicación de ahorro inteligente: escanea la boleta, compara precios entre supermercados y controla el gasto mensual.</p></div>
+      <div class="work"><div class="tag">Sitio web &middot; catálogo</div><h4>bySIMMED</h4><p>Simuladores médicos de alta fidelidad. Catálogo, agenda de demos y sitio en tres idiomas.</p></div>
+      <div class="work"><div class="tag">Plataforma web</div><h4>AvenProp</h4><p>Corretaje y seguros en Santiago. Buscador de propiedades con filtros por comuna y tipo.</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">Preguntas frecuentes</div>
+    <div class="faq">
+      <div class="qa"><h4>¿Cuánto cuesta?</h4><p>Depende del alcance. Cotizamos por proyecto, con el detalle de qué incluye y sin costos ocultos.</p></div>
+      <div class="qa"><h4>¿Cuánto demora?</h4><p>Una web puede estar en semanas; un sistema de gestión toma algunos meses. Lo definimos en el paso 2.</p></div>
+      <div class="qa"><h4>¿Y si no sé qué necesito?</h4><p>Es lo más común. En la primera reunión ordenamos la idea y proponemos el camino más simple.</p></div>
+      <div class="qa"><h4>¿Qué pasa después de la entrega?</h4><p>Queda el plan mensual de soporte: mantención, ajustes y mejoras a medida que creces.</p></div>
+    </div>
+  </div>
+
+  <div class="band">
+    <h4>Empecemos por una conversación de 30 minutos</h4>
+    <p>Sin costo y sin compromiso. Cuéntanos tu situación y te decimos qué se puede resolver
+    con software, qué conviene priorizar y cuánto costaría hacerlo bien.</p>
+  </div>
+
+  <div class="cta">
+    <div class="txt">
+      <h2>Hablemos de tu proyecto.</h2>
+      <p class="sub">Escanea el código o escríbenos. Respondemos en menos de 24 horas.</p>
+      <div class="contacts">
+        <span class="contact">
+          <svg class="solid" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
+          WhatsApp +56 9 3356 9725
+        </span>
+        <span class="contact">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6 9-6"/></svg>
+          coryn.software@gmail.com
+        </span>
+      </div>
+    </div>
+    <div class="qr">
+      <div class="box"><img src="{{QR_WEB}}" alt="Sitio web"></div>
+      <span>CONOCE MÁS EN CORYNDEV.COM</span>
+    </div>
+  </div>
+
+  <div class="credit">
+    <span>{{CREDITO}}</span>
+    <span class="code">REF {{REF}}</span>
+  </div>
+</section>
+
+</body>
+</html>

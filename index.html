@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CORYN - Software 100% Personalizado</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=44">
 </head>
-<body>
+<body data-page="home">
     <!-- Floating Elements -->
     <div class="floating-shapes">
         <div class="shape shape-1"></div>
@@ -17,59 +17,82 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo-container">
+            <a href="index.html" class="logo-container">
                 <div class="logo-circle">
                     <img src="logo_coryn_final.png" alt="CORYN" class="logo">
                 </div>
-            </div>
+                <span class="logo-text">Coryn</span>
+            </a>
 
             <div class="nav-menu">
-                <a href="#services" class="nav-link">Servicios</a>
-                <a href="#products" class="nav-link">Productos</a>
-                <a href="#process" class="nav-link">Proceso</a>
-                <a href="#testimonials" class="nav-link">Testimonios</a>
-                <a href="#contact" class="cta-button-nav">Contáctanos</a>
+                <a href="index.html" class="nav-link active">Inicio</a>
+                <a href="servicios.html" class="nav-link">Servicios</a>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="proceso.html" class="nav-link">Proceso</a>
+                <a href="por-que-coryn.html" class="nav-link">Nosotros</a>
             </div>
+
+            <a href="contacto.html" class="cta-button-nav">
+                <span>Contáctanos</span>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Animated Background -->
-        <div class="hero-bg-wrapper">
-            <div class="hero-gradient-orb orb-1"></div>
-            <div class="hero-gradient-orb orb-2"></div>
-            <div class="hero-gradient-orb orb-3"></div>
-            <div class="hero-grid"></div>
+        <!-- Ambient effects: glows + particles over the bg image -->
+        <div class="hero-ambient" aria-hidden="true">
+            <div class="ambient-glow glow-1"></div>
+            <div class="ambient-glow glow-2"></div>
+            <div class="ambient-glow glow-3"></div>
+            <span class="ambient-particle p1"></span>
+            <span class="ambient-particle p2"></span>
+            <span class="ambient-particle p3"></span>
+            <span class="ambient-particle p4"></span>
+            <span class="ambient-particle p5"></span>
+            <span class="ambient-particle p6"></span>
+            <span class="ambient-particle p7"></span>
+            <span class="ambient-particle p8"></span>
         </div>
 
         <div class="hero-container">
-            <!-- Left Content -->
-            <div class="hero-left">
-                <div class="hero-badge">
-                    <span class="badge-icon">⚡</span>
-                    <span class="badge-text">Desarrollo de Software Premium</span>
+            <div class="hero-content">
+                <div class="hero-text-block">
+                    <div class="hero-eyebrow">
+                        <span class="eyebrow-line"></span>
+                        <span class="eyebrow-text">Desarrollo Premium</span>
+                        <span class="eyebrow-line"></span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="title-line">Software Hecho a tu Medida,</span>
+                        <span class="title-line"><span class="gradient-text">Sin Plantillas</span> que</span>
+                        <span class="title-line">Limiten tu Crecimiento</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Creamos aplicaciones 100% personalizadas que se adaptan a tu forma de trabajar.
+                        Sin plantillas, sin limitaciones, solo soluciones diseñadas para ti.
+                    </p>
+
+                    <div class="hero-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-dot"></span>
+                        <span class="divider-line"></span>
+                    </div>
                 </div>
 
-                <h1 class="hero-title">
-                    Software Hecho a tu Medida,
-                    <span class="gradient-text">Sin Plantillas</span>
-                    que Limiten tu Crecimiento
-                </h1>
-
-                <p class="hero-description">
-                    Creamos aplicaciones 100% personalizadas que se adaptan a tu forma de trabajar.
-                    Sin plantillas, sin limitaciones, solo soluciones diseñadas para ti.
-                </p>
-
                 <div class="hero-cta-wrapper">
-                    <a href="#contact" class="hero-btn-primary">
+                    <a href="contacto.html" class="hero-btn-primary">
                         <span>Iniciar Proyecto</span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
-                    <a href="#process" class="hero-btn-secondary">
+                    <a href="proceso.html" class="hero-btn-secondary">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
                             <path d="M10 2v2m0 12v2M18 10h-2M4 10H2m13.66-5.66l-1.42 1.42M7.76 12.24l-1.42 1.42m11.32 0l-1.42-1.42M7.76 7.76L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -78,682 +101,479 @@
                     </a>
                 </div>
 
-                <!-- Stats Cards -->
-                <div class="hero-stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Spacer for laptop area (image is background) -->
+                <div class="hero-laptop-space" aria-hidden="true"></div>
+
+                <!-- Feature Cards -->
+                <div class="hero-features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                <polyline points="8 10 10 12 8 14"/>
+                                <line x1="13" y1="14" x2="16" y2="14"/>
                             </svg>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value">100%</div>
-                            <div class="stat-label">Personalizado</div>
-                        </div>
+                        <h3>100% Personalizado</h3>
+                        <span class="card-line"></span>
+                        <span class="card-dots"><i></i><i></i><i></i></span>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <div class="feature-card featured">
+                        <div class="feature-icon">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
                             </svg>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value">∞</div>
-                            <div class="stat-label">Posibilidades</div>
-                        </div>
+                        <h3>Soporte Continuo</h3>
+                        <span class="card-line"></span>
+                        <span class="card-dots"><i></i><i></i><i></i></span>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
                         </div>
-                        <div class="stat-content">
-                            <div class="stat-value">24/7</div>
-                            <div class="stat-label">Soporte</div>
+                        <h3>Diseñamos Juntos</h3>
+                        <span class="card-line"></span>
+                        <span class="card-dots"><i></i><i></i><i></i></span>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
                         </div>
+                        <h3>Desarrollo Premium</h3>
+                        <span class="card-line"></span>
+                        <span class="card-dots"><i></i><i></i><i></i></span>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right Visual -->
-            <div class="hero-right">
-                <div class="hero-visual-wrapper">
-                    <!-- Main Background Image -->
-                    <div class="hero-main-image">
-                        <img src="fondo1.png" alt="Equipo CORYN trabajando">
-                        <div class="image-glow"></div>
+                <!-- Stats -->
+                <div class="hero-stats-row">
+                    <div class="stat-item">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Personalizado</div>
                     </div>
-
-                    <!-- Floating Elements -->
-                    <div class="floating-element element-1">
-                        <div class="element-icon">🎯</div>
-                        <div class="element-text">
-                            <strong>100% Personalizado</strong>
-                            <span>Tu negocio, tu software</span>
-                        </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value">∞</div>
+                        <div class="stat-label">Posibilidades</div>
                     </div>
-
-                    <div class="floating-element element-2">
-                        <div class="element-icon">🤝</div>
-                        <div class="element-text">
-                            <strong>Soporte Continuo</strong>
-                            <span>No te abandonamos</span>
-                        </div>
-                    </div>
-
-                    <div class="floating-element element-3">
-                        <div class="element-icon">💡</div>
-                        <div class="element-text">
-                            <strong>Diseñamos Juntos</strong>
-                            <span>Tu visión, nuestra expertise</span>
-                        </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Soporte</div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-            <span class="scroll-text">Scroll para descubrir</span>
+                <!-- Bottom Tags -->
+                <div class="hero-tags">
+                    <span class="hero-tag">Personalizado</span>
+                    <span class="hero-tag-sep">|</span>
+                    <span class="hero-tag">Escalable</span>
+                    <span class="hero-tag-sep">|</span>
+                    <span class="hero-tag">Seguro</span>
+                    <span class="hero-tag-sep">|</span>
+                    <span class="hero-tag">Soporte Continuo</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Services Preview (minimal, icon + text horizontal) -->
+    <section class="services services-horizontal-home" id="services">
+        <div class="container">
+            <div class="services-grid horizontal">
+                <a href="servicios.html" class="service-card horizontal">
+                    <div class="service-icon-illustrated">
+                        <img src="icon-web.png?v=2" alt="Páginas Web Personalizadas">
+                    </div>
+                    <div class="service-card-text">
+                        <h3>Páginas Web Personalizadas</h3>
+                        <p>Sitios modernos y de alto rendimiento</p>
+                    </div>
+                </a>
+
+                <a href="servicios.html" class="service-card horizontal">
+                    <div class="service-icon-illustrated">
+                        <img src="icon-mobile.png" alt="Aplicaciones Móviles">
+                    </div>
+                    <div class="service-card-text">
+                        <h3>Aplicaciones Móviles</h3>
+                        <p>Apps nativas para iOS y Android</p>
+                    </div>
+                </a>
+
+                <a href="servicios.html" class="service-card horizontal">
+                    <div class="service-icon-illustrated">
+                        <img src="icon-erp.png" alt="Sistemas ERP/CRM">
+                    </div>
+                    <div class="service-card-text">
+                        <h3>Sistemas ERP/CRM</h3>
+                        <p>Gestión integrada a tu medida</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Proyectos -->
+    <section class="projects-section">
+        <div class="container">
+            <!-- Curved divider with center ornament -->
+            <div class="curved-divider" aria-hidden="true">
+                <svg width="320" height="36" viewBox="0 0 320 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="wave-left" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0" stop-color="#2563eb" stop-opacity="0"/>
+                            <stop offset="0.55" stop-color="#2563eb" stop-opacity="0.55"/>
+                            <stop offset="1" stop-color="#2563eb" stop-opacity="0.9"/>
+                        </linearGradient>
+                        <linearGradient id="wave-right" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0" stop-color="#2563eb" stop-opacity="0.9"/>
+                            <stop offset="0.45" stop-color="#2563eb" stop-opacity="0.55"/>
+                            <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M 8 18 Q 48 6 88 18 T 140 18" stroke="url(#wave-left)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    <circle cx="160" cy="18" r="13" stroke="rgba(37,99,235,0.2)" stroke-width="1" fill="none" class="divider-ring"/>
+                    <g transform="translate(160 18) rotate(45)">
+                        <rect x="-5" y="-5" width="10" height="10" fill="#2563eb" rx="1.5"/>
+                    </g>
+                    <path d="M 180 18 Q 220 30 260 18 T 312 18" stroke="url(#wave-right)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                </svg>
+            </div>
+
+            <div class="section-header">
+                <div class="hero-eyebrow section-eyebrow-dark">
+                    <span class="eyebrow-line dark"></span>
+                    <span class="eyebrow-text dark">Nuestros Proyectos</span>
+                    <span class="eyebrow-line dark"></span>
+                </div>
+                <h2 class="section-title">Últimos Trabajos</h2>
+                <p class="section-description">Una muestra de lo que hemos construido para nuestros clientes.</p>
+            </div>
+
+            <div class="projects-grid">
+                <a href="precioradar.html" class="project-card">
+                    <div class="project-image">
+                        <img src="precioradar-hero.jpg" alt="PrecioRadar">
+                    </div>
+                    <h3>PrecioRadar</h3>
+                    <p>App móvil de ahorro inteligente</p>
+                </a>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="dashboard2.png" alt="Sistema ERP bySIMMED">
+                    </div>
+                    <h3>Sistema ERP bySIMMED</h3>
+                    <p>Gestión de simuladores médicos</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image placeholder-image">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Plataforma Turismo</h3>
+                    <p>Sistema de reservas y gestión</p>
+                </div>
+            </div>
+
+            <div class="section-link-wrap">
+                <a href="productos.html" class="projects-cta-big">
+                    <span>Ver Todos Nuestros Proyectos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Por Qué Elegir CORYN? -->
+    <section class="why-choose-home">
+        <div class="container">
+            <div class="section-title-dashed">
+                <span class="title-dash"></span>
+                <h2 class="section-title">¿Por Qué Elegir CORYN?</h2>
+                <span class="title-dash"></span>
+            </div>
+
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-illustrated">
+                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="bulb-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#93c5fd"/>
+                                    <stop offset="100%" stop-color="#2563eb"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Bulb body -->
+                            <path d="M 36 10 C 24 10 16 18 16 30 C 16 36 19 41 23 45 L 23 52 L 49 52 L 49 45 C 53 41 56 36 56 30 C 56 18 48 10 36 10 Z" fill="url(#bulb-glass)"/>
+                            <!-- Highlight -->
+                            <ellipse cx="28" cy="24" rx="4" ry="8" fill="#ffffff" opacity="0.5"/>
+                            <!-- Inner filament -->
+                            <path d="M 30 32 Q 36 28 42 32 Q 36 36 30 32 Z" fill="#ffffff" opacity="0.6"/>
+                            <!-- Base threads -->
+                            <rect x="22" y="52" width="28" height="4" rx="1" fill="#1e3a8a"/>
+                            <rect x="24" y="57" width="24" height="3" rx="1" fill="#1e40af"/>
+                            <rect x="26" y="61" width="20" height="3" rx="1" fill="#1e3a8a"/>
+                            <!-- Little shine dots -->
+                            <circle cx="12" cy="14" r="1.5" fill="#fbbf24" opacity="0.8"/>
+                            <circle cx="60" cy="18" r="1" fill="#fbbf24" opacity="0.7"/>
+                            <circle cx="14" cy="36" r="1" fill="#fbbf24" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Expertise e Innovación</h3>
+                    <p>Un equipo de expertos apasionados por crear soluciones a tu medida.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-illustrated">
+                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="hand-left" x1="0%" x2="100%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#fbbf24"/>
+                                    <stop offset="100%" stop-color="#f59e0b"/>
+                                </linearGradient>
+                                <linearGradient id="hand-right" x1="0%" x2="100%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#60a5fa"/>
+                                    <stop offset="100%" stop-color="#2563eb"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Left arm/sleeve -->
+                            <path d="M 4 48 L 4 40 C 4 36 7 34 11 34 L 28 34 L 36 40 L 36 48 L 30 52 L 10 52 Z" fill="url(#hand-left)"/>
+                            <!-- Left cuff -->
+                            <rect x="4" y="34" width="8" height="18" fill="#d97706"/>
+                            <!-- Right arm/sleeve -->
+                            <path d="M 68 48 L 68 40 C 68 36 65 34 61 34 L 44 34 L 36 40 L 36 48 L 42 52 L 62 52 Z" fill="url(#hand-right)"/>
+                            <!-- Right cuff -->
+                            <rect x="60" y="34" width="8" height="18" fill="#1e40af"/>
+                            <!-- Palms meeting / grip -->
+                            <rect x="28" y="36" width="16" height="12" rx="2" fill="#f59e0b"/>
+                            <rect x="32" y="36" width="12" height="12" rx="2" fill="#2563eb" opacity="0.85"/>
+                            <!-- Fingers detail -->
+                            <line x1="32" y1="40" x2="40" y2="40" stroke="#1e40af" stroke-width="1" opacity="0.5"/>
+                            <line x1="32" y1="44" x2="40" y2="44" stroke="#1e40af" stroke-width="1" opacity="0.5"/>
+                            <!-- Sparkle -->
+                            <path d="M 36 18 L 38 22 L 42 20 L 38 24 L 40 28 L 36 26 L 32 28 L 34 24 L 30 20 L 34 22 Z" fill="#fbbf24"/>
+                        </svg>
+                    </div>
+                    <h3>Acompañamiento Personalizado</h3>
+                    <p>Un seguimiento a medida en cada etapa de tu proyecto.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-illustrated">
+                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="bar-red" x1="0%" x2="0%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#f87171"/>
+                                    <stop offset="100%" stop-color="#dc2626"/>
+                                </linearGradient>
+                                <linearGradient id="bar-blue1" x1="0%" x2="0%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#60a5fa"/>
+                                    <stop offset="100%" stop-color="#2563eb"/>
+                                </linearGradient>
+                                <linearGradient id="bar-blue2" x1="0%" x2="0%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#93c5fd"/>
+                                    <stop offset="100%" stop-color="#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Red bar (left, short) -->
+                            <rect x="10" y="42" width="14" height="22" rx="2" fill="url(#bar-red)"/>
+                            <!-- Blue bar (center, tall) -->
+                            <rect x="28" y="18" width="14" height="46" rx="2" fill="url(#bar-blue1)"/>
+                            <!-- Light blue bar (right, medium) -->
+                            <rect x="46" y="28" width="14" height="36" rx="2" fill="url(#bar-blue2)"/>
+                            <!-- Highlights -->
+                            <rect x="10" y="42" width="3" height="22" rx="1" fill="#ffffff" opacity="0.3"/>
+                            <rect x="28" y="18" width="3" height="46" rx="1" fill="#ffffff" opacity="0.3"/>
+                            <rect x="46" y="28" width="3" height="36" rx="1" fill="#ffffff" opacity="0.3"/>
+                            <!-- Rising arrow -->
+                            <path d="M 8 14 L 16 20 L 24 16 L 32 10 L 40 12 L 48 6 L 56 8" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polygon points="53,4 58,6 54,11" fill="#10b981"/>
+                        </svg>
+                    </div>
+                    <h3>Resultados Garantizados</h3>
+                    <p>Soluciones enfocadas en el rendimiento y crecimiento de tu negocio.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-illustrated">
+                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="head-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#60a5fa"/>
+                                    <stop offset="100%" stop-color="#2563eb"/>
+                                </linearGradient>
+                                <linearGradient id="face-gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#fde68a"/>
+                                    <stop offset="100%" stop-color="#fbbf24"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Headphones band (behind head) -->
+                            <path d="M 14 28 Q 14 10 36 10 Q 58 10 58 28" stroke="#1e3a8a" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <!-- Head/face -->
+                            <circle cx="36" cy="30" r="14" fill="url(#face-gradient)"/>
+                            <!-- Hair -->
+                            <path d="M 22 26 Q 22 14 36 14 Q 50 14 50 26 L 50 22 Q 48 18 36 18 Q 24 18 22 22 Z" fill="#78350f"/>
+                            <!-- Eyes -->
+                            <circle cx="31" cy="30" r="1.5" fill="#1f2937"/>
+                            <circle cx="41" cy="30" r="1.5" fill="#1f2937"/>
+                            <!-- Smile -->
+                            <path d="M 31 36 Q 36 40 41 36" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <!-- Ear cups (on sides of head) -->
+                            <rect x="10" y="24" width="8" height="12" rx="3" fill="url(#head-gradient)"/>
+                            <rect x="54" y="24" width="8" height="12" rx="3" fill="url(#head-gradient)"/>
+                            <!-- Microphone arm -->
+                            <path d="M 54 32 Q 48 40 44 44" stroke="#1e3a8a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- Mic -->
+                            <circle cx="44" cy="44" r="3" fill="#1e3a8a"/>
+                            <!-- Body/shoulders -->
+                            <path d="M 20 58 Q 20 48 36 48 Q 52 48 52 58 L 52 64 L 20 64 Z" fill="url(#head-gradient)"/>
+                            <!-- Shirt collar -->
+                            <path d="M 30 48 L 36 54 L 42 48 Z" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <h3>Soporte Reactivo</h3>
+                    <p>Un servicio al cliente siempre a tu escucha, listo para ayudarte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contáctanos -->
+    <section class="home-contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">NUESTROS SERVICIOS</span>
-                <h2 class="section-title">Soluciones Tecnológicas a tu Medida</h2>
-                <p class="section-description">Desarrollamos cada proyecto desde cero, adaptándonos a tus necesidades específicas</p>
+                <div class="hero-eyebrow section-eyebrow-dark">
+                    <span class="eyebrow-line dark"></span>
+                    <span class="eyebrow-text dark">Contáctanos</span>
+                    <span class="eyebrow-line dark"></span>
+                </div>
+                <h2 class="section-title">¿Listo para Desarrollar tu Proyecto?</h2>
+                <p class="section-description"><strong>Hablemos.</strong> Primera reunión sin costo, sin compromiso.</p>
             </div>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
-                    </div>
-                    <h3>Páginas Web Personalizadas</h3>
-                    <p>Diseñamos y desarrollamos sitios web únicos que reflejan la identidad de tu marca y convierten visitantes en clientes.</p>
-                    <ul class="service-features">
-                        <li>Diseño responsive</li>
-                        <li>SEO optimizado</li>
-                        <li>Velocidad ultra rápida</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                        </svg>
-                    </div>
-                    <h3>Aplicaciones Móviles</h3>
-                    <p>Apps nativas y multiplataforma que funcionan perfectamente en iOS y Android, diseñadas para tu negocio.</p>
-                    <ul class="service-features">
-                        <li>iOS y Android</li>
-                        <li>Offline-first</li>
-                        <li>Push notifications</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                            <path d="M2 17l10 5 10-5"></path>
-                            <path d="M2 12l10 5 10-5"></path>
-                        </svg>
-                    </div>
-                    <h3>Progressive Web Apps (PWA)</h3>
-                    <p>Lo mejor de ambos mundos: apps web que funcionan como nativas, con instalación y trabajo offline.</p>
-                    <ul class="service-features">
-                        <li>Instalable</li>
-                        <li>Funciona offline</li>
-                        <li>Actualizaciones automáticas</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="1" x2="12" y2="23"></line>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </div>
-                    <h3>Sistemas ERP/CRM</h3>
-                    <p>Gestiona tu negocio con sistemas integrados diseñados específicamente para tus procesos y flujos de trabajo.</p>
-                    <ul class="service-features">
-                        <li>100% personalizado</li>
-                        <li>Automatización</li>
-                        <li>Reportes en tiempo real</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>E-Commerce Personalizado</h3>
-                    <p>Tiendas online robustas con pasarelas de pago, gestión de inventario y experiencia de compra optimizada.</p>
-                    <ul class="service-features">
-                        <li>Pagos seguros</li>
-                        <li>Gestión de inventario</li>
-                        <li>Analytics integrado</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </div>
-                    <h3>APIs & Integraciones</h3>
-                    <p>Conectamos tus sistemas con APIs REST, integraciones de terceros y automatizaciones personalizadas.</p>
-                    <ul class="service-features">
-                        <li>RESTful APIs</li>
-                        <li>Webhooks</li>
-                        <li>Integraciones cloud</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">NUESTROS PRODUCTOS</span>
-                <h2 class="section-title">Innovación desarrollada in-house</h2>
-                <p class="section-description">Soluciones propias que demuestran nuestra capacidad técnica y visión de producto</p>
-            </div>
-
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-card-glow"></div>
-                    <div class="product-card-content">
-                        <div class="product-badge">
-                            <span class="product-badge-dot"></span>
-                            <span>Nuevo Lanzamiento</span>
-                        </div>
-                        <div class="product-icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                                <path d="M2 17l10 5 10-5"></path>
-                                <path d="M2 12l10 5 10-5"></path>
-                            </svg>
-                        </div>
-                        <h3 class="product-title">PrecioRadar</h3>
-                        <p class="product-description">Una solución Full-Stack para el ahorro inteligente. Escaneo de boletas, comparación en tiempo real y gamificación.</p>
-                        <div class="product-tech-tags">
-                            <span class="tech-tag">Full-Stack</span>
-                            <span class="tech-tag">Mobile App</span>
-                            <span class="tech-tag">AI/OCR</span>
-                        </div>
-                        <a href="precioradar.html" class="product-cta">
-                            <span>Ver Proyecto</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="product-card-visual">
-                        <div class="product-phone-mockup">
-                            <img src="precioradar-hero.jpg" alt="PrecioRadar App - Pantalla principal">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">NUESTRO MÉTODO</span>
-                <h2 class="section-title">Cómo Transformamos Tu Idea en Realidad</h2>
-                <p class="section-description">Un proceso simple y transparente, diseñado para obtener el mejor resultado</p>
-            </div>
-
-            <!-- Process Grid -->
-            <div class="process-grid">
-                <div class="process-item">
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <span class="process-step">Paso 1</span>
-                        </div>
-                        <h3>Conversamos y Conectamos</h3>
-                        <p>Nos sentamos contigo para conocer tu negocio en profundidad. Queremos entender tus desafíos, tus sueños y lo que realmente necesitas para crecer.</p>
-                    </div>
-                    <div class="process-image">
-                        <img src="proceso1.png" alt="Reunión con clientes">
-                    </div>
-                </div>
-
-                <div class="process-item reverse">
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <span class="process-step">Paso 2</span>
-                        </div>
-                        <h3>Diseñamos Juntos Tu Solución</h3>
-                        <p>No imponemos plantillas genéricas. Creamos una solución 100% personalizada que se adapta a cómo TÚ trabajas, no al revés.</p>
-                    </div>
-                    <div class="process-image">
-                        <img src="proceso2.png" alt="Análisis de procesos">
-                    </div>
-                </div>
-
-                <div class="process-item">
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                            </svg>
-                            </div>
-                            <span class="process-step">Paso 3</span>
-                        </div>
-                        <h3>Construimos con Calidad</h3>
-                        <p>Desarrollamos cada funcionalidad con atención al detalle. Tu software será robusto, seguro y fácil de usar para todo tu equipo.</p>
-                    </div>
-                    <div class="process-image">
-                        <img src="proceso3.png" alt="Desarrollo de software">
-                    </div>
-                </div>
-
-                <div class="process-item reverse">
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                </svg>
-                            </div>
-                            <span class="process-step">Paso 4</span>
-                        </div>
-                        <h3>Probamos y Perfeccionamos</h3>
-                        <p>Trabajamos contigo en iteraciones. Probamos, escuchamos tu feedback y ajustamos hasta que el sistema funcione exactamente como lo necesitas.</p>
-                    </div>
-                    <div class="process-image">
-                        <img src="proceso4.png" alt="Mejora continua">
-                    </div>
-                </div>
-
-                <div class="process-item">
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
-                            </div>
-                            <span class="process-step">Paso 5</span>
-                        </div>
-                        <h3>Te Acompañamos Siempre</h3>
-                        <p>No desaparecemos después de la entrega. Estamos aquí mes a mes para darte soporte, resolver dudas y hacer que tu software evolucione con tu negocio.</p>
-                    </div>
-                    <div class="process-image">
-                        <img src="proceso5.png" alt="Soporte continuo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits" id="benefits">
-        <div class="container">
-            <div class="benefits-layout">
-                <div class="benefits-visual">
-                    <div class="dashboard-showcase">
-                        <img src="dashboard1.png" alt="Dashboard ERP Sistema de Gestión de Clubes Aéreos" class="dashboard-main">
-                        <img src="dashboard2.png" alt="Versión móvil del sistema" class="dashboard-mobile">
-                    </div>
-                    <div class="floating-card card-1">
-                        <div class="card-icon">📊</div>
-                        <div class="card-text">Analytics en Tiempo Real</div>
-                    </div>
-                    <div class="floating-card card-2">
-                        <div class="card-icon">⚡</div>
-                        <div class="card-text">Optimizado & Rápido</div>
-                    </div>
-                    <div class="floating-card card-3">
-                        <div class="card-icon">🔒</div>
-                        <div class="card-text">100% Seguro</div>
-                    </div>
-                </div>
-
-                <div class="benefits-content">
-                    <span class="section-tag">VENTAJAS COMPETITIVAS</span>
-                    <h2 class="section-title">¿Por Qué Elegir CORYN?</h2>
-
-                    <div class="benefit-list">
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="benefit-text">
-                                <h3>100% Personalizado</h3>
-                                <p>Cada línea de código diseñada específicamente para tu negocio</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="benefit-text">
-                                <h3>Simple y Claro</h3>
-                                <p>Sistemas intuitivos que tu equipo puede usar desde el día uno</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="benefit-text">
-                                <h3>Mejora Continua</h3>
-                                <p>Evolucionamos el software junto a tu negocio</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="benefit-text">
-                                <h3>Soporte Dedicado</h3>
-                                <p>Estamos contigo en cada paso del camino</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing & Support Section -->
-    <section class="pricing-support" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">NUESTRO COMPROMISO</span>
-                <h2 class="section-title">Te Acompañamos en Cada Paso</h2>
-                <p class="section-description">No solo desarrollamos tu sistema, te acompañamos para que siempre funcione perfecto</p>
-            </div>
-
-            <div class="support-grid">
-                <div class="support-card highlight">
-                    <div class="support-icon-large">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </div>
-                    <h3>Inversión Inicial</h3>
-                    <p class="support-price">Desarrollo del Sistema</p>
-                    <ul class="support-features">
-                        <li>Reuniones de levantamiento</li>
-                        <li>Diseño a tu medida</li>
-                        <li>Demos constantes para validar</li>
-                        <li>Ajustes según tu feedback</li>
-                        <li>Entrega del sistema completo</li>
-                    </ul>
-                </div>
-
-                <div class="support-card highlight">
-                    <div class="support-icon-large">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Soporte Mensual</h3>
-                    <p class="support-price">Acompañamiento Continuo</p>
-                    <ul class="support-features">
-                        <li>Soporte técnico prioritario</li>
-                        <li>Mantenimiento del sistema</li>
-                        <li>Mejoras y actualizaciones</li>
-                        <li>Optimizaciones constantes</li>
-                        <li>Estamos siempre contigo</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="post-sale-emphasis">
-                <div class="emphasis-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            <div class="home-contact-cta">
+                <a href="contacto.html" class="hero-btn-primary">
+                    <span>Ir al Formulario de Contacto</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </div>
-                <div class="emphasis-content">
-                    <h3>La Post-Venta es Nuestra Prioridad</h3>
-                    <p>No te entregamos un sistema y desaparecemos. Trabajamos contigo mes a mes para que tu software evolucione con tu negocio. Juntos construimos una relación de largo plazo donde tu éxito es nuestro éxito.</p>
-                </div>
-            </div>
-
-            <div class="development-note">
-                <div class="note-icon">ℹ️</div>
-                <p><strong>¿Funcionalidades muy grandes después?</strong> Si necesitas agregar características complejas más adelante, se evalúa y cotiza por separado. Por eso es clave definir bien el alcance al inicio.</p>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">TESTIMONIOS</span>
-                <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
-                <p class="section-description">Historias reales de empresas que transformaron su negocio con nuestras soluciones</p>
+
+    <!-- Floating Mascot (video with alpha) -->
+    <div class="mascot" id="mascot" aria-hidden="true" role="button" tabindex="0" aria-label="Abrir chat de Coryn">
+        <div class="mascot-bubble">¡Hola! 👋</div>
+        <video class="mascot-video" autoplay loop muted playsinline preload="auto">
+            <source src="mascot.webm?v=3" type="video/webm">
+            <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
+            <source src="mascot.mp4?v=3" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal" aria-hidden="true" role="dialog" aria-labelledby="chatTitle">
+        <div class="chat-backdrop" data-close></div>
+        <div class="chat-panel">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <video autoplay loop muted playsinline>
+                        <source src="mascot.webm?v=3" type="video/webm">
+                        <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
+                    </video>
+                </div>
+                <div class="chat-header-text">
+                    <h4 id="chatTitle">Coryn Bot</h4>
+                    <span class="chat-status"><span class="chat-status-dot"></span>En línea</span>
+                </div>
+                <button class="chat-close" data-close aria-label="Cerrar chat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
             </div>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <p class="testimonial-text">"CORYN desarrolló nuestra plataforma de gestión de simuladores médicos y ha sido fundamental para nuestro crecimiento. El sistema personalizado nos permite controlar inventarios, programar sesiones y generar reportes médicos en tiempo real. El equipo entendió perfectamente las necesidades del sector salud."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <div class="author-info">
-                            <h4>Equipo bySIMMED</h4>
-                            <p>Empresa de Simulación Médica</p>
-                        </div>
-                    </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-message bot" id="chatWelcome">
+                    <p>¡Hola! Soy el asistente de <strong>CORYN</strong> 👋</p>
+                    <p>¿En qué puedo ayudarte hoy?</p>
                 </div>
 
-                <div class="testimonial-card featured">
-                    <div class="featured-badge">⭐ Destacado</div>
-                    <div class="testimonial-rating">
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                <div class="chat-quick-actions">
+                    <button class="chat-quick" data-action="meeting">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        <span>Agendar reunión</span>
+                    </button>
+                    <button class="chat-quick" data-action="services">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
                         </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        <span>Ver nuestros servicios</span>
+                    </button>
+                    <button class="chat-quick" data-action="whatsapp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.5 14.38c-.28-.14-1.65-.81-1.9-.9-.26-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.64-1.54-1.91-.16-.27-.02-.42.12-.56.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.05-.34-.02-.48-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48-.16-.01-.34-.01-.53-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.12 2.81.14.18 1.93 2.95 4.68 4.14.65.28 1.17.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.34-.07-.12-.25-.18-.53-.32z"/>
+                            <path d="M12 2a10 10 0 0 0-8.7 14.88L2 22l5.25-1.38A10 10 0 1 0 12 2zm0 18.4a8.4 8.4 0 0 1-4.28-1.17l-.31-.18-3.18.83.85-3.1-.2-.32A8.4 8.4 0 1 1 12 20.4z"/>
                         </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <p class="testimonial-text">"Trabajar con CORYN transformó nuestra forma de operar. Crearon un sistema de reservas y gestión de mesas que integró todos nuestros procesos: desde la toma de pedidos hasta el control de inventario en cocina. Nuestros clientes ahora pueden reservar online y el equipo trabaja de forma mucho más eficiente. ¡Excelente servicio!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <div class="author-info">
-                            <h4>Equipo MANFRED</h4>
-                            <p>Restaurante</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <p class="testimonial-text">"La plataforma web que CORYN desarrolló para Turismo Cahuel superó nuestras expectativas. Ahora nuestros clientes pueden explorar destinos y tours de manera intuitiva. El sistema de gestión nos ha permitido organizar mejor nuestros paquetes turísticos y ofrecer una experiencia profesional y moderna a nuestros viajeros."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <div class="author-info">
-                            <h4>Equipo Turismo Cahuel</h4>
-                            <p>Empresa de Turismo</p>
-                        </div>
-                    </div>
+                        <span>Enviar WhatsApp</span>
+                    </button>
                 </div>
             </div>
+
+            <form class="chat-form" id="chatForm">
+                <input type="text" name="chat-name" placeholder="Tu nombre" required>
+                <input type="email" name="chat-email" placeholder="Tu email" required>
+                <textarea name="chat-message" placeholder="Cuéntanos tu idea..." rows="2" required></textarea>
+                <button type="submit" class="chat-send">
+                    <span>Enviar</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </form>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <span class="section-tag light">EMPECEMOS</span>
-                    <h2 class="contact-title">¿Listo para Transformar Tu Negocio?</h2>
-                    <p class="contact-subtitle">Cuéntanos sobre tu proyecto y agendemos una reunión</p>
-
-                    <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>coryn.software@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Tiempo de respuesta</h4>
-                                <p>24 horas o menos</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Tu email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Tu teléfono">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button-primary">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer footer-modern">
         <div class="container">
-            <p>&copy; 2025 CORYN. Software 100% Personalizado.</p>
+            <div class="footer-content">
+                <p class="footer-copy">&copy; 2025 CORYN. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Política de Privacidad</a>
+                    <a href="cunde-terms.html">Términos Legales</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=9"></script>
 </body>
 </html>
