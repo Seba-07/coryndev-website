@@ -21,3 +21,6 @@ backend/
 marketing/out/
 marketing/assets/*.b64
 .vercel
+
+# Python
+__pycache__/

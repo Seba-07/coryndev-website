@@ -1,0 +1,232 @@
+#!/usr/bin/env python3
+"""Cascara comun de las paginas del sitio (v2).
+
+Aqui viven la cabecera, la navegacion y el pie. Cualquier cambio en esos
+tres se hace una sola vez y se propaga al correr build_site.py.
+"""
+
+TELEFONO = '+56 9 3356 9725'
+WA = ('https://wa.me/56933569725?text='
+      'Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto.')
+EMAIL = 'coryn.software@gmail.com'
+BACKEND = 'https://coryn-backend-production.up.railway.app/api/contact'
+
+WA_SVG = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 '
+          '14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 '
+          '1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 '
+          '0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 '
+          '2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 '
+          '1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 '
+          '7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 '
+          '0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 '
+          '9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 '
+          '12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 '
+          '11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>')
+
+CHECK = '<svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>'
+CRUZ = '<svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>'
+FLECHA = '<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+
+PENDIENTE = '<span class="pendiente">por confirmar</span>'
+
+# (etiqueta, destino, clave para marcar la pagina activa)
+MENU = [
+    ('Servicios', 'servicios.html', 'servicios'),
+    ('Casos', 'index.html#casos', 'casos'),
+    ('Proceso', 'proceso.html', 'proceso'),
+    ('Producto', 'productos.html', 'productos'),
+    ('Nosotros', 'nosotros.html', 'nosotros'),
+]
+
+
+def _nav(activa):
+    enlaces = '\n'.join(
+        f'        <a href="{href}"{" class=\"activa\"" if key == activa else ""}>{txt}</a>'
+        for txt, href, key in MENU)
+    return f'''<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="../assets/mark.webp" alt="" width="28" height="26">
+      <span>CORYN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+{enlaces}
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>'''
+
+
+def _cierre(titulo, texto, boton_extra=''):
+    return f'''<section class="close">
+  <div class="wrap">
+    <p class="eyebrow">Siguiente paso</p>
+    <h2>{titulo}</h2>
+    <p>{texto}</p>
+    <div class="actions">
+      <a class="btn btn-wa" href="{WA}" target="_blank" rel="noopener">{WA_SVG}
+        {TELEFONO}
+      </a>
+      {boton_extra or '<a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>'}
+    </div>
+    <div class="lines">
+      <a href="mailto:{EMAIL}">{EMAIL}</a>
+      <a href="https://coryndev.com">coryndev.com</a>
+    </div>
+  </div>
+</section>'''
+
+
+PIE = f'''<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="../assets/mark.webp" alt="" width="28" height="26">
+          <span>CORYN</span>
+        </a>
+        <p>Software 100% personalizado para negocios que necesitan que la
+        herramienta calce con su forma de trabajar.</p>
+      </div>
+      <div>
+        <h4>Casos</h4>
+        <ul>
+          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-avenprop.html">AvenProp</a></li>
+          <li><a href="caso-precioradar.html">PrecioRadar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proceso.html">Proceso</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
+      <span><a href="../precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>'''
+
+JS_COMUN = '''<script>
+  // Fondo de la barra al desplazar
+  var nav = document.getElementById('nav');
+  if (!nav.classList.contains('solid-fija')) {
+    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Menu de celular
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function () {
+    var abierto = document.body.classList.toggle('menu-abierto');
+    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.focus();
+    }
+  });
+
+  // Aparicion progresiva, con red de seguridad si el observer no dispara
+  (function () {
+    if (!document.documentElement.classList.contains('js-rv')) return;
+    var els = document.querySelectorAll('.rv');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      io.observe(el);
+    });
+    setTimeout(function () {
+      els.forEach(function (el) { el.classList.add('in'); });
+      io.disconnect();
+    }, 2000);
+  })();
+</script>'''
+
+
+def render(titulo, descripcion, cuerpo, activa='', og_img='assets/banner.webp',
+           og_tipo='website', js_extra='', nav_solida=False):
+    """Arma una pagina completa a partir del cuerpo."""
+    og_img_abs = og_img.lstrip('./').replace('../', '')
+    nav = _nav(activa)
+    if nav_solida:
+        nav = nav.replace('class="nav" id="nav"', 'class="nav solid solid-fija" id="nav"')
+    return f'''<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{titulo}</title>
+<meta name="description" content="{descripcion}">
+<link rel="icon" href="../assets/mark.webp" type="image/webp">
+<meta property="og:type" content="{og_tipo}">
+<meta property="og:title" content="{titulo}">
+<meta property="og:description" content="{descripcion}">
+<meta property="og:image" content="https://coryndev.com/{og_img_abs}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../styles-v2.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {{
+    document.documentElement.classList.add('js-rv');
+  }}
+</script>
+</head>
+<body>
+
+{nav}
+
+{cuerpo}
+
+{PIE}
+
+{JS_COMUN}
+{js_extra}
+</body>
+</html>
+'''
+
+
+def cabecera(titulo, bajada, eyebrow='', migas=None):
+    """Cabecera oscura de pagina interior."""
+    m = ''
+    if migas:
+        partes = ' / '.join(
+            f'<a href="{h}">{t}</a>' if h else t for t, h in migas)
+        m = f'    <p class="crumbs">{partes}</p>\n'
+    e = f'    <p class="eyebrow">{eyebrow}</p>\n' if eyebrow else ''
+    return f'''<section class="page-head">
+  <div class="wrap">
+{m}{e}    <h1>{titulo}</h1>
+    <p>{bajada}</p>
+  </div>
+</section>'''
