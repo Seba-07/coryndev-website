@@ -314,3 +314,153 @@ section{ padding:74px 0; }
   .btn,.svc{ transition:none; }
   .pair .phone{ transform:none !important; }
 }
+
+/* ============================================================
+   Componentes de sitio (no de landing)
+   ============================================================ */
+
+/* --- franja de sectores --- */
+.sectores{ display:grid; gap:14px; grid-template-columns:1fr; }
+@media (min-width:640px){ .sectores{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1000px){ .sectores{ grid-template-columns:repeat(4,1fr); } }
+.sector{
+  border:1px solid var(--line); border-radius:var(--radius); padding:20px 20px 22px;
+  background:var(--card); box-shadow:var(--shadow);
+}
+.sector .ico{
+  width:38px; height:38px; border-radius:10px; display:grid; place-items:center;
+  background:color-mix(in srgb, var(--accent) 12%, transparent);
+  color:var(--accent); margin-bottom:14px;
+}
+.sector .ico svg{ width:20px; height:20px; fill:none; stroke:currentColor;
+  stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.sector h3{ font-size:17px; margin-bottom:5px; }
+.sector p{ color:var(--muted); font-size:14.5px; line-height:1.45; }
+.sector .ref{
+  display:block; margin-top:10px; font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px; letter-spacing:.05em; color:var(--cyan);
+}
+
+/* --- comparativa --- */
+.vs{ display:grid; gap:18px; grid-template-columns:1fr; }
+@media (min-width:820px){ .vs{ grid-template-columns:1fr 1fr; gap:22px; } }
+.vs-col{ border-radius:var(--radius); padding:26px 26px 28px; border:1px solid var(--line); }
+.vs-col.mala{ background:color-mix(in srgb, var(--ink) 4%, var(--paper)); }
+.vs-col.buena{
+  background:var(--card); box-shadow:var(--lift);
+  border-color:color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+.vs-col h3{ font-size:19px; margin-bottom:4px; }
+.vs-col .sub{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:18px;
+}
+.vs-col.buena .sub{ color:var(--cyan); }
+.vs-col ul{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.vs-col li{ display:grid; grid-template-columns:20px 1fr; gap:11px; font-size:15px; line-height:1.45; }
+.vs-col.mala li{ color:var(--muted); }
+.vs-col.buena li{ color:var(--ink-2); }
+.vs-col li svg{ width:18px; height:18px; margin-top:3px; fill:none; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round; }
+.vs-col.mala li svg{ stroke:#c2536b; }
+.vs-col.buena li svg{ stroke:var(--cyan); }
+
+/* --- tarjetas de caso --- */
+.casos{ display:grid; gap:20px; grid-template-columns:1fr; }
+@media (min-width:820px){ .casos{ grid-template-columns:repeat(3,1fr); } }
+.caso{
+  display:flex; flex-direction:column; text-decoration:none;
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  background:var(--card); box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.caso:hover{ transform:translateY(-4px); box-shadow:var(--lift);
+  border-color:color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.caso .thumb{ aspect-ratio:16/10; overflow:hidden; background:var(--paper); }
+.caso .thumb img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+.caso .body{ padding:18px 20px 22px; display:flex; flex-direction:column; flex:1; }
+.caso .tag{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--cyan);
+}
+.caso h3{ font-size:19px; margin:8px 0 7px; }
+.caso p{ color:var(--muted); font-size:14.5px; line-height:1.45; flex:1; }
+.caso .go{
+  margin-top:14px; font-size:14.5px; font-weight:600; color:var(--accent);
+  display:flex; align-items:center; gap:7px;
+}
+.caso:hover .go svg{ transform:translateX(3px); }
+.caso .go svg{ width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round; transition:transform .2s ease; }
+
+/* --- bloque de precio / cotizacion --- */
+.precio{ display:grid; gap:20px; grid-template-columns:1fr; }
+@media (min-width:820px){ .precio{ grid-template-columns:1fr 1fr; gap:24px; } }
+.precio-card{
+  border:1px solid var(--line); border-radius:var(--radius); padding:26px;
+  background:var(--card); box-shadow:var(--shadow);
+}
+.precio-card .kicker{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--cyan);
+}
+.precio-card .cifra{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.03em;
+  font-size:34px; margin:10px 0 4px; color:var(--ink);
+}
+.precio-card .cifra small{ font-size:15px; font-weight:600; color:var(--muted); letter-spacing:0; }
+.precio-card > p{ color:var(--muted); font-size:15px; line-height:1.5; }
+.precio-card ul{ list-style:none; margin:16px 0 0; padding:0; display:grid; gap:9px; }
+.precio-card li{ display:grid; grid-template-columns:18px 1fr; gap:10px;
+  font-size:14.5px; color:var(--ink-2); line-height:1.42; }
+.precio-card li svg{ width:16px; height:16px; margin-top:3px; fill:none; stroke:var(--cyan);
+  stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* --- aviso de dato pendiente (borrar al completar) --- */
+.pendiente{
+  background:repeating-linear-gradient(45deg, color-mix(in srgb,#e0a13a 16%,transparent),
+    color-mix(in srgb,#e0a13a 16%,transparent) 10px, transparent 10px, transparent 20px);
+  border:1px dashed #c9902f; border-radius:8px; padding:2px 8px;
+  font-family:'IBM Plex Mono',monospace; font-size:.82em; color:#8a6318;
+}
+:root[data-theme="dark"] .pendiente,
+:root:not([data-theme="light"]) .pendiente{ color:#f0c169; }
+
+/* --- cabecera interior --- */
+.page-head{
+  color:#fff; padding:calc(var(--nav-h) + 46px) 0 52px;
+  background-color:var(--band-a);
+  background-image:
+    linear-gradient(100deg, rgba(7,14,32,.97) 0%, rgba(7,14,32,.88) 40%, rgba(7,14,32,.45) 72%, rgba(7,14,32,.18) 100%),
+    url("assets/banner.webp");
+  background-size:auto, cover; background-position:center, 72% center; background-repeat:no-repeat;
+}
+.page-head .eyebrow{ color:#6fd8ec; }
+.page-head h1{ font-size:clamp(32px, 4.4vw, 50px); max-width:18ch; margin-top:14px; }
+.page-head p{ margin-top:16px; color:var(--on-band); max-width:56ch; font-size:18px; }
+.crumbs{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#9fbaea; margin-bottom:18px;
+}
+.crumbs a{ text-decoration:none; border-bottom:1px solid rgba(159,186,234,.4); }
+.crumbs a:hover{ color:#fff; }
+
+/* --- cuerpo de caso --- */
+.caso-grid{ display:grid; gap:36px; grid-template-columns:1fr; }
+@media (min-width:940px){ .caso-grid{ grid-template-columns:1fr 300px; gap:56px; align-items:start; } }
+.caso-body h2{ font-size:26px; margin:34px 0 12px; }
+.caso-body h2:first-child{ margin-top:0; }
+.caso-body p{ color:var(--ink-2); margin-bottom:14px; }
+.caso-body ul{ color:var(--ink-2); padding-left:20px; margin:0 0 16px; display:grid; gap:8px; }
+.caso-body figure{ margin:26px 0; }
+.caso-body figcaption{ color:var(--muted); font-size:13.5px; margin-top:10px; }
+.ficha{
+  border:1px solid var(--line); border-radius:var(--radius); padding:22px;
+  background:var(--card); box-shadow:var(--shadow); position:sticky; top:calc(var(--nav-h) + 20px);
+}
+.ficha h3{ font-size:12px; font-family:'IBM Plex Mono',monospace; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+.ficha dl{ margin:0; display:grid; gap:14px; }
+.ficha dt{ font-size:12.5px; color:var(--muted); font-family:'IBM Plex Mono',monospace;
+  letter-spacing:.05em; }
+.ficha dd{ margin:3px 0 0; font-size:15px; color:var(--ink); font-weight:500; }
+.ficha .btn{ width:100%; justify-content:center; margin-top:20px; }
