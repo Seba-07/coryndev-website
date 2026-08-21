@@ -20,6 +20,7 @@
   --lift:0 30px 60px -30px rgba(10,23,48,.55);
   --radius:14px;
   --nav-h:66px;
+  --banner:url("assets/plano.webp");
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -118,10 +119,11 @@ a{ color:inherit; }
   padding:calc(var(--nav-h) + 50px) 0 0;
   background-color:var(--band-a);
   background-image:
-    linear-gradient(100deg, rgba(7,14,32,.97) 0%, rgba(7,14,32,.9) 34%, rgba(7,14,32,.5) 62%, rgba(7,14,32,.2) 100%),
+    radial-gradient(58% 85% at 74% 46%, rgba(35,150,190,.26) 0%, rgba(35,150,190,0) 64%),
+    linear-gradient(100deg, rgba(7,14,32,.92) 0%, rgba(7,14,32,.62) 38%, rgba(7,14,32,.12) 72%, rgba(7,14,32,0) 100%),
     var(--banner);
-  background-size:auto, cover;
-  background-position:center, 72% center;
+  background-size:auto, auto, cover;
+  background-position:center, center, 72% center;
   background-repeat:no-repeat;
 }
 .hero-grid{ display:grid; grid-template-columns:1fr; gap:38px; align-items:center; }
@@ -296,7 +298,7 @@ section{ padding:74px 0; }
   background-color:var(--band-a);
   background-image:
     linear-gradient(80deg, rgba(7,14,32,.97) 0%, rgba(7,14,32,.9) 36%, rgba(7,14,32,.5) 66%, rgba(7,14,32,.22) 100%),
-    url("assets/banner.webp");
+    var(--banner);
   background-size:auto, 132%;
   background-position:center, 64% 38%;
   background-repeat:no-repeat;
@@ -455,9 +457,11 @@ section{ padding:74px 0; }
   color:#fff; padding:calc(var(--nav-h) + 46px) 0 52px;
   background-color:var(--band-a);
   background-image:
-    linear-gradient(100deg, rgba(7,14,32,.97) 0%, rgba(7,14,32,.88) 40%, rgba(7,14,32,.45) 72%, rgba(7,14,32,.18) 100%),
-    url("assets/banner.webp");
-  background-size:auto, cover; background-position:center, 72% center; background-repeat:no-repeat;
+    radial-gradient(60% 100% at 78% 50%, rgba(35,150,190,.22) 0%, rgba(35,150,190,0) 64%),
+    linear-gradient(100deg, rgba(7,14,32,.92) 0%, rgba(7,14,32,.66) 42%, rgba(7,14,32,.15) 76%, rgba(7,14,32,0) 100%),
+    var(--banner);
+  background-size:auto, auto, cover; background-position:center, center, 72% center;
+  background-repeat:no-repeat;
 }
 .page-head .eyebrow{ color:#6fd8ec; }
 .page-head h1{ font-size:clamp(32px, 4.4vw, 50px); max-width:18ch; margin-top:14px; }

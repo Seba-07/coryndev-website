@@ -170,7 +170,7 @@ JS_COMUN = '''<script>
 </script>'''
 
 
-def render(titulo, descripcion, cuerpo, activa='', og_img='assets/banner.webp',
+def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
            og_tipo='website', js_extra='', nav_solida=False):
     """Arma una pagina completa a partir del cuerpo."""
     og_img_abs = og_img.lstrip('./')
