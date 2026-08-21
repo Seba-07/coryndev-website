@@ -711,3 +711,131 @@ a.dato:hover{ transform:translateY(-2px);
   stroke-linecap:round; stroke-linejoin:round; }
 .dato h3{ font-size:16px; margin-bottom:3px; }
 .dato p{ color:var(--muted); font-size:14.5px; line-height:1.4; }
+
+/* ============================================================
+   Portada: secciones con texturas distintas
+   ============================================================ */
+
+/* --- sectores como indice editorial, no como tarjetas --- */
+.indice{ border-top:1px solid var(--line); }
+.indice .fila{
+  display:grid; grid-template-columns:1fr; gap:6px;
+  padding:26px 4px; border-bottom:1px solid var(--line);
+  position:relative; transition:background .2s ease, padding-left .2s ease;
+}
+@media (min-width:820px){
+  .indice .fila{ grid-template-columns:210px 1fr 190px; gap:34px; align-items:baseline; padding:30px 4px; }
+}
+.indice .fila:hover{
+  background:color-mix(in srgb, var(--accent) 5%, transparent);
+  padding-left:14px;
+}
+.indice .nombre{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+  font-size:clamp(22px,2.4vw,29px); letter-spacing:-.025em; color:var(--ink);
+  display:flex; align-items:center; gap:12px;
+}
+.indice .nombre svg{
+  width:22px; height:22px; flex:none; fill:none; stroke:var(--accent);
+  stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;
+}
+.indice .que{ color:var(--muted); font-size:15.5px; line-height:1.5; max-width:52ch; }
+.indice .quien{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.05em;
+  color:var(--cyan); display:flex; align-items:center; gap:8px;
+}
+@media (min-width:820px){ .indice .quien{ justify-content:flex-end; } }
+@media (prefers-reduced-motion: reduce){ .indice .fila{ transition:none; } }
+
+/* --- casos con jerarquia: uno grande, dos secundarios --- */
+.destacado{
+  display:grid; grid-template-columns:1fr; gap:28px; align-items:center;
+  margin-bottom:22px;
+}
+@media (min-width:900px){ .destacado{ grid-template-columns:1.35fr 1fr; gap:46px; } }
+.destacado .marco{
+  border-radius:13px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:var(--lift); background:var(--card);
+}
+.destacado .barra{
+  display:flex; align-items:center; gap:6px; padding:10px 13px;
+  background:color-mix(in srgb, var(--ink) 6%, var(--card));
+  border-bottom:1px solid var(--line);
+}
+.destacado .barra i{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+.destacado .rotulo{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--cyan);
+}
+.destacado h3{ font-size:clamp(24px,2.8vw,32px); margin:10px 0 12px; }
+.destacado p{ color:var(--muted); font-size:16.5px; line-height:1.55; max-width:44ch; }
+.destacado .ir{
+  margin-top:20px; display:inline-flex; align-items:center; gap:9px;
+  font-weight:600; font-size:16px; color:var(--accent); text-decoration:none;
+}
+.destacado .ir svg{ width:16px; height:16px; fill:none; stroke:currentColor;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s ease; }
+.destacado .ir:hover svg{ transform:translateX(4px); }
+
+.menores{ display:grid; gap:18px; grid-template-columns:1fr; }
+@media (min-width:760px){ .menores{ grid-template-columns:1fr 1fr; } }
+.menor{
+  display:grid; grid-template-columns:120px 1fr; gap:20px; align-items:center;
+  padding:20px; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--card); text-decoration:none; box-shadow:var(--shadow);
+  transition:transform .2s ease, border-color .2s ease;
+}
+.menor:hover{ transform:translateY(-3px);
+  border-color:color-mix(in srgb, var(--accent) 42%, var(--line)); }
+.menor .mini{
+  border-radius:9px; overflow:hidden; border:1px solid var(--line); background:var(--paper);
+  aspect-ratio:4/3;
+}
+.menor .mini img{ width:100%; height:100%; display:block; object-fit:cover; object-position:top center; }
+.menor .rotulo{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--cyan);
+}
+.menor h3{ font-size:18px; margin:6px 0 5px; }
+.menor p{ color:var(--muted); font-size:14px; line-height:1.42; }
+@media (max-width:400px){ .menor{ grid-template-columns:1fr; } .menor .mini{ max-width:150px; } }
+
+/* --- banda oscura de cotizacion, para romper el medio de la pagina --- */
+.banda{
+  color:#fff; padding:66px 0 70px; position:relative; overflow:hidden;
+  background-color:var(--band-a);
+  background-image:
+    radial-gradient(50% 90% at 22% 50%, rgba(35,150,190,.20) 0%, rgba(35,150,190,0) 66%),
+    linear-gradient(260deg, rgba(7,14,32,.94) 0%, rgba(7,14,32,.7) 40%, rgba(7,14,32,.15) 78%, rgba(7,14,32,0) 100%),
+    var(--banner);
+  background-size:auto, auto, cover;
+  background-position:center, center, 28% center;
+  background-repeat:no-repeat;
+}
+.banda .eyebrow{ color:#6fd8ec; }
+.banda h2{ font-size:clamp(27px,3.5vw,40px); margin-top:12px; }
+.banda .intro{ margin-top:13px; color:var(--on-band); max-width:58ch; }
+.banda .cajas{ display:grid; gap:20px; grid-template-columns:1fr; margin-top:38px; }
+@media (min-width:820px){ .banda .cajas{ grid-template-columns:1fr 1fr; gap:24px; } }
+.caja-precio{
+  border:1px solid rgba(255,255,255,.16); border-radius:var(--radius);
+  background:rgba(255,255,255,.045); padding:28px;
+  backdrop-filter:blur(6px);
+}
+.caja-precio .kicker{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:#6fd8ec;
+}
+.caja-precio .cifra{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.03em;
+  font-size:34px; margin:12px 0 6px; color:#fff;
+}
+.caja-precio .cifra small{ font-size:15px; font-weight:600; color:#9fbaea; letter-spacing:0; }
+.caja-precio > p{ color:var(--on-band); font-size:15px; line-height:1.5; }
+.caja-precio ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:10px; }
+.caja-precio li{ display:grid; grid-template-columns:18px 1fr; gap:10px;
+  font-size:14.5px; color:#cfdcf3; line-height:1.42; }
+.caja-precio li svg{ width:16px; height:16px; margin-top:3px; fill:none; stroke:#6fd8ec;
+  stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.banda .nota{ margin-top:26px; color:#9fbaea; font-size:15px; max-width:64ch; }
+.banda .nota a{ color:#8fc4ff; }
