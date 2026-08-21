@@ -103,26 +103,35 @@ a{ color:inherit; }
   position:relative; overflow:hidden; color:#fff; text-align:center;
   min-height:min(96vh, 900px);
   display:flex; flex-direction:column; justify-content:center;
-  padding:calc(var(--nav-h) + 48px) 0 0;
+  padding:calc(var(--nav-h) + 32px) 0 0;
   background-color:var(--band-a);
   background-image:
-    radial-gradient(46% 42% at 50% 30%, rgba(45,170,210,.30) 0%, rgba(45,170,210,0) 70%),
-    linear-gradient(180deg, rgba(7,14,32,.55) 0%, rgba(7,14,32,.82) 62%, rgba(7,14,32,.96) 100%),
-    var(--banner);
-  background-size:auto, auto, cover;
-  background-position:center, center, center center;
+    linear-gradient(180deg, rgba(5,10,22,.08) 0%, rgba(5,10,22,.22) 46%, rgba(5,10,22,.62) 78%, rgba(5,10,22,.9) 100%),
+    url("assets/fondo-hero.webp");
+  background-size:auto, cover;
+  background-position:center, center 38%;
   background-repeat:no-repeat;
 }
 
-/* orbe centrado, el unico elemento visual del hero */
+/* el ala de cristal: unico elemento visual del hero.
+   Viene sobre negro puro y se compone por suma, asi el negro desaparece
+   y el vidrio conserva su brillo original sobre cualquier fondo oscuro. */
 .orbe{
-  width:min(270px, 42vw); margin:0 auto 30px;
-  filter:drop-shadow(0 26px 60px rgba(0,0,0,.6));
+  width:min(190px, 36vw, 23vh); margin:0 auto 24px;
+  mix-blend-mode:screen;
 }
-@media (min-width:900px){ .orbe{ width:min(300px, 26vw); margin-bottom:34px; } }
-/* portatiles bajos: achicar el orbe para que los botones no queden fuera de vista */
-@media (min-width:900px) and (max-height:800px){
-  .orbe{ width:min(215px, 20vw); }
+@media (min-width:900px){ .orbe{ width:min(232px, 19vw, 27vh); margin-bottom:28px; } }
+/* pantallas muy bajas: comprimir todo el bloque, no solo el ala */
+@media (min-width:900px) and (max-height:770px){
+  .hero{ padding-top:calc(var(--nav-h) + 20px); }
+  .hero h1{ font-size:clamp(26px, 3vw, 37px); margin-top:14px; }
+  .hero .lead{ font-size:16px; margin-top:15px; }
+  .hero .actions{ margin-top:24px; }
+  .hero-sectores a, .hero-sectores span.sec{ padding:13px 18px; }
+}
+/* portatiles bajos: achicar el ala para que los botones no queden fuera de vista */
+@media (min-width:900px) and (max-height:860px){
+  .orbe{ width:min(178px, 15vw, 22vh); margin-bottom:20px; }
   .hero{ padding-top:calc(var(--nav-h) + 18px); }
   .hero h1{ margin-top:18px; }
 }
@@ -138,12 +147,12 @@ a{ color:inherit; }
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 .hero .lead{
-  margin:26px auto 0; max-width:52ch; font-size:clamp(16.5px,1.8vw,19px);
+  margin:22px auto 0; max-width:52ch; font-size:clamp(16.5px,1.8vw,19px);
   line-height:1.55; color:var(--on-band);
 }
 .hero .lead strong{ color:#fff; font-weight:600; }
 .hero .actions{
-  display:flex; flex-wrap:wrap; gap:13px; margin-top:40px; justify-content:center;
+  display:flex; flex-wrap:wrap; gap:13px; margin-top:34px; justify-content:center;
 }
 
 /* franja de sectores al pie del hero, con enlace a cada caso */
