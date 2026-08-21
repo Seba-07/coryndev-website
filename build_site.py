@@ -170,7 +170,9 @@ PAGINAS = [
                   'La primera reunión es sin costo y sin compromiso. Cuéntanos qué '
                   'te está complicando y te decimos con honestidad qué se puede hacer.',
                   'Contacto'),
-        cierre=None,
+        cierre=('¿Prefieres escribir por WhatsApp?',
+                'Es la vía más rápida y respondemos el mismo día. Si es fuera de '
+                'horario, deja el mensaje igual y lo vemos a primera hora.'),
         js_extra=JS_FORMULARIO,
     ),
 ]

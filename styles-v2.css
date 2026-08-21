@@ -839,3 +839,95 @@ a.dato:hover{ transform:translateY(-2px);
   stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
 .banda .nota{ margin-top:26px; color:#9fbaea; font-size:15px; max-width:64ch; }
 .banda .nota a{ color:#8fc4ff; }
+
+/* ============================================================
+   Paginas interiores: franjas alternadas y resumenes
+   ============================================================ */
+
+/* --- franja de ancho completo, para alternar fondo entre bloques --- */
+.franja{ }
+.franja.tinta{ background:color-mix(in srgb, var(--accent) 4.5%, var(--paper)); }
+.franja .servicio,
+.franja .etapa{ border-top:0; padding:46px 0; }
+.franja:first-of-type .servicio,
+.franja:first-of-type .etapa{ padding-top:8px; }
+
+/* --- indice-resumen con plazos --- */
+.resumen{ border-top:1px solid var(--line); margin-top:6px; }
+.resumen a{
+  display:grid; grid-template-columns:1fr; gap:4px;
+  padding:15px 4px; border-bottom:1px solid var(--line);
+  text-decoration:none; transition:background .18s ease, padding-left .18s ease;
+}
+@media (min-width:660px){
+  .resumen a{ grid-template-columns:1fr auto; gap:24px; align-items:baseline; }
+}
+.resumen a:hover{
+  background:color-mix(in srgb, var(--accent) 6%, transparent); padding-left:12px;
+}
+.resumen .qu{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px;
+  letter-spacing:-.015em; color:var(--ink); display:flex; align-items:center; gap:10px;
+}
+.resumen .qu img{ width:30px; height:30px; }
+.resumen .cu{
+  font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--muted);
+}
+.resumen .cu b{ color:var(--cyan); font-weight:600; }
+@media (prefers-reduced-motion: reduce){ .resumen a{ transition:none; } }
+
+/* --- declaracion: cita destacada sobre fondo claro --- */
+.cita{
+  border-left:4px solid var(--cyan); border-radius:0 var(--radius) var(--radius) 0;
+  background:color-mix(in srgb, var(--accent) 6%, var(--paper));
+  padding:32px 34px 34px; max-width:70ch;
+}
+.cita .eyebrow{ color:var(--cyan); margin-bottom:14px; display:block; }
+.cita p{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(20px,2.4vw,27px); line-height:1.3; letter-spacing:-.02em;
+  color:var(--ink); text-wrap:balance;
+}
+.cita .firma{
+  margin-top:18px; font-family:'IBM Plex Sans',sans-serif; font-weight:400;
+  font-size:15.5px; letter-spacing:0; color:var(--muted); line-height:1.5;
+}
+
+/* --- declaracion sobre banda oscura --- */
+.declara{ max-width:60ch; }
+.declara p{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(21px,2.6vw,30px); line-height:1.28; letter-spacing:-.02em;
+  color:#fff; text-wrap:balance;
+}
+.declara .firma{
+  margin-top:20px; font-family:'IBM Plex Mono',monospace; font-size:13px;
+  letter-spacing:.06em; color:#9fbaea;
+}
+
+/* --- equipo en filas, no en tarjetas --- */
+.gente{ border-top:1px solid var(--line); }
+.gente .quien{
+  display:grid; grid-template-columns:1fr; gap:14px;
+  padding:26px 4px; border-bottom:1px solid var(--line); align-items:center;
+}
+@media (min-width:760px){
+  .gente .quien{ grid-template-columns:72px 230px 1fr; gap:26px; }
+}
+.gente .cara{
+  width:64px; height:64px; border-radius:50%; display:grid; place-items:center;
+  background:linear-gradient(135deg, var(--accent), var(--cyan)); color:#fff;
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:23px;
+}
+.gente h3{ font-size:21px; margin-bottom:4px; }
+.gente .rol{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.06em;
+  color:var(--cyan);
+}
+.gente p.bio{ color:var(--muted); font-size:15.5px; line-height:1.5; max-width:56ch; }
+.resumen .paso{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
+  letter-spacing:.1em; color:var(--cyan); min-width:26px;
+}
+.indice .quien a{ color:inherit; text-decoration:none; border-bottom:1px solid transparent; }
+.indice .quien a:hover{ border-bottom-color:currentColor; }
