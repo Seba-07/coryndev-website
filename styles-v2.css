@@ -138,8 +138,8 @@ a{ color:inherit; }
 
 .hero .eyebrow{ color:#6fd8ec; letter-spacing:.2em; }
 .hero h1{
-  font-size:clamp(29px, 3.7vw, 48px); margin:22px auto 0;
-  max-width:20ch; line-height:1.14; letter-spacing:-.022em;
+  font-size:clamp(30px, 3.9vw, 51px); margin:22px auto 0;
+  max-width:18ch; line-height:1.12; letter-spacing:-.024em;
 }
 .hero h1 em{
   font-style:normal;
