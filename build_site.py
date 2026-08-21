@@ -94,7 +94,7 @@ PAGINAS = [
         slug='index',
         titulo='CORYN — Software a medida para empresas en Chile',
         desc='Desarrollamos sistemas de gestión, aplicaciones móviles y sitios web a '
-             'medida. Experiencia en salud, aviación, inmobiliario y retail. '
+             'medida. Experiencia en salud, inmobiliario y retail. '
              'Primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
