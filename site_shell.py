@@ -46,7 +46,7 @@ def _nav(activa):
     return f'''<header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="../assets/mark.webp" alt="" width="28" height="26">
+      <img src="assets/mark.webp" alt="" width="28" height="26">
       <span>CORYN</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -87,7 +87,7 @@ PIE = f'''<footer class="foot">
     <div class="cols">
       <div>
         <a class="brand" href="index.html">
-          <img src="../assets/mark.webp" alt="" width="28" height="26">
+          <img src="assets/mark.webp" alt="" width="28" height="26">
           <span>CORYN</span>
         </a>
         <p>Software 100% personalizado para negocios que necesitan que la
@@ -113,7 +113,7 @@ PIE = f'''<footer class="foot">
     </div>
     <div class="base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="../precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
     </div>
   </div>
 </footer>'''
@@ -173,7 +173,7 @@ JS_COMUN = '''<script>
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/banner.webp',
            og_tipo='website', js_extra='', nav_solida=False):
     """Arma una pagina completa a partir del cuerpo."""
-    og_img_abs = og_img.lstrip('./').replace('../', '')
+    og_img_abs = og_img.lstrip('./')
     nav = _nav(activa)
     if nav_solida:
         nav = nav.replace('class="nav" id="nav"', 'class="nav solid solid-fija" id="nav"')
@@ -184,7 +184,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/banner.webp',
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{titulo}</title>
 <meta name="description" content="{descripcion}">
-<link rel="icon" href="../assets/mark.webp" type="image/webp">
+<link rel="icon" href="assets/mark.webp" type="image/webp">
 <meta property="og:type" content="{og_tipo}">
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{descripcion}">
@@ -193,7 +193,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/banner.webp',
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../styles-v2.css">
+<link rel="stylesheet" href="styles-v2.css">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {{

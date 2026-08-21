@@ -17,7 +17,7 @@ from casos_data import CASOS
 
 RAIZ = pathlib.Path(__file__).parent
 CUERPOS = RAIZ / 'site'
-SALIDA = RAIZ / 'nuevo'
+SALIDA = RAIZ
 
 # Marcadores que pueden usarse dentro de los .body.html
 FICHAS = {
@@ -269,7 +269,6 @@ def construir_casos():
 
 
 if __name__ == '__main__':
-    SALIDA.mkdir(exist_ok=True)
     total = 0
     for destino in list(construir_paginas()) + list(construir_casos()):
         n = destino.stat().st_size
@@ -281,4 +280,4 @@ if __name__ == '__main__':
                      for p in SALIDA.glob('*.html'))
     if pendientes:
         print(f'\n  {pendientes} dato(s) por confirmar. Para ubicarlos:')
-        print("    grep -rn 'class=\"pendiente\"' nuevo/*.html")
+        print("    grep -rn 'class=\"pendiente\"' *.html")

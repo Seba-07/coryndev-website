@@ -1,260 +1,383 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - CORYN</title>
-    <link rel="stylesheet" href="styles.css?v=44">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Qué desarrollamos y qué no | CORYN</title>
+<meta name="description" content="Páginas web, sistemas de gestión, aplicaciones móviles, tiendas online e integraciones. Con el alcance, los plazos y los límites de cada uno.">
+<link rel="icon" href="assets/mark.webp" type="image/webp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Servicios — Qué desarrollamos y qué no | CORYN">
+<meta property="og:description" content="Páginas web, sistemas de gestión, aplicaciones móviles, tiendas online e integraciones. Con el alcance, los plazos y los límites de cada uno.">
+<meta property="og:image" content="https://coryndev.com/assets/banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles-v2.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-rv');
+  }
+</script>
 </head>
-<body data-page="servicios">
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="logo-container">
-                <div class="logo-circle">
-                    <img src="logo_coryn_final.png" alt="CORYN" class="logo">
-                </div>
-                <span class="logo-text">Coryn</span>
-            </a>
+<body>
 
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="servicios.html" class="nav-link active">Servicios</a>
-                <a href="productos.html" class="nav-link">Productos</a>
-                <a href="proceso.html" class="nav-link">Proceso</a>
-                <a href="por-que-coryn.html" class="nav-link">Nosotros</a>
-            </div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/mark.webp" alt="" width="28" height="26">
+      <span>CORYN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+        <a href="servicios.html" class="activa">Servicios</a>
+        <a href="index.html#casos">Casos</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="productos.html">Producto</a>
+        <a href="nosotros.html">Nosotros</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-            <a href="contacto.html" class="cta-button-nav">
-                <span>Contáctanos</span>
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </nav>
-    </header>
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Servicios</p>
+    <h1>Lo que hacemos, dicho en concreto</h1>
+    <p>Seis servicios, con lo que incluye cada uno, lo que no incluye y cuánto suele demorar. Sin letra chica.</p>
+  </div>
+</section>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <div class="page-banner-content">
-            <div class="hero-eyebrow">
-                <span class="eyebrow-line"></span>
-                <span class="eyebrow-text">Nuestros Servicios</span>
-                <span class="eyebrow-line"></span>
-            </div>
-            <h1 class="page-title">Soluciones Tecnológicas a tu Medida</h1>
-            <p class="page-subtitle">Desarrollamos cada proyecto desde cero, adaptándonos a tus necesidades específicas. Sin plantillas, sin límites.</p>
-        </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
-                    </div>
-                    <h3>Páginas Web Personalizadas</h3>
-                    <p>Diseñamos y desarrollamos sitios web únicos que reflejan la identidad de tu marca y convierten visitantes en clientes.</p>
-                    <ul class="service-features">
-                        <li>Diseño responsive</li>
-                        <li>SEO optimizado</li>
-                        <li>Velocidad ultra rápida</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                        </svg>
-                    </div>
-                    <h3>Aplicaciones Móviles</h3>
-                    <p>Apps nativas y multiplataforma que funcionan perfectamente en iOS y Android, diseñadas para tu negocio.</p>
-                    <ul class="service-features">
-                        <li>iOS y Android</li>
-                        <li>Offline-first</li>
-                        <li>Push notifications</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                            <path d="M2 17l10 5 10-5"></path>
-                            <path d="M2 12l10 5 10-5"></path>
-                        </svg>
-                    </div>
-                    <h3>Progressive Web Apps (PWA)</h3>
-                    <p>Lo mejor de ambos mundos: apps web que funcionan como nativas, con instalación y trabajo offline.</p>
-                    <ul class="service-features">
-                        <li>Instalable</li>
-                        <li>Funciona offline</li>
-                        <li>Actualizaciones automáticas</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="1" x2="12" y2="23"></line>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </div>
-                    <h3>Sistemas ERP/CRM</h3>
-                    <p>Gestiona tu negocio con sistemas integrados diseñados específicamente para tus procesos y flujos de trabajo.</p>
-                    <ul class="service-features">
-                        <li>100% personalizado</li>
-                        <li>Automatización</li>
-                        <li>Reportes en tiempo real</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>E-Commerce Personalizado</h3>
-                    <p>Tiendas online robustas con pasarelas de pago, gestión de inventario y experiencia de compra optimizada.</p>
-                    <ul class="service-features">
-                        <li>Pagos seguros</li>
-                        <li>Gestión de inventario</li>
-                        <li>Analytics integrado</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </div>
-                    <h3>APIs & Integraciones</h3>
-                    <p>Conectamos tus sistemas con APIs REST, integraciones de terceros y automatizaciones personalizadas.</p>
-                    <ul class="service-features">
-                        <li>RESTful APIs</li>
-                        <li>Webhooks</li>
-                        <li>Integraciones cloud</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="cta-banner">
-        <div class="cta-banner-content">
-            <h2>¿Listo para hacer crecer tu negocio?</h2>
-            <p>Cuéntanos sobre tu proyecto y diseñemos juntos la solución perfecta para ti.</p>
-            <a href="contacto.html" class="hero-btn-primary">
-                <span>Iniciar Proyecto</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Floating Mascot (video with alpha) -->
-    <div class="mascot" id="mascot" aria-hidden="true" role="button" tabindex="0" aria-label="Abrir chat de Coryn">
-        <div class="mascot-bubble">¡Hola! 👋</div>
-        <video class="mascot-video" autoplay loop muted playsinline preload="auto">
-            <source src="mascot.webm?v=3" type="video/webm">
-            <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-            <source src="mascot.mp4?v=3" type="video/mp4">
-        </video>
+<section>
+  <div class="wrap">
+    <div class="sec-head rv" style="max-width:64ch">
+      <p class="eyebrow">Alcance</p>
+      <h2>Qué incluye cada servicio, y qué no</h2>
+      <p>Preferimos decirlo antes que después. Si algo que necesitas no está acá,
+      pregúntanos igual: a veces lo hacemos y a veces te recomendamos a alguien
+      que lo hace mejor.</p>
     </div>
 
-    <!-- Chat Modal -->
-    <div class="chat-modal" id="chatModal" aria-hidden="true" role="dialog" aria-labelledby="chatTitle">
-        <div class="chat-backdrop" data-close></div>
-        <div class="chat-panel">
-            <div class="chat-header">
-                <div class="chat-avatar">
-                    <video autoplay loop muted playsinline>
-                        <source src="mascot.webm?v=3" type="video/webm">
-                        <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-                    </video>
-                </div>
-                <div class="chat-header-text">
-                    <h4 id="chatTitle">Coryn Bot</h4>
-                    <span class="chat-status"><span class="chat-status-dot"></span>En línea</span>
-                </div>
-                <button class="chat-close" data-close aria-label="Cerrar chat">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="chat-body" id="chatBody">
-                <div class="chat-message bot" id="chatWelcome">
-                    <p>¡Hola! Soy el asistente de <strong>CORYN</strong> 👋</p>
-                    <p>¿En qué puedo ayudarte hoy?</p>
-                </div>
-
-                <div class="chat-quick-actions">
-                    <button class="chat-quick" data-action="meeting">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        <span>Agendar reunión</span>
-                    </button>
-                    <button class="chat-quick" data-action="services">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>Ver nuestros servicios</span>
-                    </button>
-                    <button class="chat-quick" data-action="whatsapp">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.5 14.38c-.28-.14-1.65-.81-1.9-.9-.26-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.64-1.54-1.91-.16-.27-.02-.42.12-.56.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.05-.34-.02-.48-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48-.16-.01-.34-.01-.53-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.12 2.81.14.18 1.93 2.95 4.68 4.14.65.28 1.17.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.34-.07-.12-.25-.18-.53-.32z"/>
-                            <path d="M12 2a10 10 0 0 0-8.7 14.88L2 22l5.25-1.38A10 10 0 1 0 12 2zm0 18.4a8.4 8.4 0 0 1-4.28-1.17l-.31-.18-3.18.83.85-3.1-.2-.32A8.4 8.4 0 1 1 12 20.4z"/>
-                        </svg>
-                        <span>Enviar WhatsApp</span>
-                    </button>
-                </div>
-            </div>
-
-            <form class="chat-form" id="chatForm">
-                <input type="text" name="chat-name" placeholder="Tu nombre" required>
-                <input type="email" name="chat-email" placeholder="Tu email" required>
-                <textarea name="chat-message" placeholder="Cuéntanos tu idea..." rows="2" required></textarea>
-                <button type="submit" class="chat-send">
-                    <span>Enviar</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                    </svg>
-                </button>
-            </form>
+    <div class="servicio rv">
+      <div class="cara">
+        <img src="assets/ic-web.webp" alt="" width="64" height="64" loading="lazy">
+        <div>
+          <h2>Páginas web</h2>
+          <p class="resumen">Sitios corporativos, catálogos y páginas de captación.
+          Rápidos, adaptados a celular y pensados para que el visitante haga algo.</p>
         </div>
+      </div>
+      <div>
+        <div class="detalle">
+          <div class="incluye">
+            <h3>Incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Diseño propio, no una plantilla comprada</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Adaptación a celular, tablet y escritorio</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Optimización para buscadores y velocidad de carga</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Formularios de contacto conectados a tu correo</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Publicación, dominio y certificado de seguridad</li>
+            </ul>
+          </div>
+          <div class="fuera">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Redacción de todos los textos: los trabajamos juntos</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Sesión de fotos profesional</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Campañas de publicidad pagada</li>
+            </ul>
+          </div>
+        </div>
+        <p class="plazo"><b>Plazo típico:</b> entre 3 y 6 semanas, según cuántas
+        secciones tenga y qué tan lista esté la información.</p>
+      </div>
     </div>
 
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CORYN. Software 100% Personalizado.</p>
+    <div class="servicio rv">
+      <div class="cara">
+        <img src="assets/ic-erp.webp" alt="" width="64" height="64" loading="lazy">
+        <div>
+          <h2>Sistemas de gestión (ERP / CRM)</h2>
+          <p class="resumen">El servicio más grande que hacemos. Un sistema que
+          reemplaza las planillas y ordena la operación completa en un solo lugar.</p>
         </div>
-    </footer>
+      </div>
+      <div>
+        <div class="detalle">
+          <div class="incluye">
+            <h3>Incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Levantamiento de tus procesos reales, no de un manual</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Módulos a medida: inventario, ventas, clientes, cobros</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Usuarios con permisos según el rol de cada persona</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Panel con los indicadores que tú decides mirar</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Alertas automáticas y reportes exportables</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Capacitación al equipo y acompañamiento en la marcha blanca</li>
+            </ul>
+          </div>
+          <div class="fuera">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Migración de datos históricos sucios sin revisión previa</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Certificación de facturación electrónica ante el SII</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Hardware, lectores o equipos de punto de venta</li>
+            </ul>
+          </div>
+        </div>
+        <p class="plazo"><b>Plazo típico:</b> de 3 a 6 meses. Entregamos por etapas,
+        así el primer módulo entra en uso mucho antes de que el sistema esté completo.</p>
+      </div>
+    </div>
 
-    <script src="script.js?v=9"></script>
+    <div class="servicio rv">
+      <div class="cara">
+        <img src="assets/ic-movil.webp" alt="" width="64" height="64" loading="lazy">
+        <div>
+          <h2>Aplicaciones móviles</h2>
+          <p class="resumen">Aplicaciones para iOS y Android, publicadas en las tiendas
+          o distribuidas internamente a tu equipo.</p>
+        </div>
+      </div>
+      <div>
+        <div class="detalle">
+          <div class="incluye">
+            <h3>Incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Una sola base de código para iOS y Android</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Funcionamiento sin conexión y sincronización al recuperarla</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Notificaciones push</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Uso de cámara, ubicación y sensores del teléfono</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Publicación en App Store y Google Play</li>
+            </ul>
+          </div>
+          <div class="fuera">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Las cuentas de desarrollador de Apple y Google, que van a tu nombre</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Promoción o posicionamiento dentro de las tiendas</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Desarrollo nativo separado por plataforma, salvo que el proyecto lo exija</li>
+            </ul>
+          </div>
+        </div>
+        <p class="plazo"><b>Plazo típico:</b> de 2 a 4 meses hasta publicar, más el
+        tiempo de revisión de cada tienda, que no controlamos.</p>
+      </div>
+    </div>
+
+    <div class="servicio rv">
+      <div class="cara">
+        <img src="assets/ic-tienda.webp" alt="" width="64" height="64" loading="lazy">
+        <div>
+          <h2>Tiendas online</h2>
+          <p class="resumen">Comercio electrónico cuando una plataforma estándar
+          no alcanza: catálogos complejos, precios por cliente o reglas propias de despacho.</p>
+        </div>
+      </div>
+      <div>
+        <div class="detalle">
+          <div class="incluye">
+            <h3>Incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Catálogo con variantes, categorías y buscador</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Pasarela de pago integrada</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Control de inventario y estados de pedido</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Panel de administración para tu equipo</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Correos automáticos de confirmación y despacho</li>
+            </ul>
+          </div>
+          <div class="fuera">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Convenios con la pasarela de pago: los firmas tú</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Logística, bodega o despacho</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Fotografía y descripción de cada producto</li>
+            </ul>
+          </div>
+        </div>
+        <p class="plazo"><b>Plazo típico:</b> de 6 a 12 semanas. Si tu catálogo es
+        simple, muchas veces te conviene más una plataforma estándar, y te lo diremos.</p>
+      </div>
+    </div>
+
+    <div class="servicio rv">
+      <div class="cara">
+        <img src="assets/ic-integra.webp" alt="" width="64" height="64" loading="lazy">
+        <div>
+          <h2>Integraciones y automatizaciones</h2>
+          <p class="resumen">Conectar sistemas que hoy no se hablan, para eliminar
+          el trabajo de copiar datos de un lado a otro.</p>
+        </div>
+      </div>
+      <div>
+        <div class="detalle">
+          <div class="incluye">
+            <h3>Incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Conexión con servicios que ya usas</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Traspaso automático de datos entre sistemas</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Procesos programados: reportes, respaldos, avisos</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Registro de errores para saber cuándo algo falló</li>
+            </ul>
+          </div>
+          <div class="fuera">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Licencias o planes de los servicios que se integran</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Soporte del sistema de terceros cuando el problema es de ellos</li>
+            </ul>
+          </div>
+        </div>
+        <p class="plazo"><b>Plazo típico:</b> de 2 a 5 semanas por integración,
+        dependiendo de qué tan documentado esté el otro sistema.</p>
+      </div>
+    </div>
+
+    <div class="servicio rv">
+      <div class="cara">
+        <img src="assets/ic-soporte.webp" alt="" width="64" height="64" loading="lazy">
+        <div>
+          <h2>Soporte y mejoras</h2>
+          <p class="resumen">El plan mensual. Opcional, pero es lo que separa un
+          sistema que sigue sirviendo de uno que quedó congelado el día de la entrega.</p>
+        </div>
+      </div>
+      <div>
+        <div class="detalle">
+          <div class="incluye">
+            <h3>Incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Atención con prioridad ante fallas</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Mantención, respaldos y actualizaciones de seguridad</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ajustes y mejoras pequeñas cada mes</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Monitoreo para enterarnos antes que tú</li>
+            </ul>
+          </div>
+          <div class="fuera">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Funcionalidades grandes nuevas, que se cotizan aparte</li>
+              <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Soporte a software de terceros que no desarrollamos</li>
+            </ul>
+          </div>
+        </div>
+        <p class="plazo"><b>Cómo funciona:</b> se contrata mes a mes después de la
+        entrega. Puedes suspenderlo cuando quieras; el sistema sigue siendo tuyo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="close">
+  <div class="wrap">
+    <p class="eyebrow">Siguiente paso</p>
+    <h2>¿Cuál de estos se parece a tu problema?</h2>
+    <p>Si ninguno calza del todo, escríbenos igual. La mayoría de los proyectos empieza con alguien que no sabía en qué categoría entraba.</p>
+    <div class="actions">
+      <a class="btn btn-wa" href="https://wa.me/56933569725?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
+        +56 9 3356 9725
+      </a>
+      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
+    </div>
+    <div class="lines">
+      <a href="mailto:coryn.software@gmail.com">coryn.software@gmail.com</a>
+      <a href="https://coryndev.com">coryndev.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/mark.webp" alt="" width="28" height="26">
+          <span>CORYN</span>
+        </a>
+        <p>Software 100% personalizado para negocios que necesitan que la
+        herramienta calce con su forma de trabajar.</p>
+      </div>
+      <div>
+        <h4>Casos</h4>
+        <ul>
+          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-avenprop.html">AvenProp</a></li>
+          <li><a href="caso-precioradar.html">PrecioRadar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proceso.html">Proceso</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
+      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fondo de la barra al desplazar
+  var nav = document.getElementById('nav');
+  if (!nav.classList.contains('solid-fija')) {
+    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Menu de celular
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function () {
+    var abierto = document.body.classList.toggle('menu-abierto');
+    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.focus();
+    }
+  });
+
+  // Aparicion progresiva, con red de seguridad si el observer no dispara
+  (function () {
+    if (!document.documentElement.classList.contains('js-rv')) return;
+    var els = document.querySelectorAll('.rv');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      io.observe(el);
+    });
+    setTimeout(function () {
+      els.forEach(function (el) { el.classList.add('in'); });
+      io.disconnect();
+    }, 2000);
+  })();
+</script>
+
 </body>
 </html>

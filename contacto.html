@@ -1,277 +1,344 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - CORYN</title>
-    <link rel="stylesheet" href="styles.css?v=44">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Conversemos sobre tu proyecto | CORYN</title>
+<meta name="description" content="Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo, respuesta en menos de 24 horas.">
+<link rel="icon" href="assets/mark.webp" type="image/webp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contacto — Conversemos sobre tu proyecto | CORYN">
+<meta property="og:description" content="Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo, respuesta en menos de 24 horas.">
+<meta property="og:image" content="https://coryndev.com/assets/banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles-v2.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-rv');
+  }
+</script>
 </head>
-<body data-page="contacto">
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="logo-container">
-                <div class="logo-circle">
-                    <img src="logo_coryn_final.png" alt="CORYN" class="logo">
-                </div>
-                <span class="logo-text">Coryn</span>
-            </a>
+<body>
 
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="servicios.html" class="nav-link">Servicios</a>
-                <a href="productos.html" class="nav-link">Productos</a>
-                <a href="proceso.html" class="nav-link">Proceso</a>
-                <a href="por-que-coryn.html" class="nav-link">Nosotros</a>
-            </div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/mark.webp" alt="" width="28" height="26">
+      <span>CORYN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+        <a href="servicios.html">Servicios</a>
+        <a href="index.html#casos">Casos</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="productos.html">Producto</a>
+        <a href="nosotros.html">Nosotros</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-            <a href="contacto.html" class="cta-button-nav active">
-                <span>Contáctanos</span>
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </nav>
-    </header>
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Contacto</p>
+    <h1>Conversemos sobre tu proyecto</h1>
+    <p>La primera reunión es sin costo y sin compromiso. Cuéntanos qué te está complicando y te decimos con honestidad qué se puede hacer.</p>
+  </div>
+</section>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <div class="page-banner-content">
-            <div class="hero-eyebrow">
-                <span class="eyebrow-line"></span>
-                <span class="eyebrow-text">Empecemos</span>
-                <span class="eyebrow-line"></span>
-            </div>
-            <h1 class="page-title">¿Listo para Transformar Tu Negocio?</h1>
-            <p class="page-subtitle">Cuéntanos sobre tu proyecto y agendemos una reunión. Respondemos en menos de 24 horas.</p>
+<section>
+  <div class="wrap contacto-grid">
+    <div>
+      <div class="sec-head rv" style="margin-bottom:24px; max-width:none">
+        <p class="eyebrow">Escríbenos</p>
+        <h2>Cuéntanos tu proyecto</h2>
+        <p>Mientras más concreto seas sobre qué te está complicando, más útil va a
+        ser la primera respuesta. No necesitas tener claro qué sistema quieres.</p>
+      </div>
+
+      <form class="form-v2" id="contactForm" novalidate>
+        <div class="campo">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Cómo te llamas">
         </div>
-    </section>
-
-    <!-- Pricing & Support -->
-    <section class="pricing-support" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">NUESTRO COMPROMISO</span>
-                <h2 class="section-title">Te Acompañamos en Cada Paso</h2>
-                <p class="section-description">No solo desarrollamos tu sistema, te acompañamos para que siempre funcione perfecto</p>
-            </div>
-
-            <div class="support-grid">
-                <div class="support-card highlight">
-                    <div class="support-icon-large">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                    </div>
-                    <h3>Inversión Inicial</h3>
-                    <p class="support-price">Desarrollo del Sistema</p>
-                    <ul class="support-features">
-                        <li>Reuniones de levantamiento</li>
-                        <li>Diseño a tu medida</li>
-                        <li>Demos constantes para validar</li>
-                        <li>Ajustes según tu feedback</li>
-                        <li>Entrega del sistema completo</li>
-                    </ul>
-                </div>
-
-                <div class="support-card highlight">
-                    <div class="support-icon-large">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Soporte Mensual</h3>
-                    <p class="support-price">Acompañamiento Continuo</p>
-                    <ul class="support-features">
-                        <li>Soporte técnico prioritario</li>
-                        <li>Mantenimiento del sistema</li>
-                        <li>Mejoras y actualizaciones</li>
-                        <li>Optimizaciones constantes</li>
-                        <li>Estamos siempre contigo</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="post-sale-emphasis">
-                <div class="emphasis-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                </div>
-                <div class="emphasis-content">
-                    <h3>La Post-Venta es Nuestra Prioridad</h3>
-                    <p>No te entregamos un sistema y desaparecemos. Trabajamos contigo mes a mes para que tu software evolucione con tu negocio. Juntos construimos una relación de largo plazo donde tu éxito es nuestro éxito.</p>
-                </div>
-            </div>
-
-            <div class="development-note">
-                <div class="note-icon">ℹ️</div>
-                <p><strong>¿Funcionalidades muy grandes después?</strong> Si necesitas agregar características complejas más adelante, se evalúa y cotiza por separado. Por eso es clave definir bien el alcance al inicio.</p>
-            </div>
+        <div class="campo">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="Dónde te respondemos">
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2 class="contact-title">Conversemos sobre tu Proyecto</h2>
-                    <p class="contact-subtitle">Cada proyecto es único. Queremos entender tu negocio antes de proponer una solución.</p>
-
-                    <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>coryn.software@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Tiempo de respuesta</h4>
-                                <p>24 horas o menos</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Primera reunión</h4>
-                                <p>Sin costo, sin compromiso</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Tu email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Tu teléfono">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button-primary">Enviar Mensaje</button>
-                </form>
-            </div>
+        <div class="campo">
+          <label for="phone">Teléfono <span style="text-transform:none; letter-spacing:0">(opcional)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Por si es más rápido llamarte">
         </div>
-    </section>
-
-    <!-- Floating Mascot (video with alpha) -->
-    <div class="mascot" id="mascot" aria-hidden="true" role="button" tabindex="0" aria-label="Abrir chat de Coryn">
-        <div class="mascot-bubble">¡Hola! 👋</div>
-        <video class="mascot-video" autoplay loop muted playsinline preload="auto">
-            <source src="mascot.webm?v=3" type="video/webm">
-            <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-            <source src="mascot.mp4?v=3" type="video/mp4">
-        </video>
+        <div class="campo">
+          <label for="message">Tu proyecto</label>
+          <textarea id="message" name="message" required rows="5" placeholder="Qué hace tu negocio, qué te está costando tiempo o dinero hoy, y qué te gustaría resolver."></textarea>
+        </div>
+        <p class="aviso" id="formAviso" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-solid">Enviar mensaje</button>
+      </form>
     </div>
 
-    <!-- Chat Modal -->
-    <div class="chat-modal" id="chatModal" aria-hidden="true" role="dialog" aria-labelledby="chatTitle">
-        <div class="chat-backdrop" data-close></div>
-        <div class="chat-panel">
-            <div class="chat-header">
-                <div class="chat-avatar">
-                    <video autoplay loop muted playsinline>
-                        <source src="mascot.webm?v=3" type="video/webm">
-                        <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-                    </video>
-                </div>
-                <div class="chat-header-text">
-                    <h4 id="chatTitle">Coryn Bot</h4>
-                    <span class="chat-status"><span class="chat-status-dot"></span>En línea</span>
-                </div>
-                <button class="chat-close" data-close aria-label="Cerrar chat">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="chat-body" id="chatBody">
-                <div class="chat-message bot" id="chatWelcome">
-                    <p>¡Hola! Soy el asistente de <strong>CORYN</strong> 👋</p>
-                    <p>¿En qué puedo ayudarte hoy?</p>
-                </div>
-
-                <div class="chat-quick-actions">
-                    <button class="chat-quick" data-action="meeting">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        <span>Agendar reunión</span>
-                    </button>
-                    <button class="chat-quick" data-action="services">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>Ver nuestros servicios</span>
-                    </button>
-                    <button class="chat-quick" data-action="whatsapp">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.5 14.38c-.28-.14-1.65-.81-1.9-.9-.26-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.64-1.54-1.91-.16-.27-.02-.42.12-.56.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.05-.34-.02-.48-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48-.16-.01-.34-.01-.53-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.12 2.81.14.18 1.93 2.95 4.68 4.14.65.28 1.17.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.34-.07-.12-.25-.18-.53-.32z"/>
-                            <path d="M12 2a10 10 0 0 0-8.7 14.88L2 22l5.25-1.38A10 10 0 1 0 12 2zm0 18.4a8.4 8.4 0 0 1-4.28-1.17l-.31-.18-3.18.83.85-3.1-.2-.32A8.4 8.4 0 1 1 12 20.4z"/>
-                        </svg>
-                        <span>Enviar WhatsApp</span>
-                    </button>
-                </div>
-            </div>
-
-            <form class="chat-form" id="chatForm">
-                <input type="text" name="chat-name" placeholder="Tu nombre" required>
-                <input type="email" name="chat-email" placeholder="Tu email" required>
-                <textarea name="chat-message" placeholder="Cuéntanos tu idea..." rows="2" required></textarea>
-                <button type="submit" class="chat-send">
-                    <span>Enviar</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                    </svg>
-                </button>
-            </form>
+    <div>
+      <div class="sec-head rv" style="margin-bottom:20px; max-width:none">
+        <p class="eyebrow">O directo</p>
+        <h2 style="font-size:24px">Otras formas de llegar</h2>
+      </div>
+      <div class="datos">
+        <a class="dato rv" href="https://wa.me/56933569725?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 1 1-3.4-6.8"/><path d="M3.5 20.5l1.4-4.1"/></svg></span>
+          <div>
+            <h3>WhatsApp</h3>
+            <p>+56 9 3356 9725 — la vía más rápida, respondemos el mismo día.</p>
+          </div>
+        </a>
+        <a class="dato rv" href="mailto:coryn.software@gmail.com">
+          <span class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6 9-6"/></svg></span>
+          <div>
+            <h3>Correo</h3>
+            <p>coryn.software@gmail.com</p>
+          </div>
+        </a>
+        <div class="dato rv">
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg></span>
+          <div>
+            <h3>Tiempo de respuesta</h3>
+            <p>Menos de 24 horas hábiles. Si es urgente, escribe por WhatsApp.</p>
+          </div>
         </div>
+        <div class="dato rv">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M15.5 20.2v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.4A3.4 3.4 0 0 0 3 18.6v1.6"/><circle cx="9.2" cy="7.6" r="3.4"/><path d="M21 20.2v-1.6a3.4 3.4 0 0 0-2.6-3.3"/></svg></span>
+          <div>
+            <h3>La primera reunión</h3>
+            <p>Media hora, sin costo y sin compromiso. Por videollamada o
+            presencial en Santiago.</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CORYN. Software 100% Personalizado.</p>
+<section class="proceso" style="padding-top:56px; padding-bottom:60px">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head rv" style="max-width:60ch">
+      <p class="eyebrow">Antes de escribir</p>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>¿Cuánto cuesta un proyecto?</summary>
+        <div class="resp">
+          <p>Depende del alcance, por eso no manejamos lista de precios cerrada. Lo
+          que mueve el valor es cuántos procesos tiene que cubrir el sistema, no
+          cuántas pantallas tenga.</p>
+          <p>En la primera conversación te damos un rango. La cotización formal, con
+          el detalle de qué incluye, sale después de definir el alcance por escrito
+          en la etapa 2.</p>
         </div>
-    </footer>
+      </details>
+      <details>
+        <summary>¿Cuánto se demora?</summary>
+        <div class="resp">
+          <p>Una página web suele tomar entre 3 y 6 semanas. Una aplicación móvil,
+          de 2 a 4 meses. Un sistema de gestión completo, de 3 a 6 meses.</p>
+          <p>En proyectos largos entregamos por etapas, así el primer módulo entra
+          en uso mucho antes de que esté todo terminado.</p>
+        </div>
+      </details>
+      <details>
+        <summary>No tengo claro qué necesito. ¿Sirve igual conversar?</summary>
+        <div class="resp">
+          <p>Es el caso más común, y es un buen punto de partida. Casi nadie llega
+          con el sistema definido; llegan con un problema.</p>
+          <p>En la primera reunión ordenamos la idea y proponemos el camino más
+          simple que lo resuelva. Muchas veces resulta ser bastante más chico de lo
+          que el cliente imaginaba.</p>
+        </div>
+      </details>
+      <details>
+        <summary>¿Qué pasa si necesito cambios después de la entrega?</summary>
+        <div class="resp">
+          <p>Los ajustes y mejoras pequeñas entran en el plan mensual de soporte.
+          Las funcionalidades grandes se evalúan y cotizan aparte: por eso importa
+          definir bien el alcance al principio.</p>
+        </div>
+      </details>
+      <details>
+        <summary>¿El sistema queda a mi nombre?</summary>
+        <div class="resp">
+          <p>Sí. Terminado el proyecto, el código y los datos son tuyos. Si en algún
+          momento quieres continuar con otro equipo, puedes hacerlo sin pedirnos
+          permiso ni pagar rescate por tu propia información.</p>
+        </div>
+      </details>
+      <details>
+        <summary>¿Trabajan con empresas fuera de Santiago?</summary>
+        <div class="resp">
+          <p>Sí. Buena parte del trabajo es remoto, y las reuniones de levantamiento
+          se hacen por videollamada sin problema. Si el proyecto lo amerita,
+          coordinamos visitas presenciales.</p>
+        </div>
+      </details>
+      <details>
+        <summary>¿Y si mi problema no requiere desarrollo a medida?</summary>
+        <div class="resp">
+          <p>Te lo vamos a decir. Si existe una herramienta estándar que resuelve tu
+          caso a un costo mucho menor, esa es la recomendación honesta, aunque
+          signifique que no nos contrates.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js?v=9"></script>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/mark.webp" alt="" width="28" height="26">
+          <span>CORYN</span>
+        </a>
+        <p>Software 100% personalizado para negocios que necesitan que la
+        herramienta calce con su forma de trabajar.</p>
+      </div>
+      <div>
+        <h4>Casos</h4>
+        <ul>
+          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-avenprop.html">AvenProp</a></li>
+          <li><a href="caso-precioradar.html">PrecioRadar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proceso.html">Proceso</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
+      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fondo de la barra al desplazar
+  var nav = document.getElementById('nav');
+  if (!nav.classList.contains('solid-fija')) {
+    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Menu de celular
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function () {
+    var abierto = document.body.classList.toggle('menu-abierto');
+    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.focus();
+    }
+  });
+
+  // Aparicion progresiva, con red de seguridad si el observer no dispara
+  (function () {
+    if (!document.documentElement.classList.contains('js-rv')) return;
+    var els = document.querySelectorAll('.rv');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      io.observe(el);
+    });
+    setTimeout(function () {
+      els.forEach(function (el) { el.classList.add('in'); });
+      io.disconnect();
+    }, 2000);
+  })();
+</script>
+<script>
+  (function () {
+    var form = document.getElementById('contactForm');
+    var aviso = document.getElementById('formAviso');
+    if (!form) return;
+
+    var mostrar = function (tipo, texto) {
+      aviso.className = 'aviso ' + tipo;
+      aviso.textContent = texto;
+    };
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        mostrar('error', 'Revisa los campos obligatorios antes de enviar.');
+        form.reportValidity();
+        return;
+      }
+
+      var boton = form.querySelector('button[type="submit"]');
+      var textoOriginal = boton.textContent;
+      boton.disabled = true;
+      boton.textContent = 'Enviando...';
+      aviso.className = 'aviso';
+
+      try {
+        var resp = await fetch('https://coryn-backend-production.up.railway.app/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            phone: form.phone.value.trim(),
+            message: form.message.value.trim()
+          })
+        });
+        var data = await resp.json();
+        if (resp.ok && data.success) {
+          form.reset();
+          mostrar('ok', 'Listo, recibimos tu mensaje. Te respondemos en menos de 24 horas.');
+        } else {
+          throw new Error('respuesta no exitosa');
+        }
+      } catch (err) {
+        mostrar('error',
+          'No pudimos enviar el mensaje. Escríbenos por WhatsApp al +56 9 3356 9725 ' +
+          'o a coryn.software@gmail.com y lo resolvemos por ahí.');
+      } finally {
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+      }
+    });
+  })();
+</script>
 </body>
 </html>

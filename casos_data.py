@@ -21,7 +21,7 @@ CASOS = [
           'era que nadie afuera podía verlo.',
   'sitio': 'bysimmed.com',
   'sitio_url': 'https://www.bysimmed.com/es',
-  'figura': '../assets/work-bysimmed.webp',
+  'figura': 'assets/work-bysimmed.webp',
   'figura_alt': 'Portada del sitio de bySIMMED',
   'figura_pie': 'La portada abre con el producto en uso, no con una foto de stock: '
                 'es lo que un médico especialista necesita ver primero.',
@@ -68,7 +68,7 @@ CASOS = [
           'repartidos en portales que no controlaban.',
   'sitio': 'avenprop.cl',
   'sitio_url': 'https://avenprop.vercel.app/',
-  'figura': '../assets/work-avenprop.webp',
+  'figura': 'assets/work-avenprop.webp',
   'figura_alt': 'Portada del sitio de AvenProp con el buscador de propiedades',
   'figura_pie': 'El buscador va inmediatamente bajo la portada: quien llega buscando '
                 'casa no debería tener que navegar para empezar.',
@@ -110,8 +110,8 @@ CASOS = [
           'resolver algo cotidiano y, de paso, para tener dónde demostrar de qué '
           'somos capaces sin depender del permiso de un cliente.',
   'sitio': 'Ver ficha del producto',
-  'sitio_url': '../precioradar.html',
-  'figura': '../assets/app-buscar.webp',
+  'sitio_url': 'precioradar.html',
+  'figura': 'assets/app-buscar.webp',
   'figura_alt': 'Pantallas de la aplicación PrecioRadar',
   'figura_pie': 'Buscador por categorías y lector de boletas: las dos entradas '
                 'principales de la aplicación.',

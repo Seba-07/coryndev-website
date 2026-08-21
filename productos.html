@@ -1,211 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - CORYN</title>
-    <link rel="stylesheet" href="styles.css?v=44">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrecioRadar — Nuestro producto propio | CORYN</title>
+<meta name="description" content="PrecioRadar es la aplicación móvil que desarrollamos como producto propio: lectura automática de boletas y comparación de precios.">
+<link rel="icon" href="assets/mark.webp" type="image/webp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PrecioRadar — Nuestro producto propio | CORYN">
+<meta property="og:description" content="PrecioRadar es la aplicación móvil que desarrollamos como producto propio: lectura automática de boletas y comparación de precios.">
+<meta property="og:image" content="https://coryndev.com/assets/banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles-v2.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-rv');
+  }
+</script>
 </head>
-<body data-page="productos">
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="logo-container">
-                <div class="logo-circle">
-                    <img src="logo_coryn_final.png" alt="CORYN" class="logo">
-                </div>
-                <span class="logo-text">Coryn</span>
-            </a>
+<body>
 
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="servicios.html" class="nav-link">Servicios</a>
-                <a href="productos.html" class="nav-link active">Productos</a>
-                <a href="proceso.html" class="nav-link">Proceso</a>
-                <a href="por-que-coryn.html" class="nav-link">Nosotros</a>
-            </div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/mark.webp" alt="" width="28" height="26">
+      <span>CORYN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+        <a href="servicios.html">Servicios</a>
+        <a href="index.html#casos">Casos</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="productos.html" class="activa">Producto</a>
+        <a href="nosotros.html">Nosotros</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-            <a href="contacto.html" class="cta-button-nav">
-                <span>Contáctanos</span>
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </nav>
-    </header>
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Producto propio</p>
+    <h1>No solo desarrollamos para otros</h1>
+    <p>PrecioRadar es producto nuestro. Lo llevamos de la idea a las tiendas de aplicaciones, y todo lo que aprendimos ahí lo usamos en los proyectos de clientes.</p>
+  </div>
+</section>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <div class="page-banner-content">
-            <div class="hero-eyebrow">
-                <span class="eyebrow-line"></span>
-                <span class="eyebrow-text">Nuestros Productos</span>
-                <span class="eyebrow-line"></span>
-            </div>
-            <h1 class="page-title">Innovación Desarrollada In-House</h1>
-            <p class="page-subtitle">Soluciones propias que demuestran nuestra capacidad técnica y visión de producto.</p>
-        </div>
-    </section>
-
-    <!-- Products -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-card-glow"></div>
-                    <div class="product-card-content">
-                        <div class="product-badge">
-                            <span class="product-badge-dot"></span>
-                            <span>Nuevo Lanzamiento</span>
-                        </div>
-                        <div class="product-icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                                <path d="M2 17l10 5 10-5"></path>
-                                <path d="M2 12l10 5 10-5"></path>
-                            </svg>
-                        </div>
-                        <h3 class="product-title">PrecioRadar</h3>
-                        <p class="product-description">Una solución Full-Stack para el ahorro inteligente. Escaneo de boletas, comparación en tiempo real y gamificación para que ahorrar sea divertido.</p>
-                        <div class="product-tech-tags">
-                            <span class="tech-tag">Full-Stack</span>
-                            <span class="tech-tag">Mobile App</span>
-                            <span class="tech-tag">AI/OCR</span>
-                        </div>
-                        <a href="precioradar.html" class="product-cta">
-                            <span>Ver Proyecto</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="product-card-visual">
-                        <div class="product-phone-mockup">
-                            <img src="precioradar-hero.jpg" alt="PrecioRadar App - Pantalla principal">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coming Soon Placeholder -->
-            <div class="products-coming-soon">
-                <div class="coming-soon-card">
-                    <div class="coming-soon-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <h3>Próximamente</h3>
-                    <p>Nuevos productos en desarrollo. Trabajamos constantemente en soluciones que resuelven problemas reales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="cta-banner">
-        <div class="cta-banner-content">
-            <h2>¿Tienes una idea de producto?</h2>
-            <p>Conversemos sobre cómo podemos convertir tu visión en una realidad técnica.</p>
-            <a href="contacto.html" class="hero-btn-primary">
-                <span>Hablemos</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Floating Mascot (video with alpha) -->
-    <div class="mascot" id="mascot" aria-hidden="true" role="button" tabindex="0" aria-label="Abrir chat de Coryn">
-        <div class="mascot-bubble">¡Hola! 👋</div>
-        <video class="mascot-video" autoplay loop muted playsinline preload="auto">
-            <source src="mascot.webm?v=3" type="video/webm">
-            <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-            <source src="mascot.mp4?v=3" type="video/mp4">
-        </video>
+<section>
+  <div class="wrap">
+    <div class="sec-head rv" style="max-width:64ch">
+      <p class="eyebrow">Producto propio</p>
+      <h2>PrecioRadar</h2>
+      <p>La mayoría de los estudios muestra trabajo hecho para otros. Nosotros
+      además construimos producto propio, y eso cambia lo que podemos demostrar:
+      aquí tomamos todas las decisiones, incluidas las difíciles.</p>
     </div>
 
-    <!-- Chat Modal -->
-    <div class="chat-modal" id="chatModal" aria-hidden="true" role="dialog" aria-labelledby="chatTitle">
-        <div class="chat-backdrop" data-close></div>
-        <div class="chat-panel">
-            <div class="chat-header">
-                <div class="chat-avatar">
-                    <video autoplay loop muted playsinline>
-                        <source src="mascot.webm?v=3" type="video/webm">
-                        <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-                    </video>
-                </div>
-                <div class="chat-header-text">
-                    <h4 id="chatTitle">Coryn Bot</h4>
-                    <span class="chat-status"><span class="chat-status-dot"></span>En línea</span>
-                </div>
-                <button class="chat-close" data-close aria-label="Cerrar chat">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="chat-body" id="chatBody">
-                <div class="chat-message bot" id="chatWelcome">
-                    <p>¡Hola! Soy el asistente de <strong>CORYN</strong> 👋</p>
-                    <p>¿En qué puedo ayudarte hoy?</p>
-                </div>
-
-                <div class="chat-quick-actions">
-                    <button class="chat-quick" data-action="meeting">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        <span>Agendar reunión</span>
-                    </button>
-                    <button class="chat-quick" data-action="services">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>Ver nuestros servicios</span>
-                    </button>
-                    <button class="chat-quick" data-action="whatsapp">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.5 14.38c-.28-.14-1.65-.81-1.9-.9-.26-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.64-1.54-1.91-.16-.27-.02-.42.12-.56.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.05-.34-.02-.48-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48-.16-.01-.34-.01-.53-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.12 2.81.14.18 1.93 2.95 4.68 4.14.65.28 1.17.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.34-.07-.12-.25-.18-.53-.32z"/>
-                            <path d="M12 2a10 10 0 0 0-8.7 14.88L2 22l5.25-1.38A10 10 0 1 0 12 2zm0 18.4a8.4 8.4 0 0 1-4.28-1.17l-.31-.18-3.18.83.85-3.1-.2-.32A8.4 8.4 0 1 1 12 20.4z"/>
-                        </svg>
-                        <span>Enviar WhatsApp</span>
-                    </button>
-                </div>
-            </div>
-
-            <form class="chat-form" id="chatForm">
-                <input type="text" name="chat-name" placeholder="Tu nombre" required>
-                <input type="email" name="chat-email" placeholder="Tu email" required>
-                <textarea name="chat-message" placeholder="Cuéntanos tu idea..." rows="2" required></textarea>
-                <button type="submit" class="chat-send">
-                    <span>Enviar</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                    </svg>
-                </button>
-            </form>
+    <div class="work rv">
+      <div class="shot">
+        <div class="pair">
+          <div class="phone"><img src="assets/app-buscar.webp" alt="PrecioRadar: buscador por categorías" width="520" height="1035" loading="lazy"></div>
+          <div class="phone"><img src="assets/app-boleta.webp" alt="PrecioRadar: lector de boletas" width="520" height="1035" loading="lazy"></div>
         </div>
+      </div>
+      <div>
+        <p class="tag">Aplicación móvil &middot; iOS y Android</p>
+        <h3>Ahorrar sin tener que anotar nada</h3>
+        <p>Fotografías la boleta y la aplicación registra lo que compraste. Con eso
+        compara precios entre supermercados, arma tus listas y te muestra en qué se
+        te fue el mes.</p>
+        <div class="meta">
+          <span>Lectura de boletas</span><span>Comparación de precios</span>
+          <span>Control de gasto</span><span>Listas</span>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px">
+          <a class="btn btn-solid" href="caso-precioradar.html">Ver cómo lo construimos</a>
+          <a class="btn btn-ghost" href="precioradar.html" style="border-color:var(--line); color:var(--ink)">Ficha del producto</a>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="proceso" style="padding-top:56px; padding-bottom:56px">
+  <div class="wrap">
+    <div class="sec-head rv" style="max-width:64ch">
+      <p class="eyebrow">Por qué lo hacemos</p>
+      <h2>Qué gana un cliente con que tengamos producto propio</h2>
+    </div>
+    <div class="sectores">
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 5.5h3M12 18.3v.01"/></svg></span>
+        <h3>Publicar en las tiendas ya lo hicimos</h3>
+        <p>Las reglas de App Store y Google Play, los rechazos y los tiempos de
+        revisión los conocemos por haberlos pasado, no por leerlos.</p>
+      </div>
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3.2 20 7v6c0 4.2-3.3 7-8 7.8C7.3 20 4 17.2 4 13V7z"/><path d="m9.2 12.2 2 2 3.6-4"/></svg></span>
+        <h3>Sabemos qué se abandona</h3>
+        <p>Con producto propio uno ve dónde la gente deja de usar la aplicación.
+        Esas lecciones se aplican después en los proyectos de clientes.</p>
+      </div>
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2 10.5h10L20 7.5H6"/><circle cx="9.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span>
+        <h3>Podemos mostrarlo entero</h3>
+        <p>De un proyecto de cliente hay cosas que no podemos enseñar. De este sí:
+        descárgalo y pruébalo tú mismo.</p>
+      </div>
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M9.5 4.5 6 8l3.5 3.5M14.5 12.5 18 16l-3.5 3.5M13.5 3.5l-3 17"/></svg></span>
+        <h3>Nos obliga a mantener</h3>
+        <p>Un producto vivo hay que actualizarlo todos los meses. Es la misma
+        disciplina que aplicamos al plan de soporte de nuestros clientes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head rv" style="max-width:60ch">
+      <p class="eyebrow">En desarrollo</p>
+      <h2>¿Tienes una idea de producto?</h2>
+      <p>Si lo que tienes no es un encargo sino una idea que quieres convertir en
+      producto, es exactamente el camino que ya recorrimos con PrecioRadar.
+      Conversemos sin compromiso.</p>
+    </div>
+  </div>
+</section>
 
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CORYN. Software 100% Personalizado.</p>
-        </div>
-    </footer>
+<section class="close">
+  <div class="wrap">
+    <p class="eyebrow">Siguiente paso</p>
+    <h2>¿Tienes una idea de producto?</h2>
+    <p>Convertir una idea en un producto publicado es un camino que ya recorrimos completo. Conversemos sobre el tuyo.</p>
+    <div class="actions">
+      <a class="btn btn-wa" href="https://wa.me/56933569725?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
+        +56 9 3356 9725
+      </a>
+      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
+    </div>
+    <div class="lines">
+      <a href="mailto:coryn.software@gmail.com">coryn.software@gmail.com</a>
+      <a href="https://coryndev.com">coryndev.com</a>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js?v=9"></script>
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/mark.webp" alt="" width="28" height="26">
+          <span>CORYN</span>
+        </a>
+        <p>Software 100% personalizado para negocios que necesitan que la
+        herramienta calce con su forma de trabajar.</p>
+      </div>
+      <div>
+        <h4>Casos</h4>
+        <ul>
+          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-avenprop.html">AvenProp</a></li>
+          <li><a href="caso-precioradar.html">PrecioRadar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proceso.html">Proceso</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
+      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fondo de la barra al desplazar
+  var nav = document.getElementById('nav');
+  if (!nav.classList.contains('solid-fija')) {
+    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Menu de celular
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function () {
+    var abierto = document.body.classList.toggle('menu-abierto');
+    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.focus();
+    }
+  });
+
+  // Aparicion progresiva, con red de seguridad si el observer no dispara
+  (function () {
+    if (!document.documentElement.classList.contains('js-rv')) return;
+    var els = document.querySelectorAll('.rv');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      io.observe(el);
+    });
+    setTimeout(function () {
+      els.forEach(function (el) { el.classList.add('in'); });
+      io.disconnect();
+    }, 2000);
+  })();
+</script>
+
 </body>
 </html>

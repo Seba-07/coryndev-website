@@ -1,579 +1,389 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORYN - Software 100% Personalizado</title>
-    <link rel="stylesheet" href="styles.css?v=44">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CORYN — Software a medida para empresas en Chile</title>
+<meta name="description" content="Desarrollamos sistemas de gestión, aplicaciones móviles y sitios web a medida. Experiencia en salud, aviación, inmobiliario y retail. Primera reunión sin costo.">
+<link rel="icon" href="assets/mark.webp" type="image/webp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CORYN — Software a medida para empresas en Chile">
+<meta property="og:description" content="Desarrollamos sistemas de gestión, aplicaciones móviles y sitios web a medida. Experiencia en salud, aviación, inmobiliario y retail. Primera reunión sin costo.">
+<meta property="og:image" content="https://coryndev.com/assets/banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles-v2.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-rv');
+  }
+</script>
 </head>
-<body data-page="home">
-    <!-- Floating Elements -->
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/mark.webp" alt="" width="28" height="26">
+      <span>CORYN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+        <a href="servicios.html">Servicios</a>
+        <a href="index.html#casos">Casos</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="productos.html">Producto</a>
+        <a href="nosotros.html">Nosotros</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PORTADA ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Desarrollo de software a medida &middot; Chile</p>
+      <h1>Que el software se adapte a tu negocio, <em>y no al revés</em>.</h1>
+      <p class="lead">
+        Construimos sistemas de gestión, aplicaciones y sitios web desde cero.
+        Hemos trabajado en <strong>salud, aviación, inmobiliario y retail</strong>,
+        y en cada uno el software salió de la operación real, no de un catálogo.
+      </p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#casos">Ver casos reales</a>
+        <a class="btn btn-ghost" href="#cotizar">Cómo cotizamos</a>
+      </div>
+      <div class="facts">
+        <span>4 industrias</span>
+        <span>Primera reunión sin costo</span>
+        <span>Respuesta en menos de 24 horas</span>
+      </div>
     </div>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="logo-container">
-                <div class="logo-circle">
-                    <img src="logo_coryn_final.png" alt="CORYN" class="logo">
-                </div>
-                <span class="logo-text">Coryn</span>
-            </a>
-
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link active">Inicio</a>
-                <a href="servicios.html" class="nav-link">Servicios</a>
-                <a href="productos.html" class="nav-link">Productos</a>
-                <a href="proceso.html" class="nav-link">Proceso</a>
-                <a href="por-que-coryn.html" class="nav-link">Nosotros</a>
-            </div>
-
-            <a href="contacto.html" class="cta-button-nav">
-                <span>Contáctanos</span>
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <!-- Ambient effects: glows + particles over the bg image -->
-        <div class="hero-ambient" aria-hidden="true">
-            <div class="ambient-glow glow-1"></div>
-            <div class="ambient-glow glow-2"></div>
-            <div class="ambient-glow glow-3"></div>
-            <span class="ambient-particle p1"></span>
-            <span class="ambient-particle p2"></span>
-            <span class="ambient-particle p3"></span>
-            <span class="ambient-particle p4"></span>
-            <span class="ambient-particle p5"></span>
-            <span class="ambient-particle p6"></span>
-            <span class="ambient-particle p7"></span>
-            <span class="ambient-particle p8"></span>
-        </div>
-
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text-block">
-                    <div class="hero-eyebrow">
-                        <span class="eyebrow-line"></span>
-                        <span class="eyebrow-text">Desarrollo Premium</span>
-                        <span class="eyebrow-line"></span>
-                    </div>
-
-                    <h1 class="hero-title">
-                        <span class="title-line">Software Hecho a tu Medida,</span>
-                        <span class="title-line"><span class="gradient-text">Sin Plantillas</span> que</span>
-                        <span class="title-line">Limiten tu Crecimiento</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        Creamos aplicaciones 100% personalizadas que se adaptan a tu forma de trabajar.
-                        Sin plantillas, sin limitaciones, solo soluciones diseñadas para ti.
-                    </p>
-
-                    <div class="hero-divider">
-                        <span class="divider-line"></span>
-                        <span class="divider-dot"></span>
-                        <span class="divider-line"></span>
-                    </div>
-                </div>
-
-                <div class="hero-cta-wrapper">
-                    <a href="contacto.html" class="hero-btn-primary">
-                        <span>Iniciar Proyecto</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="proceso.html" class="hero-btn-secondary">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                            <path d="M10 2v2m0 12v2M18 10h-2M4 10H2m13.66-5.66l-1.42 1.42M7.76 12.24l-1.42 1.42m11.32 0l-1.42-1.42M7.76 7.76L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span>Ver Nuestro Proceso</span>
-                    </a>
-                </div>
-
-                <!-- Spacer for laptop area (image is background) -->
-                <div class="hero-laptop-space" aria-hidden="true"></div>
-
-                <!-- Feature Cards -->
-                <div class="hero-features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                                <polyline points="8 10 10 12 8 14"/>
-                                <line x1="13" y1="14" x2="16" y2="14"/>
-                            </svg>
-                        </div>
-                        <h3>100% Personalizado</h3>
-                        <span class="card-line"></span>
-                        <span class="card-dots"><i></i><i></i><i></i></span>
-                    </div>
-
-                    <div class="feature-card featured">
-                        <div class="feature-icon">
-                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                                <polyline points="17 6 23 6 23 12"/>
-                            </svg>
-                        </div>
-                        <h3>Soporte Continuo</h3>
-                        <span class="card-line"></span>
-                        <span class="card-dots"><i></i><i></i><i></i></span>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <h3>Diseñamos Juntos</h3>
-                        <span class="card-line"></span>
-                        <span class="card-dots"><i></i><i></i><i></i></span>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                            </svg>
-                        </div>
-                        <h3>Desarrollo Premium</h3>
-                        <span class="card-line"></span>
-                        <span class="card-dots"><i></i><i></i><i></i></span>
-                    </div>
-                </div>
-
-                <!-- Stats -->
-                <div class="hero-stats-row">
-                    <div class="stat-item">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">Personalizado</div>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-value">∞</div>
-                        <div class="stat-label">Posibilidades</div>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Soporte</div>
-                    </div>
-                </div>
-
-                <!-- Bottom Tags -->
-                <div class="hero-tags">
-                    <span class="hero-tag">Personalizado</span>
-                    <span class="hero-tag-sep">|</span>
-                    <span class="hero-tag">Escalable</span>
-                    <span class="hero-tag-sep">|</span>
-                    <span class="hero-tag">Seguro</span>
-                    <span class="hero-tag-sep">|</span>
-                    <span class="hero-tag">Soporte Continuo</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Preview (minimal, icon + text horizontal) -->
-    <section class="services services-horizontal-home" id="services">
-        <div class="container">
-            <div class="services-grid horizontal">
-                <a href="servicios.html" class="service-card horizontal">
-                    <div class="service-icon-illustrated">
-                        <img src="icon-web.png?v=2" alt="Páginas Web Personalizadas">
-                    </div>
-                    <div class="service-card-text">
-                        <h3>Páginas Web Personalizadas</h3>
-                        <p>Sitios modernos y de alto rendimiento</p>
-                    </div>
-                </a>
-
-                <a href="servicios.html" class="service-card horizontal">
-                    <div class="service-icon-illustrated">
-                        <img src="icon-mobile.png" alt="Aplicaciones Móviles">
-                    </div>
-                    <div class="service-card-text">
-                        <h3>Aplicaciones Móviles</h3>
-                        <p>Apps nativas para iOS y Android</p>
-                    </div>
-                </a>
-
-                <a href="servicios.html" class="service-card horizontal">
-                    <div class="service-icon-illustrated">
-                        <img src="icon-erp.png" alt="Sistemas ERP/CRM">
-                    </div>
-                    <div class="service-card-text">
-                        <h3>Sistemas ERP/CRM</h3>
-                        <p>Gestión integrada a tu medida</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nuestros Proyectos -->
-    <section class="projects-section">
-        <div class="container">
-            <!-- Curved divider with center ornament -->
-            <div class="curved-divider" aria-hidden="true">
-                <svg width="320" height="36" viewBox="0 0 320 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="wave-left" x1="0" x2="1" y1="0" y2="0">
-                            <stop offset="0" stop-color="#2563eb" stop-opacity="0"/>
-                            <stop offset="0.55" stop-color="#2563eb" stop-opacity="0.55"/>
-                            <stop offset="1" stop-color="#2563eb" stop-opacity="0.9"/>
-                        </linearGradient>
-                        <linearGradient id="wave-right" x1="0" x2="1" y1="0" y2="0">
-                            <stop offset="0" stop-color="#2563eb" stop-opacity="0.9"/>
-                            <stop offset="0.45" stop-color="#2563eb" stop-opacity="0.55"/>
-                            <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M 8 18 Q 48 6 88 18 T 140 18" stroke="url(#wave-left)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                    <circle cx="160" cy="18" r="13" stroke="rgba(37,99,235,0.2)" stroke-width="1" fill="none" class="divider-ring"/>
-                    <g transform="translate(160 18) rotate(45)">
-                        <rect x="-5" y="-5" width="10" height="10" fill="#2563eb" rx="1.5"/>
-                    </g>
-                    <path d="M 180 18 Q 220 30 260 18 T 312 18" stroke="url(#wave-right)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                </svg>
-            </div>
-
-            <div class="section-header">
-                <div class="hero-eyebrow section-eyebrow-dark">
-                    <span class="eyebrow-line dark"></span>
-                    <span class="eyebrow-text dark">Nuestros Proyectos</span>
-                    <span class="eyebrow-line dark"></span>
-                </div>
-                <h2 class="section-title">Últimos Trabajos</h2>
-                <p class="section-description">Una muestra de lo que hemos construido para nuestros clientes.</p>
-            </div>
-
-            <div class="projects-grid">
-                <a href="precioradar.html" class="project-card">
-                    <div class="project-image">
-                        <img src="precioradar-hero.jpg" alt="PrecioRadar">
-                    </div>
-                    <h3>PrecioRadar</h3>
-                    <p>App móvil de ahorro inteligente</p>
-                </a>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="dashboard2.png" alt="Sistema ERP bySIMMED">
-                    </div>
-                    <h3>Sistema ERP bySIMMED</h3>
-                    <p>Gestión de simuladores médicos</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image placeholder-image">
-                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                        </svg>
-                    </div>
-                    <h3>Plataforma Turismo</h3>
-                    <p>Sistema de reservas y gestión</p>
-                </div>
-            </div>
-
-            <div class="section-link-wrap">
-                <a href="productos.html" class="projects-cta-big">
-                    <span>Ver Todos Nuestros Proyectos</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ¿Por Qué Elegir CORYN? -->
-    <section class="why-choose-home">
-        <div class="container">
-            <div class="section-title-dashed">
-                <span class="title-dash"></span>
-                <h2 class="section-title">¿Por Qué Elegir CORYN?</h2>
-                <span class="title-dash"></span>
-            </div>
-
-            <div class="why-choose-grid">
-                <div class="why-choose-card">
-                    <div class="why-choose-icon-illustrated">
-                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="bulb-glass" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#93c5fd"/>
-                                    <stop offset="100%" stop-color="#2563eb"/>
-                                </linearGradient>
-                            </defs>
-                            <!-- Bulb body -->
-                            <path d="M 36 10 C 24 10 16 18 16 30 C 16 36 19 41 23 45 L 23 52 L 49 52 L 49 45 C 53 41 56 36 56 30 C 56 18 48 10 36 10 Z" fill="url(#bulb-glass)"/>
-                            <!-- Highlight -->
-                            <ellipse cx="28" cy="24" rx="4" ry="8" fill="#ffffff" opacity="0.5"/>
-                            <!-- Inner filament -->
-                            <path d="M 30 32 Q 36 28 42 32 Q 36 36 30 32 Z" fill="#ffffff" opacity="0.6"/>
-                            <!-- Base threads -->
-                            <rect x="22" y="52" width="28" height="4" rx="1" fill="#1e3a8a"/>
-                            <rect x="24" y="57" width="24" height="3" rx="1" fill="#1e40af"/>
-                            <rect x="26" y="61" width="20" height="3" rx="1" fill="#1e3a8a"/>
-                            <!-- Little shine dots -->
-                            <circle cx="12" cy="14" r="1.5" fill="#fbbf24" opacity="0.8"/>
-                            <circle cx="60" cy="18" r="1" fill="#fbbf24" opacity="0.7"/>
-                            <circle cx="14" cy="36" r="1" fill="#fbbf24" opacity="0.6"/>
-                        </svg>
-                    </div>
-                    <h3>Expertise e Innovación</h3>
-                    <p>Un equipo de expertos apasionados por crear soluciones a tu medida.</p>
-                </div>
-
-                <div class="why-choose-card">
-                    <div class="why-choose-icon-illustrated">
-                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="hand-left" x1="0%" x2="100%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#fbbf24"/>
-                                    <stop offset="100%" stop-color="#f59e0b"/>
-                                </linearGradient>
-                                <linearGradient id="hand-right" x1="0%" x2="100%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#60a5fa"/>
-                                    <stop offset="100%" stop-color="#2563eb"/>
-                                </linearGradient>
-                            </defs>
-                            <!-- Left arm/sleeve -->
-                            <path d="M 4 48 L 4 40 C 4 36 7 34 11 34 L 28 34 L 36 40 L 36 48 L 30 52 L 10 52 Z" fill="url(#hand-left)"/>
-                            <!-- Left cuff -->
-                            <rect x="4" y="34" width="8" height="18" fill="#d97706"/>
-                            <!-- Right arm/sleeve -->
-                            <path d="M 68 48 L 68 40 C 68 36 65 34 61 34 L 44 34 L 36 40 L 36 48 L 42 52 L 62 52 Z" fill="url(#hand-right)"/>
-                            <!-- Right cuff -->
-                            <rect x="60" y="34" width="8" height="18" fill="#1e40af"/>
-                            <!-- Palms meeting / grip -->
-                            <rect x="28" y="36" width="16" height="12" rx="2" fill="#f59e0b"/>
-                            <rect x="32" y="36" width="12" height="12" rx="2" fill="#2563eb" opacity="0.85"/>
-                            <!-- Fingers detail -->
-                            <line x1="32" y1="40" x2="40" y2="40" stroke="#1e40af" stroke-width="1" opacity="0.5"/>
-                            <line x1="32" y1="44" x2="40" y2="44" stroke="#1e40af" stroke-width="1" opacity="0.5"/>
-                            <!-- Sparkle -->
-                            <path d="M 36 18 L 38 22 L 42 20 L 38 24 L 40 28 L 36 26 L 32 28 L 34 24 L 30 20 L 34 22 Z" fill="#fbbf24"/>
-                        </svg>
-                    </div>
-                    <h3>Acompañamiento Personalizado</h3>
-                    <p>Un seguimiento a medida en cada etapa de tu proyecto.</p>
-                </div>
-
-                <div class="why-choose-card">
-                    <div class="why-choose-icon-illustrated">
-                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="bar-red" x1="0%" x2="0%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#f87171"/>
-                                    <stop offset="100%" stop-color="#dc2626"/>
-                                </linearGradient>
-                                <linearGradient id="bar-blue1" x1="0%" x2="0%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#60a5fa"/>
-                                    <stop offset="100%" stop-color="#2563eb"/>
-                                </linearGradient>
-                                <linearGradient id="bar-blue2" x1="0%" x2="0%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#93c5fd"/>
-                                    <stop offset="100%" stop-color="#3b82f6"/>
-                                </linearGradient>
-                            </defs>
-                            <!-- Red bar (left, short) -->
-                            <rect x="10" y="42" width="14" height="22" rx="2" fill="url(#bar-red)"/>
-                            <!-- Blue bar (center, tall) -->
-                            <rect x="28" y="18" width="14" height="46" rx="2" fill="url(#bar-blue1)"/>
-                            <!-- Light blue bar (right, medium) -->
-                            <rect x="46" y="28" width="14" height="36" rx="2" fill="url(#bar-blue2)"/>
-                            <!-- Highlights -->
-                            <rect x="10" y="42" width="3" height="22" rx="1" fill="#ffffff" opacity="0.3"/>
-                            <rect x="28" y="18" width="3" height="46" rx="1" fill="#ffffff" opacity="0.3"/>
-                            <rect x="46" y="28" width="3" height="36" rx="1" fill="#ffffff" opacity="0.3"/>
-                            <!-- Rising arrow -->
-                            <path d="M 8 14 L 16 20 L 24 16 L 32 10 L 40 12 L 48 6 L 56 8" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polygon points="53,4 58,6 54,11" fill="#10b981"/>
-                        </svg>
-                    </div>
-                    <h3>Resultados Garantizados</h3>
-                    <p>Soluciones enfocadas en el rendimiento y crecimiento de tu negocio.</p>
-                </div>
-
-                <div class="why-choose-card">
-                    <div class="why-choose-icon-illustrated">
-                        <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="head-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#60a5fa"/>
-                                    <stop offset="100%" stop-color="#2563eb"/>
-                                </linearGradient>
-                                <linearGradient id="face-gradient" x1="0%" x2="0%" y1="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#fde68a"/>
-                                    <stop offset="100%" stop-color="#fbbf24"/>
-                                </linearGradient>
-                            </defs>
-                            <!-- Headphones band (behind head) -->
-                            <path d="M 14 28 Q 14 10 36 10 Q 58 10 58 28" stroke="#1e3a8a" stroke-width="4" fill="none" stroke-linecap="round"/>
-                            <!-- Head/face -->
-                            <circle cx="36" cy="30" r="14" fill="url(#face-gradient)"/>
-                            <!-- Hair -->
-                            <path d="M 22 26 Q 22 14 36 14 Q 50 14 50 26 L 50 22 Q 48 18 36 18 Q 24 18 22 22 Z" fill="#78350f"/>
-                            <!-- Eyes -->
-                            <circle cx="31" cy="30" r="1.5" fill="#1f2937"/>
-                            <circle cx="41" cy="30" r="1.5" fill="#1f2937"/>
-                            <!-- Smile -->
-                            <path d="M 31 36 Q 36 40 41 36" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <!-- Ear cups (on sides of head) -->
-                            <rect x="10" y="24" width="8" height="12" rx="3" fill="url(#head-gradient)"/>
-                            <rect x="54" y="24" width="8" height="12" rx="3" fill="url(#head-gradient)"/>
-                            <!-- Microphone arm -->
-                            <path d="M 54 32 Q 48 40 44 44" stroke="#1e3a8a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            <!-- Mic -->
-                            <circle cx="44" cy="44" r="3" fill="#1e3a8a"/>
-                            <!-- Body/shoulders -->
-                            <path d="M 20 58 Q 20 48 36 48 Q 52 48 52 58 L 52 64 L 20 64 Z" fill="url(#head-gradient)"/>
-                            <!-- Shirt collar -->
-                            <path d="M 30 48 L 36 54 L 42 48 Z" fill="#ffffff"/>
-                        </svg>
-                    </div>
-                    <h3>Soporte Reactivo</h3>
-                    <p>Un servicio al cliente siempre a tu escucha, listo para ayudarte.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contáctanos -->
-    <section class="home-contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="hero-eyebrow section-eyebrow-dark">
-                    <span class="eyebrow-line dark"></span>
-                    <span class="eyebrow-text dark">Contáctanos</span>
-                    <span class="eyebrow-line dark"></span>
-                </div>
-                <h2 class="section-title">¿Listo para Desarrollar tu Proyecto?</h2>
-                <p class="section-description"><strong>Hablemos.</strong> Primera reunión sin costo, sin compromiso.</p>
-            </div>
-
-            <div class="home-contact-cta">
-                <a href="contacto.html" class="hero-btn-primary">
-                    <span>Ir al Formulario de Contacto</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Floating Mascot (video with alpha) -->
-    <div class="mascot" id="mascot" aria-hidden="true" role="button" tabindex="0" aria-label="Abrir chat de Coryn">
-        <div class="mascot-bubble">¡Hola! 👋</div>
-        <video class="mascot-video" autoplay loop muted playsinline preload="auto">
-            <source src="mascot.webm?v=3" type="video/webm">
-            <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-            <source src="mascot.mp4?v=3" type="video/mp4">
-        </video>
+    <div class="montage rv">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="assets/work-avenprop.webp" alt="AvenProp, plataforma de corretaje desarrollada por CORYN" width="1400" height="875">
+      </div>
+      <div class="phone">
+        <img src="assets/app-buscar.webp" alt="PrecioRadar, aplicación móvil desarrollada por CORYN" width="520" height="1035">
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Chat Modal -->
-    <div class="chat-modal" id="chatModal" aria-hidden="true" role="dialog" aria-labelledby="chatTitle">
-        <div class="chat-backdrop" data-close></div>
-        <div class="chat-panel">
-            <div class="chat-header">
-                <div class="chat-avatar">
-                    <video autoplay loop muted playsinline>
-                        <source src="mascot.webm?v=3" type="video/webm">
-                        <source src="mascot.mov?v=3" type='video/mp4; codecs="hvc1"'>
-                    </video>
-                </div>
-                <div class="chat-header-text">
-                    <h4 id="chatTitle">Coryn Bot</h4>
-                    <span class="chat-status"><span class="chat-status-dot"></span>En línea</span>
-                </div>
-                <button class="chat-close" data-close aria-label="Cerrar chat">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="chat-body" id="chatBody">
-                <div class="chat-message bot" id="chatWelcome">
-                    <p>¡Hola! Soy el asistente de <strong>CORYN</strong> 👋</p>
-                    <p>¿En qué puedo ayudarte hoy?</p>
-                </div>
-
-                <div class="chat-quick-actions">
-                    <button class="chat-quick" data-action="meeting">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        <span>Agendar reunión</span>
-                    </button>
-                    <button class="chat-quick" data-action="services">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>Ver nuestros servicios</span>
-                    </button>
-                    <button class="chat-quick" data-action="whatsapp">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.5 14.38c-.28-.14-1.65-.81-1.9-.9-.26-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.64-1.54-1.91-.16-.27-.02-.42.12-.56.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.18.05-.34-.02-.48-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48-.16-.01-.34-.01-.53-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.12 2.81.14.18 1.93 2.95 4.68 4.14.65.28 1.17.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.34-.07-.12-.25-.18-.53-.32z"/>
-                            <path d="M12 2a10 10 0 0 0-8.7 14.88L2 22l5.25-1.38A10 10 0 1 0 12 2zm0 18.4a8.4 8.4 0 0 1-4.28-1.17l-.31-.18-3.18.83.85-3.1-.2-.32A8.4 8.4 0 1 1 12 20.4z"/>
-                        </svg>
-                        <span>Enviar WhatsApp</span>
-                    </button>
-                </div>
-            </div>
-
-            <form class="chat-form" id="chatForm">
-                <input type="text" name="chat-name" placeholder="Tu nombre" required>
-                <input type="email" name="chat-email" placeholder="Tu email" required>
-                <textarea name="chat-message" placeholder="Cuéntanos tu idea..." rows="2" required></textarea>
-                <button type="submit" class="chat-send">
-                    <span>Enviar</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                    </svg>
-                </button>
-            </form>
-        </div>
+<!-- ================= SECTORES ================= -->
+<section id="sectores">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Experiencia</p>
+      <h2>Dónde hemos trabajado</h2>
+      <p>Cada industria tiene reglas propias que ningún software genérico conoce.
+      Estas son las que ya entendimos por dentro.</p>
     </div>
+    <div class="sectores">
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span>
+        <h3>Salud</h3>
+        <p>Equipamiento médico y simulación clínica: catálogos técnicos, agenda de demostraciones y contenido en varios idiomas.</p>
+        <span class="ref">bySIMMED</span>
+      </div>
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M10.5 19.5 12 21l1.5-1.5M3.5 11.8 12 3l8.5 8.8-8.5 4.4z"/></svg></span>
+        <h3>Aviación</h3>
+        <p>Gestión de club aéreo: socios, flota, cuotas, vuelos, alertas de mantención e inventario de piezas por aeronave.</p>
+        <span class="ref">Sistema de gestión</span>
+      </div>
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M3.5 10.5 12 4l8.5 6.5V20a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1z"/><path d="M9.5 21v-6h5v6"/></svg></span>
+        <h3>Inmobiliario</h3>
+        <p>Corretaje y seguros: buscador de propiedades con filtros, fichas detalladas y captación de interesados.</p>
+        <span class="ref">AvenProp</span>
+      </div>
+      <div class="sector rv">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2 10.5h10L20 7.5H6"/><circle cx="9.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span>
+        <h3>Retail y consumo</h3>
+        <p>Lectura automática de boletas, comparación de precios entre cadenas y control de gasto mensual.</p>
+        <span class="ref">PrecioRadar</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer footer-modern">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-copy">&copy; 2025 CORYN. Todos los derechos reservados.</p>
-                <div class="footer-links">
-                    <a href="privacy.html">Política de Privacidad</a>
-                    <a href="cunde-terms.html">Términos Legales</a>
-                </div>
-            </div>
+<!-- ================= CASOS ================= -->
+<section id="casos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Casos</p>
+      <h2>Proyectos que puedes revisar</h2>
+      <p>Todos están en línea y funcionando. Entra a cualquiera y mira qué problema
+      resolvía y cómo lo construimos.</p>
+    </div>
+    <div class="casos">
+      <a class="caso rv" href="caso-bysimmed.html">
+        <div class="thumb"><img src="assets/work-bysimmed.webp" alt="Sitio web de bySIMMED" width="1400" height="875" loading="lazy"></div>
+        <div class="body">
+          <p class="tag">Salud &middot; Sitio y catálogo</p>
+          <h3>bySIMMED</h3>
+          <p>Un fabricante chileno de simuladores médicos que necesitaba vender a
+          especialistas fuera de Chile.</p>
+          <span class="go">Ver el caso <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
-    </footer>
+      </a>
+      <a class="caso rv" href="caso-avenprop.html">
+        <div class="thumb"><img src="assets/work-avenprop.webp" alt="Sitio web de AvenProp" width="1400" height="875" loading="lazy"></div>
+        <div class="body">
+          <p class="tag">Inmobiliario &middot; Plataforma</p>
+          <h3>AvenProp</h3>
+          <p>Corretaje y seguros que perdía interesados porque las propiedades vivían
+          en publicaciones sueltas.</p>
+          <span class="go">Ver el caso <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="caso rv" href="caso-precioradar.html">
+        <div class="thumb"><img src="assets/app-buscar.webp" alt="PrecioRadar" width="520" height="1035" loading="lazy"></div>
+        <div class="body">
+          <p class="tag">Retail &middot; Aplicación móvil</p>
+          <h3>PrecioRadar</h3>
+          <p>Producto propio: de la idea a las tiendas de aplicaciones, con lectura
+          automática de boletas.</p>
+          <span class="go">Ver el caso <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js?v=9"></script>
+<!-- ================= COMPARATIVA ================= -->
+<section class="proceso">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">La diferencia</p>
+      <h2>Plantilla genérica o software propio</h2>
+      <p>Las dos opciones son legítimas. Esta es la diferencia real, para que decidas
+      con información y no por descarte.</p>
+    </div>
+    <div class="vs">
+      <div class="vs-col mala rv">
+        <h3>Plantilla o sistema enlatado</h3>
+        <p class="sub">Lo que sueles encontrar</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Tu equipo cambia su forma de trabajar para calzar con el sistema.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Pagas todos los meses por módulos que nunca abres.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Lo que necesitas no está, y no hay a quién pedírselo.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>El soporte es un formulario y una espera.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Si te quieres cambiar, tus datos son el problema.</li>
+        </ul>
+      </div>
+      <div class="vs-col buena rv">
+        <h3>Desarrollo a medida</h3>
+        <p class="sub">Lo que hacemos nosotros</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>El sistema sigue tu proceso, incluidas las excepciones que todo negocio tiene.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Se construye solo lo que usas, y crece cuando tú creces.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Pides un cambio y hablas con quien lo va a programar.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Plan mensual con mantención y mejoras, no un buzón de tickets.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>El código y los datos son tuyos.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COTIZACION ================= -->
+<section id="cotizar">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Inversión</p>
+      <h2>Cómo cotizamos</h2>
+      <p>Sin cifras escondidas hasta la tercera reunión. Así se compone el precio de
+      cualquier proyecto que hacemos.</p>
+    </div>
+    <div class="precio">
+      <div class="precio-card rv">
+        <p class="kicker">Una vez</p>
+        <p class="cifra">Desde <span class="pendiente">$ por definir</span></p>
+        <p>El desarrollo del sistema: levantamiento, diseño, construcción, pruebas
+        y puesta en marcha. Se cotiza por proyecto según el alcance que definimos juntos.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Reuniones de levantamiento</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Diseño de cada pantalla, validado antes de programar</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Demostraciones periódicas durante el desarrollo</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Entrega, capacitación y puesta en marcha</li>
+        </ul>
+      </div>
+      <div class="precio-card rv">
+        <p class="kicker">Mensual, opcional</p>
+        <p class="cifra"><span class="pendiente">$ por definir</span> <small>/ mes</small></p>
+        <p>El plan de acompañamiento. No es obligatorio, pero es lo que hace que el
+        sistema siga sirviendo dos años después en vez de quedar congelado.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Soporte con prioridad</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Mantención, respaldos y actualizaciones</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ajustes y mejoras cada mes</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Funcionalidades grandes se cotizan aparte</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:22px; color:var(--muted); font-size:15px; max-width:62ch">
+      Lo que mueve el precio es el número de procesos que el sistema tiene que cubrir,
+      no la cantidad de pantallas. <a href="contacto.html" style="color:var(--accent)">Cuéntanos tu caso</a>
+      y te damos un rango en la primera conversación.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PROCESO (resumen) ================= -->
+<section class="proceso" style="padding-top:52px; padding-bottom:52px">
+  <div class="wrap">
+    <div class="cols">
+      <div class="aside">
+        <div class="sec-head rv" style="margin-bottom:14px">
+          <p class="eyebrow">Proceso</p>
+          <h2>Cómo trabajamos</h2>
+          <p>Un proceso definido, para que en cada etapa sepas qué viene después.</p>
+        </div>
+        <img class="rv" src="assets/orb.webp" alt="" aria-hidden="true" width="760" height="737" loading="lazy">
+      </div>
+      <ol class="flow">
+        <li class="rv">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="M15.5 20.2v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.4A3.4 3.4 0 0 0 3 18.6v1.6"/><circle cx="9.2" cy="7.6" r="3.4"/><path d="M21 20.2v-1.6a3.4 3.4 0 0 0-2.6-3.3M16 4.4a3.4 3.4 0 0 1 0 6.5"/></svg></span>
+          <div><span class="n">01</span><h3>Nos conocemos</h3><p>Identificamos qué está costando tiempo o dinero en tu operación.</p></div>
+        </li>
+        <li class="rv">
+          <span class="dot"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7.5 9h5M7.5 13h9M3 21h18"/></svg></span>
+          <div><span class="n">02</span><h3>Diseñamos juntos</h3><p>Te mostramos cómo se verá y cómo se usará antes de programar.</p></div>
+        </li>
+        <li class="rv">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="m9 8-4.5 4L9 16M15 8l4.5 4L15 16"/></svg></span>
+          <div><span class="n">03</span><h3>Construimos</h3><p>Demostraciones periódicas para que valides el avance.</p></div>
+        </li>
+        <li class="rv">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="M9.5 3.5v5.2L4.8 17a2.4 2.4 0 0 0 2.1 3.5h10.2a2.4 2.4 0 0 0 2.1-3.5l-4.7-8.3V3.5"/><path d="M8.4 3.5h7.2M7.4 13.6h9.2"/></svg></span>
+          <div><span class="n">04</span><h3>Probamos</h3><p>Ajustamos junto a tu equipo hasta que responda al día a día.</p></div>
+        </li>
+        <li class="rv">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="M12 20.3s-7.4-4.3-7.4-9.4a4.2 4.2 0 0 1 7.4-2.7 4.2 4.2 0 0 1 7.4 2.7c0 5.1-7.4 9.4-7.4 9.4z"/></svg></span>
+          <div><span class="n">05</span><h3>Te acompañamos</h3><p>Soporte y mejoras mes a mes. El acompañamiento no termina con la entrega.</p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+<section class="close">
+  <div class="wrap">
+    <p class="eyebrow">Siguiente paso</p>
+    <h2>Conversemos 30 minutos, sin costo.</h2>
+    <p>Cuéntanos tu situación y te decimos con honestidad qué se puede resolver con software, qué conviene priorizar y cuánto costaría hacerlo bien.</p>
+    <div class="actions">
+      <a class="btn btn-wa" href="https://wa.me/56933569725?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
+        +56 9 3356 9725
+      </a>
+      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
+    </div>
+    <div class="lines">
+      <a href="mailto:coryn.software@gmail.com">coryn.software@gmail.com</a>
+      <a href="https://coryndev.com">coryndev.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/mark.webp" alt="" width="28" height="26">
+          <span>CORYN</span>
+        </a>
+        <p>Software 100% personalizado para negocios que necesitan que la
+        herramienta calce con su forma de trabajar.</p>
+      </div>
+      <div>
+        <h4>Casos</h4>
+        <ul>
+          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-avenprop.html">AvenProp</a></li>
+          <li><a href="caso-precioradar.html">PrecioRadar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proceso.html">Proceso</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
+      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fondo de la barra al desplazar
+  var nav = document.getElementById('nav');
+  if (!nav.classList.contains('solid-fija')) {
+    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Menu de celular
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function () {
+    var abierto = document.body.classList.toggle('menu-abierto');
+    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
+      document.body.classList.remove('menu-abierto');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.focus();
+    }
+  });
+
+  // Aparicion progresiva, con red de seguridad si el observer no dispara
+  (function () {
+    if (!document.documentElement.classList.contains('js-rv')) return;
+    var els = document.querySelectorAll('.rv');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
+      io.observe(el);
+    });
+    setTimeout(function () {
+      els.forEach(function (el) { el.classList.add('in'); });
+      io.disconnect();
+    }, 2000);
+  })();
+</script>
+
 </body>
 </html>

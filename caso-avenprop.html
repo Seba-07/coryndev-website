@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrecioRadar — Nuestro producto propio | CORYN</title>
-<meta name="description" content="PrecioRadar es la aplicación móvil que desarrollamos como producto propio: lectura automática de boletas y comparación de precios.">
-<link rel="icon" href="../assets/mark.webp" type="image/webp">
-<meta property="og:type" content="website">
-<meta property="og:title" content="PrecioRadar — Nuestro producto propio | CORYN">
-<meta property="og:description" content="PrecioRadar es la aplicación móvil que desarrollamos como producto propio: lectura automática de boletas y comparación de precios.">
-<meta property="og:image" content="https://coryndev.com/assets/banner.webp">
+<title>AvenProp — Caso de proyecto | CORYN</title>
+<meta name="description" content="Caso CORYN: plataforma web de corretaje y seguros para AvenProp, con buscador de propiedades por comuna y tipo.">
+<link rel="icon" href="assets/mark.webp" type="image/webp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AvenProp — Caso de proyecto | CORYN">
+<meta property="og:description" content="Caso CORYN: plataforma web de corretaje y seguros para AvenProp, con buscador de propiedades por comuna y tipo.">
+<meta property="og:image" content="https://coryndev.com/assets/work-avenprop.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../styles-v2.css">
+<link rel="stylesheet" href="styles-v2.css">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -27,14 +27,14 @@
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="../assets/mark.webp" alt="" width="28" height="26">
+      <img src="assets/mark.webp" alt="" width="28" height="26">
       <span>CORYN</span>
     </a>
     <nav class="nav-links" id="navLinks">
         <a href="servicios.html">Servicios</a>
-        <a href="index.html#casos">Casos</a>
+        <a href="index.html#casos" class="activa">Casos</a>
         <a href="proceso.html">Proceso</a>
-        <a href="productos.html" class="activa">Producto</a>
+        <a href="productos.html">Producto</a>
         <a href="nosotros.html">Nosotros</a>
     </nav>
     <div class="nav-right">
@@ -48,106 +48,57 @@
 
 <section class="page-head">
   <div class="wrap">
-    <p class="eyebrow">Producto propio</p>
-    <h1>No solo desarrollamos para otros</h1>
-    <p>PrecioRadar es producto nuestro. Lo llevamos de la idea a las tiendas de aplicaciones, y todo lo que aprendimos ahí lo usamos en los proyectos de clientes.</p>
+    <p class="crumbs"><a href="index.html">Inicio</a> / <a href="index.html#casos">Casos</a> / AvenProp</p>
+    <p class="eyebrow">Inmobiliario &middot; Plataforma web</p>
+    <h1>Una corredora que perdía interesados porque sus propiedades vivían en publicaciones sueltas</h1>
+    <p>AvenProp compra, vende y arrienda propiedades en Santiago, y además asegura lo que vale la pena proteger. Dos negocios que se potencian, repartidos en portales que no controlaban.</p>
   </div>
 </section>
 
 <section>
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:64ch">
-      <p class="eyebrow">Producto propio</p>
-      <h2>PrecioRadar</h2>
-      <p>La mayoría de los estudios muestra trabajo hecho para otros. Nosotros
-      además construimos producto propio, y eso cambia lo que podemos demostrar:
-      aquí tomamos todas las decisiones, incluidas las difíciles.</p>
-    </div>
-
-    <div class="work rv">
-      <div class="shot">
-        <div class="pair">
-          <div class="phone"><img src="../assets/app-buscar.webp" alt="PrecioRadar: buscador por categorías" width="520" height="1035" loading="lazy"></div>
-          <div class="phone"><img src="../assets/app-boleta.webp" alt="PrecioRadar: lector de boletas" width="520" height="1035" loading="lazy"></div>
-        </div>
-      </div>
-      <div>
-        <p class="tag">Aplicación móvil &middot; iOS y Android</p>
-        <h3>Ahorrar sin tener que anotar nada</h3>
-        <p>Fotografías la boleta y la aplicación registra lo que compraste. Con eso
-        compara precios entre supermercados, arma tus listas y te muestra en qué se
-        te fue el mes.</p>
-        <div class="meta">
-          <span>Lectura de boletas</span><span>Comparación de precios</span>
-          <span>Control de gasto</span><span>Listas</span>
-        </div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px">
-          <a class="btn btn-solid" href="caso-precioradar.html">Ver cómo lo construimos</a>
-          <a class="btn btn-ghost" href="../precioradar.html" style="border-color:var(--line); color:var(--ink)">Ficha del producto</a>
-        </div>
-      </div>
-    </div>
+  <div class="wrap caso-grid">
+    <article class="caso-body">
+        <h2>El problema</h2>
+        <p>Publicar en portales inmobiliarios funciona para aparecer, pero el interesado nunca llega a conocer a la corredora: llega a una ficha, entre decenas de otras iguales, y el contacto queda del lado del portal.</p>
+        <p>Además dejaba fuera la mitad del negocio. AvenProp también corre seguros, y un portal de propiedades no tiene dónde contar eso.</p>
+        <figure>
+          <div class="browser-lite">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/work-avenprop.webp" alt="Portada del sitio de AvenProp con el buscador de propiedades" width="1400" height="875">
+          </div>
+          <figcaption>El buscador va inmediatamente bajo la portada: quien llega buscando casa no debería tener que navegar para empezar.</figcaption>
+        </figure>
+        <h2>Qué construimos</h2>
+        <p>Una plataforma propia donde las dos líneas conviven:</p>
+        <ul><li>Buscador con filtros por comuna y tipo de propiedad, separado en comprar, arrendar y asegurar.</li><li>Fichas de propiedad con la información que decide una visita: superficie, dormitorios, valor en UF y ubicación.</li><li>Captación de interesados directa, sin intermediario que se quede con el contacto.</li><li>Sección de seguros integrada al mismo recorrido, no como un anexo.</li></ul>
+        <h2>Las decisiones que importaron</h2>
+        <p>El buscador quedó inmediatamente bajo la portada. Alguien que llega buscando casa no debería tener que entender la estructura del sitio antes de empezar.</p>
+        <p>Los tres modos — comprar, arrendar, asegurar — comparten un mismo buscador en vez de vivir en secciones separadas. Es la forma en que el visitante piensa su problema, y de paso expone el negocio de seguros a gente que llegó por otra cosa.</p>
+    </article>
+      <aside class="ficha">
+        <h3>Ficha del proyecto</h3>
+        <dl>
+        <dt>Cliente</dt><dd>AvenProp</dd>
+        <dt>Sector</dt><dd>Inmobiliario</dd>
+        <dt>Tipo de proyecto</dt><dd>Plataforma web</dd>
+        <dt>Año</dt><dd><span class="pendiente">por confirmar</span></dd>
+        <dt>Estado</dt><dd>En línea</dd>
+        </dl>
+        <a class="btn btn-solid" href="https://avenprop.vercel.app/" target="_blank" rel="noopener">avenprop.cl</a>
+      </aside>
   </div>
 </section>
-
-<section class="proceso" style="padding-top:56px; padding-bottom:56px">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:64ch">
-      <p class="eyebrow">Por qué lo hacemos</p>
-      <h2>Qué gana un cliente con que tengamos producto propio</h2>
-    </div>
-    <div class="sectores">
-      <div class="sector rv">
-        <span class="ico"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 5.5h3M12 18.3v.01"/></svg></span>
-        <h3>Publicar en las tiendas ya lo hicimos</h3>
-        <p>Las reglas de App Store y Google Play, los rechazos y los tiempos de
-        revisión los conocemos por haberlos pasado, no por leerlos.</p>
-      </div>
-      <div class="sector rv">
-        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3.2 20 7v6c0 4.2-3.3 7-8 7.8C7.3 20 4 17.2 4 13V7z"/><path d="m9.2 12.2 2 2 3.6-4"/></svg></span>
-        <h3>Sabemos qué se abandona</h3>
-        <p>Con producto propio uno ve dónde la gente deja de usar la aplicación.
-        Esas lecciones se aplican después en los proyectos de clientes.</p>
-      </div>
-      <div class="sector rv">
-        <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2 10.5h10L20 7.5H6"/><circle cx="9.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span>
-        <h3>Podemos mostrarlo entero</h3>
-        <p>De un proyecto de cliente hay cosas que no podemos enseñar. De este sí:
-        descárgalo y pruébalo tú mismo.</p>
-      </div>
-      <div class="sector rv">
-        <span class="ico"><svg viewBox="0 0 24 24"><path d="M9.5 4.5 6 8l3.5 3.5M14.5 12.5 18 16l-3.5 3.5M13.5 3.5l-3 17"/></svg></span>
-        <h3>Nos obliga a mantener</h3>
-        <p>Un producto vivo hay que actualizarlo todos los meses. Es la misma
-        disciplina que aplicamos al plan de soporte de nuestros clientes.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">En desarrollo</p>
-      <h2>¿Tienes una idea de producto?</h2>
-      <p>Si lo que tienes no es un encargo sino una idea que quieres convertir en
-      producto, es exactamente el camino que ya recorrimos con PrecioRadar.
-      Conversemos sin compromiso.</p>
-    </div>
-  </div>
-</section>
-
 
 <section class="close">
   <div class="wrap">
     <p class="eyebrow">Siguiente paso</p>
-    <h2>¿Tienes una idea de producto?</h2>
-    <p>Convertir una idea en un producto publicado es un camino que ya recorrimos completo. Conversemos sobre el tuyo.</p>
+    <h2>Conversemos 30 minutos, sin costo.</h2>
+    <p>Cuéntanos tu situación y te decimos con honestidad qué se puede resolver con software, qué conviene priorizar y cuánto costaría hacerlo bien.</p>
     <div class="actions">
       <a class="btn btn-wa" href="https://wa.me/56933569725?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
         +56 9 3356 9725
       </a>
-      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
+      <a class="btn btn-ghost" href="index.html#casos">Ver otros casos</a>
     </div>
     <div class="lines">
       <a href="mailto:coryn.software@gmail.com">coryn.software@gmail.com</a>
@@ -161,7 +112,7 @@
     <div class="cols">
       <div>
         <a class="brand" href="index.html">
-          <img src="../assets/mark.webp" alt="" width="28" height="26">
+          <img src="assets/mark.webp" alt="" width="28" height="26">
           <span>CORYN</span>
         </a>
         <p>Software 100% personalizado para negocios que necesitan que la
@@ -187,7 +138,7 @@
     </div>
     <div class="base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="../precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
     </div>
   </div>
 </footer>

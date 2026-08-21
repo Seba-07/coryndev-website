@@ -4,21 +4,19 @@ backend/
 # Material de marketing: se genera y comparte aparte
 marketing/
 
+# Fuentes del generador de paginas (la salida .html si se despliega)
+site/
+site_shell.py
+build_site.py
+casos_data.py
+__pycache__/
+
 # Notas de trabajo
 .claude/
 .claude-project.md
 README.md
 
-# Imagenes fuente que el sitio no referencia (~24 MB)
-fondo1.png
-hero-bg.png
-logo.png
-logo_coryn.png
-logo_coryn_clean.png
+# Originales de marca que el sitio no sirve directamente
 logo_coryn_fondo.png
+logo_coryn_final.png
 mascot-coryn.png
-proceso1.png
-proceso2.png
-proceso3.png
-proceso4.png
-proceso5.png
