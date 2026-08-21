@@ -96,7 +96,7 @@ PAGINAS = [
         desc='Desarrollamos sistemas de gestión, aplicaciones móviles y sitios web a '
              'medida. Experiencia en salud, aviación, inmobiliario y retail. '
              'Primera reunión sin costo.',
-        activa='',
+        activa='inicio',
         cabecera=None,
         cierre=('Conversemos 30 minutos, sin costo.',
                 'Cuéntanos tu situación y te decimos con honestidad qué se puede '

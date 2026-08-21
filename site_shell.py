@@ -31,6 +31,7 @@ PENDIENTE = '<span class="pendiente">por confirmar</span>'
 
 # (etiqueta, destino, clave para marcar la pagina activa)
 MENU = [
+    ('Inicio', 'index.html', 'inicio'),
     ('Servicios', 'servicios.html', 'servicios'),
     ('Casos', 'index.html#casos', 'casos'),
     ('Proceso', 'proceso.html', 'proceso'),
