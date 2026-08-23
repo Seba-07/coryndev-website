@@ -22,6 +22,8 @@ SALIDA = RAIZ
 # Marcadores que pueden usarse dentro de los .body.html
 FICHAS = {
     '{CHECK}': S.CHECK,
+    '{CHECK_G}': '<svg viewBox="0 0 24 24"><path d="M12 3.2 20 7v6c0 4.2-3.3 7-8 7.8C7.3 20 4 17.2 4 13V7z"/><path d="m9.2 12.2 2 2 3.6-4"/></svg>',
+    '{CRUZ_G}': '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.01"/></svg>',
     '{CRUZ}': S.CRUZ,
     '{FLECHA}': S.FLECHA,
     '{PENDIENTE}': S.PENDIENTE,
@@ -149,16 +151,16 @@ PAGINAS = [
     dict(
         slug='nosotros',
         titulo='Nosotros — Quiénes están detrás de CORYN',
-        desc='Somos un estudio pequeño de desarrollo de software en Chile. Hablas '
+        desc='Estudio de desarrollo de software a medida en Chile. Hablas '
              'directamente con quien programa tu proyecto.',
         activa='nosotros',
         cabecera=('Hablas con quien programa',
-                  'Somos un equipo chico y no pretendemos parecer más grandes. Esa '
-                  'es justamente la razón por la que nuestros clientes se quedan.',
+                  'Literalmente. No es una frase de marketing: la misma persona que '
+                  'toma la reunión escribe el código y responde el soporte.',
                   'Nosotros'),
         cierre=('Conversemos 30 minutos, sin costo.',
-                'Sin vendedores de por medio. La primera conversación es con quien '
-                'va a trabajar en tu proyecto.'),
+                'Sin vendedores de por medio. La primera conversación es directamente '
+                'con quien va a construir tu proyecto.'),
     ),
     dict(
         slug='contacto',
@@ -212,7 +214,6 @@ def ficha_caso(c):
     filas = [('Cliente', 'Producto propio de CORYN' if c['slug'] == 'precioradar' else c['titulo']),
              ('Sector', c['sector']),
              ('Tipo de proyecto', c['tipo']),
-             ('Año', S.PENDIENTE),
              ('Estado', 'En línea')]
     dl = '\n'.join(f'        <dt>{k}</dt><dd>{v}</dd>' for k, v in filas)
     externo = ' target="_blank" rel="noopener"' if c['sitio_url'].startswith('http') else ''
