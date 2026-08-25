@@ -77,18 +77,21 @@
       </div>
 
       <div class="exp-panel" id="expPanel" role="tabpanel" aria-labelledby="tab-0">
+        <div class="exp-switch" role="group" aria-label="Comparar antes y después">
+          <button type="button" class="on" data-v="antes" aria-pressed="true">Cómo se ve hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Cómo debería verse</button>
+        </div>
         <div class="exp-shot">
           <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">inventario_FINAL_v3_ok (1).xlsx</span></div>
           <img id="expImg" src="assets/mock-planilla.webp" width="1400" height="875"
                alt="Una planilla de inventario descuadrada, con errores y duplicados" loading="lazy">
         </div>
         <div class="exp-info">
-          <p class="tag" id="expTag">Así se ve hoy</p>
-          <h3 id="expNom">Un sistema que ordena la operación</h3>
-          <p class="dd" id="expDesc">Inventario, ventas y cobros en un solo lugar, con
-          permisos por persona y sin fórmulas que se rompen. Puedes partir por un módulo
-          y crecer desde ahí.</p>
-          <div class="meta" id="expMeta"><span>Un módulo para empezar</span><span>Permisos por rol</span><span>Sin stock negativo</span></div>
+          <p class="tag" id="expTag">Cómo se ve hoy</p>
+          <h3 id="expNom">Una planilla que ya nadie controla</h3>
+          <p class="dd" id="expDesc">Stock negativo, fórmulas rotas, filas duplicadas y una
+          columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.</p>
+          <div class="meta" id="expMeta"><span>Solo una persona la entiende</span><span>Sin respaldo</span><span>Errores que nadie ve</span></div>
           <p class="exp-precio" id="expPrecio">Desde <b>$1.400.000</b></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
@@ -100,30 +103,54 @@
 <script>
   (function () {
     var CASOS = [
-      { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
-        alt: 'Una planilla de inventario descuadrada, con stock negativo y errores de fórmula',
-        tag: 'Así se ve hoy', nom: 'Un sistema que ordena la operación',
-        desc: 'Inventario, ventas y cobros en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Puedes partir por un módulo y crecer desde ahí.',
-        meta: ['Un módulo para empezar', 'Permisos por rol', 'Sin stock negativo'],
-        precio: '$1.400.000', href: '#cotizar' },
-      { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/mock-google.webp',
-        alt: 'Resultados de Google donde aparece la competencia y tu negocio no',
-        tag: 'Así se ve hoy', nom: 'Un sitio que te encuentra el cliente',
-        desc: 'Para que aparezcas cuando alguien busca lo que vendes en tu comuna, con tu dirección, tus horarios y el contacto a un toque de distancia.',
-        meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'],
-        precio: '$250.000', href: '#cotizar' },
-      { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/mock-chat.webp',
-        alt: 'Conversaciones de WhatsApp repitiendo las mismas preguntas de precio y stock',
-        tag: 'Así se ve hoy', nom: 'Un catálogo que responde por ti',
-        desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados, para que el cliente llegue sabiendo qué quiere en vez de preguntarlo todo.',
-        meta: ['Catálogo con filtros', 'Fichas completas', 'Menos mensajes'],
-        precio: '$890.000', href: '#cotizar' },
-      { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/mock-agenda.webp',
-        alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
-        tag: 'Así se ve hoy', nom: 'Que reserven y pidan solos',
-        desc: 'Agenda o pedidos en línea, con confirmación automática y recordatorio. Tu teléfono deja de ser el único canal y las horas dejan de perderse.',
-        meta: ['Agenda en línea', 'Confirmación automática', 'Sin llamadas perdidas'],
-        precio: '$890.000', href: '#cotizar' }
+      {
+        antes: { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
+          alt: 'Planilla de inventario con stock negativo, duplicados y errores de fórmula',
+          nom: 'Una planilla que ya nadie controla',
+          desc: 'Stock negativo, fórmulas rotas, filas duplicadas y una columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.',
+          meta: ['Solo una persona la entiende', 'Sin respaldo', 'Errores que nadie ve'] },
+        despues: { url: 'sistema.tuempresa.cl', img: 'assets/after-sistema.webp',
+          alt: 'Panel de un sistema de gestión con indicadores, inventario y alertas',
+          nom: 'La misma operación, ordenada',
+          desc: 'Inventario, ventas y cobros en un solo lugar, con alertas de stock, permisos por persona y respaldo automático. Puedes partir por un módulo.',
+          meta: ['Un módulo para empezar', 'Permisos por rol', 'Alertas automáticas'] },
+        precio: '$1.400.000' },
+      {
+        antes: { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/mock-google.webp',
+          alt: 'Resultados de Google donde aparece la competencia y tu negocio no',
+          nom: 'La competencia aparece, tú no',
+          desc: 'Alguien busca justo lo que vendes, en tu comuna, ahora mismo. Encuentra cuatro negocios y ninguno es el tuyo, porque solo tienes Instagram.',
+          meta: ['Solo redes sociales', 'Sin ficha en Maps', 'Te encuentran de casualidad'] },
+        despues: { url: 'www.tuempresa.cl', img: 'assets/after-google.webp',
+          alt: 'Resultados de Google con el negocio en primer lugar y ficha destacada',
+          nom: 'Ahora te encuentran a ti',
+          desc: 'Sitio propio y ficha del negocio, para que aparezcas cuando buscan tu rubro en tu comuna, con horarios, dirección y contacto directo.',
+          meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'] },
+        precio: '$250.000' },
+      {
+        antes: { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/mock-chat.webp',
+          alt: 'Conversaciones de WhatsApp repitiendo las mismas preguntas de precio y stock',
+          nom: 'La misma conversación, todo el día',
+          desc: 'Precio, color, medidas, despacho y plazo. Siete conversaciones abiertas preguntando lo mismo, y cada respuesta te saca de lo que estabas haciendo.',
+          meta: ['Respondes tú siempre', 'Se pierden mensajes', 'Nadie compra de noche'] },
+        despues: { url: 'bysimmed.com', img: 'assets/work-bysimmed.webp',
+          alt: 'Catálogo de productos publicado con fichas y especificaciones',
+          nom: 'El catálogo responde por ti',
+          desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados. El cliente llega sabiendo qué quiere, y te escribe para comprar, no para preguntar.',
+          meta: ['Catálogo con filtros', 'Fichas completas', 'Disponible a toda hora'] },
+        precio: '$890.000' },
+      {
+        antes: { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/mock-agenda.webp',
+          alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
+          nom: 'Cada llamada perdida es una hora vacía',
+          desc: 'Mientras atiendes a alguien, el teléfono suena y nadie contesta. La agenda vive en un cuaderno y el que no llega no avisa.',
+          meta: ['14 perdidas en un día', 'Agenda en papel', 'Nadie confirma'] },
+        despues: { url: 'reservas.tuempresa.cl', img: 'assets/after-reservas.webp',
+          alt: 'Agenda semanal con reservas hechas en línea y confirmaciones automáticas',
+          nom: 'Reservan solos, y confirman solos',
+          desc: 'El cliente ve los bloques libres y reserva desde el sitio. El sistema confirma y manda recordatorio, así el teléfono deja de ser el único canal.',
+          meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
+        precio: '$890.000' }
     ];
     var AUTO = 7000;
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
@@ -132,28 +159,44 @@
     var actual = 0, timer = null, manual = false;
     var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function pinta (i) {
-      var c = CASOS[i];
+    var estado = 'antes';
+
+    function pinta (i, mantener) {
+      var c = CASOS[i], v = c[estado];
       panel.classList.add('cambiando');
       setTimeout(function () {
-        img.src = c.img; img.alt = c.alt;
-        document.getElementById('expUrl').textContent = c.url;
-        document.getElementById('expTag').textContent = c.tag;
-        document.getElementById('expNom').textContent = c.nom;
-        document.getElementById('expDesc').textContent = c.desc;
+        img.src = v.img; img.alt = v.alt;
+        document.getElementById('expUrl').textContent = v.url;
+        document.getElementById('expTag').textContent =
+          estado === 'antes' ? 'Cómo se ve hoy' : 'Cómo debería verse';
+        document.getElementById('expNom').textContent = v.nom;
+        document.getElementById('expDesc').textContent = v.desc;
         document.getElementById('expMeta').innerHTML =
-          c.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
+          v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
         document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
-        document.getElementById('expLink').href = c.href;
         panel.setAttribute('aria-labelledby', 'tab-' + i);
         panel.classList.remove('cambiando');
       }, 190);
+      panel.classList.toggle('es-despues', estado === 'despues');
       items.forEach(function (el, k) {
         el.classList.toggle('activo', k === i);
         el.setAttribute('aria-selected', k === i ? 'true' : 'false');
       });
       actual = i;
     }
+
+    // el interruptor cambia el estado sin cambiar de problema
+    Array.prototype.forEach.call(document.querySelectorAll('.exp-switch button'), function (b) {
+      b.addEventListener('click', function () {
+        frena();
+        estado = b.dataset.v;
+        document.querySelectorAll('.exp-switch button').forEach(function (o) {
+          o.classList.toggle('on', o === b);
+          o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+        });
+        pinta(actual);
+      });
+    });
 
     function arma () {
       if (quieto || manual) return;
@@ -166,9 +209,17 @@
       if (timer) { clearInterval(timer); timer = null; }
     }
     items.forEach(function (el) {
-      el.addEventListener('click', function () { frena(); pinta(+el.dataset.i); });
+      el.addEventListener('click', function () {
+        frena();
+        estado = 'antes';
+        document.querySelectorAll('.exp-switch button').forEach(function (o) {
+          o.classList.toggle('on', o.dataset.v === 'antes');
+          o.setAttribute('aria-pressed', o.dataset.v === 'antes' ? 'true' : 'false');
+        });
+        pinta(+el.dataset.i);
+      });
     });
-    CASOS.forEach(function (c) { (new Image()).src = c.img; });
+    CASOS.forEach(function (c) { (new Image()).src = c.antes.img; (new Image()).src = c.despues.img; });
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) {
         es.forEach(function (e) {

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:1400px;height:875px;background:#fff;font-family:'Arimo',Arial,sans-serif;color:#202124;overflow:hidden}
+ .top{padding:20px 30px 0;display:flex;align-items:center;gap:26px;border-bottom:1px solid #ebebeb;padding-bottom:0}
+ .g{font-size:26px;font-weight:700;letter-spacing:-.5px}
+ .g i{font-style:normal}.b{color:#4285f4}.r{color:#ea4335}.y{color:#fbbc05}.gr{color:#34a853}
+ .caja{flex:1;max-width:600px;border:1px solid #dfe1e5;border-radius:24px;padding:11px 20px;
+   color:#202124;font-size:15px;display:flex;justify-content:space-between;align-items:center}
+ .caja span{color:#5f6368}
+ .tabs{display:flex;gap:28px;padding:14px 30px 0;font-size:13px;color:#5f6368}
+ .tabs .on{color:#1a73e8;border-bottom:3px solid #1a73e8;padding-bottom:11px}
+ .cnt{padding:18px 30px 0;max-width:660px}
+ .stats{font-size:12px;color:#70757a;margin-bottom:20px}
+ .res{margin-bottom:26px}
+ .ruta{font-size:12px;color:#202124;margin-bottom:3px}
+ .ruta b{color:#5f6368;font-weight:400}
+ .res h3{font-size:20px;color:#1a0dab;font-weight:400;line-height:1.3;margin-bottom:4px}
+ .res p{font-size:14px;color:#4d5156;line-height:1.58}
+ .ads{display:inline-block;border:1px solid #202124;border-radius:3px;font-size:11px;
+   padding:0 4px;margin-right:6px;font-weight:700}
+ .mapa{position:absolute;right:30px;top:150px;width:400px;border:1px solid #dfe1e5;border-radius:8px;overflow:hidden}
+ .mapa .img{height:180px;background:linear-gradient(135deg,#e8eaed,#dadce0);position:relative}
+ .mapa .img::after{content:'';position:absolute;inset:0;
+   background:repeating-linear-gradient(90deg,#d2d5d9 0 1px,transparent 1px 42px),
+              repeating-linear-gradient(0deg,#d2d5d9 0 1px,transparent 1px 42px)}
+ .pin{position:absolute;width:13px;height:13px;background:#ea4335;border-radius:50% 50% 50% 0;
+   transform:rotate(-45deg);z-index:2}
+ .mapa .fila{padding:12px 14px;border-top:1px solid #ebebeb;font-size:13px}
+ .mapa .fila b{color:#1a0dab;font-weight:400;font-size:15px}
+ .mapa .fila span{color:#70757a;display:block;margin-top:2px;font-size:12px}
+ .est{color:#fbbc05;font-size:12px}
+ .vos{position:absolute;left:30px;bottom:56px;width:660px;border:2px dashed #ea4335;
+   border-radius:8px;padding:16px 20px;background:#fef7f6}
+ .vos b{color:#c5221f;font-size:14px;display:block;margin-bottom:4px}
+ .vos span{color:#5f6368;font-size:13px}
+</style></head><body>
+ <div class="top">
+   <span class="g"><i class="b">G</i><i class="r">o</i><i class="y">o</i><i class="b">g</i><i class="gr">l</i><i class="r">e</i></span>
+   <div class="caja"><span>ferretería en maipú</span><span>🔍</span></div>
+ </div>
+ <div class="tabs"><span class="on">Todo</span><span>Maps</span><span>Imágenes</span>
+   <span>Shopping</span><span>Noticias</span><span>Más</span></div>
+ <div class="cnt">
+   <p class="stats">Cerca de 214.000 resultados (0,48 segundos)</p>
+   <div class="res"><p class="ruta">www.ferreteriasanjose.cl<b> › productos</b></p>
+     <h3>Ferretería San José Maipú — Herramientas y materiales</h3>
+     <p>Catálogo con más de 2.000 productos, precios actualizados y stock en tiempo real. Retira en tienda o despachamos en el día. Av. Los Pajaritos 3210.</p></div>
+   <div class="res"><p class="ruta">www.construmax.cl<b> › sucursales › maipu</b></p>
+     <h3>ConstruMax Maipú | Materiales y herramientas</h3>
+     <p>Sucursal en Av. Pajaritos 2145. Abierto de lunes a sábado. Ver catálogo completo y precios actualizados.</p></div>
+   <div class="res"><p class="ruta">www.elmartillo.cl<b> › contacto</b></p>
+     <h3>Ferretería El Martillo — 30 años en Maipú</h3>
+     <p>Herramientas, fijaciones, pinturas y gasfitería. Atención personalizada y despacho a toda la comuna.</p></div>
+   <div class="res"><p class="ruta">www.paginasamarillas.cl<b> › ferreterias › maipu</b></p>
+     <h3>Ferreterías en Maipú - Listado completo</h3>
+     <p>Encuentra las 47 ferreterías de la comuna con dirección, teléfono y horarios de atención.</p></div>
+ </div>
+ <div class="mapa">
+   <div class="img">
+     <span class="pin" style="left:120px;top:60px;background:#1a73e8;width:17px;height:17px"></span>
+     <span class="pin" style="left:230px;top:100px"></span>
+     <span class="pin" style="left:170px;top:130px"></span>
+   </div>
+   <div class="fila"><b>Ferretería Central Maipú</b><span class="est">★★★★★ 4,6 (312)</span>
+     <span>Av. Pajaritos 1890 · Abierto</span></div>
+   <div class="fila"><b>ConstruMax</b><span class="est">★★★★☆ 4,3 (198)</span>
+     <span>Av. Pajaritos 2145 · Abierto</span></div>
+   <div class="fila"><b>Ferretería El Martillo</b><span class="est">★★★★☆ 4,1 (87)</span>
+     <span>Camino a Melipilla 4520 · Abierto</span></div>
+ </div>
+ <div class="vos" style="border-color:#188038;background:#f2f9f4"><b style="color:#188038">Ahora apareces primero, con ficha y sitio propio</b>
+   <span>Quien busca tu rubro en tu comuna te encuentra, ve tus productos y te contacta sin pasar por un portal.</span></div>
+</body></html>

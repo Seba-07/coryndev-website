@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:1400px;height:875px;background:#f6f8fb;font-family:'Inter',system-ui,sans-serif;
+   font-size:13px;color:#0f172a;overflow:hidden;display:flex}
+ .lat{width:210px;background:#0f2557;color:#fff;flex:none;padding:18px 0}
+ .lat .mk{display:flex;align-items:center;gap:9px;padding:0 18px 22px;font-weight:700;
+   letter-spacing:.16em;font-size:13px}
+ .lat .mk i{width:22px;height:22px;border-radius:5px;
+   background:linear-gradient(135deg,#2bb8cf,#5f95ff);display:block}
+ .lat a{display:flex;align-items:center;gap:10px;padding:10px 18px;color:#a9c2ee;
+   text-decoration:none;font-size:13.5px}
+ .lat a.on{background:rgba(255,255,255,.1);color:#fff;font-weight:600;
+   box-shadow:inset 3px 0 0 #2bb8cf}
+ .lat .sep{margin-top:16px;padding:0 18px 8px;font-size:10px;letter-spacing:.14em;
+   text-transform:uppercase;color:#6f8ec4}
+ .main{flex:1;display:flex;flex-direction:column;min-width:0}
+ .top{height:58px;background:#fff;border-bottom:1px solid #e6ebf2;display:flex;
+   align-items:center;justify-content:space-between;padding:0 24px}
+ .top h1{font-size:17px;font-weight:600}
+ .top .r{display:flex;align-items:center;gap:12px}
+ .bus{border:1px solid #e2e8f0;border-radius:7px;padding:7px 12px;color:#94a3b8;width:230px}
+ .btn{background:#1f5fe0;color:#fff;border-radius:7px;padding:8px 15px;font-weight:600;font-size:13px}
+ .yo{width:32px;height:32px;border-radius:50%;background:#e2e8f0;display:grid;place-items:center;
+   font-size:11px;font-weight:700;color:#475569}
+ .cnt{padding:20px 24px;overflow:hidden}
+ .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+ .k{background:#fff;border:1px solid #e6ebf2;border-radius:10px;padding:15px 17px}
+ .k span{font-size:11.5px;color:#64748b;font-weight:500}
+ .k b{display:block;font-size:23px;font-weight:700;margin:5px 0 3px;letter-spacing:-.02em}
+ .k i{font-style:normal;font-size:11.5px;font-weight:600}
+ .up{color:#16a34a}.dn{color:#dc2626}
+ .fila2{display:grid;grid-template-columns:1fr 300px;gap:16px}
+ .card{background:#fff;border:1px solid #e6ebf2;border-radius:10px;overflow:hidden}
+ .ch{padding:13px 17px;border-bottom:1px solid #eef2f7;display:flex;justify-content:space-between;
+   align-items:center}
+ .ch b{font-size:14px;font-weight:600}
+ .ch span{font-size:12px;color:#1f5fe0;font-weight:500}
+ table{width:100%;border-collapse:collapse}
+ th,td{text-align:left;padding:9px 17px;font-size:12.5px;border-bottom:1px solid #f1f5f9}
+ th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;font-weight:600}
+ td b{font-weight:500}
+ .pill{display:inline-block;border-radius:999px;padding:3px 9px;font-size:11px;font-weight:600}
+ .ok{background:#dcfce7;color:#15803d}.bajo{background:#fef3c7;color:#b45309}
+ .cero{background:#fee2e2;color:#b91c1c}
+ .al{padding:13px 17px;border-bottom:1px solid #f1f5f9;display:flex;gap:10px;align-items:flex-start}
+ .pt{width:7px;height:7px;border-radius:50%;margin-top:5px;flex:none}
+ .al b{display:block;font-size:12.5px;font-weight:600;margin-bottom:2px}
+ .al span{font-size:11.5px;color:#64748b;line-height:1.4}
+</style></head><body>
+ <div class="lat">
+   <div class="mk"><i></i>CORYN</div>
+   <a class="on">▦ Panel</a>
+   <a>▤ Inventario</a>
+   <a>◷ Ventas</a>
+   <a>◎ Clientes</a>
+   <a>$ Cobros</a>
+   <div class="sep">Configuración</div>
+   <a>⚙ Usuarios y permisos</a>
+   <a>⎙ Reportes</a>
+ </div>
+ <div class="main">
+   <div class="top"><h1>Panel general</h1>
+     <div class="r"><span class="bus">Buscar producto, cliente o folio…</span>
+       <span class="btn">+ Nueva venta</span><span class="yo">SA</span></div></div>
+   <div class="cnt">
+     <div class="kpis">
+       <div class="k"><span>Ventas del mes</span><b>$8.412.900</b><i class="up">▲ 12,4% vs. marzo</i></div>
+       <div class="k"><span>Por cobrar</span><b>$1.284.500</b><i class="dn">6 facturas vencidas</i></div>
+       <div class="k"><span>Productos bajo mínimo</span><b>7</b><i class="dn">3 sin stock</i></div>
+       <div class="k"><span>Valor del inventario</span><b>$14.907.300</b><i class="up">1.284 unidades</i></div>
+     </div>
+     <div class="fila2">
+       <div class="card">
+         <div class="ch"><b>Inventario · requiere atención</b><span>Ver todo →</span></div>
+         <table>
+           <thead><tr><th>Producto</th><th>SKU</th><th>Stock</th><th>Mínimo</th><th>Estado</th><th>Proveedor</th></tr></thead>
+           <tbody>
+             <tr><td><b>Teclado inalámbrico</b></td><td>TEC-INA-01</td><td>0</td><td>5</td><td><span class="pill cero">Sin stock</span></td><td>ImportaYa</td></tr>
+             <tr><td><b>Disco externo 1 TB</b></td><td>ALM-EXT-1T</td><td>1</td><td>4</td><td><span class="pill bajo">Bajo mínimo</span></td><td>ImportaYa</td></tr>
+             <tr><td><b>Monitor 24"</b></td><td>MON-24-FHD</td><td>2</td><td>6</td><td><span class="pill bajo">Bajo mínimo</span></td><td>Distr. Norte</td></tr>
+             <tr><td><b>Cámara seguridad</b></td><td>SEG-CAM-02</td><td>2</td><td>5</td><td><span class="pill bajo">Bajo mínimo</span></td><td>ImportaYa</td></tr>
+             <tr><td><b>Parlante BT</b></td><td>AUD-PAR-BT</td><td>3</td><td>6</td><td><span class="pill bajo">Bajo mínimo</span></td><td>ImportaYa</td></tr>
+             <tr><td><b>Cable HDMI 2 m</b></td><td>CAB-HDM-2M</td><td>14</td><td>10</td><td><span class="pill ok">En rango</span></td><td>Distr. Norte</td></tr>
+             <tr><td><b>Cargador USB-C</b></td><td>CAR-USC-01</td><td>41</td><td>15</td><td><span class="pill ok">En rango</span></td><td>Distr. Norte</td></tr>
+           </tbody>
+         </table>
+       </div>
+       <div class="card">
+         <div class="ch"><b>Alertas</b><span>4</span></div>
+         <div class="al"><span class="pt" style="background:#dc2626"></span><div>
+           <b>3 productos sin stock</b><span>Teclado inalámbrico y 2 más</span></div></div>
+         <div class="al"><span class="pt" style="background:#f59e0b"></span><div>
+           <b>Factura 1842 vencida</b><span>Comercial Andes · 12 días · $340.900</span></div></div>
+         <div class="al"><span class="pt" style="background:#f59e0b"></span><div>
+           <b>Orden de compra pendiente</b><span>ImportaYa · esperando confirmación</span></div></div>
+         <div class="al"><span class="pt" style="background:#1f5fe0"></span><div>
+           <b>Respaldo completado</b><span>Hoy 03:00 · sin errores</span></div></div>
+       </div>
+     </div>
+   </div>
+ </div>
+</body></html>
