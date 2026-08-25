@@ -1210,7 +1210,7 @@ a.dato:hover{ transform:translateY(-2px);
   position:absolute; left:0; right:100%; bottom:0; height:2px;
   background:linear-gradient(90deg, var(--cyan), #74a6ff);
 }
-.exp-lista.auto .exp-item.activo .prog{ animation:exp-prog 6.4s linear forwards; }
+.exp-lista.auto .exp-item.activo .prog{ animation:exp-prog 7.2s linear forwards; }
 @keyframes exp-prog{ from{ right:100%; } to{ right:0; } }
 @media (prefers-reduced-motion: reduce){
   .exp-item, .exp-lista.auto .exp-item.activo .prog{ transition:none; animation:none; }
@@ -1236,16 +1236,20 @@ a.dato:hover{ transform:translateY(-2px);
 .exp-shot .capa{
   position:absolute; inset:0; width:100%; height:100%; display:block;
   object-fit:cover; object-position:top center;
-  opacity:0; transform:scale(1.035); filter:blur(7px);
-  transition:opacity .62s cubic-bezier(.22,.68,.28,1),
-             transform .78s cubic-bezier(.22,.68,.28,1),
-             filter .62s cubic-bezier(.22,.68,.28,1);
-  will-change:opacity, transform;
+  opacity:0; transform:scale(1.055) translateY(10px); filter:blur(10px) saturate(.7);
+  transition:opacity 1.1s cubic-bezier(.4,.0,.2,1),
+             transform 1.35s cubic-bezier(.16,.84,.24,1),
+             filter 1.1s cubic-bezier(.4,.0,.2,1);
+  will-change:opacity, transform, filter;
 }
-.exp-shot .capa.on{ opacity:1; transform:scale(1); filter:blur(0); }
-/* la capa que sale se hunde un poco, en vez de solo desaparecer */
-.exp-shot .capa:not(.on){ transform:scale(.965); }
-.exp-shot .capa.on{ transform:scale(1); }
+/* la que entra llega desde arriba y se afina; la que sale se hunde y se difumina */
+.exp-shot .capa.on{
+  opacity:1; transform:scale(1) translateY(0); filter:blur(0) saturate(1);
+  transition:opacity 1.1s cubic-bezier(.2,.6,.2,1),
+             transform 1.35s cubic-bezier(.16,.84,.24,1),
+             filter 1.1s cubic-bezier(.2,.6,.2,1);
+}
+.exp-shot .capa:not(.on){ transform:scale(.94) translateY(-8px); }
 @media (prefers-reduced-motion: reduce){
   .exp-shot .capa{ transition:opacity .2s linear; transform:none !important; filter:none; }
 }
@@ -1264,9 +1268,9 @@ a.dato:hover{ transform:translateY(-2px);
 }
 
 /* transicion entre casos */
-.exp-info{ transition:opacity .42s ease; }
+.exp-info{ transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.3,1); }
 .exp-shot .barra .u{ transition:opacity .42s ease; }
-.exp-panel.cambiando .exp-info,
+.exp-panel.cambiando .exp-info{ opacity:0; transform:translateY(7px); transition:none; }
 .exp-panel.cambiando .exp-shot .barra .u{ opacity:0; transition:none; }
 @media (prefers-reduced-motion: reduce){
   .exp-info, .exp-shot, .exp-shot .barra{ transition:none; }
@@ -1773,7 +1777,7 @@ a.dato:hover{ transform:translateY(-2px);
 .exp-panel.es-despues .exp-shot{
   border-color:transparent; background:transparent; box-shadow:none;
 }
-.exp-panel.es-despues .exp-shot .capas{ margin-top:-41px; }
+
 
 #capaDespues{
   object-fit:contain; object-position:center;
@@ -1783,6 +1787,14 @@ a.dato:hover{ transform:translateY(-2px);
   mask-image:radial-gradient(78% 92% at 50% 48%, #000 34%, rgba(0,0,0,.55) 68%, transparent 100%);
 }
 /* el marco y la barra se desvanecen junto con el "antes" */
-.exp-shot{ transition:border-color .5s ease, background .5s ease, box-shadow .5s ease; }
-.exp-shot .barra{ transition:opacity .4s ease; }
-.exp-panel.es-despues .exp-shot .barra{ opacity:0; pointer-events:none; }
+.exp-shot{ transition:border-color .9s ease, background .9s ease, box-shadow .9s ease; }
+.exp-shot .barra{
+  height:41px; overflow:hidden; padding-top:0; padding-bottom:0;
+  align-items:center;
+  transition:opacity .7s ease, height .9s cubic-bezier(.4,0,.2,1),
+             border-color .9s ease;
+}
+/* colapsa en vez de desaparecer de golpe: quitarla producia un salto de 41px */
+.exp-panel.es-despues .exp-shot .barra{
+  opacity:0; height:0; border-color:transparent; pointer-events:none;
+}

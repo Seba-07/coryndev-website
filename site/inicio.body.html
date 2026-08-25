@@ -155,15 +155,17 @@
           meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
         precio: '$890.000' }
     ];
-    var ESPERA_ANTES = 1200;   // cuanto se ve el "antes" antes de transformarse
-    var ESPERA_DESPUES = 5200; // cuanto se queda el "despues" antes de pasar al siguiente
+    var ESPERA_ANTES = 3000;   // cuanto se ve el problema antes de transformarse
+    var ESPERA_DESPUES = 4200; // cuanto se queda la solucion antes del siguiente
+    var FUNDIDO = 1100;        // debe coincidir con la transicion del CSS
 
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
+    var botones = Array.prototype.slice.call(document.querySelectorAll('.exp-switch button'));
     var panel = document.getElementById('expPanel');
     var cA = document.getElementById('capaAntes');
     var cD = document.getElementById('capaDespues');
     var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var actual = 0, estado = 'antes', manual = false, reloj = null, visible = false;
+    var actual = 0, estado = 'antes', manual = false, reloj = null, limpieza = null, visible = false;
 
     function texto (i) {
       var c = CASOS[i], v = c[estado];
@@ -177,22 +179,37 @@
       document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
     }
 
+    // Solo se toca el src de la capa que esta invisible. Cambiarlo en la capa
+    // visible hace que el navegador reemplace la imagen de golpe y el fundido
+    // se pierde: por eso antes el cambio de pestaña se veia instantaneo.
+    function fuente (capa, url) {
+      if (capa.getAttribute('src') !== url) capa.setAttribute('src', url);
+    }
+
     function pinta (i) {
       var c = CASOS[i];
-      // cada capa carga siempre su propia imagen: la de arriba se funde sobre la otra
-      cA.src = c.antes.img;   cA.alt = c.antes.alt;
-      cD.src = c.despues.img; cD.alt = '';
+      var entra = estado === 'antes' ? cA : cD;
+      var sale  = estado === 'antes' ? cD : cA;
+      var urlEntra = estado === 'antes' ? c.antes.img : c.despues.img;
+      var urlSale  = estado === 'antes' ? c.despues.img : c.antes.img;
+
+      clearTimeout(limpieza);
+      fuente(entra, urlEntra);                  // la que entra esta invisible: seguro
+      entra.alt = estado === 'antes' ? c.antes.alt : '';
+
+      panel.classList.add('cambiando');
+      texto(i);
       cA.classList.toggle('on', estado === 'antes');
       cD.classList.toggle('on', estado === 'despues');
       panel.classList.toggle('es-despues', estado === 'despues');
       panel.setAttribute('aria-labelledby', 'tab-' + i);
-      // todo cambia en el mismo instante: si el texto se retrasa, el rotulo y la
-      // imagen quedan contradiciendose durante la transicion
-      panel.classList.add('cambiando');
-      texto(i);
       requestAnimationFrame(function () {
         requestAnimationFrame(function () { panel.classList.remove('cambiando'); });
       });
+
+      // la que sale recibe su nueva imagen recien cuando ya no se ve
+      limpieza = setTimeout(function () { fuente(sale, urlSale); }, FUNDIDO + 60);
+
       items.forEach(function (el, k) {
         el.classList.toggle('activo', k === i);
         el.setAttribute('aria-selected', k === i ? 'true' : 'false');
@@ -204,9 +221,6 @@
       actual = i;
     }
 
-    var botones = Array.prototype.slice.call(document.querySelectorAll('.exp-switch button'));
-
-    // ---- recorrido automatico: se ve el problema, se transforma, pasa al siguiente ----
     function agenda () {
       if (manual || quieto || !visible) return;
       clearTimeout(reloj);
@@ -224,12 +238,17 @@
 
     botones.forEach(function (b) {
       b.addEventListener('click', function () {
-        frena(); estado = b.dataset.v; pinta(actual);
+        frena();
+        if (estado === b.dataset.v) return;
+        estado = b.dataset.v; pinta(actual);
       });
     });
     items.forEach(function (el) {
       el.addEventListener('click', function () {
-        frena(); estado = 'antes'; pinta(+el.dataset.i);
+        frena();
+        var i = +el.dataset.i;
+        if (i === actual && estado === 'antes') return;
+        estado = 'antes'; pinta(i);
       });
     });
 
@@ -241,11 +260,9 @@
       new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           visible = e.isIntersecting;
-          if (visible) {
-            if (!manual && !quieto) {
-              document.querySelector('.exp-lista').classList.add('auto');
-              agenda();
-            }
+          if (visible && !manual && !quieto) {
+            document.querySelector('.exp-lista').classList.add('auto');
+            agenda();
           } else { clearTimeout(reloj); reloj = null; }
         });
       }, { threshold: 0.3 }).observe(document.querySelector('.explora'));
