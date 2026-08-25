@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:1400px;height:875px;background:#fff;font-family:'Arimo',Arial,sans-serif;
+   font-size:13px;color:#222;overflow:hidden}
+ .tb{height:34px;background:#f1f3f4;border-bottom:1px solid #dadce0;display:flex;align-items:center;
+   gap:18px;padding:0 14px;color:#5f6368;font-size:12px}
+ .tb b{color:#3c4043}
+ .fx{height:26px;background:#fff;border-bottom:1px solid #e0e0e0;display:flex;align-items:center;
+   padding:0 10px;gap:10px;color:#80868b;font-size:11px}
+ table{width:100%;border-collapse:collapse;table-layout:fixed}
+ th,td{border:1px solid #e0e0e0;padding:4px 7px;height:25px;overflow:hidden;white-space:nowrap;
+   text-overflow:ellipsis}
+ thead th{background:#f8f9fa;color:#5f6368;font-weight:700;font-size:11px;text-align:left}
+ .idx{width:34px;background:#f8f9fa;color:#80868b;text-align:center;font-size:11px}
+ .am{background:#fff2cc}.rj{background:#fce8e6;color:#c5221f}.vd{background:#e6f4ea}
+ .nota{color:#c5221f;font-size:11px}
+ .gris{color:#9aa0a6;font-style:italic}
+ .tabs{position:absolute;bottom:0;left:0;right:0;height:30px;background:#f8f9fa;
+   border-top:1px solid #dadce0;display:flex;align-items:center;gap:2px;padding:0 10px;font-size:11px}
+ .tabs span{padding:5px 12px;color:#5f6368;border-radius:4px 4px 0 0}
+ .tabs .on{background:#fff;color:#188038;font-weight:700;border:1px solid #dadce0;border-bottom:0}
+</style></head><body>
+<div class="tb"><b>inventario_FINAL_v3_ok (1).xlsx</b><span>Archivo</span><span>Edición</span>
+  <span>Ver</span><span>Insertar</span><span>Datos</span><span>Herramientas</span></div>
+<div class="fx"><span>D14</span><span>|</span><span>=SUMA(C14*B14)</span></div>
+<table>
+ <thead><tr><th class="idx"></th><th style="width:22%">Producto</th><th>Stock</th><th>Costo</th>
+   <th>Precio</th><th>Proveedor</th><th style="width:16%">Últ. compra</th><th style="width:20%">Notas</th></tr></thead>
+ <tbody>
+  <tr><td class="idx">1</td><td>Cable HDMI 2m</td><td>14</td><td>3.200</td><td>7.900</td><td>Distr. Norte</td><td>12-03</td><td></td></tr>
+  <tr><td class="idx">2</td><td>Cable HDMI 2 m</td><td class="am">¿8?</td><td>3.200</td><td>7.900</td><td>Distr Norte</td><td>12/03</td><td class="nota">duplicado?</td></tr>
+  <tr><td class="idx">3</td><td>Teclado inalámbrico</td><td>0</td><td>11.500</td><td>24.990</td><td>ImportaYa</td><td>28-02</td><td class="rj">SIN STOCK</td></tr>
+  <tr><td class="idx">4</td><td>Mouse óptico</td><td>23</td><td>4.100</td><td>9.990</td><td>ImportaYa</td><td>28-02</td><td></td></tr>
+  <tr><td class="idx">5</td><td>Monitor 24"</td><td class="am">2</td><td>89.000</td><td>149.900</td><td>Distr. Norte</td><td>05-01</td><td>quedan pocos</td></tr>
+  <tr><td class="idx">6</td><td>Audífonos BT</td><td>7</td><td>12.000</td><td class="rj">#¡REF!</td><td>ImportaYa</td><td>15-03</td><td class="nota">revisar precio</td></tr>
+  <tr><td class="idx">7</td><td>Cargador USB-C</td><td>41</td><td>2.800</td><td>6.500</td><td>Distr. Norte</td><td>12-03</td><td></td></tr>
+  <tr><td class="idx">8</td><td class="gris">cargador usbc (Ana)</td><td class="am">¿?</td><td></td><td>6.500</td><td></td><td></td><td class="nota">preguntar a Ana</td></tr>
+  <tr><td class="idx">9</td><td>Webcam HD</td><td>5</td><td>18.900</td><td>39.990</td><td>ImportaYa</td><td>28-02</td><td></td></tr>
+  <tr><td class="idx">10</td><td>Hub USB 4 puertos</td><td>12</td><td>6.700</td><td>15.900</td><td>Distr. Norte</td><td class="am">?</td><td></td></tr>
+  <tr><td class="idx">11</td><td>Soporte notebook</td><td>9</td><td>8.200</td><td>19.900</td><td>ImportaYa</td><td>15-03</td><td></td></tr>
+  <tr><td class="idx">12</td><td>Adaptador VGA</td><td class="rj">-3</td><td>3.900</td><td>8.900</td><td></td><td>05-01</td><td class="nota">stock negativo!!</td></tr>
+  <tr><td class="idx">13</td><td>Pilas AA pack 4</td><td>60</td><td>1.200</td><td>2.990</td><td>Distr. Norte</td><td>12-03</td><td></td></tr>
+  <tr><td class="idx">14</td><td class="vd">Parlante BT</td><td>3</td><td>21.000</td><td>44.900</td><td>ImportaYa</td><td>15-03</td><td>promo</td></tr>
+  <tr><td class="idx">15</td><td>Micrófono USB</td><td>6</td><td>15.400</td><td>32.900</td><td>ImportaYa</td><td>15-03</td><td></td></tr>
+  <tr><td class="idx">16</td><td class="gris">(fila vieja, no borrar)</td><td class="gris">—</td><td class="gris">—</td><td class="gris">—</td><td></td><td></td><td class="nota">?</td></tr>
+  <tr><td class="idx">17</td><td>Funda notebook 15"</td><td>18</td><td>5.500</td><td>12.900</td><td>Distr. Norte</td><td>12-03</td><td></td></tr>
+  <tr><td class="idx">18</td><td>Disco externo 1TB</td><td class="am">1</td><td>42.000</td><td>79.900</td><td>ImportaYa</td><td>28-02</td><td>último</td></tr>
+  <tr><td class="idx">19</td><td>Cable red 3m</td><td>27</td><td>2.100</td><td>4.990</td><td>Distr. Norte</td><td>12-03</td><td></td></tr>
+  <tr><td class="idx">20</td><td>Regleta 6 tomas</td><td>15</td><td>7.800</td><td>16.900</td><td></td><td class="am">?</td><td class="nota">falta proveedor</td></tr>
+  <tr><td class="idx">21</td><td>Lámpara escritorio</td><td>4</td><td>13.200</td><td>27.900</td><td>ImportaYa</td><td>15-03</td><td></td></tr>
+  <tr><td class="idx">22</td><td>Mousepad XL</td><td>33</td><td>3.400</td><td>8.500</td><td>Distr. Norte</td><td>12-03</td><td></td></tr>
+  <tr><td class="idx">23</td><td>Cámara seguridad</td><td>2</td><td>34.000</td><td class="rj">#¡VALOR!</td><td>ImportaYa</td><td>28-02</td><td class="nota">arreglar</td></tr>
+ </tbody>
+</table>
+<div class="tabs"><span class="on">Inventario</span><span>Hoja1</span><span>Copia de Hoja1</span>
+  <span>ventas marzo</span><span>ventas marzo (2)</span><span>NO TOCAR</span></div>
+</body></html>

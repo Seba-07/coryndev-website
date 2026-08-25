@@ -95,9 +95,9 @@ PAGINAS = [
     dict(
         slug='index',
         titulo='CORYN — Software a medida para empresas en Chile',
-        desc='Desarrollamos sistemas de gestión, aplicaciones móviles y sitios web a '
-             'medida. Experiencia en salud, inmobiliario y retail. '
-             'Primera reunión sin costo.',
+        desc='¿No apareces en Google? ¿Tu operación vive en una planilla? Construimos '
+             'sitios, catálogos y sistemas de gestión a medida para pymes en Chile. '
+             'Desde $250.000, primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
         cierre=('Conversemos 30 minutos, sin costo.',
@@ -246,7 +246,7 @@ def construir_casos():
     for c in CASOS:
         cabecera = S.cabecera(
             c['h1'], c['lead'], f"{c['sector']} &middot; {c['tipo']}",
-            migas=[('Inicio', 'index.html'), ('Casos', 'index.html#casos'),
+            migas=[('Inicio', 'index.html'), ('Proyectos', 'nosotros.html#recorrido'),
                    (c['titulo'], None)])
         cuerpo = f'''<section>
   <div class="wrap caso-grid">
@@ -260,12 +260,12 @@ def construir_casos():
             'Conversemos 30 minutos, sin costo.',
             'Cuéntanos tu situación y te decimos con honestidad qué se puede resolver '
             'con software, qué conviene priorizar y cuánto costaría hacerlo bien.',
-            boton_extra='<a class="btn btn-ghost" href="index.html#casos">Ver otros casos</a>')
+            boton_extra='<a class="btn btn-ghost" href="nosotros.html#recorrido">Ver otros proyectos</a>')
         html = S.render(
             titulo=f"{c['titulo']} — Caso de proyecto | CORYN",
             descripcion=c['meta_desc'],
             cuerpo='\n\n'.join([cabecera, cuerpo, cierre]),
-            activa='casos', og_img=c['figura'], og_tipo='article')
+            activa='', og_img=c['figura'], og_tipo='article')
         destino = SALIDA / f"caso-{c['slug']}.html"
         destino.write_text(html)
         yield destino

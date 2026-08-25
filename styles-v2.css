@@ -1685,3 +1685,7 @@ a.dato:hover{ transform:translateY(-2px);
   margin-top:16px; font-family:'IBM Plex Sans',sans-serif; font-weight:400;
   font-size:15.5px; letter-spacing:0; color:#9fbaea; line-height:1.55;
 }
+.exp-precio{
+  font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#8fa9d4; margin-top:2px;
+}
+.exp-precio b{ color:#6fd8ec; font-weight:600; font-size:15px; }

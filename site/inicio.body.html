@@ -13,7 +13,7 @@
       para tu operación. <strong>Nada de plantillas.</strong>
     </p>
     <div class="actions">
-      <a class="btn btn-solid" href="#casos">Ver casos reales</a>
+      <a class="btn btn-solid" href="#problemas">Ver qué resolvemos</a>
       <a class="btn btn-ghost" href="#cotizar">Cómo cotizamos</a>
     </div>
   </div>
@@ -34,48 +34,62 @@
   </div>
 </section>
 
-<!-- ================= SECTORES (explorador) ================= -->
-<section class="explora" id="casos">
+<!-- ================= PROBLEMAS (explorador) ================= -->
+<section class="explora" id="problemas">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Experiencia</p>
-      <h2>Dónde hemos trabajado</h2>
-      <p>Cada industria tiene reglas propias que ningún software genérico conoce.
-      Elige una y mira el proyecto que la respalda.</p>
+      <p class="eyebrow">Empecemos por acá</p>
+      <h2>¿Cuál de estos es tu problema?</h2>
+      <p>No vendemos categorías técnicas. Elige el que te suene y mira qué construimos
+      para resolverlo, cuánto cuesta y cómo se ve funcionando.</p>
     </div>
 
     <div class="exp-grid rv">
-      <div class="exp-lista" role="tablist" aria-label="Sectores donde hemos trabajado">
-        <button class="exp-item activo" role="tab" aria-selected="true" id="tab-0" aria-controls="expPanel" data-i="0">
+      <div class="exp-lista" role="tablist" aria-label="Problemas que resolvemos">
+        <button class="exp-item activo" role="tab"
+                aria-selected="true" id="tab-0"
+                aria-controls="expPanel" data-i="0">
           <span class="n">01</span>
-          <span class="tt"><b>Salud</b><small>Vender equipamiento médico a especialistas fuera de Chile</small></span>
+          <span class="tt"><b>Te buscan en Google y no apareces</b><small>Dependes de Instagram y del boca a boca</small></span>
           <span class="prog"></span>
         </button>
-        <button class="exp-item" role="tab" aria-selected="false" id="tab-1" aria-controls="expPanel" data-i="1">
+        <button class="exp-item" role="tab"
+                aria-selected="false" id="tab-1"
+                aria-controls="expPanel" data-i="1">
           <span class="n">02</span>
-          <span class="tt"><b>Inmobiliario</b><small>Captar interesados sin regalarle el contacto a los portales</small></span>
+          <span class="tt"><b>Explicas lo mismo por mensaje, uno por uno</b><small>Precios, medidas y disponibilidad, veinte veces al día</small></span>
           <span class="prog"></span>
         </button>
-        <button class="exp-item" role="tab" aria-selected="false" id="tab-2" aria-controls="expPanel" data-i="2">
+        <button class="exp-item" role="tab"
+                aria-selected="false" id="tab-2"
+                aria-controls="expPanel" data-i="2">
           <span class="n">03</span>
-          <span class="tt"><b>Retail</b><small>Registrar compras sin tipear nada: la boleta hace el trabajo</small></span>
+          <span class="tt"><b>Tu operación vive en una planilla</b><small>Y solo una persona entiende cómo funciona</small></span>
+          <span class="prog"></span>
+        </button>
+        <button class="exp-item" role="tab"
+                aria-selected="false" id="tab-3"
+                aria-controls="expPanel" data-i="3">
+          <span class="n">04</span>
+          <span class="tt"><b>Tus clientes quieren resolver desde el teléfono</b><small>Y hoy tienen que llamarte o ir presencialmente</small></span>
           <span class="prog"></span>
         </button>
       </div>
 
       <div class="exp-panel" id="expPanel" role="tabpanel" aria-labelledby="tab-0">
         <div class="exp-shot">
-          <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">bysimmed.com</span></div>
-          <img id="expImg" src="assets/work-bysimmed.webp" width="1400" height="875"
-               alt="Sitio web de bySIMMED" loading="lazy">
+          <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">avenprop.cl</span></div>
+          <img id="expImg" src="assets/work-avenprop.webp" width="1400" height="875"
+               alt="Sitio de AvenProp con buscador de propiedades" loading="lazy">
         </div>
         <div class="exp-info">
-          <p class="tag" id="expTag">Salud &middot; Sitio y catálogo</p>
-          <h3 id="expNom">bySIMMED</h3>
-          <p class="dd" id="expDesc">Simuladores médicos de alta fidelidad fabricados en
-          Chile. Catálogo técnico, agenda de demostraciones y sitio en tres idiomas.</p>
-          <div class="meta" id="expMeta"><span>Multiidioma</span><span>Catálogo</span><span>SEO</span></div>
-          <a class="btn btn-solid btn-sm" id="expLink" href="caso-bysimmed.html">Ver el caso completo</a>
+          <p class="tag" id="expTag">Lo que construimos</p>
+          <h3 id="expNom">Un sitio que te encuentra el cliente</h3>
+          <p class="dd" id="expDesc">Optimizado para que aparezcas cuando alguien busca lo
+          que vendes en tu comuna, con el contacto a un toque de distancia.</p>
+          <div class="meta" id="expMeta"><span>Aparecer en Google</span><span>Contacto directo</span><span>Sin depender de redes</span></div>
+          <p class="exp-precio" id="expPrecio">Desde <b>$250.000</b></p>
+          <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
       </div>
     </div>
@@ -85,21 +99,30 @@
 <script>
   (function () {
     var CASOS = [
-      { url: 'bysimmed.com', img: 'assets/work-bysimmed.webp',
-        alt: 'Sitio web de bySIMMED',
-        tag: 'Salud · Sitio y catálogo', nom: 'bySIMMED',
-        desc: 'Simuladores médicos de alta fidelidad fabricados en Chile. Catálogo técnico, agenda de demostraciones y sitio en tres idiomas.',
-        meta: ['Multiidioma', 'Catálogo', 'SEO'], href: 'caso-bysimmed.html' },
       { url: 'avenprop.cl', img: 'assets/work-avenprop.webp',
-        alt: 'Plataforma web de AvenProp',
-        tag: 'Inmobiliario · Plataforma web', nom: 'AvenProp',
-        desc: 'Corretaje y seguros con buscador propio: filtros por comuna y tipo, fichas de cada propiedad y captación directa de interesados.',
-        meta: ['Buscador', 'Fichas', 'Formularios'], href: 'caso-avenprop.html' },
+        alt: 'Sitio de AvenProp con buscador de propiedades',
+        tag: 'Lo que construimos', nom: 'Un sitio que te encuentra el cliente',
+        desc: 'Optimizado para que aparezcas cuando alguien busca lo que vendes en tu comuna, con el contacto a un toque de distancia.',
+        meta: ['Aparecer en Google', 'Contacto directo', 'Sin depender de redes'],
+        precio: '$250.000', href: '#cotizar' },
+      { url: 'bysimmed.com', img: 'assets/work-bysimmed.webp',
+        alt: 'Catálogo de productos de bySIMMED',
+        tag: 'Lo que construimos', nom: 'Un catálogo que responde por ti',
+        desc: 'Tus productos con fotos, especificaciones y precios, para que el cliente llegue sabiendo qué quiere en vez de preguntarlo todo.',
+        meta: ['Catálogo con filtros', 'Fichas completas', 'Varios idiomas'],
+        precio: '$890.000', href: '#cotizar' },
+      { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
+        alt: 'Una planilla de inventario descuadrada, con errores y duplicados',
+        tag: 'Así se ve hoy', nom: 'Y así deja de verse',
+        desc: 'Un sistema con tu inventario, tus ventas y tus cobros en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Se puede partir por un módulo.',
+        meta: ['Un módulo para empezar', 'Permisos por rol', 'Sin stock negativo'],
+        precio: '$1.400.000', href: '#cotizar' },
       { url: 'App Store · Google Play', img: 'assets/app-buscar.webp',
         alt: 'Aplicación móvil PrecioRadar',
-        tag: 'Retail · Aplicación móvil', nom: 'PrecioRadar',
-        desc: 'Producto propio: fotografías la boleta y la aplicación registra la compra, compara precios entre cadenas y ordena el gasto del mes.',
-        meta: ['iOS y Android', 'Lectura de boletas', 'Producto propio'], href: 'caso-precioradar.html' }
+        tag: 'Lo que construimos', nom: 'Una aplicación en su teléfono',
+        desc: 'Para que tus clientes pidan, agenden o consulten sin llamar, y tu equipo opere desde el celular aunque no haya señal.',
+        meta: ['iOS y Android', 'Funciona sin conexión', 'Notificaciones'],
+        precio: '$3.400.000', href: '#cotizar' }
     ];
     var AUTO = 7000;
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
@@ -114,11 +137,12 @@
       setTimeout(function () {
         img.src = c.img; img.alt = c.alt;
         document.getElementById('expUrl').textContent = c.url;
-        document.getElementById('expTag').innerHTML = c.tag.replace('·', '&middot;');
+        document.getElementById('expTag').textContent = c.tag;
         document.getElementById('expNom').textContent = c.nom;
         document.getElementById('expDesc').textContent = c.desc;
         document.getElementById('expMeta').innerHTML =
           c.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
+        document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
         document.getElementById('expLink').href = c.href;
         panel.setAttribute('aria-labelledby', 'tab-' + i);
         panel.classList.remove('cambiando');
@@ -140,14 +164,10 @@
       document.querySelector('.exp-lista').classList.remove('auto');
       if (timer) { clearInterval(timer); timer = null; }
     }
-
     items.forEach(function (el) {
       el.addEventListener('click', function () { frena(); pinta(+el.dataset.i); });
     });
-    // precarga para que el cambio no parpadee
     CASOS.forEach(function (c) { (new Image()).src = c.img; });
-
-    // el auto-avance corre solo mientras la seccion esta a la vista
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) {
         es.forEach(function (e) {
@@ -155,7 +175,7 @@
           else if (timer) { clearInterval(timer); timer = null;
             document.querySelector('.exp-lista').classList.remove('auto'); }
         });
-      }, { threshold: 0.35 }).observe(document.querySelector('.explora'));
+      }, { threshold: 0.3 }).observe(document.querySelector('.explora'));
     }
   })();
 </script>
