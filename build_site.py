@@ -94,10 +94,10 @@ JS_FORMULARIO = '''<script>
 PAGINAS = [
     dict(
         slug='index',
-        titulo='CORYN — Software a medida para empresas en Chile',
-        desc='¿No apareces en Google? ¿Tu operación vive en una planilla? Construimos '
-             'sitios, catálogos y sistemas de gestión a medida para pymes en Chile. '
-             'Desde $250.000, primera reunión sin costo.',
+        titulo='CORYN — Saca tu operación de las planillas | Software a medida en Chile',
+        desc='¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una '
+             'persona entiende? Construimos el sistema de gestión que ordena tu pyme. '
+             'Desde $1.400.000 por módulo, primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
         cierre=('Conversemos 30 minutos, sin costo.',

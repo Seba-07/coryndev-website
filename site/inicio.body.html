@@ -7,10 +7,10 @@
       <img src="assets/ala-poster.webp" width="440" height="696" alt="">
     </video>
     <p class="eyebrow">Desarrollo de software a medida &middot; Chile</p>
-    <h1>El software se adapta a tu negocio, <em>no al revés</em></h1>
+    <h1>Tu negocio ya no cabe <em>en una planilla</em></h1>
     <p class="lead">
-      Sistemas de gestión, aplicaciones y sitios web construidos desde cero
-      para tu operación. <strong>Nada de plantillas.</strong>
+      Construimos el sistema que ordena tu operación: inventario, ventas y cobros
+      en un solo lugar, hecho a tu medida. <strong>Ni planilla, ni plantilla.</strong>
     </p>
     <div class="actions">
       <a class="btn btn-solid" href="#problemas">Ver qué resolvemos</a>
@@ -50,21 +50,21 @@
                 aria-selected="true" id="tab-0"
                 aria-controls="expPanel" data-i="0">
           <span class="n">01</span>
-          <span class="tt"><b>Te buscan en Google y no apareces</b><small>Dependes de Instagram y del boca a boca</small></span>
+          <span class="tt"><b>Tu operación vive en una planilla</b><small>Y solo una persona entiende cómo funciona</small></span>
           <span class="prog"></span>
         </button>
         <button class="exp-item" role="tab"
                 aria-selected="false" id="tab-1"
                 aria-controls="expPanel" data-i="1">
           <span class="n">02</span>
-          <span class="tt"><b>Explicas lo mismo por mensaje, uno por uno</b><small>Precios, medidas y disponibilidad, veinte veces al día</small></span>
+          <span class="tt"><b>Te buscan en Google y no apareces</b><small>Dependes de Instagram y del boca a boca</small></span>
           <span class="prog"></span>
         </button>
         <button class="exp-item" role="tab"
                 aria-selected="false" id="tab-2"
                 aria-controls="expPanel" data-i="2">
           <span class="n">03</span>
-          <span class="tt"><b>Tu operación vive en una planilla</b><small>Y solo una persona entiende cómo funciona</small></span>
+          <span class="tt"><b>Explicas lo mismo por mensaje, uno por uno</b><small>Precios, medidas y disponibilidad, veinte veces al día</small></span>
           <span class="prog"></span>
         </button>
         <button class="exp-item" role="tab"
@@ -78,17 +78,18 @@
 
       <div class="exp-panel" id="expPanel" role="tabpanel" aria-labelledby="tab-0">
         <div class="exp-shot">
-          <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">avenprop.cl</span></div>
-          <img id="expImg" src="assets/work-avenprop.webp" width="1400" height="875"
-               alt="Sitio de AvenProp con buscador de propiedades" loading="lazy">
+          <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">inventario_FINAL_v3_ok (1).xlsx</span></div>
+          <img id="expImg" src="assets/mock-planilla.webp" width="1400" height="875"
+               alt="Una planilla de inventario descuadrada, con errores y duplicados" loading="lazy">
         </div>
         <div class="exp-info">
-          <p class="tag" id="expTag">Lo que construimos</p>
-          <h3 id="expNom">Un sitio que te encuentra el cliente</h3>
-          <p class="dd" id="expDesc">Optimizado para que aparezcas cuando alguien busca lo
-          que vendes en tu comuna, con el contacto a un toque de distancia.</p>
-          <div class="meta" id="expMeta"><span>Aparecer en Google</span><span>Contacto directo</span><span>Sin depender de redes</span></div>
-          <p class="exp-precio" id="expPrecio">Desde <b>$250.000</b></p>
+          <p class="tag" id="expTag">Así se ve hoy</p>
+          <h3 id="expNom">Y así deja de verse</h3>
+          <p class="dd" id="expDesc">Un sistema con tu inventario, tus ventas y tus cobros
+          en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Se
+          puede partir por un módulo.</p>
+          <div class="meta" id="expMeta"><span>Un módulo para empezar</span><span>Permisos por rol</span><span>Sin stock negativo</span></div>
+          <p class="exp-precio" id="expPrecio">Desde <b>$1.400.000</b></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
       </div>
@@ -99,6 +100,12 @@
 <script>
   (function () {
     var CASOS = [
+      { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
+        alt: 'Una planilla de inventario descuadrada, con errores y duplicados',
+        tag: 'Así se ve hoy', nom: 'Y así deja de verse',
+        desc: 'Un sistema con tu inventario, tus ventas y tus cobros en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Se puede partir por un módulo.',
+        meta: ['Un módulo para empezar', 'Permisos por rol', 'Sin stock negativo'],
+        precio: '$1.400.000', href: '#cotizar' },
       { url: 'avenprop.cl', img: 'assets/work-avenprop.webp',
         alt: 'Sitio de AvenProp con buscador de propiedades',
         tag: 'Lo que construimos', nom: 'Un sitio que te encuentra el cliente',
@@ -111,12 +118,6 @@
         desc: 'Tus productos con fotos, especificaciones y precios, para que el cliente llegue sabiendo qué quiere en vez de preguntarlo todo.',
         meta: ['Catálogo con filtros', 'Fichas completas', 'Varios idiomas'],
         precio: '$890.000', href: '#cotizar' },
-      { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
-        alt: 'Una planilla de inventario descuadrada, con errores y duplicados',
-        tag: 'Así se ve hoy', nom: 'Y así deja de verse',
-        desc: 'Un sistema con tu inventario, tus ventas y tus cobros en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Se puede partir por un módulo.',
-        meta: ['Un módulo para empezar', 'Permisos por rol', 'Sin stock negativo'],
-        precio: '$1.400.000', href: '#cotizar' },
       { url: 'App Store · Google Play', img: 'assets/app-buscar.webp',
         alt: 'Aplicación móvil PrecioRadar',
         tag: 'Lo que construimos', nom: 'Una aplicación en su teléfono',
@@ -290,9 +291,9 @@
         <div class="est-caja">
           <p class="kicker">Estimación del proyecto</p>
           <p class="rango" id="estRango">
-            <span id="estMin">$250.000</span>
+            <span id="estMin">$1.400.000</span>
             <em>a</em>
-            <span id="estMax">$340.000</span>
+            <span id="estMax">$1.890.000</span>
           </p>
           <p class="mes">Más acompañamiento mensual desde
             <b id="estMes">$95.000</b></p>
@@ -316,9 +317,9 @@
 <script>
   (function () {
     var TIPOS = [
+      { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',          base: 1400000 },
       { id: 'web',     nom: 'Un sitio web',          sub: 'Presencia, contacto y que te encuentren',      base: 250000 },
       { id: 'tienda',  nom: 'Una tienda online',     sub: 'Vender con pago en línea y control de stock',  base: 1290000 },
-      { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',          base: 1400000 },
       { id: 'app',     nom: 'Una aplicación móvil',  sub: 'Para tu equipo o para tus clientes',           base: 3400000 }
     ];
     var EXTRAS = {
@@ -349,7 +350,7 @@
       ]
     };
 
-    var tipoSel = 'web', extrasSel = [];
+    var tipoSel = 'sistema', extrasSel = [];
     var $ = function (id) { return document.getElementById(id); };
     var plata = function (n) { return '$' + Math.round(n).toLocaleString('es-CL'); };
 
