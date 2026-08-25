@@ -111,6 +111,45 @@ a{ color:inherit; }
   background-size:auto, cover;
   background-position:center, center 38%;
   background-repeat:no-repeat;
+  isolation:isolate;
+}
+
+/* Dos manchas de luz enormes que derivan en ciclos largos y distintos.
+   No se leen como animacion, se leen como profundidad. Se animan solo con
+   transform, que la GPU compone sin repintar nada. */
+.hero::before,
+.hero::after{
+  content:''; position:absolute; z-index:0; pointer-events:none;
+  border-radius:50%; filter:blur(60px);
+  will-change:transform;
+}
+.hero::before{
+  width:70vw; height:70vw; max-width:900px; max-height:900px;
+  left:-8vw; top:-14vw;
+  background:radial-gradient(circle, rgba(52,150,205,.16) 0%, rgba(52,150,205,0) 68%);
+  animation:deriva-a 46s ease-in-out infinite alternate;
+}
+.hero::after{
+  width:58vw; height:58vw; max-width:760px; max-height:760px;
+  right:-10vw; bottom:-18vw;
+  background:radial-gradient(circle, rgba(96,140,225,.14) 0%, rgba(96,140,225,0) 66%);
+  animation:deriva-b 61s ease-in-out infinite alternate;
+}
+@keyframes deriva-a{
+  from{ transform:translate3d(0,0,0) scale(1); }
+  to  { transform:translate3d(9vw,7vh,0) scale(1.18); }
+}
+@keyframes deriva-b{
+  from{ transform:translate3d(0,0,0) scale(1.1); }
+  to  { transform:translate3d(-11vw,-6vh,0) scale(1); }
+}
+/* Sin z-index a proposito: darselo crearia un contexto de apilamiento y el ala
+   dejaria de poder componerse por suma contra el fondo. El orden del DOM basta
+   para que el contenido quede sobre las manchas. */
+.hero > .wrap, .hero-sectores{ position:relative; }
+
+@media (prefers-reduced-motion: reduce){
+  .hero::before, .hero::after{ animation:none; }
 }
 
 /* el ala de cristal: unico elemento visual del hero.
