@@ -171,9 +171,25 @@ JS_COMUN = '''<script>
 </script>'''
 
 
+def _firma_css():
+    """Huella del contenido de styles-v2.css.
+
+    Se anexa al enlace de la hoja para que, al cambiar los estilos, el navegador
+    descargue la version nueva en vez de reutilizar la que tenga en cache. Sin
+    esto un visitante que ya entro antes ve el HTML nuevo con los estilos viejos:
+    lo unico que conserva estilo son las secciones que ya existian.
+    """
+    import hashlib, pathlib as _pl
+    hoja = _pl.Path(__file__).parent / 'styles-v2.css'
+    if not hoja.exists():
+        return ''
+    return hashlib.sha1(hoja.read_bytes()).hexdigest()[:8]
+
+
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
            og_tipo='website', js_extra='', nav_solida=False):
     """Arma una pagina completa a partir del cuerpo."""
+    firma = _firma_css()
     og_img_abs = og_img.lstrip('./')
     nav = _nav(activa)
     if nav_solida:
@@ -194,7 +210,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css">
+<link rel="stylesheet" href="styles-v2.css?v={firma}">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {{
