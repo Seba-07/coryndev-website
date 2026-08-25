@@ -1807,3 +1807,12 @@ a.dato:hover{ transform:translateY(-2px);
 .exp-panel.es-despues .exp-shot .barra{
   opacity:0; height:0; border-color:transparent; pointer-events:none;
 }
+
+/* --- sugerencia de partir por etapas cuando el total sube --- */
+.est-etapas{
+  margin:16px 0 4px; padding:12px 14px; border-radius:10px;
+  background:rgba(45,170,210,.12);
+  border:1px solid color-mix(in srgb, var(--cyan) 32%, transparent);
+  font-size:13.5px; line-height:1.5; color:#cfdcf3;
+}
+.est-etapas b{ color:#9ce8f7; font-weight:600; }

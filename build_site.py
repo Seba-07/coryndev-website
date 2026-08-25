@@ -97,7 +97,7 @@ PAGINAS = [
         titulo='CORYN — Saca tu operación de las planillas | Software a medida en Chile',
         desc='¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una '
              'persona entiende? Construimos el sistema de gestión que ordena tu pyme. '
-             'Desde $1.400.000 por módulo, primera reunión sin costo.',
+             'Desde $690.000 por módulo, primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
         cierre=('Conversemos 30 minutos, sin costo.',
