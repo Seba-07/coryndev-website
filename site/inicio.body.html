@@ -205,88 +205,155 @@
   </div>
 </section>
 
-<!-- ================= COTIZACION ================= -->
-<section id="cotizar" class="banda">
+<!-- ================= COTIZACION (estimador) ================= -->
+<section id="cotizar" class="estima">
   <div class="wrap">
-    <p class="eyebrow">Inversión</p>
-    <h2>Cómo cotizamos</h2>
-    <p class="intro">Sin cifras escondidas hasta la tercera reunión. Cada escalón dice
-    cuánto cuesta y, sobre todo, para qué te sirve: si no vas a recuperar la inversión,
-    prefiero decírtelo antes.</p>
-
-    <div class="tarifas">
-      <div class="grupo rv">
-        <h3>Sitios web</h3>
-        <ul>
-          <li>
-            <div class="fila"><b>Una página</b><i>desde $250.000</i></div>
-            <span>Que te encuentren en Google y te escriban por WhatsApp sin depender de Instagram</span>
-          </li>
-          <li>
-            <div class="fila"><b>Sitio corporativo</b><i>desde $490.000</i></div>
-            <span>Que puedas mostrar servicios y precios sin explicarlos por mensaje uno por uno</span>
-          </li>
-          <li>
-            <div class="fila"><b>Con catálogo o varios idiomas</b><i>desde $890.000</i></div>
-            <span>Que el cliente revise todo tu catálogo solo y llegue sabiendo qué quiere</span>
-          </li>
-          <li>
-            <div class="fila"><b>Tienda online</b><i>desde $1.290.000</i></div>
-            <span>Que te compren a las 11 de la noche sin que tengas que contestar</span>
-          </li>
-        </ul>
-      </div>
-      <div class="grupo rv">
-        <h3>Sistemas de gestión</h3>
-        <ul>
-          <li>
-            <div class="fila"><b>Un módulo</b><i>desde $1.400.000</i></div>
-            <span>Sacar de la planilla el proceso que más te está costando y ordenarlo</span>
-          </li>
-          <li>
-            <div class="fila"><b>Tres o cuatro módulos</b><i>desde $3.200.000</i></div>
-            <span>Que inventario, ventas y cobranzas dejen de estar en archivos separados</span>
-          </li>
-          <li>
-            <div class="fila"><b>Sistema completo</b><i>desde $5.900.000</i></div>
-            <span>La operación entera en un lugar, con permisos por rol y reportes al día</span>
-          </li>
-          <li>
-            <div class="fila"><b>Aplicación móvil</b><i>desde $3.400.000</i></div>
-            <span>Que tu equipo o tus clientes operen desde el teléfono, con o sin señal</span>
-          </li>
-        </ul>
-      </div>
-      <div class="grupo mensual rv">
-        <h3>Acompañamiento mensual</h3>
-        <p class="cifra-mes">Desde $95.000 <small>/ mes</small></p>
-        <p class="expl">No es un extra que puedas descartar: va incluido en todo lo que
-        entrego. Mi trabajo queda funcionando con mi nombre encima, así que lo
-        mantengo yo.</p>
-        <ul class="incluye">
-          <li>{CHECK}Soporte con prioridad</li>
-          <li>{CHECK}Mantención, respaldos y actualizaciones</li>
-          <li>{CHECK}Ajustes y mejoras cada mes</li>
-        </ul>
-      </div>
+    <div class="sec-head rv" style="max-width:60ch">
+      <p class="eyebrow">Inversión</p>
+      <h2>Cuánto costaría lo tuyo</h2>
+      <p>Marca lo que necesitas y verás el rango moverse. No es una cotización formal,
+      pero sale de los mismos números con los que cotizo de verdad.</p>
     </div>
 
-    <div class="sube rv">
-      <h4>Qué hace subir el precio</h4>
-      <div class="cols">
-        <p><b>Cuántos procesos cubre.</b> Un módulo de inventario cuesta menos que
-        inventario más cobranzas más reportes. Es la variable que más pesa.</p>
-        <p><b>Cuántos roles distintos usan el sistema.</b> No es lo mismo que entre
-        una persona a que entren bodega, ventas y administración con permisos propios.</p>
-        <p><b>Con qué se tiene que conectar.</b> Integrar tu facturación o un servicio
-        externo agrega trabajo que un sistema aislado no tiene.</p>
-        <p><b>Qué tan definido está.</b> Si ya sabes lo que necesitas avanzamos rápido.
-        Si hay que ordenarlo primero, esa etapa también es trabajo.</p>
-      </div>
-    </div>
+    <div class="est-grid rv">
+      <form class="est-form" id="estForm">
+        <fieldset class="est-paso">
+          <legend><span class="p">01</span>¿Qué necesitas?</legend>
+          <div class="est-ops" id="estTipos"></div>
+        </fieldset>
 
+        <fieldset class="est-paso">
+          <legend><span class="p">02</span>¿Qué le sumas?</legend>
+          <div class="est-ops chicas" id="estExtras"></div>
+          <p class="est-nada" id="estNada">Elige primero qué necesitas.</p>
+        </fieldset>
+      </form>
+
+      <aside class="est-panel">
+        <div class="est-caja">
+          <p class="kicker">Estimación del proyecto</p>
+          <p class="rango" id="estRango">
+            <span id="estMin">$250.000</span>
+            <em>a</em>
+            <span id="estMax">$340.000</span>
+          </p>
+          <p class="mes">Más acompañamiento mensual desde
+            <b id="estMes">$95.000</b></p>
+
+          <ul class="est-resumen" id="estResumen"></ul>
+
+          <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="{WA}">
+            {WA_SVG}
+            Cotizar esto por WhatsApp
+          </a>
+          <p class="est-nota">El mensaje ya va escrito con lo que marcaste. Si necesitas
+          más de un módulo adicional, cada uno suma lo mismo. El precio definitivo se
+          cierra por escrito después de la etapa 2, y puede salir menos si al
+          conversarlo simplificamos el alcance.</p>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var TIPOS = [
+      { id: 'web',     nom: 'Un sitio web',          sub: 'Presencia, contacto y que te encuentren',      base: 250000 },
+      { id: 'tienda',  nom: 'Una tienda online',     sub: 'Vender con pago en línea y control de stock',  base: 1290000 },
+      { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',          base: 1400000 },
+      { id: 'app',     nom: 'Una aplicación móvil',  sub: 'Para tu equipo o para tus clientes',           base: 3400000 }
+    ];
+    var EXTRAS = {
+      web: [
+        { nom: 'Más de cinco secciones', v: 240000 },
+        { nom: 'Catálogo de productos o servicios', v: 400000 },
+        { nom: 'En varios idiomas', v: 390000 },
+        { nom: 'Blog o sección de noticias', v: 180000 }
+      ],
+      tienda: [
+        { nom: 'Más de cincuenta productos', v: 350000 },
+        { nom: 'Despacho con tarifa por zona', v: 290000 },
+        { nom: 'Cuentas de cliente e historial', v: 320000 },
+        { nom: 'Cupones y descuentos', v: 240000 }
+      ],
+      sistema: [
+        { nom: 'Un módulo adicional', v: 900000 },
+        { nom: 'Usuarios con permisos por rol', v: 600000 },
+        { nom: 'Panel de indicadores y reportes', v: 700000 },
+        { nom: 'Conectar con un servicio externo', v: 550000 },
+        { nom: 'Alertas automáticas por correo', v: 300000 }
+      ],
+      app: [
+        { nom: 'Funciona sin conexión', v: 800000 },
+        { nom: 'Notificaciones push', v: 350000 },
+        { nom: 'Pagos dentro de la aplicación', v: 700000 },
+        { nom: 'Uso de cámara o ubicación', v: 450000 }
+      ]
+    };
+
+    var tipoSel = 'web', extrasSel = [];
+    var $ = function (id) { return document.getElementById(id); };
+    var plata = function (n) { return '$' + Math.round(n).toLocaleString('es-CL'); };
+
+    function pintaTipos () {
+      $('estTipos').innerHTML = TIPOS.map(function (t, i) {
+        return '<label class="est-op">' +
+          '<input type="radio" name="tipo" value="' + t.id + '"' + (i === 0 ? ' checked' : '') + '>' +
+          '<span class="cuerpo"><b>' + t.nom + '</b><small>' + t.sub + '</small></span>' +
+          '<span class="desde">desde ' + plata(t.base) + '</span></label>';
+      }).join('');
+    }
+
+    function pintaExtras () {
+      var lista = EXTRAS[tipoSel] || [];
+      $('estNada').style.display = lista.length ? 'none' : 'block';
+      $('estExtras').innerHTML = lista.map(function (e, i) {
+        return '<label class="est-op">' +
+          '<input type="checkbox" data-v="' + e.v + '" data-nom="' + e.nom + '" value="' + i + '">' +
+          '<span class="cuerpo"><b>' + e.nom + '</b></span>' +
+          '<span class="desde">+' + plata(e.v) + '</span></label>';
+      }).join('');
+    }
+
+    function calcula () {
+      var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
+      var suma = extrasSel.reduce(function (a, e) { return a + e.v; }, t.base);
+      var max = Math.round(suma * 1.35 / 10000) * 10000;
+      var mes = Math.min(290000, Math.max(95000,
+        Math.round((75000 + suma * 0.015) / 5000) * 5000));
+
+      $('estMin').textContent = plata(suma);
+      $('estMax').textContent = plata(max);
+      $('estMes').textContent = plata(mes);
+
+      $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>' +
+        extrasSel.map(function (e) {
+          return '<li><span>' + e.nom + '</span><i>+' + plata(e.v) + '</i></li>';
+        }).join('');
+
+      var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
+        'Necesito: ' + t.nom.toLowerCase() + '\n' +
+        (extrasSel.length ? 'Con: ' + extrasSel.map(function (e) { return e.nom.toLowerCase(); }).join(', ') + '\n' : '') +
+        'Rango estimado: ' + plata(suma) + ' a ' + plata(max) + '\n\n' +
+        '¿Podemos conversarlo?';
+      $('estWa').href = 'https://wa.me/56933569725?text=' + encodeURIComponent(txt);
+    }
+
+    $('estForm').addEventListener('change', function (e) {
+      if (e.target.name === 'tipo') {
+        tipoSel = e.target.value; extrasSel = []; pintaExtras();
+      } else {
+        extrasSel = Array.prototype.slice
+          .call($('estExtras').querySelectorAll('input:checked'))
+          .map(function (i) { return { nom: i.dataset.nom, v: +i.dataset.v }; });
+      }
+      calcula();
+    });
+
+    pintaTipos(); pintaExtras(); calcula();
+  })();
+</script>
 
 <!-- ================= PROCESO (resumen) ================= -->
 <section class="proceso" style="padding-top:52px; padding-bottom:52px">
