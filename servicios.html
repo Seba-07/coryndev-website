@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=7aa30074">
+<link rel="stylesheet" href="styles-v2.css?v=4520940b">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -60,13 +60,13 @@
     <div class="sec-head rv" style="max-width:60ch; margin-bottom:26px">
       <p class="eyebrow">Vista rápida</p>
       <h2>Seis servicios y cuánto demora cada uno</h2>
-      <p>Ordenados de mayor a menor envergadura. Toca cualquiera para ver el alcance
-      completo, incluido lo que no incluye.</p>
+      <p>El primero es donde nos concentramos; los otros cinco suelen aparecer alrededor.
+      Toca cualquiera para ver el alcance completo, incluido lo que no incluye.</p>
     </div>
     <div class="resumen rv">
-      <a href="#sistemas">
-        <span class="qu"><img src="assets/ic-erp.webp" alt="" width="30" height="30" loading="lazy">Sistemas de gestión (ERP / CRM)</span>
-        <span class="cu">Plazo típico <b>3 a 6 meses</b></span>
+      <a href="#sistemas" class="destacada">
+        <span class="qu"><img src="assets/ic-erp.webp" alt="" width="30" height="30" loading="lazy">Sistemas de gestión (ERP / CRM)<em>Lo que más hacemos</em></span>
+        <span class="cu">Desde <b>$1.400.000</b> por módulo</span>
       </a>
       <a href="#web">
         <span class="qu"><img src="assets/ic-web.webp" alt="" width="30" height="30" loading="lazy">Páginas web</span>
@@ -92,15 +92,17 @@
   </div>
 </section>
 
-<div class="franja">
+<div class="franja destacada">
   <div class="wrap">
-    <div class="servicio rv" id="sistemas">
+    <div class="servicio rv destacado-svc" id="sistemas">
       <div class="cara">
         <img src="assets/ic-erp.webp" alt="" width="64" height="64" loading="lazy">
         <div>
+          <span class="svc-marca">Lo que más hacemos</span>
           <h2>Sistemas de gestión (ERP / CRM)</h2>
-          <p class="resumen">El servicio más grande que hacemos. Un sistema que
-          reemplaza las planillas y ordena la operación completa en un solo lugar.</p>
+          <p class="resumen">Reemplaza las planillas y ordena la operación completa en
+          un solo lugar. Es donde más aportamos y donde el cliente nota antes la
+          diferencia: puedes partir por un módulo y crecer desde ahí.</p>
         </div>
       </div>
       <div>
