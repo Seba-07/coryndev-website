@@ -116,7 +116,7 @@ problema después.)*
 > Ofrecen una primera reunión de diagnóstico sin costo ni compromiso. Adjunto el
 > documento con el detalle de servicios y su proceso de trabajo.
 >
-> Contacto directo: coryn.software@gmail.com — WhatsApp +56 9 3356 9725 — coryndev.com
+> Contacto directo: contacto@coryndev.com — WhatsApp +56 9 4878 0902 — coryndev.com
 >
 > Saludos cordiales,
 > [nombre]

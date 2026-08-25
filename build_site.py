@@ -29,7 +29,8 @@ FICHAS = {
     '{PENDIENTE}': S.PENDIENTE,
     '{WA}': S.WA,
     '{WA_SVG}': S.WA_SVG,
-    '{TELEFONO}': S.TELEFONO,
+    '{WA_ETIQUETA}': S.WA_ETIQUETA,
+    '{WA_NUM}': S.WA_NUM,
     '{EMAIL}': S.EMAIL,
     '{BACKEND}': S.BACKEND,
 }
@@ -79,7 +80,7 @@ JS_FORMULARIO = '''<script>
         }
       } catch (err) {
         mostrar('error',
-          'No pudimos enviar el mensaje. Escríbenos por WhatsApp al %(tel)s ' +
+          'No pudimos enviar el mensaje. Escríbenos por WhatsApp ' +
           'o a %(email)s y lo resolvemos por ahí.');
       } finally {
         boton.disabled = false;
@@ -87,7 +88,7 @@ JS_FORMULARIO = '''<script>
       }
     });
   })();
-</script>''' % {'backend': S.BACKEND, 'tel': S.TELEFONO, 'email': S.EMAIL}
+</script>''' % {'backend': S.BACKEND, 'email': S.EMAIL}
 
 
 # slug, titulo, descripcion, clave de menu, (titulo cabecera, bajada, eyebrow), cierre

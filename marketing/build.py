@@ -11,7 +11,7 @@ BASE = pathlib.Path(__file__).parent
 ASSETS = BASE / "assets"
 OUT = BASE / "out"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-WHATSAPP = "56933569725"
+WHATSAPP = "56948780902"
 WEB = "https://coryndev.com"
 
 

@@ -5,10 +5,14 @@ Aqui viven la cabecera, la navegacion y el pie. Cualquier cambio en esos
 tres se hace una sola vez y se propaga al correr build_site.py.
 """
 
-TELEFONO = '+56 9 3356 9725'
-WA = ('https://wa.me/56933569725?text='
+# El numero no se publica como texto: escrito en la pagina lo cosechan los
+# robots y termina en listas de spam. Solo viaja dentro del enlace de WhatsApp,
+# que es donde hace falta.
+WA_NUM = '56948780902'
+WA = (f'https://wa.me/{WA_NUM}?text='
       'Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto.')
-EMAIL = 'coryn.software@gmail.com'
+WA_ETIQUETA = 'Escríbenos por WhatsApp'
+EMAIL = 'contacto@coryndev.com'
 BACKEND = 'https://coryn-backend-production.up.railway.app/api/contact'
 
 WA_SVG = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 '
@@ -71,7 +75,7 @@ def _cierre(titulo, texto, boton_extra=''):
     <p>{texto}</p>
     <div class="actions">
       <a class="btn btn-wa" href="{WA}" target="_blank" rel="noopener">{WA_SVG}
-        {TELEFONO}
+        {WA_ETIQUETA}
       </a>
       {boton_extra or '<a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>'}
     </div>
