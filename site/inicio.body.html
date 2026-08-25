@@ -35,7 +35,7 @@
 </section>
 
 <!-- ================= SECTORES (explorador) ================= -->
-<section class="explora" id="sectores">
+<section class="explora" id="casos">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">Experiencia</p>
@@ -160,85 +160,46 @@
   })();
 </script>
 
-<!-- ================= CASOS ================= -->
-<section id="casos" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:58ch">
-      <p class="eyebrow">Casos</p>
-      <h2>Proyectos que puedes revisar</h2>
-      <p>Están todos en línea y funcionando. Entra a cualquiera y mira qué problema
-      resolvía, qué construimos y por qué lo decidimos así.</p>
-    </div>
-
-    <div class="destacado rv">
-      <div class="marco">
-        <div class="barra"><i></i><i></i><i></i></div>
-        <img src="assets/work-avenprop.webp" width="1400" height="875" loading="lazy"
-             alt="Sitio de AvenProp con el buscador de propiedades">
-      </div>
-      <div>
-        <p class="rotulo">Inmobiliario &middot; Plataforma web</p>
-        <h3>AvenProp</h3>
-        <p>Una corredora que perdía interesados porque sus propiedades vivían en
-        portales que se quedaban con el contacto. Ahora tiene buscador propio, y
-        el negocio de seguros dejó de ser invisible.</p>
-        <a class="ir" href="caso-avenprop.html">Ver el caso completo
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-
-    <div class="menores">
-      <a class="menor rv" href="caso-bysimmed.html">
-        <div class="mini"><img src="assets/work-bysimmed.webp" width="1400" height="875" loading="lazy" alt="Sitio de bySIMMED"></div>
-        <div>
-          <p class="rotulo">Salud</p>
-          <h3>bySIMMED</h3>
-          <p>Simuladores médicos chilenos que necesitaban vender a especialistas fuera del país.</p>
-        </div>
-      </a>
-      <a class="menor rv" href="caso-precioradar.html">
-        <div class="mini"><img src="assets/app-buscar.webp" width="520" height="1035" loading="lazy" alt="Aplicación PrecioRadar"></div>
-        <div>
-          <p class="rotulo">Retail &middot; Producto propio</p>
-          <h3>PrecioRadar</h3>
-          <p>De la idea a las tiendas de aplicaciones, con lectura automática de boletas.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ================= COMPARATIVA ================= -->
-<section class="proceso">
+<section class="versus">
   <div class="wrap">
-    <div class="sec-head rv" style="max-width:58ch">
+    <div class="sec-head rv" style="max-width:60ch">
       <p class="eyebrow">La diferencia</p>
-      <h2>Plantilla genérica o software propio</h2>
-      <p>Las dos opciones son legítimas. Esta es la diferencia real, para que decidas
-      con información y no por descarte.</p>
+      <h2>Plantilla o software propio</h2>
+      <p>Las dos opciones son legítimas y a veces la plantilla es la correcta. Esta es
+      la diferencia real, punto por punto, para que decidas con información.</p>
     </div>
-    <div class="vs">
-      <div class="vs-col mala rv">
-        <h3>Plantilla o sistema enlatado</h3>
-        <p class="sub">Lo que sueles encontrar</p>
-        <ul>
-          <li>{CRUZ}Tu equipo cambia su forma de trabajar para calzar con el sistema.</li>
-          <li>{CRUZ}Pagas todos los meses por módulos que nunca abres.</li>
-          <li>{CRUZ}Lo que necesitas no está, y no hay a quién pedírselo.</li>
-          <li>{CRUZ}El soporte es un formulario y una espera.</li>
-          <li>{CRUZ}Si te quieres cambiar, tus datos son el problema.</li>
-        </ul>
+
+    <div class="vs-tabla">
+      <div class="vs-cab rv">
+        <div class="dim"></div>
+        <div class="lado malo"><span>Plantilla o sistema enlatado</span></div>
+        <div class="lado bueno"><span>Desarrollo a medida</span><b>Lo que hago</b></div>
       </div>
-      <div class="vs-col buena rv">
-        <h3>Desarrollo a medida</h3>
-        <p class="sub">Lo que hacemos nosotros</p>
-        <ul>
-          <li>{CHECK}El sistema sigue tu proceso, incluidas las excepciones que todo negocio tiene.</li>
-          <li>{CHECK}Se construye solo lo que usas, y crece cuando tú creces.</li>
-          <li>{CHECK}Pides un cambio y hablas con quien lo va a programar.</li>
-          <li>{CHECK}Plan mensual con mantención y mejoras, no un buzón de tickets.</li>
-          <li>{CHECK}El código y los datos son tuyos.</li>
-        </ul>
+      <div class="vs-fila rv">
+        <div class="dim">Tu forma de trabajar</div>
+        <div class="lado malo">{CRUZ}<p>Tu equipo cambia cómo trabaja para calzar con el sistema.</p></div>
+        <div class="lado bueno">{CHECK}<p>El sistema sigue tu proceso, incluidas las excepciones que todo negocio tiene.</p></div>
+      </div>
+      <div class="vs-fila rv">
+        <div class="dim">Lo que pagas cada mes</div>
+        <div class="lado malo">{CRUZ}<p>Módulos que nunca abres, cobrados igual.</p></div>
+        <div class="lado bueno">{CHECK}<p>Solo lo que usas. Crece cuando tú creces, no antes.</p></div>
+      </div>
+      <div class="vs-fila rv">
+        <div class="dim">Cuando algo falta</div>
+        <div class="lado malo">{CRUZ}<p>No está, y no hay a quién pedírselo.</p></div>
+        <div class="lado bueno">{CHECK}<p>Lo pides y lo conversas con quien lo va a programar.</p></div>
+      </div>
+      <div class="vs-fila rv">
+        <div class="dim">El soporte</div>
+        <div class="lado malo">{CRUZ}<p>Un formulario, un número de ticket y una espera.</p></div>
+        <div class="lado bueno">{CHECK}<p>Acompañamiento mensual incluido, con mantención y mejoras.</p></div>
+      </div>
+      <div class="vs-fila rv">
+        <div class="dim">Si te quieres cambiar</div>
+        <div class="lado malo">{CRUZ}<p>Tus datos quedan adentro y sacarlos es el problema.</p></div>
+        <div class="lado bueno">{CHECK}<p>El código y los datos son tuyos desde el primer día.</p></div>
       </div>
     </div>
   </div>
