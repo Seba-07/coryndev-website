@@ -1535,3 +1535,70 @@ a.dato:hover{ transform:translateY(-2px);
   .cmp-et{ font-size:10px; padding:6px 11px; top:12px; }
   .cmp-linea .tirador{ width:38px; height:38px; }
 }
+
+/* ============================================================
+   Proceso: las cinco piezas de cristal
+   ============================================================ */
+.camino{
+  color:#fff; padding:80px 0 88px; position:relative; overflow:hidden;
+  background-color:#060c1a;
+  background-image:
+    radial-gradient(60% 70% at 50% 26%, rgba(45,170,210,.15) 0%, rgba(45,170,210,0) 66%),
+    linear-gradient(180deg, rgba(6,12,26,.9) 0%, rgba(6,12,26,.7) 44%, rgba(6,12,26,.96) 100%),
+    var(--banner);
+  background-size:auto, auto, cover;
+  background-position:center, center, center 40%;
+  background-repeat:no-repeat;
+}
+.camino .eyebrow{ color:#6fd8ec; }
+.camino .sec-head h2{ color:#fff; }
+.camino .sec-head p{ color:#9fbaea; }
+
+/* hilo que une las cinco piezas */
+.camino-linea{ display:none; }
+
+/* Sin z-index a proposito: crearia un contexto de apilamiento y las piezas
+   dejarian de componerse por suma, reapareciendo su fondo negro. */
+.etapas{
+  display:grid; gap:34px 22px; grid-template-columns:1fr; margin-top:10px;
+}
+@media (min-width:620px){ .etapas{ grid-template-columns:1fr 1fr; gap:40px 30px; } }
+@media (min-width:1000px){ .etapas{ grid-template-columns:repeat(5,1fr); gap:26px 20px; margin-top:0; } }
+
+.etp{ text-align:center; display:grid; justify-items:center; }
+@media (max-width:619px){
+  .etp{ grid-template-columns:96px 1fr; text-align:left; justify-items:start;
+        align-items:center; gap:4px 18px; }
+  .etp .pieza{ grid-row:1 / span 3; }
+}
+
+/* la pieza: fondo negro compuesto por suma, igual que el ala del hero */
+.etp .pieza{
+  width:100%; height:158px; display:grid; place-items:center; margin-bottom:20px;
+}
+@media (max-width:619px){
+  .etp .pieza{ width:96px; height:96px; margin-bottom:0; }
+  .etp .pieza img{ max-height:96px; }
+}
+.etp .pieza img{
+  max-width:100%; max-height:158px; width:auto; height:auto;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 14px 26px rgba(0,0,0,.5));
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.etp:hover .pieza img{ transform:translateY(-6px) scale(1.05); }
+@media (prefers-reduced-motion: reduce){ .etp .pieza img{ transition:none; } }
+
+.etp .np{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600;
+  letter-spacing:.16em; color:#6fd8ec;
+}
+.etp h3{ font-size:18px; color:#fff; margin:6px 0 7px; letter-spacing:-.015em; }
+.etp p{ font-size:14px; line-height:1.5; color:#8fa9d4; max-width:30ch; }
+@media (max-width:619px){ .etp p{ max-width:44ch; } }
+
+.camino-pie{
+  margin-top:44px; text-align:center; font-size:15px; color:#8fa9d4;
+}
+.camino-pie a{ color:#6fd8ec; text-decoration:none; font-weight:600; margin-left:6px; }
+.camino-pie a:hover{ text-decoration:underline; }
