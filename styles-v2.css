@@ -1752,3 +1752,17 @@ a.dato:hover{ transform:translateY(-2px);
 @media (prefers-reduced-motion: reduce){
   .exp-panel .exp-shot, .exp-info .tag{ transition:none; }
 }
+
+/* Las imagenes del "despues" ya traen su propio marco y su fondo oscuro:
+   se muestran sin la barra de navegador ni el contenedor, para que floten. */
+.exp-panel.es-despues .exp-shot{
+  border-color:transparent; background:transparent; box-shadow:none;
+}
+.exp-panel.es-despues .exp-shot .barra{ display:none; }
+.exp-panel.es-despues .exp-shot img{
+  aspect-ratio:auto; object-fit:contain;
+  /* el fondo de la imagen es casi el mismo del bloque: difuminar los bordes
+     evita que se note el rectangulo y hace que la pantalla flote */
+  -webkit-mask-image:radial-gradient(115% 115% at 50% 48%, #000 58%, transparent 100%);
+  mask-image:radial-gradient(115% 115% at 50% 48%, #000 58%, transparent 100%);
+}
