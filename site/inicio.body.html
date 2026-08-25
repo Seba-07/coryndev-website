@@ -99,7 +99,7 @@
           <p class="dd" id="expDesc">Stock negativo, fórmulas rotas, filas duplicadas y una
           columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.</p>
           <div class="meta" id="expMeta"><span>Solo una persona la entiende</span><span>Sin respaldo</span><span>Errores que nadie ve</span></div>
-          <p class="exp-precio" id="expPrecio">Desde <b>$690.000</b></p>
+          <p class="exp-precio" id="expPrecio">Desde <b>$250.000</b> <em>+ 1 UF al mes</em></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
       </div>
@@ -121,7 +121,7 @@
           nom: 'La misma operación, ordenada',
           desc: 'Inventario, ventas y cobros en un solo lugar, con alertas de stock, permisos por persona y respaldo automático. Puedes partir por un módulo.',
           meta: ['Un módulo para empezar', 'Permisos por rol', 'Alertas automáticas'] },
-        precio: '$690.000' },
+        precio: '$250.000', uf: '1 UF' },
       {
         antes: { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/mock-google.webp',
           alt: 'Resultados de Google donde aparece la competencia y tu negocio no',
@@ -133,7 +133,7 @@
           nom: 'Tu propio sitio, no el de un portal',
           desc: 'Con la foto de tu local, tus productos destacados y tu dirección, horario y teléfono siempre a la vista. Aparece en Google y el contacto llega directo a ti.',
           meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'] },
-        precio: '$190.000' },
+        precio: '$120.000', uf: '1 UF' },
       {
         antes: { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/mock-chat.webp',
           alt: 'Conversaciones de WhatsApp repitiendo las mismas preguntas de precio y stock',
@@ -145,7 +145,7 @@
           nom: 'El catálogo responde por ti',
           desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados. El cliente llega sabiendo qué quiere, y te escribe para comprar, no para preguntar.',
           meta: ['Catálogo con filtros', 'Fichas completas', 'Disponible a toda hora'] },
-        precio: '$690.000' },
+        precio: '$390.000', uf: '1,5 UF' },
       {
         antes: { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/mock-agenda.webp',
           alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
@@ -157,7 +157,7 @@
           nom: 'Reservan solos, y confirman solos',
           desc: 'El cliente ve los bloques libres y reserva desde el sitio. El sistema confirma y manda recordatorio, así el teléfono deja de ser el único canal.',
           meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
-        precio: '$690.000' }
+        precio: '$390.000', uf: '1,5 UF' }
     ];
     var ESPERA_ANTES = 5000;    // cuanto se ve el problema antes de transformarse
     var ESPERA_DESPUES = 5000;  // cuanto se queda la solucion antes del siguiente
@@ -375,8 +375,8 @@
     <div class="sec-head rv" style="max-width:60ch">
       <p class="eyebrow">Inversión</p>
       <h2>Cuánto costaría lo tuyo</h2>
-      <p>Marca lo que necesitas y verás el rango moverse. No es una cotización formal,
-      pero sale de los mismos números con los que cotizamos de verdad.</p>
+      <p>El negocio no es cobrarte caro una vez: es que el sistema siga funcionando
+      todos los meses. Marca lo que necesitas y verás las dos cifras.</p>
     </div>
 
     <div class="est-grid rv">
@@ -395,14 +395,15 @@
 
       <aside class="est-panel">
         <div class="est-caja">
-          <p class="kicker">Estimación del proyecto</p>
-          <p class="rango" id="estRango">
-            <span id="estMin">$690.000</span>
-            <em>a</em>
-            <span id="estMax">$930.000</span>
-          </p>
-          <p class="mes">Más acompañamiento mensual desde
-            <b id="estMes">$49.000</b></p>
+          <p class="kicker">Acompañamiento mensual</p>
+          <p class="uf"><b id="estUf">1 UF</b><span>al mes</span></p>
+          <p class="uf-peso">≈ <span id="estUfPeso">$40.900</span> · en UF, así el precio
+          lo ajusta la inflación y no nosotros</p>
+
+          <div class="est-puesta">
+            <span>Puesta en marcha, una sola vez</span>
+            <b id="estMin">$250.000</b>
+          </div>
 
           <ul class="est-resumen" id="estResumen"></ul>
 
@@ -412,10 +413,9 @@
             {WA_SVG}
             Cotizar esto por WhatsApp
           </a>
-          <p class="est-nota">El mensaje ya va escrito con lo que marcaste. Si necesitas
-          más de un módulo adicional, cada uno suma lo mismo. El precio definitivo se
-          cierra por escrito después de la etapa 2, y puede salir menos si al
-          conversarlo simplificamos el alcance.</p>
+          <p class="est-nota">El mensaje ya va escrito con lo que marcaste. La puesta en
+          marcha se cierra por escrito antes de programar; el acompañamiento se cobra
+          mes a mes desde que el sistema entra en uso.</p>
         </div>
       </aside>
     </div>
@@ -424,41 +424,42 @@
 
 <script>
   (function () {
+    var UF = 40866;   // valor de referencia; se muestra siempre como "aproximado"
     var TIPOS = [
       { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',
-        base: 690000,  minimo: 'el sistema con un módulo' },
+        base: 250000,  uf: 1,   minimo: 'el sistema con un módulo' },
       { id: 'web',     nom: 'Un sitio web',          sub: 'Presencia, contacto y que te encuentren',
-        base: 190000,  minimo: 'el sitio de una página' },
+        base: 120000,  uf: 1,   minimo: 'el sitio de una página' },
       { id: 'tienda',  nom: 'Una tienda online',     sub: 'Vender con pago en línea y control de stock',
-        base: 990000,  minimo: 'la tienda con lo esencial' },
+        base: 390000,  uf: 1.5, minimo: 'la tienda con lo esencial' },
       { id: 'app',     nom: 'Una aplicación móvil',  sub: 'Para tu equipo o para tus clientes',
-        base: 1900000, minimo: 'la aplicación base' }
+        base: 690000,  uf: 1.5, minimo: 'la aplicación base' }
     ];
     var EXTRAS = {
       web: [
-        { nom: 'Más de cinco secciones', v: 140000 },
-        { nom: 'Catálogo de productos o servicios', v: 240000 },
-        { nom: 'En varios idiomas', v: 220000 },
-        { nom: 'Blog o sección de noticias', v: 110000 }
+        { nom: 'Más de cinco secciones', v: 80000 },
+        { nom: 'Catálogo de productos o servicios', v: 140000 },
+        { nom: 'En varios idiomas', v: 120000 },
+        { nom: 'Blog o sección de noticias', v: 60000 }
       ],
       tienda: [
-        { nom: 'Más de cincuenta productos', v: 220000 },
-        { nom: 'Despacho con tarifa por zona', v: 180000 },
-        { nom: 'Cuentas de cliente e historial', v: 190000 },
-        { nom: 'Cupones y descuentos', v: 150000 }
+        { nom: 'Más de cincuenta productos', v: 120000 },
+        { nom: 'Despacho con tarifa por zona', v: 100000 },
+        { nom: 'Cuentas de cliente e historial', v: 110000 },
+        { nom: 'Cupones y descuentos', v: 80000 }
       ],
       sistema: [
-        { nom: 'Un módulo adicional', v: 450000 },
-        { nom: 'Usuarios con permisos por rol', v: 320000 },
-        { nom: 'Panel de indicadores y reportes', v: 380000 },
-        { nom: 'Conectar con un servicio externo', v: 290000 },
-        { nom: 'Alertas automáticas por correo', v: 160000 }
+        { nom: 'Un módulo adicional', v: 180000 },
+        { nom: 'Usuarios con permisos por rol', v: 120000 },
+        { nom: 'Panel de indicadores y reportes', v: 150000 },
+        { nom: 'Conectar con un servicio externo', v: 160000 },
+        { nom: 'Alertas automáticas por correo', v: 80000 }
       ],
       app: [
-        { nom: 'Funciona sin conexión', v: 420000 },
-        { nom: 'Notificaciones push', v: 190000 },
-        { nom: 'Pagos dentro de la aplicación', v: 380000 },
-        { nom: 'Uso de cámara o ubicación', v: 240000 }
+        { nom: 'Funciona sin conexión', v: 220000 },
+        { nom: 'Notificaciones push', v: 100000 },
+        { nom: 'Pagos dentro de la aplicación', v: 200000 },
+        { nom: 'Uso de cámara o ubicación', v: 130000 }
       ]
     };
 
@@ -489,22 +490,21 @@
     function calcula () {
       var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
       var suma = extrasSel.reduce(function (a, e) { return a + e.v; }, t.base);
-      var max = Math.round(suma * 1.35 / 10000) * 10000;
-      var mes = Math.min(180000, Math.max(49000,
-        Math.round((35000 + suma * 0.015) / 1000) * 1000));
+      // el mensual sube en tramos de cuarto de UF segun lo que haya que mantener
+      var uf = Math.min(3, t.uf + Math.round(extrasSel.length * 0.25 * 4) / 4);
 
+      $('estUf').textContent =
+        String(uf).replace('.', ',') + ' UF';
+      $('estUfPeso').textContent = plata(Math.round(uf * UF / 100) * 100);
       $('estMin').textContent = plata(suma);
-      $('estMax').textContent = plata(max);
-      $('estMes').textContent = plata(mes);
 
       $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>' +
         extrasSel.map(function (e) {
           return '<li><span>' + e.nom + '</span><i>+' + plata(e.v) + '</i></li>';
         }).join('');
 
-      // si el total sube, se ofrece el camino por etapas en vez de dejar la cifra sola
-      var etp = document.getElementById('estEtapas');
-      if (extrasSel.length && (suma >= t.base * 1.35 || suma >= 1400000)) {
+      var etp = $('estEtapas');
+      if (extrasSel.length && (suma >= t.base * 1.35 || suma >= 700000)) {
         etp.innerHTML = 'No hace falta partir con todo: <b>' + t.minimo + '</b> son ' +
           plata(t.base) + ', y lo demás se suma cuando el negocio lo pida.';
         etp.hidden = false;
@@ -513,7 +513,8 @@
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
         (extrasSel.length ? 'Con: ' + extrasSel.map(function (e) { return e.nom.toLowerCase(); }).join(', ') + '\n' : '') +
-        'Rango estimado: ' + plata(suma) + ' a ' + plata(max) + '\n\n' +
+        'Puesta en marcha estimada: ' + plata(suma) + '\n' +
+        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
         '¿Podemos conversarlo?';
       $('estWa').href = 'https://wa.me/56933569725?text=' + encodeURIComponent(txt);
     }

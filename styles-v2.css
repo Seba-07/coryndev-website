@@ -1816,3 +1816,25 @@ a.dato:hover{ transform:translateY(-2px);
   font-size:13.5px; line-height:1.5; color:#cfdcf3;
 }
 .est-etapas b{ color:#9ce8f7; font-weight:600; }
+
+/* --- el mensual manda: es el negocio, no el proyecto --- */
+.est-caja .uf{ display:flex; align-items:baseline; gap:9px; margin:10px 0 5px; }
+.est-caja .uf b{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.03em;
+  font-size:clamp(34px,4vw,44px); color:#fff; line-height:1;
+}
+.est-caja .uf span{ font-size:15px; font-weight:600; color:#9fbaea; }
+.est-caja .uf-peso{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.5; color:#8fa9d4;
+}
+.est-puesta{
+  margin-top:20px; padding:13px 15px; border-radius:10px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+}
+.est-puesta span{ font-size:13.5px; color:#9fbaea; }
+.est-puesta b{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px;
+  color:#eaf1fd; letter-spacing:-.02em; white-space:nowrap;
+}
+.exp-precio em{ font-style:normal; color:#8fa9d4; font-size:12.5px; }
