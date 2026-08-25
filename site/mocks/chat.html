@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:1400px;height:875px;background:#eae6df;font-family:'Arimo',Arial,sans-serif;
+   font-size:14px;overflow:hidden;display:flex}
+ .lista{width:400px;background:#fff;border-right:1px solid #d9d9d9;flex:none}
+ .lh{height:58px;background:#f0f2f5;display:flex;align-items:center;padding:0 16px;
+   font-weight:700;color:#41525d}
+ .ch{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid #f0f0f0;align-items:center}
+ .av{width:44px;height:44px;border-radius:50%;background:#dfe5e7;flex:none;display:grid;
+   place-items:center;color:#8696a0;font-weight:700}
+ .ch .d{flex:1;min-width:0}
+ .ch b{display:block;font-size:15px;color:#111b21;font-weight:400}
+ .ch span{display:block;font-size:13px;color:#667781;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .ch .n{background:#25d366;color:#fff;font-size:11px;font-weight:700;border-radius:999px;
+   min-width:20px;height:20px;display:grid;place-items:center;padding:0 6px}
+ .ch .hr{font-size:11px;color:#667781}
+ .conv{flex:1;background:#efeae2;position:relative;display:flex;flex-direction:column}
+ .conv::before{content:'';position:absolute;inset:0;opacity:.06;
+   background:repeating-linear-gradient(45deg,#000 0 2px,transparent 2px 16px)}
+ .ah{height:58px;background:#f0f2f5;display:flex;align-items:center;gap:12px;padding:0 16px;
+   position:relative;z-index:1;border-bottom:1px solid #d9d9d9}
+ .ah b{font-size:15px;color:#111b21;font-weight:400}
+ .msgs{flex:1;padding:18px 60px;position:relative;z-index:1;display:flex;
+   flex-direction:column;gap:9px;overflow:hidden}
+ .m{max-width:62%;padding:7px 10px 6px;border-radius:8px;font-size:14.2px;line-height:1.4;
+   position:relative;box-shadow:0 1px .5px rgba(11,20,26,.13)}
+ .in{background:#fff;align-self:flex-start;border-top-left-radius:0}
+ .out{background:#d9fdd3;align-self:flex-end;border-top-right-radius:0}
+ .m i{display:block;font-style:normal;font-size:11px;color:#667781;text-align:right;margin-top:2px}
+ .dia{align-self:center;background:#fff;color:#54656f;font-size:12px;padding:5px 12px;
+   border-radius:8px;margin:4px 0;box-shadow:0 1px .5px rgba(11,20,26,.13)}
+ .nota{position:absolute;right:36px;bottom:26px;z-index:2;width:330px;background:#fff6f5;
+   border:2px dashed #d93025;border-radius:8px;padding:14px 16px}
+ .nota b{display:block;color:#c5221f;font-size:14px;margin-bottom:3px}
+ .nota span{color:#5f6368;font-size:12.5px;line-height:1.45}
+</style></head><body>
+ <div class="lista">
+   <div class="lh">Chats</div>
+   <div class="ch"><span class="av">RM</span><div class="d"><b>Rodrigo M.</b>
+     <span>¿Cuánto sale el modelo de 60 cm?</span></div><span class="n">3</span></div>
+   <div class="ch"><span class="av">CS</span><div class="d"><b>Carla S.</b>
+     <span>Hola, ¿tienen stock del blanco?</span></div><span class="n">2</span></div>
+   <div class="ch"><span class="av">JP</span><div class="d"><b>Juan Pablo</b>
+     <span>¿Hacen despacho a Puente Alto?</span></div><span class="n">5</span></div>
+   <div class="ch"><span class="av">MF</span><div class="d"><b>María F.</b>
+     <span>¿Qué medidas tiene el de 3 cuerpos?</span></div><span class="n">1</span></div>
+   <div class="ch"><span class="av">+5</span><div class="d"><b>Ferretería Los Andes</b>
+     <span>¿Precio por mayor?</span></div><span class="n">4</span></div>
+   <div class="ch"><span class="av">AT</span><div class="d"><b>Andrés T.</b>
+     <span>¿Sigue disponible?</span></div><span class="n">2</span></div>
+   <div class="ch"><span class="av">PV</span><div class="d"><b>Paula V.</b>
+     <span>Cuánto vale el de 60?</span></div><span class="n">1</span></div>
+ </div>
+ <div class="conv">
+   <div class="ah"><span class="av">RM</span><b>Rodrigo M.</b></div>
+   <div class="msgs">
+     <span class="dia">AYER</span>
+     <div class="m in">Hola! Vi el mueble en su Instagram<i>18:42</i></div>
+     <div class="m in">¿Cuánto sale el de 60 cm?<i>18:42</i></div>
+     <div class="m out">Hola Rodrigo, el de 60 está a $89.900<i>21:15 ✓✓</i></div>
+     <div class="m in">Gracias! ¿Y viene en blanco?<i>21:31</i></div>
+     <div class="m in">¿Y hacen despacho a Maipú?<i>21:31</i></div>
+     <span class="dia">HOY</span>
+     <div class="m out">Sí, en blanco y roble. Despacho $6.000<i>09:04 ✓✓</i></div>
+     <div class="m in">Perfecto. ¿Qué medidas exactas tiene?<i>12:20</i></div>
+     <div class="m in">¿Y cuánto se demoran en entregar?<i>12:21</i></div>
+   </div>
+   <div class="nota"><b>La misma conversación, veinte veces al día</b>
+     <span>Precio, color, medidas, despacho y plazo. Todo lo que el cliente podría
+     haber visto solo, si estuviera publicado.</span></div>
+ </div>
+</body></html>

@@ -89,8 +89,8 @@
     <div class="sec-head rv">
       <p class="eyebrow">Empecemos por acá</p>
       <h2>¿Cuál de estos es tu problema?</h2>
-      <p>No vendemos categorías técnicas. Elige el que te suene y mira qué construimos
-      para resolverlo, cuánto cuesta y cómo se ve funcionando.</p>
+      <p>No vendemos categorías técnicas. Elige el que te suene: verás cómo se ve hoy,
+      qué construimos para resolverlo y desde cuánto cuesta.</p>
     </div>
 
     <div class="exp-grid rv">
@@ -113,14 +113,14 @@
                 aria-selected="false" id="tab-2"
                 aria-controls="expPanel" data-i="2">
           <span class="n">03</span>
-          <span class="tt"><b>Explicas lo mismo por mensaje, uno por uno</b><small>Precios, medidas y disponibilidad, veinte veces al día</small></span>
+          <span class="tt"><b>Explicas lo mismo por WhatsApp, todo el día</b><small>Precio, medidas, stock y despacho, veinte veces</small></span>
           <span class="prog"></span>
         </button>
         <button class="exp-item" role="tab"
                 aria-selected="false" id="tab-3"
                 aria-controls="expPanel" data-i="3">
           <span class="n">04</span>
-          <span class="tt"><b>Tus clientes quieren resolver desde el teléfono</b><small>Y hoy tienen que llamarte o ir presencialmente</small></span>
+          <span class="tt"><b>Todo se agenda o se pide por teléfono</b><small>Y cada llamada perdida es una hora que no se llenó</small></span>
           <span class="prog"></span>
         </button>
       </div>
@@ -133,10 +133,10 @@
         </div>
         <div class="exp-info">
           <p class="tag" id="expTag">Así se ve hoy</p>
-          <h3 id="expNom">Y así deja de verse</h3>
-          <p class="dd" id="expDesc">Un sistema con tu inventario, tus ventas y tus cobros
-          en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Se
-          puede partir por un módulo.</p>
+          <h3 id="expNom">Un sistema que ordena la operación</h3>
+          <p class="dd" id="expDesc">Inventario, ventas y cobros en un solo lugar, con
+          permisos por persona y sin fórmulas que se rompen. Puedes partir por un módulo
+          y crecer desde ahí.</p>
           <div class="meta" id="expMeta"><span>Un módulo para empezar</span><span>Permisos por rol</span><span>Sin stock negativo</span></div>
           <p class="exp-precio" id="expPrecio">Desde <b>$1.400.000</b></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
@@ -150,29 +150,29 @@
   (function () {
     var CASOS = [
       { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
-        alt: 'Una planilla de inventario descuadrada, con errores y duplicados',
-        tag: 'Así se ve hoy', nom: 'Y así deja de verse',
-        desc: 'Un sistema con tu inventario, tus ventas y tus cobros en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Se puede partir por un módulo.',
+        alt: 'Una planilla de inventario descuadrada, con stock negativo y errores de fórmula',
+        tag: 'Así se ve hoy', nom: 'Un sistema que ordena la operación',
+        desc: 'Inventario, ventas y cobros en un solo lugar, con permisos por persona y sin fórmulas que se rompen. Puedes partir por un módulo y crecer desde ahí.',
         meta: ['Un módulo para empezar', 'Permisos por rol', 'Sin stock negativo'],
         precio: '$1.400.000', href: '#cotizar' },
-      { url: 'avenprop.cl', img: 'assets/work-avenprop.webp',
-        alt: 'Sitio de AvenProp con buscador de propiedades',
-        tag: 'Lo que construimos', nom: 'Un sitio que te encuentra el cliente',
-        desc: 'Optimizado para que aparezcas cuando alguien busca lo que vendes en tu comuna, con el contacto a un toque de distancia.',
-        meta: ['Aparecer en Google', 'Contacto directo', 'Sin depender de redes'],
+      { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/mock-google.webp',
+        alt: 'Resultados de Google donde aparece la competencia y tu negocio no',
+        tag: 'Así se ve hoy', nom: 'Un sitio que te encuentra el cliente',
+        desc: 'Para que aparezcas cuando alguien busca lo que vendes en tu comuna, con tu dirección, tus horarios y el contacto a un toque de distancia.',
+        meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'],
         precio: '$250.000', href: '#cotizar' },
-      { url: 'bysimmed.com', img: 'assets/work-bysimmed.webp',
-        alt: 'Catálogo de productos de bySIMMED',
-        tag: 'Lo que construimos', nom: 'Un catálogo que responde por ti',
-        desc: 'Tus productos con fotos, especificaciones y precios, para que el cliente llegue sabiendo qué quiere en vez de preguntarlo todo.',
-        meta: ['Catálogo con filtros', 'Fichas completas', 'Varios idiomas'],
+      { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/mock-chat.webp',
+        alt: 'Conversaciones de WhatsApp repitiendo las mismas preguntas de precio y stock',
+        tag: 'Así se ve hoy', nom: 'Un catálogo que responde por ti',
+        desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados, para que el cliente llegue sabiendo qué quiere en vez de preguntarlo todo.',
+        meta: ['Catálogo con filtros', 'Fichas completas', 'Menos mensajes'],
         precio: '$890.000', href: '#cotizar' },
-      { url: 'App Store · Google Play', img: 'assets/app-buscar.webp',
-        alt: 'Aplicación móvil PrecioRadar',
-        tag: 'Lo que construimos', nom: 'Una aplicación en su teléfono',
-        desc: 'Para que tus clientes pidan, agenden o consulten sin llamar, y tu equipo opere desde el celular aunque no haya señal.',
-        meta: ['iOS y Android', 'Funciona sin conexión', 'Notificaciones'],
-        precio: '$3.400.000', href: '#cotizar' }
+      { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/mock-agenda.webp',
+        alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
+        tag: 'Así se ve hoy', nom: 'Que reserven y pidan solos',
+        desc: 'Agenda o pedidos en línea, con confirmación automática y recordatorio. Tu teléfono deja de ser el único canal y las horas dejan de perderse.',
+        meta: ['Agenda en línea', 'Confirmación automática', 'Sin llamadas perdidas'],
+        precio: '$890.000', href: '#cotizar' }
     ];
     var AUTO = 7000;
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
