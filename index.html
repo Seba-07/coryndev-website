@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=b32f02be">
+<link rel="stylesheet" href="styles-v2.css?v=b1e06444">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -208,9 +208,8 @@
           meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
         precio: '$890.000' }
     ];
-    var ESPERA_ANTES = 3000;    // cuanto se ve el problema antes de transformarse
-    var ESPERA_DESPUES = 4200;  // cuanto se queda la solucion antes del siguiente
-    var CORTESIA = 2000;        // tiempo extra tras un clic, para no apurar al visitante
+    var ESPERA_ANTES = 5000;    // cuanto se ve el problema antes de transformarse
+    var ESPERA_DESPUES = 5000;  // cuanto se queda la solucion antes del siguiente
     var FUNDIDO = 1100;         // debe coincidir con la transicion del CSS
 
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
@@ -295,10 +294,10 @@
     }
 
     // El recorrido no se detiene nunca: un clic solo lo reencamina desde ahi.
-    function agenda (extra) {
+    function agenda () {
       clearTimeout(reloj);
       if (quieto || !visible) return;
-      var ms = (estado === 'antes' ? ESPERA_ANTES : ESPERA_DESPUES) + (extra || 0);
+      var ms = estado === 'antes' ? ESPERA_ANTES : ESPERA_DESPUES;
       avisos(ms);
       reloj = setTimeout(function () {
         if (estado === 'antes') { estado = 'despues'; pinta(actual); }
@@ -310,14 +309,14 @@
     botones.forEach(function (b) {
       b.addEventListener('click', function () {
         if (estado !== b.dataset.v) { estado = b.dataset.v; pinta(actual); }
-        agenda(CORTESIA);
+        agenda();
       });
     });
     items.forEach(function (el) {
       el.addEventListener('click', function () {
         var i = +el.dataset.i;
         if (i !== actual || estado !== 'antes') { estado = 'antes'; pinta(i); }
-        agenda(CORTESIA);
+        agenda();
       });
     });
 

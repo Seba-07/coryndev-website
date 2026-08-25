@@ -1210,7 +1210,7 @@ a.dato:hover{ transform:translateY(-2px);
   position:absolute; left:0; right:100%; bottom:0; height:2px;
   background:linear-gradient(90deg, var(--cyan), #74a6ff);
 }
-.exp-item.activo .prog{ animation:exp-prog 7.2s linear forwards; }
+.exp-item.activo .prog{ animation:exp-prog 10s linear forwards; }
 @keyframes exp-prog{ from{ right:100%; } to{ right:0; } }
 @media (prefers-reduced-motion: reduce){
   .exp-item, .exp-item .prog, .exp-switch .carga{ transition:none; animation:none !important; }
@@ -1761,7 +1761,7 @@ a.dato:hover{ transform:translateY(-2px);
   position:absolute; inset:0; right:100%; z-index:0; border-radius:999px;
   background:linear-gradient(90deg, rgba(45,170,210,.34), rgba(111,216,236,.26));
 }
-.exp-switch button.on .carga{ animation:exp-carga 3s linear forwards; }
+.exp-switch button.on .carga{ animation:exp-carga 5s linear forwards; }
 @keyframes exp-carga{ from{ right:100%; } to{ right:0; } }
 .exp-switch button:hover{ color:#dbe7fb; }
 .exp-switch button.on{ background:rgba(45,170,210,.2); color:#9ce8f7; }
