@@ -83,8 +83,11 @@
         </div>
         <div class="exp-shot">
           <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">inventario_FINAL_v3_ok (1).xlsx</span></div>
-          <img id="expImg" src="assets/mock-planilla.webp" width="1400" height="875"
-               alt="Una planilla de inventario descuadrada, con errores y duplicados" loading="lazy">
+          <div class="capas">
+            <img class="capa on" id="capaAntes" src="assets/mock-planilla.webp"
+                 alt="Una planilla de inventario descuadrada, con errores y duplicados">
+            <img class="capa" id="capaDespues" src="assets/after-sistema.webp" alt="" aria-hidden="true">
+          </div>
         </div>
         <div class="exp-info">
           <p class="tag" id="expTag">Cómo se ve hoy</p>
@@ -152,80 +155,98 @@
           meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
         precio: '$890.000' }
     ];
-    var AUTO = 7000;
+    var ESPERA_ANTES = 1200;   // cuanto se ve el "antes" antes de transformarse
+    var ESPERA_DESPUES = 5200; // cuanto se queda el "despues" antes de pasar al siguiente
+
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
     var panel = document.getElementById('expPanel');
-    var img = document.getElementById('expImg');
-    var actual = 0, timer = null, manual = false;
+    var cA = document.getElementById('capaAntes');
+    var cD = document.getElementById('capaDespues');
     var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var actual = 0, estado = 'antes', manual = false, reloj = null, visible = false;
 
-    var estado = 'antes';
-
-    function pinta (i, mantener) {
+    function texto (i) {
       var c = CASOS[i], v = c[estado];
-      panel.classList.add('cambiando');
-      setTimeout(function () {
-        img.src = v.img; img.alt = v.alt;
-        document.getElementById('expUrl').textContent = v.url;
-        document.getElementById('expTag').textContent =
-          estado === 'antes' ? 'Cómo se ve hoy' : 'Cómo debería verse';
-        document.getElementById('expNom').textContent = v.nom;
-        document.getElementById('expDesc').textContent = v.desc;
-        document.getElementById('expMeta').innerHTML =
-          v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
-        document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
-        panel.setAttribute('aria-labelledby', 'tab-' + i);
-        panel.classList.remove('cambiando');
-      }, 190);
+      document.getElementById('expUrl').textContent = v.url;
+      document.getElementById('expTag').textContent =
+        estado === 'antes' ? 'Cómo se ve hoy' : 'Cómo debería verse';
+      document.getElementById('expNom').textContent = v.nom;
+      document.getElementById('expDesc').textContent = v.desc;
+      document.getElementById('expMeta').innerHTML =
+        v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
+      document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
+    }
+
+    function pinta (i) {
+      var c = CASOS[i];
+      // cada capa carga siempre su propia imagen: la de arriba se funde sobre la otra
+      cA.src = c.antes.img;   cA.alt = c.antes.alt;
+      cD.src = c.despues.img; cD.alt = '';
+      cA.classList.toggle('on', estado === 'antes');
+      cD.classList.toggle('on', estado === 'despues');
       panel.classList.toggle('es-despues', estado === 'despues');
+      panel.setAttribute('aria-labelledby', 'tab-' + i);
+      // todo cambia en el mismo instante: si el texto se retrasa, el rotulo y la
+      // imagen quedan contradiciendose durante la transicion
+      panel.classList.add('cambiando');
+      texto(i);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { panel.classList.remove('cambiando'); });
+      });
       items.forEach(function (el, k) {
         el.classList.toggle('activo', k === i);
         el.setAttribute('aria-selected', k === i ? 'true' : 'false');
       });
+      botones.forEach(function (b) {
+        b.classList.toggle('on', b.dataset.v === estado);
+        b.setAttribute('aria-pressed', b.dataset.v === estado ? 'true' : 'false');
+      });
       actual = i;
     }
 
-    // el interruptor cambia el estado sin cambiar de problema
-    Array.prototype.forEach.call(document.querySelectorAll('.exp-switch button'), function (b) {
-      b.addEventListener('click', function () {
-        frena();
-        estado = b.dataset.v;
-        document.querySelectorAll('.exp-switch button').forEach(function (o) {
-          o.classList.toggle('on', o === b);
-          o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
-        });
-        pinta(actual);
-      });
-    });
+    var botones = Array.prototype.slice.call(document.querySelectorAll('.exp-switch button'));
 
-    function arma () {
-      if (quieto || manual) return;
-      document.querySelector('.exp-lista').classList.add('auto');
-      timer = setInterval(function () { pinta((actual + 1) % CASOS.length); }, AUTO);
+    // ---- recorrido automatico: se ve el problema, se transforma, pasa al siguiente ----
+    function agenda () {
+      if (manual || quieto || !visible) return;
+      clearTimeout(reloj);
+      reloj = setTimeout(function () {
+        if (estado === 'antes') { estado = 'despues'; pinta(actual); }
+        else { estado = 'antes'; pinta((actual + 1) % CASOS.length); }
+        agenda();
+      }, estado === 'antes' ? ESPERA_ANTES : ESPERA_DESPUES);
     }
     function frena () {
       manual = true;
+      clearTimeout(reloj); reloj = null;
       document.querySelector('.exp-lista').classList.remove('auto');
-      if (timer) { clearInterval(timer); timer = null; }
     }
-    items.forEach(function (el) {
-      el.addEventListener('click', function () {
-        frena();
-        estado = 'antes';
-        document.querySelectorAll('.exp-switch button').forEach(function (o) {
-          o.classList.toggle('on', o.dataset.v === 'antes');
-          o.setAttribute('aria-pressed', o.dataset.v === 'antes' ? 'true' : 'false');
-        });
-        pinta(+el.dataset.i);
+
+    botones.forEach(function (b) {
+      b.addEventListener('click', function () {
+        frena(); estado = b.dataset.v; pinta(actual);
       });
     });
-    CASOS.forEach(function (c) { (new Image()).src = c.antes.img; (new Image()).src = c.despues.img; });
+    items.forEach(function (el) {
+      el.addEventListener('click', function () {
+        frena(); estado = 'antes'; pinta(+el.dataset.i);
+      });
+    });
+
+    CASOS.forEach(function (c) {
+      (new Image()).src = c.antes.img; (new Image()).src = c.despues.img;
+    });
+
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) {
         es.forEach(function (e) {
-          if (e.isIntersecting) { arma(); }
-          else if (timer) { clearInterval(timer); timer = null;
-            document.querySelector('.exp-lista').classList.remove('auto'); }
+          visible = e.isIntersecting;
+          if (visible) {
+            if (!manual && !quieto) {
+              document.querySelector('.exp-lista').classList.add('auto');
+              agenda();
+            }
+          } else { clearTimeout(reloj); reloj = null; }
         });
       }, { threshold: 0.3 }).observe(document.querySelector('.explora'));
     }

@@ -1210,7 +1210,7 @@ a.dato:hover{ transform:translateY(-2px);
   position:absolute; left:0; right:100%; bottom:0; height:2px;
   background:linear-gradient(90deg, var(--cyan), #74a6ff);
 }
-.exp-lista.auto .exp-item.activo .prog{ animation:exp-prog 7s linear forwards; }
+.exp-lista.auto .exp-item.activo .prog{ animation:exp-prog 6.4s linear forwards; }
 @keyframes exp-prog{ from{ right:100%; } to{ right:0; } }
 @media (prefers-reduced-motion: reduce){
   .exp-item, .exp-lista.auto .exp-item.activo .prog{ transition:none; animation:none; }
@@ -1232,9 +1232,22 @@ a.dato:hover{ transform:translateY(-2px);
   letter-spacing:.04em; color:#8fa9d4;
   background:rgba(255,255,255,.06); border-radius:999px; padding:3px 12px;
 }
-.exp-shot img{
-  width:100%; aspect-ratio:16/9.4; object-fit:cover; object-position:top center;
-  display:block;
+.exp-shot .capas{ position:relative; aspect-ratio:16/9.4; overflow:hidden; }
+.exp-shot .capa{
+  position:absolute; inset:0; width:100%; height:100%; display:block;
+  object-fit:cover; object-position:top center;
+  opacity:0; transform:scale(1.035); filter:blur(7px);
+  transition:opacity .62s cubic-bezier(.22,.68,.28,1),
+             transform .78s cubic-bezier(.22,.68,.28,1),
+             filter .62s cubic-bezier(.22,.68,.28,1);
+  will-change:opacity, transform;
+}
+.exp-shot .capa.on{ opacity:1; transform:scale(1); filter:blur(0); }
+/* la capa que sale se hunde un poco, en vez de solo desaparecer */
+.exp-shot .capa:not(.on){ transform:scale(.965); }
+.exp-shot .capa.on{ transform:scale(1); }
+@media (prefers-reduced-motion: reduce){
+  .exp-shot .capa{ transition:opacity .2s linear; transform:none !important; filter:none; }
 }
 .exp-info{ display:grid; gap:9px; justify-items:start; }
 .exp-info .tag{
@@ -1251,10 +1264,12 @@ a.dato:hover{ transform:translateY(-2px);
 }
 
 /* transicion entre casos */
-.exp-panel .exp-shot img, .exp-info{ transition:opacity .19s ease; }
-.exp-panel.cambiando .exp-shot img, .exp-panel.cambiando .exp-info{ opacity:0; }
+.exp-info{ transition:opacity .42s ease; }
+.exp-shot .barra .u{ transition:opacity .42s ease; }
+.exp-panel.cambiando .exp-info,
+.exp-panel.cambiando .exp-shot .barra .u{ opacity:0; transition:none; }
 @media (prefers-reduced-motion: reduce){
-  .exp-panel .exp-shot img, .exp-info{ transition:none; }
+  .exp-info, .exp-shot, .exp-shot .barra{ transition:none; }
 }
 
 /* ============================================================
@@ -1758,11 +1773,16 @@ a.dato:hover{ transform:translateY(-2px);
 .exp-panel.es-despues .exp-shot{
   border-color:transparent; background:transparent; box-shadow:none;
 }
-.exp-panel.es-despues .exp-shot .barra{ display:none; }
-.exp-panel.es-despues .exp-shot img{
-  aspect-ratio:auto; object-fit:contain;
-  /* el fondo de la imagen es casi el mismo del bloque: difuminar los bordes
-     evita que se note el rectangulo y hace que la pantalla flote */
-  -webkit-mask-image:radial-gradient(115% 115% at 50% 48%, #000 58%, transparent 100%);
-  mask-image:radial-gradient(115% 115% at 50% 48%, #000 58%, transparent 100%);
+.exp-panel.es-despues .exp-shot .capas{ margin-top:-41px; }
+
+#capaDespues{
+  object-fit:contain; object-position:center;
+  /* el fondo de la imagen es casi el mismo del bloque: difuminar los bordes evita
+     que se note el rectangulo y hace que la pantalla flote */
+  -webkit-mask-image:radial-gradient(78% 92% at 50% 48%, #000 34%, rgba(0,0,0,.55) 68%, transparent 100%);
+  mask-image:radial-gradient(78% 92% at 50% 48%, #000 34%, rgba(0,0,0,.55) 68%, transparent 100%);
 }
+/* el marco y la barra se desvanecen junto con el "antes" */
+.exp-shot{ transition:border-color .5s ease, background .5s ease, box-shadow .5s ease; }
+.exp-shot .barra{ transition:opacity .4s ease; }
+.exp-panel.es-despues .exp-shot .barra{ opacity:0; pointer-events:none; }
