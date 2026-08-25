@@ -446,8 +446,8 @@
         <div class="est-caja">
           <p class="kicker">Acompañamiento mensual</p>
           <p class="uf"><b id="estUf">1 UF</b><span>al mes</span></p>
-          <p class="uf-peso">≈ <span id="estUfPeso">$40.900</span> · en UF, así el precio
-          lo ajusta la inflación y no nosotros</p>
+          <p class="uf-peso">En UF, así el precio lo ajusta la inflación y no nosotros.
+          Nunca te vamos a avisar de una subida.</p>
 
           <div class="est-puesta">
             <span>Puesta en marcha, una sola vez</span>
@@ -473,7 +473,6 @@
 
 <script>
   (function () {
-    var UF = 40866;   // valor de referencia; se muestra siempre como "aproximado"
     var TIPOS = [
       { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',
         base: 250000,  uf: 1,   minimo: 'el sistema con un módulo' },
@@ -544,7 +543,6 @@
 
       $('estUf').textContent =
         String(uf).replace('.', ',') + ' UF';
-      $('estUfPeso').textContent = plata(Math.round(uf * UF / 100) * 100);
       $('estMin').textContent = plata(suma);
 
       $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>' +
