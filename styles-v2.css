@@ -1838,3 +1838,7 @@ a.dato:hover{ transform:translateY(-2px);
   color:#eaf1fd; letter-spacing:-.02em; white-space:nowrap;
 }
 .exp-precio em{ font-style:normal; color:#8fa9d4; font-size:12.5px; }
+.est-caja .uf-pesos{
+  font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9fbaea; margin:-2px 0 8px;
+}
+.est-caja .uf-pesos b{ color:#dbe7fb; font-weight:600; }

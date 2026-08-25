@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=0db7bc6c">
+<link rel="stylesheet" href="styles-v2.css?v=4c15ba14">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -446,6 +446,7 @@
         <div class="est-caja">
           <p class="kicker">Acompañamiento mensual</p>
           <p class="uf"><b id="estUf">1 UF</b><span>al mes</span></p>
+          <p class="uf-pesos" id="estUfPeso" hidden></p>
           <p class="uf-peso">En UF, así el precio lo ajusta la inflación y no nosotros.
           Nunca te vamos a avisar de una subida.</p>
 
@@ -512,6 +513,8 @@
     };
 
     var tipoSel = 'sistema', extrasSel = [];
+    var UF = null;      // valor del dia, lo trae la API publica
+    var ufMes = 1;      // cuantas UF cobra el plan segun lo marcado
     var $ = function (id) { return document.getElementById(id); };
     var plata = function (n) { return '$' + Math.round(n).toLocaleString('es-CL'); };
 
@@ -535,14 +538,44 @@
       }).join('');
     }
 
+    // El equivalente en pesos se muestra solo si la API respondio: si falla,
+    // la cifra en UF se basta sola y no queda un hueco ni un valor inventado.
+    function pintaPesos () {
+      var el = $('estUfPeso');
+      if (!UF) { el.hidden = true; return; }
+      el.innerHTML = '≈ <b>' + plata(Math.round(ufMes * UF / 100) * 100) +
+        '</b> al mes, al valor de hoy';
+      el.hidden = false;
+    }
+
+    function traeUf () {
+      var hoy = new Date().toISOString().slice(0, 10);
+      try {
+        var guardado = JSON.parse(localStorage.getItem('coryn_uf') || 'null');
+        if (guardado && guardado.fecha === hoy) { UF = guardado.valor; pintaPesos(); return; }
+      } catch (e) { /* sin almacenamiento: se consulta igual */ }
+
+      fetch('https://mindicador.cl/api/uf')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (d) {
+          var v = d && d.serie && d.serie[0] && d.serie[0].valor;
+          if (!v) return;
+          UF = v;
+          try { localStorage.setItem('coryn_uf', JSON.stringify({ fecha: hoy, valor: v })); } catch (e) {}
+          pintaPesos();
+        })
+        .catch(function () { /* se queda solo la cifra en UF */ });
+    }
+
     function calcula () {
       var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
       var suma = extrasSel.reduce(function (a, e) { return a + e.v; }, t.base);
       // el mensual sube en tramos de cuarto de UF segun lo que haya que mantener
       var uf = Math.min(3, t.uf + Math.round(extrasSel.length * 0.25 * 4) / 4);
 
-      $('estUf').textContent =
-        String(uf).replace('.', ',') + ' UF';
+      ufMes = uf;
+      $('estUf').textContent = String(uf).replace('.', ',') + ' UF';
+      pintaPesos();
       $('estMin').textContent = plata(suma);
 
       $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>' +
@@ -577,7 +610,7 @@
       calcula();
     });
 
-    pintaTipos(); pintaExtras(); calcula();
+    pintaTipos(); pintaExtras(); calcula(); traeUf();
   })();
 </script>
 
