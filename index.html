@@ -214,9 +214,30 @@
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch">
       <p class="eyebrow">La diferencia</p>
-      <h2>Plantilla o software propio</h2>
-      <p>Las dos opciones son legítimas y a veces la plantilla es la correcta. Esta es
-      la diferencia real, punto por punto, para que decidas con información.</p>
+      <h2>Míralo, no te lo cuento</h2>
+      <p>A la izquierda, una plantilla como las que se venden por cien mil pesos.
+      A la derecha, un sitio real que construí. Arrastra para comparar.</p>
+    </div>
+
+    <div class="comparador rv">
+      <div class="cmp-marco">
+        <div class="cmp-barra"><i></i><i></i><i></i><span class="u" id="cmpUrl">plantilla-generica.com</span></div>
+        <div class="cmp-lienzo" id="cmpLienzo" style="--pos:46%">
+          <img class="cmp-base" src="assets/work-avenprop.webp" width="1400" height="875"
+               alt="AvenProp, sitio desarrollado a medida" loading="lazy">
+          <div class="cmp-encima">
+            <img src="assets/mock-plantilla.webp" width="1400" height="875"
+                 alt="Ejemplo de plantilla genérica" loading="lazy">
+          </div>
+          <div class="cmp-linea" aria-hidden="true"><span class="tirador"></span></div>
+          <span class="cmp-et izq">Plantilla</span>
+          <span class="cmp-et der">A medida</span>
+          <input type="range" min="0" max="100" value="46" id="cmpRango"
+                 aria-label="Deslizar para comparar la plantilla con el desarrollo a medida">
+        </div>
+      </div>
+      <p class="cmp-pie">Las dos cargan igual de rápido. Lo que cambia es que una habla
+      de tu negocio y la otra podría ser de cualquiera.</p>
     </div>
 
     <div class="vs-tabla">
@@ -253,6 +274,22 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var lienzo = document.getElementById('cmpLienzo');
+    var rango = document.getElementById('cmpRango');
+    var url = document.getElementById('cmpUrl');
+    if (!lienzo) return;
+    function mueve () {
+      var v = +rango.value;
+      lienzo.style.setProperty('--pos', v + '%');
+      url.textContent = v > 50 ? 'plantilla-generica.com' : 'avenprop.cl';
+    }
+    rango.addEventListener('input', mueve);
+    mueve();
+  })();
+</script>
 
 <!-- ================= COTIZACION (estimador) ================= -->
 <section id="cotizar" class="estima">

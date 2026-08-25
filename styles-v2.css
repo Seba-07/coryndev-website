@@ -1456,3 +1456,82 @@ a.dato:hover{ transform:translateY(-2px);
 }
 .est-caja .btn-wa{ width:100%; justify-content:center; margin-top:4px; }
 .est-nota{ margin-top:14px; font-size:12.5px; line-height:1.5; color:#7f8ba6; }
+
+/* ============================================================
+   Comparador arrastrable: plantilla vs a medida
+   ============================================================ */
+.comparador{ margin:6px 0 46px; }
+.cmp-marco{
+  border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.16);
+  background:#0d1526; box-shadow:0 40px 80px -32px rgba(0,0,0,.95);
+}
+.cmp-barra{
+  display:flex; align-items:center; gap:6px; padding:11px 14px;
+  background:#111d36; border-bottom:1px solid rgba(255,255,255,.08);
+}
+.cmp-barra i{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.22); }
+.cmp-barra .u{
+  margin-left:10px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+  letter-spacing:.04em; color:#8fa9d4;
+  background:rgba(255,255,255,.06); border-radius:999px; padding:3px 13px;
+}
+
+.cmp-lienzo{ position:relative; line-height:0; user-select:none; touch-action:pan-y; }
+.cmp-lienzo img{ width:100%; display:block; }
+.cmp-encima{
+  position:absolute; inset:0; overflow:hidden;
+  clip-path:inset(0 calc(100% - var(--pos)) 0 0);
+}
+.cmp-encima img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+/* linea y tirador */
+.cmp-linea{
+  position:absolute; top:0; bottom:0; left:var(--pos); width:2px;
+  background:linear-gradient(180deg, rgba(111,216,236,.5), #6fd8ec 50%, rgba(111,216,236,.5));
+  transform:translateX(-1px); pointer-events:none;
+}
+.cmp-linea .tirador{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:46px; height:46px; border-radius:50%;
+  background:rgba(10,23,48,.82); border:2px solid #6fd8ec;
+  box-shadow:0 8px 26px rgba(0,0,0,.6); backdrop-filter:blur(4px);
+}
+.cmp-linea .tirador::before,
+.cmp-linea .tirador::after{
+  content:''; position:absolute; top:50%; width:0; height:0;
+  border-top:5px solid transparent; border-bottom:5px solid transparent;
+}
+.cmp-linea .tirador::before{ left:11px; transform:translateY(-50%); border-right:7px solid #6fd8ec; }
+.cmp-linea .tirador::after{ right:11px; transform:translateY(-50%); border-left:7px solid #6fd8ec; }
+
+/* etiquetas */
+.cmp-et{
+  position:absolute; top:16px; z-index:2;
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; line-height:1;
+  padding:8px 14px; border-radius:999px; backdrop-filter:blur(6px);
+}
+.cmp-et.izq{ left:16px; background:rgba(20,24,32,.72); color:#c8ccd4; border:1px solid rgba(255,255,255,.18); }
+.cmp-et.der{ right:16px; background:rgba(45,170,210,.22); color:#9ce8f7; border:1px solid rgba(111,216,236,.5); }
+
+/* el control real: invisible pero funcional, teclado y lector incluidos */
+.cmp-lienzo input[type="range"]{
+  position:absolute; inset:0; width:100%; height:100%; margin:0;
+  appearance:none; -webkit-appearance:none; background:transparent;
+  cursor:ew-resize; z-index:3;
+}
+.cmp-lienzo input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:52px; height:100%; background:transparent; cursor:ew-resize;
+}
+.cmp-lienzo input[type="range"]::-moz-range-thumb{
+  width:52px; height:100%; background:transparent; border:0; cursor:ew-resize;
+}
+.cmp-lienzo input[type="range"]:focus-visible{ outline:3px solid #6fd8ec; outline-offset:3px; }
+
+.cmp-pie{
+  margin-top:16px; font-size:14.5px; line-height:1.55; color:#8fa9d4; max-width:62ch;
+}
+@media (max-width:600px){
+  .cmp-et{ font-size:10px; padding:6px 11px; top:12px; }
+  .cmp-linea .tirador{ width:38px; height:38px; }
+}

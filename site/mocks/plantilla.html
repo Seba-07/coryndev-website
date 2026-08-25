@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{width:1400px;height:875px;overflow:hidden;background:#fff;
+   font-family:'Arimo',Arial,Helvetica,sans-serif;color:#555}
+ .top{height:64px;background:#f3f3f1;border-bottom:1px solid #e2e2de;
+   display:flex;align-items:center;justify-content:space-between;padding:0 46px}
+ .top .logo{display:flex;align-items:center;gap:11px;font-weight:700;color:#8a8a84;font-size:19px;letter-spacing:.02em}
+ .top .logo i{width:30px;height:30px;border-radius:4px;background:#cfcfc8;display:block}
+ .top nav{display:flex;gap:30px;font-size:14px;color:#9a9a93}
+ .hero{height:330px;position:relative;display:grid;place-items:center;text-align:center;
+   background:linear-gradient(#8e9aa3,#6f7a84)}
+ .hero::after{content:'';position:absolute;inset:0;
+   background:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 22px,transparent 22px 44px)}
+ .hero .c{position:relative;z-index:1}
+ .hero h1{font-size:44px;color:#fff;font-weight:700;letter-spacing:-.01em}
+ .hero p{margin-top:14px;color:#e2e6e9;font-size:16px}
+ .hero .b{margin-top:22px;display:inline-block;background:#b9c1c7;color:#4b545b;
+   padding:11px 30px;border-radius:3px;font-size:14px;font-weight:700}
+ .sec{padding:44px 46px 0;text-align:center}
+ .sec h2{font-size:26px;color:#7d7d76;font-weight:700}
+ .sec .ln{width:52px;height:3px;background:#d8d8d2;margin:13px auto 8px}
+ .sec .sb{font-size:14px;color:#a5a59e}
+ .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:30px 46px 0}
+ .card{border:1px solid #e6e6e1;border-radius:4px;padding:24px;text-align:center}
+ .card .ic{width:56px;height:56px;border-radius:50%;background:#ecece7;margin:0 auto 15px}
+ .card h3{font-size:16px;color:#84847d;font-weight:700;margin-bottom:11px}
+ .card .l{height:8px;border-radius:2px;background:#eeeee9;margin:7px auto}
+ .card .l1{width:100%}.card .l2{width:92%}.card .l3{width:74%}
+ .pie{margin-top:32px;height:54px;background:#f3f3f1;border-top:1px solid #e6e6e1;
+   display:grid;place-items:center;font-size:12px;color:#adada6}
+</style></head><body>
+ <div class="top">
+   <span class="logo"><i></i>TU EMPRESA</span>
+   <nav><span>Inicio</span><span>Nosotros</span><span>Servicios</span><span>Galería</span><span>Contacto</span></nav>
+ </div>
+ <div class="hero"><div class="c">
+   <h1>Bienvenidos a nuestra empresa</h1>
+   <p>Soluciones de calidad para todas sus necesidades</p>
+   <span class="b">LEER MÁS</span>
+ </div></div>
+ <div class="sec">
+   <h2>Nuestros Servicios</h2><div class="ln"></div>
+   <p class="sb">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+ </div>
+ <div class="cards">
+   <div class="card"><div class="ic"></div><h3>Servicio Uno</h3>
+     <div class="l l1"></div><div class="l l2"></div><div class="l l3"></div></div>
+   <div class="card"><div class="ic"></div><h3>Servicio Dos</h3>
+     <div class="l l1"></div><div class="l l2"></div><div class="l l3"></div></div>
+   <div class="card"><div class="ic"></div><h3>Servicio Tres</h3>
+     <div class="l l1"></div><div class="l l2"></div><div class="l l3"></div></div>
+ </div>
+ <div class="pie">Copyright © 2026 · Powered by Theme</div>
+</body></html>
