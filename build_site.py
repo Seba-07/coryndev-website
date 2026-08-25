@@ -152,11 +152,11 @@ PAGINAS = [
         slug='nosotros',
         titulo='Nosotros — Quiénes están detrás de CORYN',
         desc='Estudio de desarrollo de software a medida en Chile. Hablas '
-             'directamente con quien programa tu proyecto.',
+             'directamente con quien programa tu proyecto, sin intermediarios.',
         activa='nosotros',
         cabecera=('Hablas con quien programa',
-                  'Literalmente. No es una frase de marketing: la misma persona que '
-                  'toma la reunión escribe el código y responde el soporte.',
+                  'Literalmente. No es una frase de marketing: quien toma la reunión '
+                  'de levantamiento es quien escribe el código y responde el soporte.',
                   'Nosotros'),
         cierre=('Conversemos 30 minutos, sin costo.',
                 'Sin vendedores de por medio. La primera conversación es directamente '
