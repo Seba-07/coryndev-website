@@ -78,8 +78,12 @@
 
       <div class="exp-panel" id="expPanel" role="tabpanel" aria-labelledby="tab-0">
         <div class="exp-switch" role="group" aria-label="Comparar antes y después">
-          <button type="button" class="on" data-v="antes" aria-pressed="true">Cómo se ve hoy</button>
-          <button type="button" data-v="despues" aria-pressed="false">Cómo debería verse</button>
+          <button type="button" class="on" data-v="antes" aria-pressed="true">
+            <span class="carga" aria-hidden="true"></span><span class="et">Cómo se ve hoy</span>
+          </button>
+          <button type="button" data-v="despues" aria-pressed="false">
+            <span class="carga" aria-hidden="true"></span><span class="et">Cómo debería verse</span>
+          </button>
         </div>
         <div class="exp-shot">
           <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">inventario_FINAL_v3_ok (1).xlsx</span></div>
@@ -155,17 +159,19 @@
           meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
         precio: '$890.000' }
     ];
-    var ESPERA_ANTES = 3000;   // cuanto se ve el problema antes de transformarse
-    var ESPERA_DESPUES = 4200; // cuanto se queda la solucion antes del siguiente
-    var FUNDIDO = 1100;        // debe coincidir con la transicion del CSS
+    var ESPERA_ANTES = 3000;    // cuanto se ve el problema antes de transformarse
+    var ESPERA_DESPUES = 4200;  // cuanto se queda la solucion antes del siguiente
+    var CORTESIA = 2000;        // tiempo extra tras un clic, para no apurar al visitante
+    var FUNDIDO = 1100;         // debe coincidir con la transicion del CSS
 
     var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
     var botones = Array.prototype.slice.call(document.querySelectorAll('.exp-switch button'));
     var panel = document.getElementById('expPanel');
+    var lista = document.querySelector('.exp-lista');
     var cA = document.getElementById('capaAntes');
     var cD = document.getElementById('capaDespues');
     var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var actual = 0, estado = 'antes', manual = false, reloj = null, limpieza = null, visible = false;
+    var actual = 0, estado = 'antes', reloj = null, limpieza = null, visible = false;
 
     function texto (i) {
       var c = CASOS[i], v = c[estado];
@@ -179,11 +185,30 @@
       document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
     }
 
-    // Solo se toca el src de la capa que esta invisible. Cambiarlo en la capa
-    // visible hace que el navegador reemplace la imagen de golpe y el fundido
-    // se pierde: por eso antes el cambio de pestaña se veia instantaneo.
+    // Solo se toca el src de la capa invisible: cambiarlo en la visible hace que
+    // el navegador reemplace la imagen de golpe y el fundido se pierde.
     function fuente (capa, url) {
       if (capa.getAttribute('src') !== url) capa.setAttribute('src', url);
+    }
+
+    // Reinicia una animacion CSS: hay que forzar un reflow entre quitar y poner.
+    function relanza (el, ms) {
+      if (!el) return;
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = '';
+      el.style.animationDuration = ms + 'ms';
+    }
+
+    function avisos (ms) {
+      botones.forEach(function (b) {
+        var c = b.querySelector('.carga');
+        if (b.classList.contains('on') && !quieto && visible) relanza(c, ms);
+        else if (c) { c.style.animation = 'none'; }
+      });
+      var p = lista.querySelector('.exp-item.activo .prog');
+      if (!quieto && visible) relanza(p, estado === 'antes' ? ms + ESPERA_DESPUES : ms);
+      else if (p) p.style.animation = 'none';
     }
 
     function pinta (i) {
@@ -194,7 +219,7 @@
       var urlSale  = estado === 'antes' ? c.despues.img : c.antes.img;
 
       clearTimeout(limpieza);
-      fuente(entra, urlEntra);                  // la que entra esta invisible: seguro
+      fuente(entra, urlEntra);
       entra.alt = estado === 'antes' ? c.antes.alt : '';
 
       panel.classList.add('cambiando');
@@ -207,7 +232,6 @@
         requestAnimationFrame(function () { panel.classList.remove('cambiando'); });
       });
 
-      // la que sale recibe su nueva imagen recien cuando ya no se ve
       limpieza = setTimeout(function () { fuente(sale, urlSale); }, FUNDIDO + 60);
 
       items.forEach(function (el, k) {
@@ -221,34 +245,30 @@
       actual = i;
     }
 
-    function agenda () {
-      if (manual || quieto || !visible) return;
+    // El recorrido no se detiene nunca: un clic solo lo reencamina desde ahi.
+    function agenda (extra) {
       clearTimeout(reloj);
+      if (quieto || !visible) return;
+      var ms = (estado === 'antes' ? ESPERA_ANTES : ESPERA_DESPUES) + (extra || 0);
+      avisos(ms);
       reloj = setTimeout(function () {
         if (estado === 'antes') { estado = 'despues'; pinta(actual); }
         else { estado = 'antes'; pinta((actual + 1) % CASOS.length); }
         agenda();
-      }, estado === 'antes' ? ESPERA_ANTES : ESPERA_DESPUES);
-    }
-    function frena () {
-      manual = true;
-      clearTimeout(reloj); reloj = null;
-      document.querySelector('.exp-lista').classList.remove('auto');
+      }, ms);
     }
 
     botones.forEach(function (b) {
       b.addEventListener('click', function () {
-        frena();
-        if (estado === b.dataset.v) return;
-        estado = b.dataset.v; pinta(actual);
+        if (estado !== b.dataset.v) { estado = b.dataset.v; pinta(actual); }
+        agenda(CORTESIA);
       });
     });
     items.forEach(function (el) {
       el.addEventListener('click', function () {
-        frena();
         var i = +el.dataset.i;
-        if (i === actual && estado === 'antes') return;
-        estado = 'antes'; pinta(i);
+        if (i !== actual || estado !== 'antes') { estado = 'antes'; pinta(i); }
+        agenda(CORTESIA);
       });
     });
 
@@ -260,10 +280,8 @@
       new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           visible = e.isIntersecting;
-          if (visible && !manual && !quieto) {
-            document.querySelector('.exp-lista').classList.add('auto');
-            agenda();
-          } else { clearTimeout(reloj); reloj = null; }
+          if (visible) agenda();
+          else { clearTimeout(reloj); reloj = null; }
         });
       }, { threshold: 0.3 }).observe(document.querySelector('.explora'));
     }

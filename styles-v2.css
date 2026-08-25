@@ -1210,10 +1210,10 @@ a.dato:hover{ transform:translateY(-2px);
   position:absolute; left:0; right:100%; bottom:0; height:2px;
   background:linear-gradient(90deg, var(--cyan), #74a6ff);
 }
-.exp-lista.auto .exp-item.activo .prog{ animation:exp-prog 7.2s linear forwards; }
+.exp-item.activo .prog{ animation:exp-prog 7.2s linear forwards; }
 @keyframes exp-prog{ from{ right:100%; } to{ right:0; } }
 @media (prefers-reduced-motion: reduce){
-  .exp-item, .exp-lista.auto .exp-item.activo .prog{ transition:none; animation:none; }
+  .exp-item, .exp-item .prog, .exp-switch .carga{ transition:none; animation:none !important; }
 }
 
 /* --- panel de vista previa --- */
@@ -1750,10 +1750,19 @@ a.dato:hover{ transform:translateY(-2px);
   margin-bottom:4px; align-self:flex-start;
 }
 .exp-switch button{
-  border:0; cursor:pointer; font:inherit; font-size:13px; font-weight:600;
-  padding:8px 16px; border-radius:999px; background:transparent; color:#8fa9d4;
+  position:relative; overflow:hidden; border:0; cursor:pointer; font:inherit;
+  font-size:13px; font-weight:600; padding:8px 16px; border-radius:999px;
+  background:transparent; color:#8fa9d4;
   transition:background .2s ease, color .2s ease;
 }
+.exp-switch .et{ position:relative; z-index:1; }
+/* el relleno avanza durante el tiempo que falta para que la imagen cambie */
+.exp-switch .carga{
+  position:absolute; inset:0; right:100%; z-index:0; border-radius:999px;
+  background:linear-gradient(90deg, rgba(45,170,210,.34), rgba(111,216,236,.26));
+}
+.exp-switch button.on .carga{ animation:exp-carga 3s linear forwards; }
+@keyframes exp-carga{ from{ right:100%; } to{ right:0; } }
 .exp-switch button:hover{ color:#dbe7fb; }
 .exp-switch button.on{ background:rgba(45,170,210,.2); color:#9ce8f7; }
 .exp-switch button:focus-visible{ outline:3px solid #6fd8ec; outline-offset:2px; }
