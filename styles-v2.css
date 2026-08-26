@@ -2004,6 +2004,15 @@ a.dato:hover{ transform:translateY(-2px);
   color:#eaf1fd; letter-spacing:-.02em; white-space:nowrap;
 }
 .exp-precio em{ font-style:normal; color:#8fa9d4; font-size:12.5px; }
+.est-caja .uf-incluye{
+  margin-top:10px; padding-top:10px;
+  border-top:1px dashed color-mix(in srgb, var(--cyan) 24%, transparent);
+  font-size:13px; line-height:1.5; color:#8fa9d4;
+}
+.est-caja .uf-incluye a{ color:#9ce8f7; text-decoration:none;
+  border-bottom:1px solid rgba(156,232,247,.4); }
+.est-caja .uf-incluye a:hover{ color:#fff; }
+
 .est-caja .uf-pesos{
   font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9fbaea; margin:-2px 0 8px;
 }
