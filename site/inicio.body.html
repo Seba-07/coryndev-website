@@ -295,15 +295,15 @@
       <p class="eyebrow">La diferencia</p>
       <h2>Míralo, no te lo contamos</h2>
       <p>A la izquierda, una plantilla como las que se venden por cien mil pesos.
-      A la derecha, un sitio real que construimos. Arrastra para comparar.</p>
+      A la derecha, un sistema hecho a medida. Arrastra para comparar.</p>
     </div>
 
     <div class="comparador rv">
       <div class="cmp-marco">
         <div class="cmp-barra"><i></i><i></i><i></i><span class="u" id="cmpUrl">plantilla-generica.com</span></div>
         <div class="cmp-lienzo" id="cmpLienzo" style="--pos:46%">
-          <img class="cmp-base" src="assets/work-avenprop.webp" width="1400" height="875"
-               alt="AvenProp, sitio desarrollado a medida" loading="lazy">
+          <img class="cmp-base" src="assets/demo-medida.webp" width="1400" height="875"
+               alt="Sistema de gestión hecho a medida" loading="lazy">
           <div class="cmp-encima">
             <img src="assets/mock-plantilla.webp" width="1400" height="875"
                  alt="Ejemplo de plantilla genérica" loading="lazy">
@@ -315,8 +315,63 @@
                  aria-label="Deslizar para comparar la plantilla con el desarrollo a medida">
         </div>
       </div>
-      <p class="cmp-pie">Las dos cargan igual de rápido. Lo que cambia es que una habla
-      de tu negocio y la otra podría ser de cualquiera.</p>
+      <p class="cmp-pie">Las dos cargan igual de rápido. Lo que cambia es que una conoce
+      tu negocio y la otra podría ser de cualquiera.</p>
+    </div>
+
+
+    <div class="reel rv">
+      <div class="reel-cab">
+        <p class="eyebrow">Ejemplos</p>
+        <h3>Así se ve un sistema hecho para un negocio</h3>
+        <p>Cada uno resuelve una parte distinta de la operación. Ninguno se parece
+        al anterior, porque ningún negocio se parece al de al lado.</p>
+      </div>
+
+      <div class="reel-viewport">
+        <div class="reel-pista" id="reelPista">
+        <figure class="reel-item">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">inventario.tuempresa.cl</span></div>
+            <img src="assets/demo-inventario.webp" width="1500" height="938" loading="lazy"
+                 alt="Inventario y ventas: stock en vivo, alertas de quiebre y el margen de cada venta">
+          </div>
+          <figcaption><b>Inventario y ventas</b><span>Stock en vivo, alertas de quiebre y el margen de cada venta</span></figcaption>
+        </figure>
+        <figure class="reel-item">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">agenda.tuempresa.cl</span></div>
+            <img src="assets/demo-agenda.webp" width="1500" height="938" loading="lazy"
+                 alt="Agenda y reservas: bloques disponibles, confirmación automática y recordatorios">
+          </div>
+          <figcaption><b>Agenda y reservas</b><span>Bloques disponibles, confirmación automática y recordatorios</span></figcaption>
+        </figure>
+        <figure class="reel-item">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">ordenes.tuempresa.cl</span></div>
+            <img src="assets/demo-ordenes.webp" width="1500" height="938" loading="lazy"
+                 alt="Órdenes de trabajo: cada trabajo con su estado, su responsable y su plazo">
+          </div>
+          <figcaption><b>Órdenes de trabajo</b><span>Cada trabajo con su estado, su responsable y su plazo</span></figcaption>
+        </figure>
+        <figure class="reel-item">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">panel.tuempresa.cl</span></div>
+            <img src="assets/demo-panel.webp" width="1500" height="938" loading="lazy"
+                 alt="Panel de indicadores: lo que pasó esta semana, sin armar una planilla para saberlo">
+          </div>
+          <figcaption><b>Panel de indicadores</b><span>Lo que pasó esta semana, sin armar una planilla para saberlo</span></figcaption>
+        </figure>
+        <figure class="reel-item">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">cobranza.tuempresa.cl</span></div>
+            <img src="assets/demo-cobranza.webp" width="1500" height="938" loading="lazy"
+                 alt="Cobranza y pagos: quién debe, desde cuándo y a quién hay que recordarle">
+          </div>
+          <figcaption><b>Cobranza y pagos</b><span>Quién debe, desde cuándo y a quién hay que recordarle</span></figcaption>
+        </figure>
+        </div>
+      </div>
     </div>
 
     <div class="vs-tabla">
@@ -363,10 +418,32 @@
     function mueve () {
       var v = +rango.value;
       lienzo.style.setProperty('--pos', v + '%');
-      url.textContent = v > 50 ? 'plantilla-generica.com' : 'avenprop.cl';
+      url.textContent = v > 50 ? 'plantilla-generica.com' : 'sistema.tuempresa.cl';
     }
     rango.addEventListener('input', mueve);
     mueve();
+  })();
+</script>
+
+<script>
+  (function () {
+    var pista = document.getElementById('reelPista');
+    if (!pista) return;
+    // Se duplica la lista para que el bucle no tenga costura: la animacion
+    // recorre -50% y en ese punto la copia esta donde arranco el original.
+    // Se hace por guion y no en el HTML para no repetir el marcado a mano.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var copia = pista.cloneNode(true);
+      // slice() congela la lista: children es una coleccion viva y al ir
+      // moviendo los nodos se vaciaba sola a mitad del recorrido, dejando
+      // fuera la mitad de las copias.
+      Array.prototype.slice.call(copia.children).forEach(function (el) {
+        el.setAttribute('aria-hidden', 'true');
+        var img = el.querySelector('img, video');
+        if (img) img.setAttribute('alt', '');
+        pista.appendChild(el);
+      });
+    }
   })();
 </script>
 

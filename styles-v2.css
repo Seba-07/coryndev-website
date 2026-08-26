@@ -1529,6 +1529,66 @@ a.dato:hover{ transform:translateY(-2px);
 /* ============================================================
    Comparador arrastrable: plantilla vs a medida
    ============================================================ */
+/* --- muestrario que deriva solo ---
+   Va en carrusel continuo y no en pestañas a proposito: la seccion de problemas
+   ya usa pestañas mas arriba, y repetir el mismo gesto dos veces en la misma
+   pagina hace que la segunda no se sienta como algo nuevo. Aqui ademas conviene
+   ver varios ejemplos a la vez, no uno cada vez. */
+.reel{ margin:8px 0 46px; }
+.reel-cab{ max-width:58ch; margin-bottom:22px; }
+.reel-cab h3{ font-size:clamp(21px,2.4vw,27px); color:#fff; margin-top:10px; }
+.reel-cab p{ margin-top:10px; color:#9fbaea; font-size:15.5px; line-height:1.6; }
+
+/* Los bordes se desvanecen para que las piezas entren y salgan en vez de
+   cortarse de golpe contra el limite del contenedor. */
+.reel-viewport{
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.reel-pista{
+  display:flex; gap:22px; width:max-content;
+  animation:reel-deriva 46s linear infinite;
+}
+.reel-viewport:hover .reel-pista,
+.reel-pista:focus-within{ animation-play-state:paused; }
+@keyframes reel-deriva{
+  from{ transform:translateX(0); }
+  /* -50% porque el guion duplica la lista: al llegar a la mitad, la copia esta
+     exactamente donde estaba el original y el salto no se ve. */
+  to{ transform:translateX(-50%); }
+}
+
+.reel-item{ margin:0; width:min(74vw, 420px); flex:none; }
+.reel-marco{
+  border-radius:12px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.03);
+  box-shadow:0 26px 50px -30px rgba(0,0,0,.9);
+}
+.reel-barra{
+  display:flex; align-items:center; gap:6px;
+  padding:8px 11px; background:rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.reel-barra i{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.22); }
+.reel-barra .u{
+  margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:11px;
+  color:#7f93b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.reel-marco img,
+.reel-marco video{ width:100%; height:auto; display:block; }
+.reel-item figcaption{ margin-top:13px; display:grid; gap:3px; }
+.reel-item figcaption b{ font-size:15px; color:#eaf1fd; }
+.reel-item figcaption span{ font-size:13.5px; line-height:1.5; color:#8fa9d4; }
+
+@media (prefers-reduced-motion: reduce){
+  /* Sin deriva automatica: se recorre a mano y con el teclado. */
+  .reel-pista{ animation:none; }
+  .reel-viewport{ overflow-x:auto; scroll-snap-type:x mandatory; }
+  .reel-item{ scroll-snap-align:start; }
+}
+
 .comparador{ margin:6px 0 46px; }
 .cmp-marco{
   border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.16);
