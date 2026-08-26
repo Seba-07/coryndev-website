@@ -90,9 +90,9 @@ def _cierre(titulo, texto, boton_extra=''):
 PIE = f'''<footer class="foot">
   <div class="wrap">
     <div class="cols">
-      <div>
+      <div class="foot-marca">
         <a class="brand" href="index.html">
-          <img src="assets/mark.webp" alt="" width="28" height="26">
+          <img src="assets/mark-claro.webp" alt="" width="28" height="26">
           <span>CORYN</span>
         </a>
         <p>Software 100% personalizado para negocios que necesitan que la
@@ -112,13 +112,21 @@ PIE = f'''<footer class="foot">
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="productos.html">Producto propio</a></li>
         </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="contacto.html">Enviar un mensaje</a></li>
+          <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
+        </ul>
+        <p class="foot-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
       </div>
     </div>
     <div class="base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="precioradar-privacy.html" style="text-decoration:none">Política de privacidad</a></span>
+      <span><a href="precioradar-privacy.html">Pol&iacute;tica de privacidad</a></span>
     </div>
   </div>
 </footer>'''
