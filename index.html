@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CORYN — Saca tu operación de las planillas | Software a medida en Chile</title>
-<meta name="description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema de gestión que ordena tu pyme. Puesta en marcha desde $250.000 y 1 UF al mes. Primera reunión sin costo.">
+<meta name="description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema que ordena tu pyme: $129.000 de puesta en marcha y 1 UF al mes. Primera reunión sin costo.">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CORYN — Saca tu operación de las planillas | Software a medida en Chile">
-<meta property="og:description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema de gestión que ordena tu pyme. Puesta en marcha desde $250.000 y 1 UF al mes. Primera reunión sin costo.">
+<meta property="og:description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema que ordena tu pyme: $129.000 de puesta en marcha y 1 UF al mes. Primera reunión sin costo.">
 <meta property="og:image" content="https://coryndev.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,7 +148,7 @@
           <p class="dd" id="expDesc">Stock negativo, fórmulas rotas, filas duplicadas y una
           columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.</p>
           <div class="meta" id="expMeta"><span>Solo una persona la entiende</span><span>Sin respaldo</span><span>Errores que nadie ve</span></div>
-          <p class="exp-precio" id="expPrecio">Desde <b>$250.000</b> <em>+ 1 UF al mes</em></p>
+          <p class="exp-precio" id="expPrecio"><b>$129.000</b> <em>+ 1 UF al mes</em></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
       </div>
@@ -170,7 +170,7 @@
           nom: 'La misma operación, ordenada',
           desc: 'Inventario, ventas y cobros en un solo lugar, con alertas de stock, permisos por persona y respaldo automático. Puedes partir por un módulo.',
           meta: ['Un módulo para empezar', 'Permisos por rol', 'Alertas automáticas'] },
-        precio: '$250.000', uf: '1 UF' },
+        precio: '$129.000', uf: '1 UF' },
       {
         antes: { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/mock-google.webp',
           alt: 'Resultados de Google donde aparece la competencia y tu negocio no',
@@ -182,7 +182,7 @@
           nom: 'Tu propio sitio, no el de un portal',
           desc: 'Con la foto de tu local, tus productos destacados y tu dirección, horario y teléfono siempre a la vista. Aparece en Google y el contacto llega directo a ti.',
           meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'] },
-        precio: '$120.000', uf: '1 UF' },
+        precio: '$69.000', uf: '1 UF' },
       {
         antes: { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/mock-chat.webp',
           alt: 'Conversaciones de WhatsApp repitiendo las mismas preguntas de precio y stock',
@@ -194,7 +194,7 @@
           nom: 'El catálogo responde por ti',
           desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados. El cliente llega sabiendo qué quiere, y te escribe para comprar, no para preguntar.',
           meta: ['Catálogo con filtros', 'Fichas completas', 'Disponible a toda hora'] },
-        precio: '$390.000', uf: '1,5 UF' },
+        precio: '$69.000', uf: '1 UF' },
       {
         antes: { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/mock-agenda.webp',
           alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
@@ -206,7 +206,7 @@
           nom: 'Reservan solos, y confirman solos',
           desc: 'El cliente ve los bloques libres y reserva desde el sitio. El sistema confirma y manda recordatorio, así el teléfono deja de ser el único canal.',
           meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
-        precio: '$390.000', uf: '1,5 UF' }
+        precio: '$129.000', uf: '1 UF' }
     ];
     var ESPERA_ANTES = 5000;    // cuanto se ve el problema antes de transformarse
     var ESPERA_DESPUES = 5000;  // cuanto se queda la solucion antes del siguiente
@@ -230,7 +230,8 @@
       document.getElementById('expDesc').textContent = v.desc;
       document.getElementById('expMeta').innerHTML =
         v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
-      document.getElementById('expPrecio').innerHTML = 'Desde <b>' + c.precio + '</b>';
+      document.getElementById('expPrecio').innerHTML =
+        '<b>' + c.precio + '</b> <em>+ ' + c.uf + ' al mes</em>';
     }
 
     // Solo se toca el src de la capa invisible: cambiarlo en la visible hace que
@@ -424,8 +425,9 @@
     <div class="sec-head rv" style="max-width:60ch">
       <p class="eyebrow">Inversión</p>
       <h2>Cuánto costaría lo tuyo</h2>
-      <p>El negocio no es cobrarte caro una vez: es que el sistema siga funcionando
-      todos los meses. Marca lo que necesitas y verás las dos cifras.</p>
+      <p>Partes con lo justo para operar y el sistema crece contigo. El precio de
+      entrada es bajo a propósito: lo que nos importa es acompañarte todos los meses,
+      no cobrarte caro una vez.</p>
     </div>
 
     <div class="est-grid rv">
@@ -436,9 +438,9 @@
         </fieldset>
 
         <fieldset class="est-paso">
-          <legend><span class="p">02</span>¿Qué le sumas?</legend>
+          <legend><span class="p">02</span>¿Qué te gustaría sumar después?</legend>
           <div class="est-ops chicas" id="estExtras"></div>
-          <p class="est-nada" id="estNada">Elige primero qué necesitas.</p>
+          <p class="est-nada" id="estNada">Elige primero con qué partes.</p>
         </fieldset>
       </form>
 
@@ -452,7 +454,7 @@
 
           <div class="est-puesta">
             <span>Puesta en marcha, una sola vez</span>
-            <b id="estMin">$250.000</b>
+            <b id="estMin">$129.000</b>
           </div>
 
           <ul class="est-resumen" id="estResumen"></ul>
@@ -463,9 +465,9 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
             Cotizar esto por WhatsApp
           </a>
-          <p class="est-nota">El mensaje ya va escrito con lo que marcaste. La puesta en
-          marcha se cierra por escrito antes de programar; el acompañamiento se cobra
-          mes a mes desde que el sistema entra en uso.</p>
+          <p class="est-nota">Precio cerrado, no un "desde": es lo que cuesta dejarlo
+          funcionando. Se confirma por escrito antes de programar, y el acompañamiento
+          corre recién cuando el sistema entra en uso.</p>
         </div>
       </aside>
     </div>
@@ -476,40 +478,32 @@
   (function () {
     var TIPOS = [
       { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',
-        base: 250000,  uf: 1,   minimo: 'el sistema con un módulo' },
+        base: 129000, uf: 1 },
       { id: 'web',     nom: 'Un sitio web',          sub: 'Presencia, contacto y que te encuentren',
-        base: 120000,  uf: 1,   minimo: 'el sitio de una página' },
+        base: 69000,  uf: 1 },
       { id: 'tienda',  nom: 'Una tienda online',     sub: 'Vender con pago en línea y control de stock',
-        base: 390000,  uf: 1.5, minimo: 'la tienda con lo esencial' },
-      { id: 'app',     nom: 'Una aplicación móvil',  sub: 'Para tu equipo o para tus clientes',
-        base: 690000,  uf: 1.5, minimo: 'la aplicación base' }
+        base: 189000, uf: 1.5 },
+      { id: 'app',     nom: 'Una app para el celular',
+        sub: 'Se instala desde el navegador, sin pasar por las tiendas',
+        base: 159000, uf: 1.5,
+        nota: 'La hacemos como aplicación web instalable: se agrega a la pantalla de ' +
+              'inicio, funciona sin conexión y se actualiza sola, sin esperar la ' +
+              'revisión de Apple ni de Google ni pagar sus cuotas anuales. Si tu caso ' +
+              'necesita una app nativa de las tiendas, la cotizamos aparte.' }
     ];
+    // Sin precio: lo que se marque aqui no cambia lo que cuesta partir. Ponerle
+    // cifra a cada añadido empujaba a comprarlo todo de una vez, que es lo
+    // contrario del modelo: se parte con la base y esto se suma en el camino.
     var EXTRAS = {
-      web: [
-        { nom: 'Más de cinco secciones', v: 80000 },
-        { nom: 'Catálogo de productos o servicios', v: 140000 },
-        { nom: 'En varios idiomas', v: 120000 },
-        { nom: 'Blog o sección de noticias', v: 60000 }
-      ],
-      tienda: [
-        { nom: 'Más de cincuenta productos', v: 120000 },
-        { nom: 'Despacho con tarifa por zona', v: 100000 },
-        { nom: 'Cuentas de cliente e historial', v: 110000 },
-        { nom: 'Cupones y descuentos', v: 80000 }
-      ],
-      sistema: [
-        { nom: 'Un módulo adicional', v: 180000 },
-        { nom: 'Usuarios con permisos por rol', v: 120000 },
-        { nom: 'Panel de indicadores y reportes', v: 150000 },
-        { nom: 'Conectar con un servicio externo', v: 160000 },
-        { nom: 'Alertas automáticas por correo', v: 80000 }
-      ],
-      app: [
-        { nom: 'Funciona sin conexión', v: 220000 },
-        { nom: 'Notificaciones push', v: 100000 },
-        { nom: 'Pagos dentro de la aplicación', v: 200000 },
-        { nom: 'Uso de cámara o ubicación', v: 130000 }
-      ]
+      web: ['Más de cinco secciones', 'Catálogo de productos o servicios',
+            'En varios idiomas', 'Blog o sección de noticias'],
+      tienda: ['Más de cincuenta productos', 'Despacho con tarifa por zona',
+               'Cuentas de cliente e historial', 'Cupones y descuentos'],
+      sistema: ['Un módulo adicional', 'Usuarios con permisos por rol',
+                'Panel de indicadores y reportes', 'Conectar con un servicio externo',
+                'Alertas automáticas por correo'],
+      app: ['Notificaciones al celular', 'Pagos dentro de la aplicación',
+            'Uso de cámara o ubicación', 'Sincroniza al recuperar señal']
     };
 
     var tipoSel = 'sistema', extrasSel = [];
@@ -523,18 +517,17 @@
         return '<label class="est-op">' +
           '<input type="radio" name="tipo" value="' + t.id + '"' + (i === 0 ? ' checked' : '') + '>' +
           '<span class="cuerpo"><b>' + t.nom + '</b><small>' + t.sub + '</small></span>' +
-          '<span class="desde">desde ' + plata(t.base) + '</span></label>';
+          '<span class="desde">' + plata(t.base) + '</span></label>';
       }).join('');
     }
 
     function pintaExtras () {
       var lista = EXTRAS[tipoSel] || [];
       $('estNada').style.display = lista.length ? 'none' : 'block';
-      $('estExtras').innerHTML = lista.map(function (e, i) {
+      $('estExtras').innerHTML = lista.map(function (nom, i) {
         return '<label class="est-op">' +
-          '<input type="checkbox" data-v="' + e.v + '" data-nom="' + e.nom + '" value="' + i + '">' +
-          '<span class="cuerpo"><b>' + e.nom + '</b></span>' +
-          '<span class="desde">+' + plata(e.v) + '</span></label>';
+          '<input type="checkbox" data-nom="' + nom + '" value="' + i + '">' +
+          '<span class="cuerpo"><b>' + nom + '</b></span></label>';
       }).join('');
     }
 
@@ -569,33 +562,36 @@
 
     function calcula () {
       var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
-      var suma = extrasSel.reduce(function (a, e) { return a + e.v; }, t.base);
-      // el mensual sube en tramos de cuarto de UF segun lo que haya que mantener
-      var uf = Math.min(3, t.uf + Math.round(extrasSel.length * 0.25 * 4) / 4);
 
-      ufMes = uf;
-      $('estUf').textContent = String(uf).replace('.', ',') + ' UF';
+      // Las dos cifras dependen solo de con que se parte. Antes se movian ambas
+      // a la vez con cada casilla y no se entendia que estaba pagando el cliente.
+      ufMes = t.uf;
+      $('estUf').textContent = String(t.uf).replace('.', ',') + ' UF';
       pintaPesos();
-      $('estMin').textContent = plata(suma);
+      $('estMin').textContent = plata(t.base);
 
       $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>' +
-        extrasSel.map(function (e) {
-          return '<li><span>' + e.nom + '</span><i>+' + plata(e.v) + '</i></li>';
+        extrasSel.map(function (nom) {
+          return '<li><span>' + nom + '</span><i>después</i></li>';
         }).join('');
 
       var etp = $('estEtapas');
-      if (extrasSel.length && (suma >= t.base * 1.35 || suma >= 700000)) {
-        etp.innerHTML = 'No hace falta partir con todo: <b>' + t.minimo + '</b> son ' +
-          plata(t.base) + ', y lo demás se suma cuando el negocio lo pida.';
+      if (t.nota) {
+        etp.innerHTML = t.nota;
+        etp.hidden = false;
+      } else if (extrasSel.length) {
+        etp.innerHTML = 'Marcar esto no cambia lo que cuesta partir: se suma en el ' +
+          'camino, sobre lo que ya esté funcionando, sin volver a empezar de cero.';
         etp.hidden = false;
       } else { etp.hidden = true; }
 
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
-        (extrasSel.length ? 'Con: ' + extrasSel.map(function (e) { return e.nom.toLowerCase(); }).join(', ') + '\n' : '') +
-        'Puesta en marcha estimada: ' + plata(suma) + '\n' +
-        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
-        '¿Podemos conversarlo?';
+        'Puesta en marcha: ' + plata(t.base) + '\n' +
+        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n' +
+        (extrasSel.length ? '\nMás adelante me interesaría: ' +
+          extrasSel.map(function (n) { return n.toLowerCase(); }).join(', ') + '\n' : '') +
+        '\n¿Podemos conversarlo?';
       $('estWa').href = 'https://wa.me/56948780902?text=' + encodeURIComponent(txt);
     }
 
@@ -605,7 +601,7 @@
       } else {
         extrasSel = Array.prototype.slice
           .call($('estExtras').querySelectorAll('input:checked'))
-          .map(function (i) { return { nom: i.dataset.nom, v: +i.dataset.v }; });
+          .map(function (i) { return i.dataset.nom; });
       }
       calcula();
     });
