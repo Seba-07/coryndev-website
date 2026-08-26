@@ -164,6 +164,17 @@ PAGINAS = [
                 'con quien va a construir tu proyecto.'),
     ),
     dict(
+        slug='404',
+        titulo='Página no encontrada | CORYN',
+        desc='La dirección que buscas no existe o cambió de lugar.',
+        activa='',
+        cabecera=('Esta página no existe',
+                  'La dirección que escribiste no está o cambió de lugar. '
+                  'Nada grave: desde aquí se llega a todo lo demás.',
+                  'Error 404'),
+        cierre=None,
+    ),
+    dict(
         slug='contacto',
         titulo='Contacto — Conversemos sobre tu proyecto | CORYN',
         desc='Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo, '
@@ -203,7 +214,12 @@ def construir_paginas():
             titulo=p['titulo'], descripcion=p['desc'], cuerpo='\n\n'.join(partes),
             activa=p['activa'], js_extra=p.get('js_extra', ''),
             nav_solida=False,
+            canonico='' if p['slug'] == 'index' else f"{p['slug']}.html",
         )
+        if p['slug'] == '404':
+            # que los buscadores no la guarden como si fuera contenido
+            html = html.replace('<meta name="description"',
+                                '<meta name="robots" content="noindex">\n<meta name="description"')
         destino = SALIDA / f"{p['slug']}.html"
         destino.write_text(html)
         yield destino
@@ -266,10 +282,30 @@ def construir_casos():
             titulo=f"{c['titulo']} — Caso de proyecto | CORYN",
             descripcion=c['meta_desc'],
             cuerpo='\n\n'.join([cabecera, cuerpo, cierre]),
-            activa='', og_img=c['figura'], og_tipo='article')
+            activa='', og_img=c['figura'], og_tipo='article',
+            canonico=f"caso-{c['slug']}.html")
         destino = SALIDA / f"caso-{c['slug']}.html"
         destino.write_text(html)
         yield destino
+
+
+def construir_sitemap():
+    """Un <url> por pagina publica. La 404 y las paginas legales de apps
+    (cunde-*, precioradar-privacy) quedan fuera: existen para ser enlazadas,
+    no para aparecer en buscadores."""
+    urls = ['https://coryndev.com/']
+    urls += [f"https://coryndev.com/{p['slug']}.html" for p in PAGINAS
+             if p['slug'] not in ('index', '404')]
+    urls += [f"https://coryndev.com/caso-{c['slug']}.html" for c in CASOS]
+    cuerpo = '\n'.join(f'  <url><loc>{u}</loc></url>' for u in urls)
+    destino = SALIDA / 'sitemap.xml'
+    destino.write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'{cuerpo}\n</urlset>\n')
+    (SALIDA / 'robots.txt').write_text(
+        'User-agent: *\nAllow: /\n\nSitemap: https://coryndev.com/sitemap.xml\n')
+    return destino, len(urls)
 
 
 if __name__ == '__main__':
@@ -279,6 +315,9 @@ if __name__ == '__main__':
         total += n
         print(f'  {destino.name:26s} {n // 1024:>3} KB')
     print(f'  {"":26s} {total // 1024:>3} KB en total')
+
+    _, n = construir_sitemap()
+    print(f'  sitemap.xml con {n} URLs + robots.txt')
 
     pendientes = sum(p.read_text().count('class="pendiente"')
                      for p in SALIDA.glob('*.html'))

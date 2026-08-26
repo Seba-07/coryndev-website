@@ -199,8 +199,11 @@ def _firma_css():
 
 
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
-           og_tipo='website', js_extra='', nav_solida=False):
-    """Arma una pagina completa a partir del cuerpo."""
+           og_tipo='website', js_extra='', nav_solida=False, canonico=''):
+    """Arma una pagina completa a partir del cuerpo.
+
+    canonico: ruta de la pagina para el <link rel=canonical> ('' = portada).
+    """
     firma = _firma_css()
     og_img_abs = og_img.lstrip('./')
     nav = _nav(activa)
@@ -213,12 +216,32 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{titulo}</title>
 <meta name="description" content="{descripcion}">
+<link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="{og_tipo}">
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{descripcion}">
 <meta property="og:image" content="https://coryndev.com/{og_img_abs}">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://coryndev.com/{canonico}">
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://coryndev.com/#coryn",
+  "name": "CORYN",
+  "description": "Desarrollo de software a medida para pymes en Chile: sistemas de gestión, sitios web, tiendas online y aplicaciones.",
+  "url": "https://coryndev.com/",
+  "logo": "https://coryndev.com/assets/icon-512.png",
+  "image": "https://coryndev.com/assets/og.jpg",
+  "email": "contacto@coryndev.com",
+  "areaServed": {{ "@type": "Country", "name": "Chile" }},
+  "knowsLanguage": "es-CL",
+  "priceRange": "$$",
+  "sameAs": []
+}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
