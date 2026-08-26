@@ -1547,8 +1547,8 @@ a.dato:hover{ transform:translateY(-2px);
   mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
 .reel-pista{
-  display:flex; gap:22px; width:max-content;
-  animation:reel-deriva 46s linear infinite;
+  display:flex; align-items:flex-start; gap:22px; width:max-content;
+  animation:reel-deriva 56s linear infinite;
 }
 .reel-viewport:hover .reel-pista,
 .reel-pista:focus-within{ animation-play-state:paused; }
@@ -1578,6 +1578,22 @@ a.dato:hover{ transform:translateY(-2px);
 }
 .reel-marco img,
 .reel-marco video{ width:100%; height:auto; display:block; }
+/* La app va en marco de telefono, no de navegador: una pantalla de celular
+   dentro de una ventana de escritorio seria un marco equivocado. Se recorta por
+   abajo para que su altura calce con la de las demas piezas; si se mostrara
+   entera duplicaria el alto de la fila y dejaria a las otras flotando en un
+   hueco. */
+.reel-item.movil{ width:min(46vw, 200px); }
+.reel-marco.fono{
+  border-radius:26px; padding:7px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+}
+.reel-marco.fono img{
+  height:282px; width:100%;
+  object-fit:cover; object-position:top;
+  border-radius:20px;
+}
 .reel-item figcaption{ margin-top:13px; display:grid; gap:3px; }
 .reel-item figcaption b{ font-size:15px; color:#eaf1fd; }
 .reel-item figcaption span{ font-size:13.5px; line-height:1.5; color:#8fa9d4; }
