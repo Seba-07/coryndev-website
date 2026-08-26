@@ -1417,12 +1417,18 @@ a.dato:hover{ transform:translateY(-2px);
 .estima{
   color:#fff; padding:78px 0 86px; position:relative; overflow:hidden;
   background-color:var(--band-a);
+  /* Fondo propio de la seccion. No lleva el destello cian que tenian las otras
+     franjas: la imagen ya trae el suyo y superponerlos lo quemaba. El velo es
+     suave y solo protege la mitad izquierda, que es donde cae el texto; las
+     tarjetas y el panel son translucidos, asi que lo que haya detras se lee a
+     traves de los precios. */
   background-image:
-    radial-gradient(52% 80% at 22% 40%, rgba(45,170,210,.15) 0%, rgba(45,170,210,0) 64%),
-    linear-gradient(260deg, rgba(7,14,32,.94) 0%, rgba(7,14,32,.72) 42%, rgba(7,14,32,.2) 100%),
-    var(--banner);
-  background-size:auto, auto, cover;
-  background-position:center, center, 26% center;
+    linear-gradient(100deg,
+      rgba(7,14,32,.52) 0%, rgba(7,14,32,.34) 34%,
+      rgba(7,14,32,.14) 66%, rgba(7,14,32,.30) 100%),
+    url("assets/fondo-cotizar.webp");
+  background-size:auto, cover;
+  background-position:center, 22% center;
   background-repeat:no-repeat;
 }
 .estima .eyebrow{ color:#6fd8ec; }
