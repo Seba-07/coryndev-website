@@ -1206,12 +1206,19 @@ a.dato:hover{ transform:translateY(-2px);
 .explora{
   color:#fff; padding:78px 0 84px; position:relative; overflow:hidden;
   background-color:var(--band-a);
+  /* Fondo propio: una reticula que se desarma, el reverso del plano integro de
+     la seccion de precios. Se quita el destello cian que habia arriba a la
+     derecha: caia bajo el visor, que es opaco, y ademas peleaba con el tono
+     frio de esta imagen.
+     El velo pesa mas a la derecha porque ahi el bloque de texto no tiene fondo
+     de ningun tipo: se apoya directo sobre la imagen. */
   background-image:
-    radial-gradient(55% 90% at 82% 20%, rgba(35,150,190,.14) 0%, rgba(35,150,190,0) 62%),
-    linear-gradient(100deg, rgba(7,14,32,.95) 0%, rgba(7,14,32,.8) 45%, rgba(7,14,32,.55) 100%),
-    var(--banner);
-  background-size:auto, auto, cover;
-  background-position:center, center, 76% center;
+    linear-gradient(105deg,
+      rgba(7,14,32,.30) 0%, rgba(7,14,32,.16) 40%,
+      rgba(7,14,32,.42) 78%, rgba(7,14,32,.62) 100%),
+    url("assets/fondo-problemas.webp");
+  background-size:auto, cover;
+  background-position:center, 75% center;
   background-repeat:no-repeat;
   border-top:1px solid rgba(255,255,255,.07);
 }
