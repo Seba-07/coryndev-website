@@ -646,6 +646,29 @@ body.menu-abierto .burger span:nth-child(3){ transform:translateY(-7px) rotate(-
 .servicio .incluye li svg{ stroke:var(--cyan); }
 .servicio .fuera li{ color:var(--muted); }
 .servicio .fuera li svg{ stroke:#c2536b; }
+.servicio .escalera{
+  margin-top:18px; padding:18px 20px; border-radius:12px;
+  background:color-mix(in srgb, var(--cyan) 5%, var(--paper));
+  border:1px solid color-mix(in srgb, var(--cyan) 26%, transparent);
+}
+.servicio .escalera h3{ color:var(--cyan); }
+.servicio .escalera p{ font-size:14.5px; line-height:1.55; color:var(--ink-2); }
+.servicio .escalera ul{
+  list-style:none; margin:12px 0; padding:0; display:grid; gap:10px;
+}
+.servicio .escalera li{
+  display:grid; grid-template-columns:18px 1fr; gap:10px;
+  font-size:14.5px; line-height:1.5; color:var(--ink-2);
+}
+.servicio .escalera li svg{
+  width:16px; height:16px; margin-top:3px; fill:none;
+  stroke:var(--cyan); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+}
+.servicio .escalera .cierre-esc{
+  margin-top:4px; padding-top:12px;
+  border-top:1px dashed color-mix(in srgb, var(--cyan) 30%, transparent);
+  font-size:13.5px; color:var(--muted);
+}
 .servicio .plazo{
   margin-top:18px; padding:12px 16px; border-radius:10px;
   background:color-mix(in srgb, var(--accent) 7%, transparent);
@@ -1985,6 +2008,10 @@ a.dato:hover{ transform:translateY(-2px);
 
 /* --- el mensual manda: es el negocio, no el proyecto --- */
 .est-caja .uf{ display:flex; align-items:baseline; gap:9px; margin:10px 0 5px; }
+.est-caja .uf .pre{
+  font-style:normal; font-family:'IBM Plex Mono',monospace; font-size:12px;
+  font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#8fa9d4;
+}
 .est-caja .uf b{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.03em;
   font-size:clamp(34px,4vw,44px); color:#fff; line-height:1;

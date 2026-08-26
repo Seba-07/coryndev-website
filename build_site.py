@@ -97,8 +97,8 @@ PAGINAS = [
         slug='index',
         titulo='CORYN — Saca tu operación de las planillas | Software a medida en Chile',
         desc='¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una '
-             'persona entiende? Construimos el sistema que ordena tu pyme: $129.000 de '
-             'puesta en marcha y 1 UF al mes. Primera reunión sin costo.',
+             'persona entiende? Construimos el sistema que ordena tu pyme: puesta en '
+             'marcha desde $129.000 y desde 1 UF al mes. Primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
         cierre=('Conversemos 30 minutos, sin costo.',

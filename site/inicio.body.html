@@ -99,7 +99,7 @@
           <p class="dd" id="expDesc">Stock negativo, fórmulas rotas, filas duplicadas y una
           columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.</p>
           <div class="meta" id="expMeta"><span>Solo una persona la entiende</span><span>Sin respaldo</span><span>Errores que nadie ve</span></div>
-          <p class="exp-precio" id="expPrecio"><b>$129.000</b> <em>+ 1 UF al mes</em></p>
+          <p class="exp-precio" id="expPrecio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
       </div>
@@ -182,7 +182,7 @@
       document.getElementById('expMeta').innerHTML =
         v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
       document.getElementById('expPrecio').innerHTML =
-        '<b>' + c.precio + '</b> <em>+ ' + c.uf + ' al mes</em>';
+        'Desde <b>' + c.precio + '</b> <em>+ ' + c.uf + ' al mes</em>';
     }
 
     // Solo se toca el src de la capa invisible: cambiarlo en la visible hace que
@@ -477,12 +477,12 @@
       <aside class="est-panel">
         <div class="est-caja">
           <p class="kicker">Acompañamiento mensual</p>
-          <p class="uf"><b id="estUf">1 UF</b><span>al mes</span></p>
+          <p class="uf"><em class="pre">desde</em><b id="estUf">1 UF</b><span>al mes</span></p>
           <p class="uf-pesos" id="estUfPeso" hidden></p>
-          <p class="uf-peso">En UF, así el precio lo ajusta la inflación y no nosotros.
-          Nunca te vamos a avisar de una subida.</p>
-          <p class="uf-incluye">Esa UF incluye mantención, respaldos, monitoreo y
-          mejoras pequeñas cada mes. <a href="servicios.html#soporte">Ver el detalle</a></p>
+          <p class="uf-peso">En UF, así lo ajusta la inflación y no nosotros. Y si tu
+          sistema crece, el valor sube por una escalera publicada, nunca por sorpresa.</p>
+          <p class="uf-incluye">Incluye mantención, respaldos, monitoreo y mejoras
+          pequeñas cada mes. <a href="servicios.html#soporte">Ver qué incluye y cuándo sube</a></p>
 
           <div class="est-puesta">
             <span>Puesta en marcha, una sola vez</span>
@@ -497,9 +497,10 @@
             {WA_SVG}
             Cotizar esto por WhatsApp
           </a>
-          <p class="est-nota">Precio cerrado, no un "desde": es lo que cuesta dejarlo
-          funcionando. Se confirma por escrito antes de programar, y el acompañamiento
-          corre recién cuando el sistema entra en uso.</p>
+          <p class="est-nota">El "desde", sin letra chica: el precio base cubre el
+          alcance descrito, y si tu caso trae más, se cotiza y se cierra por escrito
+          antes de programar. Nada cambia a mitad de camino. El acompañamiento corre
+          recién cuando el sistema entra en uso.</p>
         </div>
       </aside>
     </div>
@@ -534,7 +535,7 @@
         return '<label class="est-op">' +
           '<input type="radio" name="tipo" value="' + t.id + '"' + (i === 0 ? ' checked' : '') + '>' +
           '<span class="cuerpo"><b>' + t.nom + '</b><small>' + t.sub + '</small></span>' +
-          '<span class="desde">' + plata(t.base) + '</span></label>';
+          '<span class="desde">desde ' + plata(t.base) + '</span></label>';
       }).join('');
     }
 
@@ -575,7 +576,7 @@
       ufMes = t.uf;
       $('estUf').textContent = String(t.uf).replace('.', ',') + ' UF';
       pintaPesos();
-      $('estMin').textContent = plata(t.base);
+      $('estMin').textContent = 'desde ' + plata(t.base);
 
       $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>';
 
@@ -585,7 +586,7 @@
 
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
-        'Puesta en marcha: ' + plata(t.base) + '\n' +
+        'Puesta en marcha: desde ' + plata(t.base) + '\n' +
         'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
         '¿Podemos conversarlo?';
       $('estWa').href = 'https://wa.me/{WA_NUM}?text=' + encodeURIComponent(txt);

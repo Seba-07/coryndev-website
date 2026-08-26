@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CORYN — Saca tu operación de las planillas | Software a medida en Chile</title>
-<meta name="description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema que ordena tu pyme: $129.000 de puesta en marcha y 1 UF al mes. Primera reunión sin costo.">
+<meta name="description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema que ordena tu pyme: puesta en marcha desde $129.000 y desde 1 UF al mes. Primera reunión sin costo.">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CORYN — Saca tu operación de las planillas | Software a medida en Chile">
-<meta property="og:description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema que ordena tu pyme: $129.000 de puesta en marcha y 1 UF al mes. Primera reunión sin costo.">
+<meta property="og:description" content="¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una persona entiende? Construimos el sistema que ordena tu pyme: puesta en marcha desde $129.000 y desde 1 UF al mes. Primera reunión sin costo.">
 <meta property="og:image" content="https://coryndev.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://coryndev.com/">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=7f0f8bec">
+<link rel="stylesheet" href="styles-v2.css?v=46d78e7f">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -168,7 +168,7 @@
           <p class="dd" id="expDesc">Stock negativo, fórmulas rotas, filas duplicadas y una
           columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.</p>
           <div class="meta" id="expMeta"><span>Solo una persona la entiende</span><span>Sin respaldo</span><span>Errores que nadie ve</span></div>
-          <p class="exp-precio" id="expPrecio"><b>$129.000</b> <em>+ 1 UF al mes</em></p>
+          <p class="exp-precio" id="expPrecio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em></p>
           <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
         </div>
       </div>
@@ -251,7 +251,7 @@
       document.getElementById('expMeta').innerHTML =
         v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
       document.getElementById('expPrecio').innerHTML =
-        '<b>' + c.precio + '</b> <em>+ ' + c.uf + ' al mes</em>';
+        'Desde <b>' + c.precio + '</b> <em>+ ' + c.uf + ' al mes</em>';
     }
 
     // Solo se toca el src de la capa invisible: cambiarlo en la visible hace que
@@ -546,12 +546,12 @@
       <aside class="est-panel">
         <div class="est-caja">
           <p class="kicker">Acompañamiento mensual</p>
-          <p class="uf"><b id="estUf">1 UF</b><span>al mes</span></p>
+          <p class="uf"><em class="pre">desde</em><b id="estUf">1 UF</b><span>al mes</span></p>
           <p class="uf-pesos" id="estUfPeso" hidden></p>
-          <p class="uf-peso">En UF, así el precio lo ajusta la inflación y no nosotros.
-          Nunca te vamos a avisar de una subida.</p>
-          <p class="uf-incluye">Esa UF incluye mantención, respaldos, monitoreo y
-          mejoras pequeñas cada mes. <a href="servicios.html#soporte">Ver el detalle</a></p>
+          <p class="uf-peso">En UF, así lo ajusta la inflación y no nosotros. Y si tu
+          sistema crece, el valor sube por una escalera publicada, nunca por sorpresa.</p>
+          <p class="uf-incluye">Incluye mantención, respaldos, monitoreo y mejoras
+          pequeñas cada mes. <a href="servicios.html#soporte">Ver qué incluye y cuándo sube</a></p>
 
           <div class="est-puesta">
             <span>Puesta en marcha, una sola vez</span>
@@ -566,9 +566,10 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
             Cotizar esto por WhatsApp
           </a>
-          <p class="est-nota">Precio cerrado, no un "desde": es lo que cuesta dejarlo
-          funcionando. Se confirma por escrito antes de programar, y el acompañamiento
-          corre recién cuando el sistema entra en uso.</p>
+          <p class="est-nota">El "desde", sin letra chica: el precio base cubre el
+          alcance descrito, y si tu caso trae más, se cotiza y se cierra por escrito
+          antes de programar. Nada cambia a mitad de camino. El acompañamiento corre
+          recién cuando el sistema entra en uso.</p>
         </div>
       </aside>
     </div>
@@ -603,7 +604,7 @@
         return '<label class="est-op">' +
           '<input type="radio" name="tipo" value="' + t.id + '"' + (i === 0 ? ' checked' : '') + '>' +
           '<span class="cuerpo"><b>' + t.nom + '</b><small>' + t.sub + '</small></span>' +
-          '<span class="desde">' + plata(t.base) + '</span></label>';
+          '<span class="desde">desde ' + plata(t.base) + '</span></label>';
       }).join('');
     }
 
@@ -644,7 +645,7 @@
       ufMes = t.uf;
       $('estUf').textContent = String(t.uf).replace('.', ',') + ' UF';
       pintaPesos();
-      $('estMin').textContent = plata(t.base);
+      $('estMin').textContent = 'desde ' + plata(t.base);
 
       $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>';
 
@@ -654,7 +655,7 @@
 
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
-        'Puesta en marcha: ' + plata(t.base) + '\n' +
+        'Puesta en marcha: desde ' + plata(t.base) + '\n' +
         'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
         '¿Podemos conversarlo?';
       $('estWa').href = 'https://wa.me/56948780902?text=' + encodeURIComponent(txt);
