@@ -384,14 +384,8 @@
     <div class="est-grid rv">
       <form class="est-form" id="estForm">
         <fieldset class="est-paso">
-          <legend><span class="p">01</span>¿Qué necesitas?</legend>
+          <legend>¿Con qué partes?</legend>
           <div class="est-ops" id="estTipos"></div>
-        </fieldset>
-
-        <fieldset class="est-paso">
-          <legend><span class="p">02</span>¿Qué te gustaría sumar después?</legend>
-          <div class="est-ops chicas" id="estExtras"></div>
-          <p class="est-nada" id="estNada">Elige primero con qué partes.</p>
         </fieldset>
       </form>
 
@@ -442,22 +436,7 @@
               'revisión de Apple ni de Google ni pagar sus cuotas anuales. Si tu caso ' +
               'necesita una app nativa de las tiendas, la cotizamos aparte.' }
     ];
-    // Sin precio: lo que se marque aqui no cambia lo que cuesta partir. Ponerle
-    // cifra a cada añadido empujaba a comprarlo todo de una vez, que es lo
-    // contrario del modelo: se parte con la base y esto se suma en el camino.
-    var EXTRAS = {
-      web: ['Más de cinco secciones', 'Catálogo de productos o servicios',
-            'En varios idiomas', 'Blog o sección de noticias'],
-      tienda: ['Más de cincuenta productos', 'Despacho con tarifa por zona',
-               'Cuentas de cliente e historial', 'Cupones y descuentos'],
-      sistema: ['Un módulo adicional', 'Usuarios con permisos por rol',
-                'Panel de indicadores y reportes', 'Conectar con un servicio externo',
-                'Alertas automáticas por correo'],
-      app: ['Notificaciones al celular', 'Pagos dentro de la aplicación',
-            'Uso de cámara o ubicación', 'Sincroniza al recuperar señal']
-    };
-
-    var tipoSel = 'sistema', extrasSel = [];
+    var tipoSel = 'sistema';
     var UF = null;      // valor del dia, lo trae la API publica
     var ufMes = 1;      // cuantas UF cobra el plan segun lo marcado
     var $ = function (id) { return document.getElementById(id); };
@@ -469,16 +448,6 @@
           '<input type="radio" name="tipo" value="' + t.id + '"' + (i === 0 ? ' checked' : '') + '>' +
           '<span class="cuerpo"><b>' + t.nom + '</b><small>' + t.sub + '</small></span>' +
           '<span class="desde">' + plata(t.base) + '</span></label>';
-      }).join('');
-    }
-
-    function pintaExtras () {
-      var lista = EXTRAS[tipoSel] || [];
-      $('estNada').style.display = lista.length ? 'none' : 'block';
-      $('estExtras').innerHTML = lista.map(function (nom, i) {
-        return '<label class="est-op">' +
-          '<input type="checkbox" data-nom="' + nom + '" value="' + i + '">' +
-          '<span class="cuerpo"><b>' + nom + '</b></span></label>';
       }).join('');
     }
 
@@ -521,43 +490,25 @@
       pintaPesos();
       $('estMin').textContent = plata(t.base);
 
-      $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>' +
-        extrasSel.map(function (nom) {
-          return '<li><span>' + nom + '</span><i>después</i></li>';
-        }).join('');
+      $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>';
 
       var etp = $('estEtapas');
-      if (t.nota) {
-        etp.innerHTML = t.nota;
-        etp.hidden = false;
-      } else if (extrasSel.length) {
-        etp.innerHTML = 'Marcar esto no cambia lo que cuesta partir: se suma en el ' +
-          'camino, sobre lo que ya esté funcionando, sin volver a empezar de cero.';
-        etp.hidden = false;
-      } else { etp.hidden = true; }
+      if (t.nota) { etp.innerHTML = t.nota; etp.hidden = false; }
+      else { etp.hidden = true; }
 
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
         'Puesta en marcha: ' + plata(t.base) + '\n' +
-        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n' +
-        (extrasSel.length ? '\nMás adelante me interesaría: ' +
-          extrasSel.map(function (n) { return n.toLowerCase(); }).join(', ') + '\n' : '') +
-        '\n¿Podemos conversarlo?';
+        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
+        '¿Podemos conversarlo?';
       $('estWa').href = 'https://wa.me/{WA_NUM}?text=' + encodeURIComponent(txt);
     }
 
     $('estForm').addEventListener('change', function (e) {
-      if (e.target.name === 'tipo') {
-        tipoSel = e.target.value; extrasSel = []; pintaExtras();
-      } else {
-        extrasSel = Array.prototype.slice
-          .call($('estExtras').querySelectorAll('input:checked'))
-          .map(function (i) { return i.dataset.nom; });
-      }
-      calcula();
+      if (e.target.name === 'tipo') { tipoSel = e.target.value; calcula(); }
     });
 
-    pintaTipos(); pintaExtras(); calcula(); traeUf();
+    pintaTipos(); calcula(); traeUf();
   })();
 </script>
 
