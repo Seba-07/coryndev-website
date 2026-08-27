@@ -1560,22 +1560,21 @@ a.dato:hover{ transform:translateY(-2px);
 .junto{
   position:relative; overflow:hidden;
   color:#fff; padding:86px 0 92px;
-  background:#080f22;
+  background-color:#080f22;
+  /* El velo es vertical y no diagonal como en las otras dos secciones: aqui lo
+     que hay que proteger es la banda baja completa, donde las cuatro columnas
+     de texto se apoyan directo sobre la imagen sin fondo propio. Arriba apenas
+     vela, para no apagar el resplandor al que suben los peldaños. */
+  background-image:
+    linear-gradient(180deg,
+      rgba(8,15,34,.14) 0%, rgba(8,15,34,.30) 48%,
+      rgba(8,15,34,.70) 72%, rgba(8,15,34,.84) 100%),
+    url("assets/fondo-juntos.webp");
+  background-size:auto, cover;
+  background-position:center, 65% center;
+  background-repeat:no-repeat;
   border-top:1px solid rgba(255,255,255,.06);
 }
-/* Dos tramos de peldaños que suben en paralelo: el negocio del cliente y el
-   nuestro. Decorativo y muy tenue; el mensaje lo lleva el texto. */
-.junto-peldanos{
-  /* Arriba a la derecha: el titular ocupa 56ch a la izquierda y deja ese
-     cuadrante vacio. Abajo se cruzaba con el texto de la ultima columna. */
-  position:absolute; right:-24px; top:44px;
-  width:min(40vw, 440px); height:auto;
-  fill:none; stroke:var(--cyan); stroke-width:2;
-  stroke-linecap:round; stroke-linejoin:round;
-  opacity:.16; pointer-events:none;
-}
-.junto-peldanos .b{ stroke:var(--accent); opacity:.72; }
-
 .junto .wrap{ position:relative; }
 .junto-cab{ max-width:56ch; }
 .junto-cab h2{
