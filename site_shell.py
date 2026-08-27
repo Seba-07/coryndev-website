@@ -199,10 +199,13 @@ def _firma_css():
 
 
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
-           og_tipo='website', js_extra='', nav_solida=False, canonico=''):
+           og_tipo='website', js_extra='', nav_solida=False, canonico='',
+           clase_body=''):
     """Arma una pagina completa a partir del cuerpo.
 
-    canonico: ruta de la pagina para el <link rel=canonical> ('' = portada).
+    canonico:   ruta de la pagina para el <link rel=canonical> ('' = portada).
+    clase_body: clase en <body>, para dar tono a una pagina entera sin tener
+                que etiquetar cada seccion a mano.
     """
     firma = _firma_css()
     og_img_abs = og_img.lstrip('./')
@@ -253,7 +256,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
   }}
 </script>
 </head>
-<body>
+<body{" class=\"" + clase_body + "\"" if clase_body else ""}>
 
 {nav}
 

@@ -136,6 +136,7 @@ PAGINAS = [
     ),
     dict(
         slug='productos',
+        clase_body='pg-oscura',
         titulo='PrecioRadar — Nuestro producto propio | CORYN',
         desc='PrecioRadar es la aplicación móvil que desarrollamos como producto '
              'propio: lectura automática de boletas y comparación de precios.',
@@ -151,6 +152,7 @@ PAGINAS = [
     ),
     dict(
         slug='nosotros',
+        clase_body='pg-oscura',
         titulo='Nosotros — Quiénes están detrás de CORYN',
         desc='Estudio de desarrollo de software a medida en Chile. Hablas '
              'directamente con quien programa tu proyecto, sin intermediarios.',
@@ -215,6 +217,7 @@ def construir_paginas():
             activa=p['activa'], js_extra=p.get('js_extra', ''),
             nav_solida=False,
             canonico='' if p['slug'] == 'index' else f"{p['slug']}.html",
+            clase_body=p.get('clase_body', ''),
         )
         if p['slug'] == '404':
             # que los buscadores no la guarden como si fuera contenido

@@ -827,7 +827,7 @@ a.dato:hover{ transform:translateY(-2px);
   position:relative; transition:background .2s ease, padding-left .2s ease;
 }
 @media (min-width:820px){
-  .indice .fila{ grid-template-columns:210px 1fr 190px; gap:34px; align-items:baseline; padding:30px 4px; }
+  .indice .fila{ grid-template-columns:minmax(250px,300px) 1fr 165px; gap:30px; align-items:baseline; padding:30px 4px; }
 }
 .indice .fila:hover{
   background:color-mix(in srgb, var(--accent) 5%, transparent);
@@ -1567,6 +1567,98 @@ a.dato:hover{ transform:translateY(-2px);
 .svc-cita .cita .eyebrow{ color:#6fd8ec; }
 .svc-cita .cita p{ color:#fff; }
 .svc-cita .cita .firma{ color:#9fbaea; }
+
+/* ============================================================
+   Paginas interiores en tono oscuro (nosotros, productos)
+   Eran 70% y 69% de superficie clara mientras la portada es oscura entera.
+   Se tiñen por clase en <body> y no seccion por seccion: page-head y close
+   ya traen su propio fondo, asi que quedan excluidas.
+   ============================================================ */
+body.pg-oscura{ background:var(--band-a); }
+body.pg-oscura > section:not(.page-head):not(.close),
+body.pg-oscura > .franja{
+  color:#fff;
+  background-color:var(--band-a);
+  background-image:
+    linear-gradient(180deg, rgba(7,14,32,.90) 0%, rgba(7,14,32,.70) 50%,
+                    rgba(7,14,32,.86) 100%),
+    var(--banner);
+  background-size:auto, cover;
+  background-position:center, 40% center;
+  background-repeat:no-repeat;
+}
+/* la franja alterna deja de ser un tinte plano y pasa a un peldaño de luz */
+body.pg-oscura > .franja.tinta{
+  background-image:
+    linear-gradient(180deg, rgba(7,14,32,.80) 0%, rgba(7,14,32,.58) 50%,
+                    rgba(7,14,32,.80) 100%),
+    var(--banner);
+  border-top:1px solid rgba(159,186,234,.14);
+  border-bottom:1px solid rgba(159,186,234,.14);
+}
+
+body.pg-oscura .sec-head h2{ color:#fff; }
+body.pg-oscura .sec-head p{ color:#9fbaea; }
+body.pg-oscura .eyebrow{ color:#6fd8ec; }
+
+/* --- indice de filas --- */
+body.pg-oscura .indice{ border-top-color:rgba(159,186,234,.16); }
+body.pg-oscura .indice .fila{ border-bottom-color:rgba(159,186,234,.16); }
+body.pg-oscura .indice .fila:hover{ background:rgba(255,255,255,.03); }
+body.pg-oscura .indice .nombre{ color:#fff; }
+body.pg-oscura .indice .nombre svg{ stroke:#6fd8ec; }
+body.pg-oscura .indice .que{ color:#9fbaea; }
+body.pg-oscura .indice .quien{ color:#6fd8ec; }
+body.pg-oscura .indice .quien a{ color:#6fd8ec; }
+body.pg-oscura .indice .quien a:hover{ border-bottom-color:#6fd8ec; }
+
+/* --- ficha de la persona --- */
+body.pg-oscura .quien.rv,
+body.pg-oscura .gente .quien{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(159,186,234,.18);
+  border-radius:var(--radius); padding:26px 28px;
+}
+body.pg-oscura .gente .cara{
+  background:linear-gradient(150deg, var(--accent), var(--cyan));
+  color:#fff;
+}
+body.pg-oscura .gente h3{ color:#fff; }
+body.pg-oscura .gente .rol{ color:#6fd8ec; }
+body.pg-oscura .gente .bio{ color:#9fbaea; }
+
+/* --- tarjetas de productos --- */
+body.pg-oscura .sector{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(159,186,234,.18);
+}
+body.pg-oscura .sector h3{ color:#fff; }
+body.pg-oscura .sector p{ color:#9fbaea; }
+body.pg-oscura .sector .ico{
+  background:rgba(45,170,210,.14);
+  border:1px solid rgba(111,216,236,.34);
+}
+body.pg-oscura .sector .ico svg{ stroke:#6fd8ec; }
+
+/* --- declaracion --- */
+body.pg-oscura .cita{
+  background:rgba(45,170,210,.07);
+  border-left-color:#6fd8ec;
+}
+body.pg-oscura .cita p{ color:#fff; }
+body.pg-oscura .cita .firma{ color:#9fbaea; }
+
+/* --- ficha de producto y botones --- */
+body.pg-oscura .btn-ghost{ border-color:rgba(255,255,255,.3); color:#fff; }
+/* las etiquetas del producto son .work .meta span, no .chip */
+body.pg-oscura .work h3{ color:#fff; }
+body.pg-oscura .work p{ color:#9fbaea; }
+body.pg-oscura .work .tag{ color:#6fd8ec; }
+body.pg-oscura .work .meta span{
+  color:#c3d5f2; background:rgba(255,255,255,.06);
+  border-color:rgba(159,186,234,.26);
+}
+body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 
 /* --- intro e indice de servicios, en oscuro ---
    El indice usaba la clase .resumen, que tambien lleva el <p> de cada
