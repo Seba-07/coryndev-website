@@ -178,6 +178,7 @@ PAGINAS = [
     ),
     dict(
         slug='contacto',
+        clase_body='pg-oscura',
         titulo='Contacto — Conversemos sobre tu proyecto | CORYN',
         desc='Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo, '
              'respuesta en menos de 24 horas.',

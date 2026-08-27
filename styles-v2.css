@@ -1568,6 +1568,71 @@ a.dato:hover{ transform:translateY(-2px);
 .svc-cita .cita p{ color:#fff; }
 .svc-cita .cita .firma{ color:#9fbaea; }
 
+/* --- formulario de contacto en oscuro ---
+   Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
+   texto de ayuda, el foco y los dos avisos tienen que seguir leyendose, y el
+   relleno automatico del navegador impone su propio fondo claro si no se le
+   sale al paso. */
+body.pg-oscura .campo label{ color:#9fbaea; }
+body.pg-oscura .campo input,
+body.pg-oscura .campo textarea{
+  background:rgba(255,255,255,.05);
+  border-color:rgba(159,186,234,.26);
+  color:#fff;
+}
+body.pg-oscura .campo input::placeholder,
+body.pg-oscura .campo textarea::placeholder{ color:#7f93b8; opacity:1; }
+body.pg-oscura .campo input:focus,
+body.pg-oscura .campo textarea:focus{
+  border-color:#6fd8ec;
+  background:rgba(255,255,255,.07);
+  box-shadow:0 0 0 3px rgba(111,216,236,.22);
+}
+/* Chrome pinta el relleno automatico con un fondo claro fijo que ninguna regla
+   de background alcanza. El truco es una sombra interior del tamaño del campo
+   y forzar el color del texto por -webkit-text-fill-color. */
+body.pg-oscura .campo input:-webkit-autofill,
+body.pg-oscura .campo input:-webkit-autofill:hover,
+body.pg-oscura .campo input:-webkit-autofill:focus,
+body.pg-oscura .campo textarea:-webkit-autofill{
+  -webkit-text-fill-color:#fff;
+  -webkit-box-shadow:0 0 0 100px #10203f inset;
+  caret-color:#fff;
+  transition:background-color 9999s ease-in-out 0s;
+}
+
+/* los dos avisos del envio */
+body.pg-oscura .aviso.ok{
+  background:rgba(45,170,210,.16); border-color:#6fd8ec; color:#eaf3ff;
+}
+body.pg-oscura .aviso.error{
+  background:rgba(211,121,140,.16); border-color:#d3798c; color:#ffe9ee;
+}
+
+/* --- tarjetas de contacto directo --- */
+body.pg-oscura .dato{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(159,186,234,.18);
+}
+body.pg-oscura a.dato:hover{
+  background:rgba(255,255,255,.07); border-color:rgba(111,216,236,.45);
+}
+body.pg-oscura .dato .ic{
+  background:rgba(45,170,210,.14);
+  border:1px solid rgba(111,216,236,.34);
+  color:#6fd8ec;
+}
+body.pg-oscura .dato h3{ color:#fff; }
+body.pg-oscura .dato p{ color:#9fbaea; }
+
+/* --- preguntas frecuentes --- */
+body.pg-oscura .faq details{ border-top-color:rgba(159,186,234,.16); }
+body.pg-oscura .faq details:last-child{ border-bottom-color:rgba(159,186,234,.16); }
+body.pg-oscura .faq summary{ color:#fff; }
+body.pg-oscura .faq summary:hover{ color:#9ce8f7; }
+body.pg-oscura .faq summary::after{ border-color:#6fd8ec; }
+body.pg-oscura .faq .resp{ color:#9fbaea; }
+
 /* ============================================================
    Paginas interiores en tono oscuro (nosotros, productos)
    Eran 70% y 69% de superficie clara mientras la portada es oscura entera.
