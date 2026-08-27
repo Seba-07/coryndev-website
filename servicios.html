@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=31decaae">
+<link rel="stylesheet" href="styles-v2.css?v=191c3ac9">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -75,7 +75,7 @@
   </div>
 </section>
 
-<section style="padding-bottom:44px">
+<section class="svc-intro" style="padding-bottom:52px">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch; margin-bottom:26px">
       <p class="eyebrow">Vista rápida</p>
@@ -83,7 +83,7 @@
       <p>El primero es donde nos concentramos; los otros cinco suelen aparecer alrededor.
       Toca cualquiera para ver el alcance completo, incluido lo que no incluye.</p>
     </div>
-    <div class="resumen rv">
+    <div class="svc-indice rv">
       <a href="#sistemas" class="destacada">
         <span class="qu"><img src="assets/ic-erp.webp" alt="" width="30" height="30" loading="lazy">Sistemas de gestión (ERP / CRM)<em>Lo que más hacemos</em></span>
         <span class="cu">Desde <b>$129.000</b> + 1 UF al mes</span>
@@ -112,10 +112,11 @@
   </div>
 </section>
 
-<div class="franja destacada">
+<div class="servicios-lista">
   <div class="wrap">
-    <div class="servicio rv destacado-svc" id="sistemas">
-      <div class="cara">
+    <article class="servicio rv destacado-svc" id="sistemas">
+      <header class="svc-id">
+        <span class="svc-num">01</span>
         <img src="assets/ic-erp.webp" alt="" width="64" height="64" loading="lazy">
         <div>
           <span class="svc-marca">Lo que más hacemos</span>
@@ -124,8 +125,8 @@
           un solo lugar. Es donde más aportamos y donde el cliente nota antes la
           diferencia: puedes partir por un módulo y crecer desde ahí.</p>
         </div>
-      </div>
-      <div>
+      </header>
+      <div class="svc-cuerpo">
         <div class="detalle">
           <div class="incluye">
             <h3>Incluye</h3>
@@ -175,22 +176,19 @@
         <p class="plazo"><b>Plazo típico:</b> de 3 a 6 meses. Entregamos por etapas,
         así el primer módulo entra en uso mucho antes de que el sistema esté completo.</p>
       </div>
-    </div>
-  </div>
-</div>
+    </article>
 
-<div class="franja tinta">
-  <div class="wrap">
-    <div class="servicio rv" id="web">
-      <div class="cara">
+    <article class="servicio rv" id="web">
+      <header class="svc-id">
+        <span class="svc-num">02</span>
         <img src="assets/ic-web.webp" alt="" width="64" height="64" loading="lazy">
         <div>
           <h2>Páginas web</h2>
           <p class="resumen">Sitios corporativos, catálogos y páginas de captación.
           Rápidos, adaptados a celular y pensados para que el visitante haga algo.</p>
         </div>
-      </div>
-      <div>
+      </header>
+      <div class="svc-cuerpo">
         <div class="detalle">
           <div class="incluye">
             <h3>Incluye</h3>
@@ -214,22 +212,19 @@
         <p class="plazo"><b>Plazo típico:</b> entre 3 y 6 semanas, según cuántas
         secciones tenga y qué tan lista esté la información.</p>
       </div>
-    </div>
-  </div>
-</div>
+    </article>
 
-<div class="franja">
-  <div class="wrap">
-    <div class="servicio rv" id="moviles">
-      <div class="cara">
+    <article class="servicio rv" id="moviles">
+      <header class="svc-id">
+        <span class="svc-num">03</span>
         <img src="assets/ic-movil.webp" alt="" width="64" height="64" loading="lazy">
         <div>
           <h2>Aplicaciones móviles</h2>
           <p class="resumen">Aplicaciones para iOS y Android, publicadas en las tiendas
           o distribuidas internamente a tu equipo.</p>
         </div>
-      </div>
-      <div>
+      </header>
+      <div class="svc-cuerpo">
         <div class="detalle">
           <div class="incluye">
             <h3>Incluye</h3>
@@ -253,22 +248,19 @@
         <p class="plazo"><b>Plazo típico:</b> de 2 a 4 meses hasta publicar, más el
         tiempo de revisión de cada tienda, que no controlamos.</p>
       </div>
-    </div>
-  </div>
-</div>
+    </article>
 
-<div class="franja tinta">
-  <div class="wrap">
-    <div class="servicio rv" id="tiendas">
-      <div class="cara">
+    <article class="servicio rv" id="tiendas">
+      <header class="svc-id">
+        <span class="svc-num">04</span>
         <img src="assets/ic-tienda.webp" alt="" width="64" height="64" loading="lazy">
         <div>
           <h2>Tiendas online</h2>
           <p class="resumen">Comercio electrónico cuando una plataforma estándar
           no alcanza: catálogos complejos, precios por cliente o reglas propias de despacho.</p>
         </div>
-      </div>
-      <div>
+      </header>
+      <div class="svc-cuerpo">
         <div class="detalle">
           <div class="incluye">
             <h3>Incluye</h3>
@@ -292,22 +284,19 @@
         <p class="plazo"><b>Plazo típico:</b> de 6 a 12 semanas. Si tu catálogo es
         simple, muchas veces te conviene más una plataforma estándar, y te lo diremos.</p>
       </div>
-    </div>
-  </div>
-</div>
+    </article>
 
-<div class="franja">
-  <div class="wrap">
-    <div class="servicio rv" id="integraciones">
-      <div class="cara">
+    <article class="servicio rv" id="integraciones">
+      <header class="svc-id">
+        <span class="svc-num">05</span>
         <img src="assets/ic-integra.webp" alt="" width="64" height="64" loading="lazy">
         <div>
           <h2>Integraciones y automatizaciones</h2>
           <p class="resumen">Conectar sistemas que hoy no se hablan, para eliminar
           el trabajo de copiar datos de un lado a otro.</p>
         </div>
-      </div>
-      <div>
+      </header>
+      <div class="svc-cuerpo">
         <div class="detalle">
           <div class="incluye">
             <h3>Incluye</h3>
@@ -329,22 +318,19 @@
         <p class="plazo"><b>Plazo típico:</b> de 2 a 5 semanas por integración,
         dependiendo de qué tan documentado esté el otro sistema.</p>
       </div>
-    </div>
-  </div>
-</div>
+    </article>
 
-<div class="franja tinta">
-  <div class="wrap">
-    <div class="servicio rv" id="soporte">
-      <div class="cara">
+    <article class="servicio rv" id="soporte">
+      <header class="svc-id">
+        <span class="svc-num">06</span>
         <img src="assets/ic-soporte.webp" alt="" width="64" height="64" loading="lazy">
         <div>
           <h2>Acompañamiento mensual</h2>
           <p class="resumen">Va incluido en todo lo que entregamos. Es lo que separa un
           sistema que sigue sirviendo de uno que quedó congelado el día de la entrega.</p>
         </div>
-      </div>
-      <div>
+      </header>
+      <div class="svc-cuerpo">
         <div class="detalle">
           <div class="incluye">
             <h3>Incluye</h3>
@@ -385,11 +371,10 @@
         poco al empezar y responder por el sistema todos los meses, antes que cobrar
         caro una vez y desaparecer.</p>
       </div>
-    </div>
+    </article>
   </div>
 </div>
-
-<section>
+<section class="svc-cita">
   <div class="wrap">
     <blockquote class="cita rv">
       <span class="eyebrow">Lo que no verás acá</span>
