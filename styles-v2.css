@@ -2694,8 +2694,11 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
   transition:opacity .7s ease, height .9s cubic-bezier(.4,0,.2,1),
              border-color .9s ease;
 }
-/* colapsa en vez de desaparecer de golpe: quitarla producia un salto de 41px */
-.exp-panel.es-despues .exp-shot .barra{
+/* La barra de navegador queda oculta en los dos estados. Tenia sentido cuando
+   el 'antes' era una captura fabricada; ahora es una fotografia de la escena
+   real, y una foto de un escritorio dentro de una ventana de navegador seria
+   un marco equivocado. El estado ya lo nombra la etiqueta de abajo. */
+.exp-shot .barra{
   opacity:0; height:0; border-color:transparent; pointer-events:none;
 }
 

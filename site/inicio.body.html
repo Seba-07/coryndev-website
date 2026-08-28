@@ -88,8 +88,8 @@
         <div class="exp-shot">
           <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">inventario_FINAL_v3_ok (1).xlsx</span></div>
           <div class="capas">
-            <img class="capa on" id="capaAntes" src="assets/mock-planilla.webp"
-                 alt="Una planilla de inventario descuadrada, con errores y duplicados">
+            <img class="capa on" id="capaAntes" src="assets/real-planilla.webp"
+                 alt="Un notebook con una planilla abierta entre papeles y notas pegadas">
             <img class="capa" id="capaDespues" src="assets/after-sistema.webp" alt="" aria-hidden="true">
           </div>
         </div>
@@ -111,7 +111,7 @@
   (function () {
     var CASOS = [
       {
-        antes: { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/mock-planilla.webp',
+        antes: { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/real-planilla.webp',
           alt: 'Planilla de inventario con stock negativo, duplicados y errores de fórmula',
           nom: 'Una planilla que ya nadie controla',
           desc: 'Stock negativo, fórmulas rotas, filas duplicadas y una columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.',
@@ -123,8 +123,8 @@
           meta: ['Un módulo para empezar', 'Permisos por rol', 'Alertas automáticas'] },
         precio: '$129.000', uf: '1 UF' },
       {
-        antes: { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/mock-google.webp',
-          alt: 'Resultados de Google donde aparece la competencia y tu negocio no',
+        antes: { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/real-google.webp',
+          alt: 'Un telefono mostrando el mapa con la competencia, dentro del local',
           nom: 'La competencia aparece, tú no',
           desc: 'Alguien busca justo lo que vendes, en tu comuna, ahora mismo. Encuentra cuatro negocios y ninguno es el tuyo, porque solo tienes Instagram.',
           meta: ['Solo redes sociales', 'Sin ficha en Maps', 'Te encuentran de casualidad'] },
@@ -135,8 +135,8 @@
           meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'] },
         precio: '$69.000', uf: '1 UF' },
       {
-        antes: { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/mock-chat.webp',
-          alt: 'Conversaciones de WhatsApp repitiendo las mismas preguntas de precio y stock',
+        antes: { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/real-whatsapp.webp',
+          alt: 'El telefono con mensajes sin responder mientras las manos siguen trabajando',
           nom: 'La misma conversación, todo el día',
           desc: 'Precio, color, medidas, despacho y plazo. Siete conversaciones abiertas preguntando lo mismo, y cada respuesta te saca de lo que estabas haciendo.',
           meta: ['Respondes tú siempre', 'Se pierden mensajes', 'Nadie compra de noche'] },
@@ -147,7 +147,7 @@
           meta: ['Catálogo con filtros', 'Fichas completas', 'Disponible a toda hora'] },
         precio: '$69.000', uf: '1 UF' },
       {
-        antes: { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/mock-agenda.webp',
+        antes: { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/real-telefono.webp',
           alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
           nom: 'Cada llamada perdida es una hora vacía',
           desc: 'Mientras atiendes a alguien, el teléfono suena y nadie contesta. La agenda vive en un cuaderno y el que no llega no avisa.',
