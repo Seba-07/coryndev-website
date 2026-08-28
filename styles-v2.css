@@ -2266,7 +2266,7 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 }
 .reel-pista{
   display:flex; align-items:flex-start; gap:22px; width:max-content;
-  animation:reel-deriva 56s linear infinite;
+  animation:reel-deriva 74s linear infinite;
 }
 .reel-viewport:hover .reel-pista,
 .reel-pista:focus-within{ animation-play-state:paused; }
@@ -2311,6 +2311,16 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
   height:282px; width:100%;
   object-fit:cover; object-position:top;
   border-radius:20px;
+}
+/* Los proyectos que estan en linea se marcan: es la diferencia entre mostrar
+   trabajo entregado y mostrar un ejemplo de como se veria. */
+.reel-item.vivo .reel-marco{ border-color:rgba(111,216,236,.4); }
+.et-vivo{
+  display:inline-block; margin-left:7px; vertical-align:middle;
+  font-family:'IBM Plex Mono',monospace; font-size:9.5px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:#6fd8ec;
+  background:rgba(45,170,210,.16); border:1px solid rgba(111,216,236,.45);
+  border-radius:999px; padding:2px 7px;
 }
 .reel-item figcaption{ margin-top:13px; display:grid; gap:3px; }
 .reel-item figcaption b{ font-size:15px; color:#eaf1fd; }
@@ -2399,6 +2409,11 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 }
 .cmp-lienzo input[type="range"]:focus-visible{ outline:3px solid #6fd8ec; outline-offset:3px; }
 
+.versus .sec-head a{
+  color:#9ce8f7; text-decoration:none;
+  border-bottom:1px solid rgba(156,232,247,.45);
+}
+.versus .sec-head a:hover{ color:#fff; border-color:#6fd8ec; }
 .cmp-pie{
   margin-top:16px; font-size:14.5px; line-height:1.55; color:#8fa9d4; max-width:62ch;
 }

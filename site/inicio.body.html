@@ -295,15 +295,16 @@
       <p class="eyebrow">La diferencia</p>
       <h2>Míralo, no te lo contamos</h2>
       <p>A la izquierda, una plantilla como las que se venden por cien mil pesos.
-      A la derecha, un sistema hecho a medida. Arrastra para comparar.</p>
+      A la derecha, <a href="https://avenprop.vercel.app/" target="_blank" rel="noopener">AvenProp</a>,
+      un sitio que construimos y que está en línea ahora mismo. Arrastra para comparar.</p>
     </div>
 
     <div class="comparador rv">
       <div class="cmp-marco">
         <div class="cmp-barra"><i></i><i></i><i></i><span class="u" id="cmpUrl">plantilla-generica.com</span></div>
         <div class="cmp-lienzo" id="cmpLienzo" style="--pos:46%">
-          <img class="cmp-base" src="assets/demo-medida.webp" width="1400" height="875"
-               alt="Sistema de gestión hecho a medida" loading="lazy">
+          <img class="cmp-base" src="assets/vivo-medida.webp" width="1400" height="875"
+               alt="AvenProp, sitio en línea que construimos" loading="lazy">
           <div class="cmp-encima">
             <img src="assets/mock-plantilla.webp" width="1400" height="875"
                  alt="Ejemplo de plantilla genérica" loading="lazy">
@@ -316,7 +317,7 @@
         </div>
       </div>
       <p class="cmp-pie">Las dos cargan igual de rápido. Lo que cambia es que una conoce
-      tu negocio y la otra podría ser de cualquiera.</p>
+      el negocio de su dueña y la otra podría ser de cualquiera.</p>
     </div>
 
 
@@ -324,13 +325,31 @@
       <div class="reel-cab">
         <p class="eyebrow">Ejemplos</p>
         <h3>Lo que puede tener tu negocio</h3>
-        <p>Un sitio que te encuentren, una tienda que venda sola, un sistema que
-        ordene la operación o una app para el equipo en terreno. Ninguno se parece
-        al anterior, porque ningún negocio se parece al de al lado.</p>
+        <p>Los dos primeros están en línea y puedes entrar a verlos. Los demás
+        muestran cómo se ve resuelto cada tipo de problema. Ninguno se parece al
+        anterior, porque ningún negocio se parece al de al lado.</p>
       </div>
 
       <div class="reel-viewport">
         <div class="reel-pista" id="reelPista">
+        <figure class="reel-item vivo">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">bysimmed.com</span></div>
+            <img src="assets/vivo-bysimmed.webp" width="1500" height="938" loading="lazy"
+                 alt="bySIMMED: simulación clínica y equipamiento médico">
+          </div>
+          <figcaption><b>bySIMMED <span class="et-vivo">En línea</span></b><span>Simulación clínica, con venta a especialistas en varios países</span></figcaption>
+        </figure>
+
+        <figure class="reel-item vivo">
+          <div class="reel-marco">
+            <div class="reel-barra"><i></i><i></i><i></i><span class="u">avenprop.cl</span></div>
+            <img src="assets/vivo-avenprop.webp" width="1500" height="938" loading="lazy"
+                 alt="AvenProp: corretaje de propiedades y seguros">
+          </div>
+          <figcaption><b>AvenProp <span class="et-vivo">En línea</span></b><span>Corretaje de propiedades y seguros, con captación directa</span></figcaption>
+        </figure>
+
         <figure class="reel-item">
           <div class="reel-marco">
             <div class="reel-barra"><i></i><i></i><i></i><span class="u">www.tuempresa.cl</span></div>
@@ -426,7 +445,7 @@
     function mueve () {
       var v = +rango.value;
       lienzo.style.setProperty('--pos', v + '%');
-      url.textContent = v > 50 ? 'plantilla-generica.com' : 'sistema.tuempresa.cl';
+      url.textContent = v > 50 ? 'plantilla-generica.com' : 'avenprop.cl';
     }
     rango.addEventListener('input', mueve);
     mueve();
