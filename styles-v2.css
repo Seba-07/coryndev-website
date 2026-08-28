@@ -1570,98 +1570,76 @@ a.dato:hover{ transform:translateY(-2px);
 
 /* ============================================================
    Que resolvemos: seis problemas, uno por bloque
-   El home muestra capturas de interfaz; aqui la escena real del problema.
-   Se alterna el lado para que seis bloques seguidos no lean como una lista.
+   ------------------------------------------------------------
+   El antes y el despues van juntos en una columna, y el texto en la otra.
+   Antes la captura de solucion vivia dentro de la caja de texto: eso metia un
+   marco dentro de otro marco y ademas estiraba esa columna a mas del doble que
+   la de la foto, dejando mas de 400px de hueco por bloque.
+   El texto no lleva cajas: la jerarquia la dan la etiqueta y el filete, no un
+   recuadro de color. Cuatro contenedores con borde por bloque, seis veces, era
+   lo que leia como desorden.
    ============================================================ */
-/* la cabecera de pagina ya presenta el tema: la intro no necesita
-   su propio colchon completo antes del primer bloque */
-.pb-intro{ padding-bottom:0; }
-.pb-lista{ padding-top:16px; }
-.pb-lista .wrap{ display:grid; gap:0; }
+.pb-lista{ padding-top:6px; }
+.pb-encabeza{
+  max-width:62ch; margin-bottom:8px;
+  color:#9fbaea; font-size:16.5px; line-height:1.62;
+}
 
 .pb{
-  display:grid; gap:26px; grid-template-columns:1fr;
-  padding:52px 0; border-top:1px solid rgba(159,186,234,.16);
-  position:relative;
+  display:grid; gap:30px; grid-template-columns:1fr;
+  padding:46px 0; border-top:1px solid rgba(159,186,234,.14);
 }
-.pb:first-child{ border-top:0; }
-
 @media (min-width:900px){
-  .pb{ grid-template-columns:56px 1fr 1fr; gap:38px; align-items:start; padding:64px 0; }
-  /* en los pares la escena pasa a la derecha */
-  .pb:nth-child(even) .pb-escena{ order:3; }
-  .pb:nth-child(even) .pb-texto{ order:2; }
+  /* El par de imagenes mide mas alto que el texto. Alineado arriba dejaba el
+     hueco abajo; centrado, el texto queda enfrentado al medio del antes/despues
+     y la diferencia lee como composicion en vez de sobra. */
+  .pb{ grid-template-columns:.92fr 1.08fr; gap:52px; align-items:center; padding:56px 0; }
+  .pb:nth-child(even) .pb-par{ order:2; }
 }
 
-.pb-num span{
-  font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600;
-  letter-spacing:.1em; color:#6fd8ec;
-  display:inline-flex; align-items:center; justify-content:center;
-  width:44px; height:44px; border-radius:50%;
-  border:1px solid rgba(111,216,236,.36); background:rgba(45,170,210,.1);
+/* --- el par visual --- */
+.pb-par{ display:grid; gap:16px; }
+.pb-foto{ margin:0; position:relative; }
+.pb-foto img{
+  width:100%; height:auto; display:block; border-radius:13px;
+  border:1px solid rgba(159,186,234,.16);
 }
+.pb-foto-sol img{ border-color:rgba(111,216,236,.3); }
+.pb-foto figcaption{ position:absolute; left:12px; top:12px; }
+.et{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase;
+  padding:5px 10px; border-radius:999px; backdrop-filter:blur(6px);
+}
+.et.hoy{ background:rgba(12,18,34,.72); border:1px solid rgba(255,255,255,.22); color:#c8d3e6; }
+.et.sol{ background:rgba(45,170,210,.28); border:1px solid rgba(111,216,236,.55); color:#eafaff; }
 
-/* --- la escena --- */
-.pb-escena figure{ margin:0; }
-/* La columna del texto es bastante mas alta que la de la escena, asi que sobraba
-   un hueco al costado. Fijandola, la foto del problema acompaña mientras se lee
-   lo que cuesta y lo que se construye, que es justamente la comparacion. */
-@media (min-width:900px){
-  .pb-escena figure{ position:sticky; top:calc(var(--nav-h) + 26px); }
+/* --- el texto, sin recuadros --- */
+.pb-num{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
+  letter-spacing:.16em; color:#6fd8ec; margin-bottom:10px;
 }
-@media (prefers-reduced-motion: reduce){
-  .pb-escena figure{ position:static; }
-}
-.pb-escena img{
-  width:100%; height:auto; display:block; border-radius:14px;
-  border:1px solid rgba(159,186,234,.18);
-  box-shadow:0 30px 60px -34px rgba(0,0,0,.9);
-}
-.pb-escena figcaption{
-  margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
-  font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#7f93b8;
-}
-
-/* --- el texto --- */
-.pb-texto h2{ font-size:clamp(23px,2.7vw,31px); color:#fff; line-height:1.14; }
-.pb-sintoma{ margin-top:14px; color:#9fbaea; font-size:16.5px; line-height:1.62; }
+.pb-texto h2{ font-size:clamp(23px,2.7vw,30px); color:#fff; line-height:1.14; }
+.pb-sintoma{ margin-top:13px; color:#9fbaea; font-size:16px; line-height:1.6; }
 .pb-sintoma code{
-  font-family:'IBM Plex Mono',monospace; font-size:.88em;
-  background:rgba(255,255,255,.07); border:1px solid rgba(159,186,234,.2);
-  border-radius:5px; padding:1px 6px; color:#c3d5f2;
+  font-family:'IBM Plex Mono',monospace; font-size:.87em;
+  background:rgba(255,255,255,.07); border-radius:5px; padding:1px 6px; color:#c3d5f2;
 }
 
-.pb-costo{
-  margin-top:22px; padding:16px 18px; border-radius:11px;
-  background:rgba(211,121,140,.09);
-  border:1px solid rgba(211,121,140,.3);
+.pb-dato{ margin-top:20px; padding-left:15px; border-left:2px solid; }
+.pb-dato h3{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; margin-bottom:6px;
 }
-.pb-costo h3{
-  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
-  letter-spacing:.16em; text-transform:uppercase; color:#e0a4b1; margin-bottom:8px;
-}
-.pb-costo p{ font-size:15px; line-height:1.58; color:#f0d6dc; }
-
-.pb-sol{
-  margin-top:20px; padding:18px 20px 20px; border-radius:11px;
-  background:rgba(45,170,210,.08);
-  border:1px solid rgba(111,216,236,.3);
-}
-.pb-sol h3{
-  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
-  letter-spacing:.16em; text-transform:uppercase; color:#6fd8ec; margin-bottom:8px;
-}
-.pb-sol p{ font-size:15px; line-height:1.58; color:#dbe7fb; }
-
-.pb-mini{ margin:14px 0 0; }
-.pb-mini img{
-  width:100%; height:auto; display:block; border-radius:9px;
-  border:1px solid rgba(159,186,234,.2);
-}
+.pb-dato p{ font-size:15px; line-height:1.58; color:#c3d5f2; }
+.pb-costo{ border-left-color:rgba(211,121,140,.55); }
+.pb-costo h3{ color:#e0a4b1; }
+.pb-sol{ border-left-color:rgba(111,216,236,.55); }
+.pb-sol h3{ color:#6fd8ec; }
 
 .pb-precio{
-  margin-top:16px; padding-top:14px;
-  border-top:1px dashed rgba(111,216,236,.28);
+  margin-top:24px; padding-top:15px;
+  border-top:1px solid rgba(159,186,234,.16);
   display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px;
   font-size:14.5px; color:#9fbaea;
 }
@@ -1672,8 +1650,6 @@ a.dato:hover{ transform:translateY(-2px);
   border-bottom:1px solid rgba(156,232,247,.4); padding-bottom:1px;
 }
 .pb-precio a:hover{ color:#fff; border-color:#6fd8ec; }
-
-@media (prefers-reduced-motion: reduce){ .pb{ transition:none; } }
 
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
