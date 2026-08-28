@@ -1740,18 +1740,16 @@ a.dato:hover{ transform:translateY(-2px);
    el orden en que se recorre el proceso. El retraso va por posicion y no por
    el indice global del observador, que las mezclaba con el resto de la pagina. */
 .js-rv .etapas .etp.rv{ opacity:1; transform:none; }
-.js-rv .etapas .etp .pieza,
+/* Las piezas de cristal NO se animan, a proposito. Componen por suma
+   (mix-blend-mode:screen) contra el fondo de la seccion, y tanto transform
+   como opacity crean un contexto de apilamiento: mientras durara la animacion
+   la pieza compondria contra su propia caja vacia y reapareceria su fondo
+   negro. Se anima solo el texto. */
 .js-rv .etapas .etp > *:not(.pieza){
   opacity:0; transform:translateY(16px);
   transition:opacity .55s ease, transform .55s cubic-bezier(.22,.61,.36,1);
 }
-.js-rv .etapas .etp.in .pieza,
 .js-rv .etapas .etp.in > *:not(.pieza){ opacity:1; transform:none; }
-.js-rv .etapas .etp:nth-of-type(1).in .pieza{ transition-delay:.00s; }
-.js-rv .etapas .etp:nth-of-type(2).in .pieza{ transition-delay:.10s; }
-.js-rv .etapas .etp:nth-of-type(3).in .pieza{ transition-delay:.20s; }
-.js-rv .etapas .etp:nth-of-type(4).in .pieza{ transition-delay:.30s; }
-.js-rv .etapas .etp:nth-of-type(5).in .pieza{ transition-delay:.40s; }
 .js-rv .etapas .etp:nth-of-type(1).in > *:not(.pieza){ transition-delay:.10s; }
 .js-rv .etapas .etp:nth-of-type(2).in > *:not(.pieza){ transition-delay:.20s; }
 .js-rv .etapas .etp:nth-of-type(3).in > *:not(.pieza){ transition-delay:.30s; }
@@ -1760,21 +1758,16 @@ a.dato:hover{ transform:translateY(-2px);
 
 /* --- pagina de proceso: bloques alternados --- */
 .js-rv .et-bloque.rv{ opacity:1; transform:none; }
-.js-rv .et-bloque .et-pieza,
+/* misma razon que en el home: la pieza compone por suma y no se anima */
 .js-rv .et-bloque .et-texto{
-  opacity:0;
+  opacity:0; transform:translateY(16px);
   transition:opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1);
 }
-.js-rv .et-bloque .et-pieza{ transform:translateY(20px) scale(.96); }
-.js-rv .et-bloque .et-texto{ transform:translateY(16px); transition-delay:.14s; }
-.js-rv .et-bloque.in .et-pieza,
 .js-rv .et-bloque.in .et-texto{ opacity:1; transform:none; }
 
 @media (min-width:900px){
   /* cada columna entra desde su lado; en los invertidos, al reves */
-  .js-rv .et-bloque .et-pieza{ transform:translate(-22px, 12px) scale(.96); }
   .js-rv .et-bloque .et-texto{ transform:translateX(16px); }
-  .js-rv .et-bloque.invertido .et-pieza{ transform:translate(22px, 12px) scale(.96); }
   .js-rv .et-bloque.invertido .et-texto{ transform:translateX(-16px); }
 }
 
@@ -1789,10 +1782,98 @@ a.dato:hover{ transform:translateY(-2px);
 
 @media (prefers-reduced-motion: reduce){
   .js-rv .vs-fila .dim, .js-rv .vs-fila .lado,
-  .js-rv .etapas .etp .pieza, .js-rv .etapas .etp > *,
-  .js-rv .et-bloque .et-pieza, .js-rv .et-bloque .et-texto,
+  .js-rv .etapas .etp > *,
+  .js-rv .et-bloque .et-texto,
   .js-rv .et-bloque .et-dos .et-caja{
     opacity:1 !important; transform:none !important; transition:none !important;
+  }
+}
+
+/* --- entrada del hero ---
+   Va por animacion y no por el observador: el hero ya esta en pantalla al
+   cargar, asi que no hay nada que observar. Se apoya en .js-rv, que la cascara
+   pone solo cuando hay IntersectionObserver y no se pidio movimiento reducido,
+   de modo que sirve como interruptor general de animacion.
+
+   El ala de cristal queda FUERA: compone por suma contra el fondo, y tanto
+   opacity como transform la aislarian en su propio contexto de apilamiento,
+   devolviendole el fondo negro justo durante la entrada. */
+@keyframes hero-sube{
+  from{ opacity:0; transform:translateY(16px); }
+  to{ opacity:1; transform:none; }
+}
+.js-rv .hero .eyebrow,
+.js-rv .hero h1,
+.js-rv .hero .lead,
+.js-rv .hero .actions,
+.js-rv .hero-sectores .promesa{
+  opacity:0;
+  animation:hero-sube .7s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.js-rv .hero .eyebrow{ animation-delay:.10s; }
+.js-rv .hero h1{ animation-delay:.20s; }
+.js-rv .hero .lead{ animation-delay:.34s; }
+.js-rv .hero .actions{ animation-delay:.46s; }
+.js-rv .hero-sectores .promesa:nth-child(1){ animation-delay:.60s; }
+.js-rv .hero-sectores .promesa:nth-child(2){ animation-delay:.68s; }
+.js-rv .hero-sectores .promesa:nth-child(3){ animation-delay:.76s; }
+
+/* --- explorador de problemas --- */
+.js-rv .exp-grid.rv{ opacity:1; transform:none; }
+.js-rv .exp-grid .exp-item,
+.js-rv .exp-grid .exp-panel,
+.js-rv .exp-grid .exp-info{
+  opacity:0; transform:translateY(14px);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.js-rv .exp-grid.in .exp-item,
+.js-rv .exp-grid.in .exp-panel,
+.js-rv .exp-grid.in .exp-info{ opacity:1; transform:none; }
+.js-rv .exp-grid.in .exp-item:nth-child(1){ transition-delay:.04s; }
+.js-rv .exp-grid.in .exp-item:nth-child(2){ transition-delay:.12s; }
+.js-rv .exp-grid.in .exp-item:nth-child(3){ transition-delay:.20s; }
+.js-rv .exp-grid.in .exp-item:nth-child(4){ transition-delay:.28s; }
+.js-rv .exp-grid.in .exp-panel{ transition-delay:.18s; }
+.js-rv .exp-grid.in .exp-info{ transition-delay:.34s; }
+
+/* --- estimador --- */
+.js-rv .est-grid.rv{ opacity:1; transform:none; }
+.js-rv .est-grid .est-op,
+.js-rv .est-grid .est-panel{
+  opacity:0; transform:translateY(14px);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.js-rv .est-grid.in .est-op,
+.js-rv .est-grid.in .est-panel{ opacity:1; transform:none; }
+.js-rv .est-grid.in .est-op:nth-child(1){ transition-delay:.06s; }
+.js-rv .est-grid.in .est-op:nth-child(2){ transition-delay:.14s; }
+.js-rv .est-grid.in .est-op:nth-child(3){ transition-delay:.22s; }
+.js-rv .est-grid.in .est-op:nth-child(4){ transition-delay:.30s; }
+.js-rv .est-grid.in .est-panel{ transition-delay:.20s; }
+
+/* --- alineacion de incentivos: la marca se dibuja antes que su texto --- */
+.js-rv .junto-item.rv{ opacity:1; transform:none; }
+.js-rv .junto-item .junto-marca{
+  opacity:0; transform:translateY(8px) scale(.88);
+  transition:opacity .45s ease, transform .45s cubic-bezier(.22,.61,.36,1);
+}
+.js-rv .junto-item > b,
+.js-rv .junto-item > p{
+  opacity:0; transform:translateY(12px);
+  transition:opacity .5s ease .12s, transform .5s ease .12s;
+}
+.js-rv .junto-item.in .junto-marca,
+.js-rv .junto-item.in > b,
+.js-rv .junto-item.in > p{ opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce){
+  .js-rv .hero .eyebrow, .js-rv .hero h1, .js-rv .hero .lead,
+  .js-rv .hero .actions, .js-rv .hero-sectores .promesa,
+  .js-rv .exp-grid .exp-item, .js-rv .exp-grid .exp-panel, .js-rv .exp-grid .exp-info,
+  .js-rv .est-grid .est-op, .js-rv .est-grid .est-panel,
+  .js-rv .junto-item .junto-marca, .js-rv .junto-item > b, .js-rv .junto-item > p{
+    opacity:1 !important; transform:none !important;
+    animation:none !important; transition:none !important;
   }
 }
 
