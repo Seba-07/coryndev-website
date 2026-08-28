@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=61284ea0">
+<link rel="stylesheet" href="styles-v2.css?v=82580209">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -499,6 +499,47 @@
     }
     rango.addEventListener('input', mueve);
     mueve();
+
+    // Barrida automatica la primera vez que la seccion entra en pantalla.
+    // Mucha gente no descubre que la imagen se arrastra: verla moverse sola una
+    // vez ensena el gesto y de paso hace el argumento.
+    //
+    // Va por transicion CSS y no por requestAnimationFrame: rAF no avanza en
+    // pestanas de fondo ni en captura sin interfaz, y ahi la barrida quedaba
+    // clavada en su primer fotograma. La transicion la resuelve el compositor.
+    (function () {
+      if (!('IntersectionObserver' in window) ||
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var REPOSO = 46;
+      var cancelada = false;
+      function suelta () {
+        cancelada = true;
+        lienzo.classList.remove('barriendo');
+      }
+      ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+        rango.addEventListener(ev, suelta, { once: true, passive: true });
+      });
+
+      function barre () {
+        if (cancelada) return;
+        rango.value = 100; mueve();          // parte mostrando solo la plantilla
+        requestAnimationFrame(function () {  // un cuadro para fijar el inicio
+          if (cancelada) return;
+          lienzo.classList.add('barriendo'); // la transicion hace el recorrido
+          rango.value = REPOSO; mueve();
+          setTimeout(function () { lienzo.classList.remove('barriendo'); }, 1700);
+        });
+      }
+
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { setTimeout(barre, 300); io.disconnect(); }
+        });
+      }, { threshold: 0.4 });
+      io.observe(lienzo);
+    })();
+  })();
   })();
 </script>
 

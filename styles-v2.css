@@ -1718,6 +1718,84 @@ a.dato:hover{ transform:translateY(-2px);
   .pb-sol{ border-left-color:rgba(111,216,236,.55) !important; }
 }
 
+/* --- coreografia de la comparativa y del proceso ---
+   Mismo criterio que en que-resolvemos: el elemento observado deja de moverse
+   el mismo y reparte el movimiento entre sus partes, con un orden que sigue el
+   contenido y no el capricho. */
+
+/* La tabla enfrentada: las filas caen en cascada, y el lado bueno entra un
+   pelo despues que el malo, que es el orden en que se lee el argumento. */
+.js-rv .vs-tabla .vs-fila.rv{ opacity:1; transform:none; }
+.js-rv .vs-fila .dim,
+.js-rv .vs-fila .lado{
+  opacity:0; transform:translateY(10px);
+  transition:opacity .45s ease, transform .45s ease;
+}
+.js-rv .vs-fila.in .dim,
+.js-rv .vs-fila.in .lado{ opacity:1; transform:none; }
+.js-rv .vs-fila.in .malo{ transition-delay:.08s; }
+.js-rv .vs-fila.in .bueno{ transition-delay:.18s; }
+
+/* Las cinco piezas de cristal del home entran de izquierda a derecha, que es
+   el orden en que se recorre el proceso. El retraso va por posicion y no por
+   el indice global del observador, que las mezclaba con el resto de la pagina. */
+.js-rv .etapas .etp.rv{ opacity:1; transform:none; }
+.js-rv .etapas .etp .pieza,
+.js-rv .etapas .etp > *:not(.pieza){
+  opacity:0; transform:translateY(16px);
+  transition:opacity .55s ease, transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.js-rv .etapas .etp.in .pieza,
+.js-rv .etapas .etp.in > *:not(.pieza){ opacity:1; transform:none; }
+.js-rv .etapas .etp:nth-of-type(1).in .pieza{ transition-delay:.00s; }
+.js-rv .etapas .etp:nth-of-type(2).in .pieza{ transition-delay:.10s; }
+.js-rv .etapas .etp:nth-of-type(3).in .pieza{ transition-delay:.20s; }
+.js-rv .etapas .etp:nth-of-type(4).in .pieza{ transition-delay:.30s; }
+.js-rv .etapas .etp:nth-of-type(5).in .pieza{ transition-delay:.40s; }
+.js-rv .etapas .etp:nth-of-type(1).in > *:not(.pieza){ transition-delay:.10s; }
+.js-rv .etapas .etp:nth-of-type(2).in > *:not(.pieza){ transition-delay:.20s; }
+.js-rv .etapas .etp:nth-of-type(3).in > *:not(.pieza){ transition-delay:.30s; }
+.js-rv .etapas .etp:nth-of-type(4).in > *:not(.pieza){ transition-delay:.40s; }
+.js-rv .etapas .etp:nth-of-type(5).in > *:not(.pieza){ transition-delay:.50s; }
+
+/* --- pagina de proceso: bloques alternados --- */
+.js-rv .et-bloque.rv{ opacity:1; transform:none; }
+.js-rv .et-bloque .et-pieza,
+.js-rv .et-bloque .et-texto{
+  opacity:0;
+  transition:opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.js-rv .et-bloque .et-pieza{ transform:translateY(20px) scale(.96); }
+.js-rv .et-bloque .et-texto{ transform:translateY(16px); transition-delay:.14s; }
+.js-rv .et-bloque.in .et-pieza,
+.js-rv .et-bloque.in .et-texto{ opacity:1; transform:none; }
+
+@media (min-width:900px){
+  /* cada columna entra desde su lado; en los invertidos, al reves */
+  .js-rv .et-bloque .et-pieza{ transform:translate(-22px, 12px) scale(.96); }
+  .js-rv .et-bloque .et-texto{ transform:translateX(16px); }
+  .js-rv .et-bloque.invertido .et-pieza{ transform:translate(22px, 12px) scale(.96); }
+  .js-rv .et-bloque.invertido .et-texto{ transform:translateX(-16px); }
+}
+
+/* las dos cajas de cada etapa, una despues de la otra */
+.js-rv .et-bloque .et-dos .et-caja{
+  opacity:0; transform:translateY(12px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.js-rv .et-bloque.in .et-dos .et-caja{ opacity:1; transform:none; }
+.js-rv .et-bloque.in .et-dos .et-caja:nth-child(1){ transition-delay:.34s; }
+.js-rv .et-bloque.in .et-dos .et-caja:nth-child(2){ transition-delay:.46s; }
+
+@media (prefers-reduced-motion: reduce){
+  .js-rv .vs-fila .dim, .js-rv .vs-fila .lado,
+  .js-rv .etapas .etp .pieza, .js-rv .etapas .etp > *,
+  .js-rv .et-bloque .et-pieza, .js-rv .et-bloque .et-texto,
+  .js-rv .et-bloque .et-dos .et-caja{
+    opacity:1 !important; transform:none !important; transition:none !important;
+  }
+}
+
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
    texto de ayuda, el foco y los dos avisos tienen que seguir leyendose, y el
@@ -2185,6 +2263,14 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 .cmp-encima{
   position:absolute; inset:0; overflow:hidden;
   clip-path:inset(0 calc(100% - var(--pos)) 0 0);
+}
+/* Solo durante la barrida de presentacion. Fuera de ella no hay transicion,
+   para que arrastrar responda al instante y no se sienta con retardo. */
+.cmp-lienzo.barriendo .cmp-encima{
+  transition:clip-path 1.4s cubic-bezier(.22,.61,.36,1);
+}
+.cmp-lienzo.barriendo .cmp-linea{
+  transition:left 1.4s cubic-bezier(.22,.61,.36,1);
 }
 .cmp-encima img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 
