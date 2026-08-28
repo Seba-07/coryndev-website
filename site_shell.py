@@ -37,7 +37,7 @@ PENDIENTE = '<span class="pendiente">por confirmar</span>'
 MENU = [
     ('Inicio', 'index.html', 'inicio'),
     ('Servicios', 'servicios.html', 'servicios'),
-    ('Qué resolvemos', 'index.html#problemas', 'problemas'),
+    ('Qué resolvemos', 'que-resolvemos.html', 'problemas'),
     ('Proceso', 'proceso.html', 'proceso'),
     ('Producto', 'productos.html', 'productos'),
     ('Nosotros', 'nosotros.html', 'nosotros'),

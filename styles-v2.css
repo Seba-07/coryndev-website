@@ -1568,6 +1568,104 @@ a.dato:hover{ transform:translateY(-2px);
 .svc-cita .cita p{ color:#fff; }
 .svc-cita .cita .firma{ color:#9fbaea; }
 
+/* ============================================================
+   Que resolvemos: seis problemas, uno por bloque
+   El home muestra capturas de interfaz; aqui la escena real del problema.
+   Se alterna el lado para que seis bloques seguidos no lean como una lista.
+   ============================================================ */
+/* la cabecera de pagina ya presenta el tema: la intro no necesita
+   su propio colchon completo antes del primer bloque */
+.pb-intro{ padding-bottom:0; }
+.pb-lista{ padding-top:16px; }
+.pb-lista .wrap{ display:grid; gap:0; }
+
+.pb{
+  display:grid; gap:26px; grid-template-columns:1fr;
+  padding:52px 0; border-top:1px solid rgba(159,186,234,.16);
+  position:relative;
+}
+.pb:first-child{ border-top:0; }
+
+@media (min-width:900px){
+  .pb{ grid-template-columns:56px 1fr 1fr; gap:38px; align-items:start; padding:64px 0; }
+  /* en los pares la escena pasa a la derecha */
+  .pb:nth-child(even) .pb-escena{ order:3; }
+  .pb:nth-child(even) .pb-texto{ order:2; }
+}
+
+.pb-num span{
+  font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600;
+  letter-spacing:.1em; color:#6fd8ec;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  border:1px solid rgba(111,216,236,.36); background:rgba(45,170,210,.1);
+}
+
+/* --- la escena --- */
+.pb-escena figure{ margin:0; }
+.pb-escena img{
+  width:100%; height:auto; display:block; border-radius:14px;
+  border:1px solid rgba(159,186,234,.18);
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.9);
+}
+.pb-escena figcaption{
+  margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+  font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#7f93b8;
+}
+
+/* --- el texto --- */
+.pb-texto h2{ font-size:clamp(23px,2.7vw,31px); color:#fff; line-height:1.14; }
+.pb-sintoma{ margin-top:14px; color:#9fbaea; font-size:16.5px; line-height:1.62; }
+.pb-sintoma code{
+  font-family:'IBM Plex Mono',monospace; font-size:.88em;
+  background:rgba(255,255,255,.07); border:1px solid rgba(159,186,234,.2);
+  border-radius:5px; padding:1px 6px; color:#c3d5f2;
+}
+
+.pb-costo{
+  margin-top:22px; padding:16px 18px; border-radius:11px;
+  background:rgba(211,121,140,.09);
+  border:1px solid rgba(211,121,140,.3);
+}
+.pb-costo h3{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:#e0a4b1; margin-bottom:8px;
+}
+.pb-costo p{ font-size:15px; line-height:1.58; color:#f0d6dc; }
+
+.pb-sol{
+  margin-top:20px; padding:18px 20px 20px; border-radius:11px;
+  background:rgba(45,170,210,.08);
+  border:1px solid rgba(111,216,236,.3);
+}
+.pb-sol h3{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:#6fd8ec; margin-bottom:8px;
+}
+.pb-sol p{ font-size:15px; line-height:1.58; color:#dbe7fb; }
+
+.pb-mini{ margin:14px 0 0; }
+.pb-mini img{
+  width:100%; height:auto; display:block; border-radius:9px;
+  border:1px solid rgba(159,186,234,.2);
+}
+
+.pb-precio{
+  margin-top:16px; padding-top:14px;
+  border-top:1px dashed rgba(111,216,236,.28);
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px;
+  font-size:14.5px; color:#9fbaea;
+}
+.pb-precio b{ color:#fff; font-size:19px; font-weight:700; }
+.pb-precio em{ font-style:normal; }
+.pb-precio a{
+  margin-left:auto; color:#9ce8f7; text-decoration:none; font-weight:600;
+  border-bottom:1px solid rgba(156,232,247,.4); padding-bottom:1px;
+}
+.pb-precio a:hover{ color:#fff; border-color:#6fd8ec; }
+
+@media (prefers-reduced-motion: reduce){ .pb{ transition:none; } }
+
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
    texto de ayuda, el foco y los dos avisos tienen que seguir leyendose, y el

@@ -121,6 +121,22 @@ PAGINAS = [
                 'proyectos empieza con alguien que no sabía en qué categoría entraba.'),
     ),
     dict(
+        slug='que-resolvemos',
+        titulo='Qué resolvemos — Seis problemas concretos de una pyme | CORYN',
+        desc='Tu operación en una planilla, no aparecer en Google, explicar lo mismo '
+             'por WhatsApp todo el día, agendar por teléfono, cobrar tarde y perder '
+             'pedidos. Qué le cuesta cada uno a tu negocio y qué construimos.',
+        activa='problemas',
+        clase_body='pg-oscura',
+        cabecera=('Cuál de estas se parece a tu semana',
+                  'Seis situaciones que vemos una y otra vez en pymes chilenas. '
+                  'Reconocer la tuya suele ser más útil que saber qué sistema pedir.',
+                  'Qué resolvemos'),
+        cierre=('¿Reconociste alguna?',
+                'Cuéntanos cuál y te decimos con honestidad qué se puede resolver, qué '
+                'conviene priorizar y cuánto costaría hacerlo bien.'),
+    ),
+    dict(
         slug='proceso',
         titulo='Proceso — Cómo trabajamos, etapa por etapa | CORYN',
         desc='Las cinco etapas de un proyecto con CORYN: qué hacemos nosotros y qué '
