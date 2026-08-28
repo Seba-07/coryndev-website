@@ -1603,6 +1603,15 @@ a.dato:hover{ transform:translateY(-2px);
 
 /* --- la escena --- */
 .pb-escena figure{ margin:0; }
+/* La columna del texto es bastante mas alta que la de la escena, asi que sobraba
+   un hueco al costado. Fijandola, la foto del problema acompaña mientras se lee
+   lo que cuesta y lo que se construye, que es justamente la comparacion. */
+@media (min-width:900px){
+  .pb-escena figure{ position:sticky; top:calc(var(--nav-h) + 26px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .pb-escena figure{ position:static; }
+}
 .pb-escena img{
   width:100%; height:auto; display:block; border-radius:14px;
   border:1px solid rgba(159,186,234,.18);
