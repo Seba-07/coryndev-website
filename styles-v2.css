@@ -1594,7 +1594,7 @@ a.dato:hover{ transform:translateY(-2px);
      hueco abajo; centrado, el texto queda enfrentado al medio del antes/despues
      y la diferencia lee como composicion en vez de sobra. */
   .pb{ grid-template-columns:.92fr 1.08fr; gap:52px; align-items:center; padding:56px 0; }
-  .pb:nth-child(even) .pb-par{ order:2; }
+  .pb:nth-of-type(even) .pb-par{ order:2; }
 }
 
 /* --- el par visual --- */
@@ -1650,6 +1650,73 @@ a.dato:hover{ transform:translateY(-2px);
   border-bottom:1px solid rgba(156,232,247,.4); padding-bottom:1px;
 }
 .pb-precio a:hover{ color:#fff; border-color:#6fd8ec; }
+
+/* --- coreografia de los bloques ---
+   Se apoya en el .rv y el observador que ya existen: el bloque sigue siendo el
+   que se observa, pero deja de moverse el mismo y reparte el movimiento entre
+   sus partes. Asi una sola entrada del observador dispara toda la secuencia.
+
+   El orden importa y no es decorativo: primero la escena de hoy, despues el
+   texto, y al final la solucion. Es el mismo recorrido que hace el argumento. */
+.js-rv .pb.rv{ opacity:1; transform:none; }
+
+.js-rv .pb .pb-foto,
+.js-rv .pb .pb-texto{
+  opacity:0;
+  transition:opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.js-rv .pb .pb-foto{ transform:translateY(20px); }
+.js-rv .pb .pb-texto{ transform:translateY(16px); transition-delay:.14s; }
+
+/* el despues entra al final, y con un leve acercamiento: es el momento que la
+   pagina quiere subrayar */
+.js-rv .pb .pb-foto-sol{ transform:translateY(20px) scale(.975); transition-delay:.34s; }
+
+.js-rv .pb.in .pb-foto,
+.js-rv .pb.in .pb-texto,
+.js-rv .pb.in .pb-foto-sol{ opacity:1; transform:none; }
+
+/* en escritorio cada columna entra desde su lado, lo que refuerza la
+   alternancia en vez de repetir el mismo gesto seis veces */
+@media (min-width:900px){
+  .js-rv .pb .pb-foto{ transform:translate(-24px, 14px); }
+  .js-rv .pb .pb-foto-sol{ transform:translate(-24px, 14px) scale(.975); }
+  .js-rv .pb .pb-texto{ transform:translateX(18px); }
+  .js-rv .pb:nth-of-type(even) .pb-foto{ transform:translate(24px, 14px); }
+  .js-rv .pb:nth-of-type(even) .pb-foto-sol{ transform:translate(24px, 14px) scale(.975); }
+  .js-rv .pb:nth-of-type(even) .pb-texto{ transform:translateX(-18px); }
+}
+
+/* la etiqueta del despues llega un poco despues que su imagen */
+.js-rv .pb .pb-foto-sol figcaption{ opacity:0; transition:opacity .45s ease .62s; }
+.js-rv .pb.in .pb-foto-sol figcaption{ opacity:1; }
+
+/* los filetes del texto se dibujan de arriba abajo */
+.pb-dato{ position:relative; border-left-color:transparent !important; }
+.pb-dato::before{
+  content:""; position:absolute; left:0; top:0; width:2px; height:100%;
+  background:currentColor; transform-origin:top;
+}
+.js-rv .pb .pb-dato::before{ transform:scaleY(0); transition:transform .5s ease; }
+.js-rv .pb.in .pb-dato::before{ transform:scaleY(1); }
+.js-rv .pb.in .pb-costo::before{ transition-delay:.30s; }
+.js-rv .pb.in .pb-sol::before{ transition-delay:.44s; }
+.pb-costo::before{ color:rgba(211,121,140,.55); }
+.pb-sol::before{ color:rgba(111,216,236,.55); }
+
+/* al pasar el cursor, la imagen se levanta apenas */
+.pb-foto img{ transition:transform .3s ease, border-color .3s ease; }
+.pb-foto:hover img{ transform:translateY(-3px); }
+.pb-foto-sol:hover img{ border-color:rgba(111,216,236,.55); }
+
+@media (prefers-reduced-motion: reduce){
+  .pb-foto img,
+  .pb-foto:hover img{ transition:none; transform:none; }
+  /* sin animacion se vuelve al filete de borde, con su color propio */
+  .pb-dato::before{ display:none; }
+  .pb-costo{ border-left-color:rgba(211,121,140,.55) !important; }
+  .pb-sol{ border-left-color:rgba(111,216,236,.55) !important; }
+}
 
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
