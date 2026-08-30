@@ -67,8 +67,8 @@ def _nav(activa):
 </header>'''
 
 
-def _cierre(titulo, texto, boton_extra=''):
-    return f'''<section class="close">
+def _cierre(titulo, texto, boton_extra='', clase_cierre=''):
+    return f'''<section class="close{clase_cierre}">
   <div class="wrap">
     <p class="eyebrow">Siguiente paso</p>
     <h2>{titulo}</h2>

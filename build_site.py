@@ -228,7 +228,8 @@ def construir_paginas():
             partes.append(S.cabecera(t, b, e))
         partes.append(cuerpo)
         if p['cierre']:
-            partes.append(S._cierre(*p['cierre']))
+            partes.append(S._cierre(*p['cierre'],
+                                    clase_cierre=' claro' if p['slug'] == 'index' else ''))
         html = S.render(
             titulo=p['titulo'], descripcion=p['desc'], cuerpo='\n\n'.join(partes),
             activa=p['activa'], js_extra=p.get('js_extra', ''),

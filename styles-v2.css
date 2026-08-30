@@ -1929,17 +1929,26 @@ a.dato:hover{ transform:translateY(-2px);
      cero, no puede leerse como render generado -que era justo el problema que
      tenían los fondos anteriores- y enlaza con el plano azul de las secciones
      oscuras sin repetirlo. Va al 2,5% de tinta: se percibe, no se mira. */
+  /* La reticula CSS se reemplaza por textura de papel real escaneado. Es la
+     unica familia de imagen que no reintroduce el problema: un material
+     fotografiado lee como objeto fisico, al reves del render abstracto con
+     resplandor que hacia parecer generada la pagina.
+     Las tres estan entre 94% y 97% de brillo, asi que no tocan el contraste. */
   background-image:
-    repeating-linear-gradient(0deg,
-      color-mix(in srgb, var(--ink) 2.5%, transparent) 0 1px,
-      transparent 1px 46px),
-    repeating-linear-gradient(90deg,
-      color-mix(in srgb, var(--ink) 2.5%, transparent) 0 1px,
-      transparent 1px 46px),
     radial-gradient(120% 70% at 50% 0%,
-      #ffffff 0%, var(--paper) 55%, color-mix(in srgb, var(--accent) 3%, var(--paper)) 100%);
-  background-attachment:scroll;
+      rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%);
+  background-size:auto;
+  background-repeat:no-repeat;
 }
+.explora.claro{ background-image:
+  radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+  url("assets/papel-problemas.webp"); background-size:auto, cover; }
+.ejemplos.claro{ background-image:
+  radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+  url("assets/papel-ejemplos.webp"); background-size:auto, cover; }
+.camino.claro{ background-image:
+  radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+  url("assets/papel-proceso.webp"); background-size:auto, cover; }
 .explora.claro .eyebrow, .estima.claro .eyebrow, .camino.claro .eyebrow,
 .ejemplos.claro .eyebrow{ color:var(--accent); }
 .explora.claro .sec-head h2, .estima.claro .sec-head h2, .camino.claro .sec-head h2{ color:var(--ink); }
@@ -2083,6 +2092,56 @@ a.dato:hover{ transform:translateY(-2px);
   background:color-mix(in srgb, var(--ink) 5%, var(--paper));
   border-color:var(--line);
 }
+
+/* La seccion de alineacion pasa a clara: quedaba pegada al estimador, tambien
+   oscuro, y dos bloques oscuros seguidos se leen como una sola mancha. Toma la
+   misma textura de papel manipulado que el explorador, que es la unica clara
+   con la que no queda contigua. */
+.junto.claro{
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-problemas.webp");
+  background-size:auto, cover;
+  border-top:1px solid var(--line);
+}
+.junto.claro .eyebrow{ color:var(--accent); }
+.junto.claro .junto-cab h2{ color:var(--ink); }
+.junto.claro .junto-cab > p{ color:var(--muted); }
+.junto.claro .junto-item{ border-top-color:var(--line); }
+.junto.claro .junto-marca{ stroke:var(--accent); }
+.junto.claro .junto-item b{ color:var(--ink); }
+.junto.claro .junto-item p{ color:var(--ink-2); }
+.junto.claro .junto-item a{
+  color:var(--accent); border-bottom-color:color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.junto.claro .junto-item a:hover{ color:var(--ink); }
+.junto.claro .junto-peldanos{ display:none; }
+
+/* Cierre claro, solo en el home. Con ocho secciones que empiezan y terminan en
+   oscuro la alternancia perfecta es imposible; pasando el cierre a claro, el
+   pie -que ya es oscuro- hace de remate y la pagina alterna de punta a punta.
+   El boton verde ademas resalta mas sobre claro que sobre azul oscuro. */
+.close.claro{
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-ejemplos.webp");
+  background-size:auto, cover;
+  border-top:1px solid var(--line);
+}
+.close.claro .eyebrow{ color:var(--accent); }
+.close.claro h2{ color:var(--ink); }
+.close.claro p{ color:var(--muted); }
+.close.claro .btn-ghost{ border-color:var(--line); color:var(--ink); }
+.close.claro .btn-ghost:hover{ background:color-mix(in srgb, var(--ink) 4%, transparent); }
+.close.claro .lines{ color:var(--muted); }
+.close.claro .lines a{
+  color:var(--ink-2); border-bottom-color:color-mix(in srgb, var(--ink) 22%, transparent);
+}
+.close.claro .lines a:hover{ color:var(--accent); border-color:var(--accent); }
 
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
