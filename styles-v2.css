@@ -1582,9 +1582,13 @@ a.dato:hover{ transform:translateY(-2px);
 /* la declaracion cierra la pagina, y era el ultimo bloque claro que quedaba
    entre secciones oscuras */
 .svc-cita{
-  color:#fff; padding:64px 0 72px;
-  background-color:#080f22;
-  border-top:1px solid rgba(159,186,234,.14);
+  color:var(--ink); padding:64px 0 72px;
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-ejemplos.webp");
+  background-size:auto, cover;
+  border-top:1px solid var(--line);
 }
 .svc-cita .cita{
   background:rgba(45,170,210,.07);
@@ -2143,6 +2147,49 @@ a.dato:hover{ transform:translateY(-2px);
 }
 .close.claro .lines a:hover{ color:var(--accent); border-color:var(--accent); }
 
+/* --- servicios: el detalle detras de un desplegable ---
+   La pagina mostraba 56 viñetas a la vez, con los seis servicios expandidos y
+   todos con la misma jerarquia. Era un documento de referencia, no una pagina:
+   para encontrar lo suyo, el lector tenia que escanearlo entero.
+   Ahora cada servicio muestra su promesa y su plazo, y el detalle se abre solo
+   si interesa. El destacado viene abierto porque es lo que mas hacen. */
+.svc-mas{ margin-top:16px; }
+.svc-mas > summary{
+  list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:9px;
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:9px 15px; border-radius:999px;
+  transition:background .2s ease, border-color .2s ease, color .2s ease;
+}
+.svc-mas > summary::-webkit-details-marker{ display:none; }
+.svc-mas > summary::after{
+  content:""; width:7px; height:7px; margin-left:2px;
+  border-right:1.8px solid currentColor; border-bottom:1.8px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+  transition:transform .25s ease;
+}
+.svc-mas[open] > summary::after{ transform:translateY(1px) rotate(-135deg); }
+.svc-mas > .detalle{ margin-top:20px; }
+
+/* en oscuro */
+.svc-mas > summary{
+  color:#9ce8f7; background:rgba(45,170,210,.1);
+  border:1px solid rgba(111,216,236,.32);
+}
+.svc-mas > summary:hover{ background:rgba(45,170,210,.18); border-color:#6fd8ec; }
+.svc-mas > summary:focus-visible{ outline:3px solid #6fd8ec; outline-offset:3px; }
+
+/* en las franjas claras */
+.franja.papel .svc-mas > summary{
+  color:var(--accent);
+  background:color-mix(in srgb, var(--accent) 7%, transparent);
+  border-color:color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.franja.papel .svc-mas > summary:hover{
+  background:color-mix(in srgb, var(--accent) 13%, transparent);
+  border-color:var(--accent);
+}
+
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
    texto de ayuda, el foco y los dos avisos tienen que seguir leyendose, y el
@@ -2304,12 +2351,16 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
    El indice usaba la clase .resumen, que tambien lleva el <p> de cada
    servicio: el borde de sus filas se filtraba a los parrafos y dibujaba una
    linea suelta bajo cada titulo. Aqui va con nombre propio. */
+/* Intro y declaracion en papel: la pagina es un solo bloque oscuro con seis
+   servicios dentro, y abrir y cerrar en claro le da respiro sin reestructurar
+   el marcado. Se cambian estas reglas y no se agrega otra encima: esta pagina
+   no usa la clase pg-oscura, se oscurecio con reglas propias como esta. */
 .svc-intro{
-  color:#fff; padding-top:56px;
-  background-color:var(--band-a);
+  color:var(--ink); padding-top:56px;
+  background-color:var(--paper);
   background-image:
-    linear-gradient(180deg, rgba(7,14,32,.92) 0%, rgba(7,14,32,.80) 100%),
-    var(--banner);
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-ejemplos.webp");
   background-size:auto, cover;
   background-position:center, 70% center;
   background-repeat:no-repeat;
@@ -3040,3 +3091,38 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
   font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9fbaea; margin:-2px 0 8px;
 }
 .est-caja .uf-pesos b{ color:#dbe7fb; font-weight:600; }
+
+/* --- servicios: intro y declaracion en papel ---
+   Va al final y con selectores dirigidos a las clases reales. Los dos intentos
+   anteriores fallaron por eso: primero apunte a .resumen y .cita-oscura, que
+   son de la pagina de proceso, y el marcado de aqui usa .svc-indice y
+   .svc-cita .cita. */
+.svc-intro .eyebrow{ color:var(--accent); }
+.svc-intro .sec-head h2{ color:var(--ink); }
+.svc-intro .sec-head p{ color:var(--muted); }
+
+.svc-indice a{
+  background:var(--card); border-color:var(--line);
+}
+.svc-indice a:hover{
+  background:color-mix(in srgb, var(--accent) 5%, var(--card));
+  border-color:color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.svc-indice a.destacada{
+  background:color-mix(in srgb, var(--accent) 8%, transparent);
+  border-color:color-mix(in srgb, var(--accent) 34%, transparent);
+}
+.svc-indice .qu{ color:var(--ink); }
+.svc-indice .qu em{
+  color:var(--accent); border-color:color-mix(in srgb, var(--accent) 34%, transparent);
+}
+.svc-indice .cu{ color:var(--muted); }
+.svc-indice .cu b{ color:var(--accent); }
+
+.svc-cita .cita{
+  background:color-mix(in srgb, var(--accent) 5%, transparent);
+  border-left-color:var(--accent);
+}
+.svc-cita .cita .eyebrow{ color:var(--accent); }
+.svc-cita .cita p{ color:var(--ink); }
+.svc-cita .cita .firma{ color:var(--muted); }
