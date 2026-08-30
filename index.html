@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=5f126828">
+<link rel="stylesheet" href="styles-v2.css?v=a694f6ed">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -390,6 +390,69 @@
     </div>
 
 
+</section>
+
+<script>
+  (function () {
+    var lienzo = document.getElementById('cmpLienzo');
+    var rango = document.getElementById('cmpRango');
+    var url = document.getElementById('cmpUrl');
+    if (!lienzo) return;
+    function mueve () {
+      var v = +rango.value;
+      lienzo.style.setProperty('--pos', v + '%');
+      url.textContent = v > 50 ? 'plantilla-generica.com' : 'avenprop.cl';
+    }
+    rango.addEventListener('input', mueve);
+    mueve();
+
+    // Barrida automatica la primera vez que la seccion entra en pantalla.
+    // Mucha gente no descubre que la imagen se arrastra: verla moverse sola una
+    // vez ensena el gesto y de paso hace el argumento.
+    //
+    // Va por transicion CSS y no por requestAnimationFrame: rAF no avanza en
+    // pestanas de fondo ni en captura sin interfaz, y ahi la barrida quedaba
+    // clavada en su primer fotograma. La transicion la resuelve el compositor.
+    (function () {
+      if (!('IntersectionObserver' in window) ||
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var REPOSO = 46;
+      var cancelada = false;
+      function suelta () {
+        cancelada = true;
+        lienzo.classList.remove('barriendo');
+      }
+      ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+        rango.addEventListener(ev, suelta, { once: true, passive: true });
+      });
+
+      function barre () {
+        if (cancelada) return;
+        rango.value = 100; mueve();          // parte mostrando solo la plantilla
+        requestAnimationFrame(function () {  // un cuadro para fijar el inicio
+          if (cancelada) return;
+          lienzo.classList.add('barriendo'); // la transicion hace el recorrido
+          rango.value = REPOSO; mueve();
+          setTimeout(function () { lienzo.classList.remove('barriendo'); }, 1700);
+        });
+      }
+
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { setTimeout(barre, 300); io.disconnect(); }
+        });
+      }, { threshold: 0.4 });
+      io.observe(lienzo);
+    })();
+  })();
+  })();
+</script>
+
+
+<!-- ================= EJEMPLOS ================= -->
+<section class="ejemplos claro">
+  <div class="wrap">
     <div class="reel rv">
       <div class="reel-cab">
         <p class="eyebrow">Ejemplos</p>
@@ -470,97 +533,8 @@
       </div>
     </div>
 
-    <div class="vs-tabla">
-      <div class="vs-cab rv">
-        <div class="dim"></div>
-        <div class="lado malo"><span>Plantilla o sistema enlatado</span></div>
-        <div class="lado bueno"><span>Desarrollo a medida</span><b>Lo que hacemos</b></div>
-      </div>
-      <div class="vs-fila rv">
-        <div class="dim">Tu forma de trabajar</div>
-        <div class="lado malo"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg><p>Tu equipo cambia cómo trabaja para calzar con el sistema.</p></div>
-        <div class="lado bueno"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><p>El sistema sigue tu proceso, incluidas las excepciones que todo negocio tiene.</p></div>
-      </div>
-      <div class="vs-fila rv">
-        <div class="dim">Lo que pagas cada mes</div>
-        <div class="lado malo"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg><p>Módulos que nunca abres, cobrados igual.</p></div>
-        <div class="lado bueno"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><p>Solo lo que usas. Crece cuando tú creces, no antes.</p></div>
-      </div>
-      <div class="vs-fila rv">
-        <div class="dim">Cuando algo falta</div>
-        <div class="lado malo"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg><p>No está, y no hay a quién pedírselo.</p></div>
-        <div class="lado bueno"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><p>Lo pides y lo conversas con quien lo va a programar.</p></div>
-      </div>
-      <div class="vs-fila rv">
-        <div class="dim">El soporte</div>
-        <div class="lado malo"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg><p>Un formulario, un número de ticket y una espera.</p></div>
-        <div class="lado bueno"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><p>Acompañamiento mensual incluido, con mantención y mejoras.</p></div>
-      </div>
-      <div class="vs-fila rv">
-        <div class="dim">Si te quieres cambiar</div>
-        <div class="lado malo"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg><p>Tus datos quedan adentro y sacarlos es el problema.</p></div>
-        <div class="lado bueno"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><p>El código y los datos son tuyos desde el primer día.</p></div>
-      </div>
-    </div>
   </div>
 </section>
-
-<script>
-  (function () {
-    var lienzo = document.getElementById('cmpLienzo');
-    var rango = document.getElementById('cmpRango');
-    var url = document.getElementById('cmpUrl');
-    if (!lienzo) return;
-    function mueve () {
-      var v = +rango.value;
-      lienzo.style.setProperty('--pos', v + '%');
-      url.textContent = v > 50 ? 'plantilla-generica.com' : 'avenprop.cl';
-    }
-    rango.addEventListener('input', mueve);
-    mueve();
-
-    // Barrida automatica la primera vez que la seccion entra en pantalla.
-    // Mucha gente no descubre que la imagen se arrastra: verla moverse sola una
-    // vez ensena el gesto y de paso hace el argumento.
-    //
-    // Va por transicion CSS y no por requestAnimationFrame: rAF no avanza en
-    // pestanas de fondo ni en captura sin interfaz, y ahi la barrida quedaba
-    // clavada en su primer fotograma. La transicion la resuelve el compositor.
-    (function () {
-      if (!('IntersectionObserver' in window) ||
-          window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      var REPOSO = 46;
-      var cancelada = false;
-      function suelta () {
-        cancelada = true;
-        lienzo.classList.remove('barriendo');
-      }
-      ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
-        rango.addEventListener(ev, suelta, { once: true, passive: true });
-      });
-
-      function barre () {
-        if (cancelada) return;
-        rango.value = 100; mueve();          // parte mostrando solo la plantilla
-        requestAnimationFrame(function () {  // un cuadro para fijar el inicio
-          if (cancelada) return;
-          lienzo.classList.add('barriendo'); // la transicion hace el recorrido
-          rango.value = REPOSO; mueve();
-          setTimeout(function () { lienzo.classList.remove('barriendo'); }, 1700);
-        });
-      }
-
-      var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) {
-          if (e.isIntersecting) { setTimeout(barre, 300); io.disconnect(); }
-        });
-      }, { threshold: 0.4 });
-      io.observe(lienzo);
-    })();
-  })();
-  })();
-</script>
 
 <script>
   (function () {
@@ -585,7 +559,7 @@
 </script>
 
 <!-- ================= COTIZACION (estimador) ================= -->
-<section id="cotizar" class="estima claro">
+<section id="cotizar" class="estima">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch">
       <p class="eyebrow">Inversión</p>
