@@ -1924,8 +1924,21 @@ a.dato:hover{ transform:translateY(-2px);
 .explora.claro, .estima.claro, .camino.claro{
   color:var(--ink);
   background-color:var(--paper);
-  background-image:none;
   border-top:1px solid var(--line);
+  /* Textura, no imagen. Una retícula técnica finísima dibujada en CSS: pesa
+     cero, no puede leerse como render generado -que era justo el problema que
+     tenían los fondos anteriores- y enlaza con el plano azul de las secciones
+     oscuras sin repetirlo. Va al 2,5% de tinta: se percibe, no se mira. */
+  background-image:
+    repeating-linear-gradient(0deg,
+      color-mix(in srgb, var(--ink) 2.5%, transparent) 0 1px,
+      transparent 1px 46px),
+    repeating-linear-gradient(90deg,
+      color-mix(in srgb, var(--ink) 2.5%, transparent) 0 1px,
+      transparent 1px 46px),
+    radial-gradient(120% 70% at 50% 0%,
+      #ffffff 0%, var(--paper) 55%, color-mix(in srgb, var(--accent) 3%, var(--paper)) 100%);
+  background-attachment:scroll;
 }
 .explora.claro .eyebrow, .estima.claro .eyebrow, .camino.claro .eyebrow{ color:var(--accent); }
 .explora.claro .sec-head h2, .estima.claro .sec-head h2, .camino.claro .sec-head h2{ color:var(--ink); }
