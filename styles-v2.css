@@ -100,19 +100,45 @@ a{ color:inherit; }
 .btn:focus-visible{ outline:3px solid var(--cyan); outline-offset:3px; }
 
 /* ---------------- hero ---------------- */
+/* El hero ya no lleva un objeto abstracto flotando sobre texto centrado: esa
+   composicion es la plantilla por defecto de toda landing generada, y era lo
+   que mas delataba la pagina.
+
+   Ahora la fotografia ES el titular. El encabezado dice que el negocio no cabe
+   en una planilla y la imagen muestra exactamente eso, fotografiado. Texto a
+   la izquierda sobre el degradado, foto respirando a la derecha. */
 .hero{
-  position:relative; overflow:hidden; color:#fff; text-align:center;
-  min-height:min(96vh, 900px);
+  position:relative; overflow:hidden; color:#fff; text-align:left;
+  min-height:min(94vh, 860px);
   display:flex; flex-direction:column; justify-content:center;
   padding:calc(var(--nav-h) + 32px) 0 0;
-  background-color:var(--band-a);
-  background-image:
-    linear-gradient(180deg, rgba(5,10,22,.08) 0%, rgba(5,10,22,.22) 46%, rgba(5,10,22,.62) 78%, rgba(5,10,22,.9) 100%),
-    url("assets/fondo-hero.webp");
-  background-size:auto, cover;
-  background-position:center, center 38%;
-  background-repeat:no-repeat;
+  background:var(--band-a);
   isolation:isolate;
+}
+.hero-foto{
+  position:absolute; inset:0; margin:0; z-index:0;
+}
+.hero-foto img{
+  width:100%; height:100%; object-fit:cover; object-position:62% center;
+  display:block;
+}
+/* El velo protege la mitad izquierda, que es donde cae el texto, y deja la
+   derecha de la escena visible. En vertical se cierra por abajo, porque ahi el
+   texto se apoya sobre la foto entera. */
+.hero-foto::after{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(100deg, rgba(6,11,24,.95) 0%, rgba(6,11,24,.88) 34%,
+                    rgba(6,11,24,.62) 58%, rgba(6,11,24,.42) 100%),
+    linear-gradient(180deg, rgba(6,11,24,.55) 0%, rgba(6,11,24,0) 30%,
+                    rgba(6,11,24,0) 62%, rgba(6,11,24,.75) 100%);
+}
+@media (max-width:900px){
+  .hero-foto img{ object-position:58% center; }
+  .hero-foto::after{
+    background:linear-gradient(180deg, rgba(6,11,24,.72) 0%, rgba(6,11,24,.86) 45%,
+                               rgba(6,11,24,.94) 100%);
+  }
 }
 
 /* Dos manchas de luz enormes que derivan en ciclos largos y distintos.
@@ -169,7 +195,7 @@ a{ color:inherit; }
   .hero{ padding-top:calc(var(--nav-h) + 14px); }
   .hero h1{ font-size:clamp(25px, 2.8vw, 34px); margin-top:12px; }
   .hero .lead{ font-size:15.5px; margin-top:13px; }
-  .hero .actions{ margin-top:20px; margin-bottom:22px; }
+  .hero .actions{ margin-top:20px; margin-bottom:22px;  justify-content:flex-start; }
   .orbe{ width:min(130px, 12vw, 17vh); margin-bottom:14px; }
   .hero-sectores a, .hero-sectores span.sec{ padding:17px 24px; }
 }
@@ -182,8 +208,8 @@ a{ color:inherit; }
 
 .hero .eyebrow{ color:#6fd8ec; letter-spacing:.2em; }
 .hero h1{
-  font-size:clamp(30px, 3.9vw, 51px); margin:22px auto 0;
-  max-width:18ch; line-height:1.12; letter-spacing:-.024em;
+  font-size:clamp(31px, 4.1vw, 54px); margin:20px 0 0;
+  max-width:15ch; line-height:1.1; letter-spacing:-.024em;
 }
 .hero h1 em{
   font-style:normal;
@@ -191,13 +217,13 @@ a{ color:inherit; }
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 .hero .lead{
-  margin:22px auto 0; max-width:52ch; font-size:clamp(16.5px,1.8vw,19px);
+  margin:20px 0 0; max-width:46ch; font-size:clamp(16.5px,1.8vw,19px);
   line-height:1.55; color:var(--on-band);
 }
 .hero .lead strong{ color:#fff; font-weight:600; }
 .hero .actions{
   display:flex; flex-wrap:wrap; gap:13px; margin-top:32px; margin-bottom:36px;
-  justify-content:center;
+  justify-content:flex-start;
 }
 
 /* franja de sectores al pie del hero, con enlace a cada caso */
