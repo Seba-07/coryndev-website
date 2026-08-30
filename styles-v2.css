@@ -1880,6 +1880,133 @@ a.dato:hover{ transform:translateY(-2px);
   }
 }
 
+/* ============================================================
+   Secciones claras del home
+   ------------------------------------------------------------
+   Las siete secciones eran oscuras y todas con fondo abstracto generado. Esa
+   combinacion -azul marino, resplandor cian, textura tecnologica- es la salida
+   por defecto de cualquier generador de landings, y era lo que hacia leer la
+   pagina como hecha con IA aunque las imagenes fueran buenas.
+
+   Ademas el negro comunica caro, que contradice el posicionamiento: entrada
+   barata para pymes. Las tres secciones que alternan a claro son justamente
+   donde eso importa mas: las fotos documentales, el precio y el proceso.
+
+   No llevan imagen de fondo a proposito. Un fondo plano es lo que tiene un
+   sitio real; el abstracto con brillo es lo que delata al generado.
+   ============================================================ */
+.explora.claro, .estima.claro, .camino.claro{
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:none;
+  border-top:1px solid var(--line);
+}
+.explora.claro .eyebrow, .estima.claro .eyebrow, .camino.claro .eyebrow{ color:var(--accent); }
+.explora.claro .sec-head h2, .estima.claro .sec-head h2, .camino.claro .sec-head h2{ color:var(--ink); }
+.explora.claro .sec-head p, .estima.claro .sec-head p, .camino.claro .sec-head p{ color:var(--muted); }
+
+/* --- explorador de problemas --- */
+.explora.claro .exp-item{
+  background:var(--card); border-color:var(--line); color:var(--ink);
+}
+.explora.claro .exp-item:hover{ background:color-mix(in srgb, var(--accent) 4%, var(--card)); }
+.explora.claro .exp-item.activo{
+  background:color-mix(in srgb, var(--accent) 7%, var(--card));
+  border-color:color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.explora.claro .exp-item .n{ color:var(--accent); }
+.explora.claro .exp-item .tt b{ color:var(--ink); }
+.explora.claro .exp-item .tt small{ color:var(--muted); }
+.explora.claro .exp-shot{
+  background:var(--card); border-color:var(--line);
+  box-shadow:0 30px 60px -34px rgba(10,23,48,.45);
+}
+.explora.claro .exp-switch{ background:color-mix(in srgb, var(--ink) 5%, var(--paper)); border-color:var(--line); }
+.explora.claro .exp-switch button{ color:var(--muted); }
+.explora.claro .exp-switch button.on{ background:var(--card); color:var(--ink); box-shadow:var(--shadow); }
+.explora.claro .exp-info .tag{ color:var(--accent); }
+.explora.claro .exp-info h3{ color:var(--ink); }
+.explora.claro .exp-info .dd{ color:var(--ink-2); }
+.explora.claro .exp-info .meta span{
+  color:var(--ink-2); background:color-mix(in srgb, var(--accent) 6%, transparent);
+  border-color:var(--line);
+}
+.explora.claro .exp-precio{ color:var(--muted); }
+.explora.claro .exp-precio b{ color:var(--ink); }
+
+/* --- estimador --- */
+.estima.claro .est-paso legend{ color:var(--ink); }
+.estima.claro .est-op{
+  background:var(--card); border-color:var(--line);
+}
+.estima.claro .est-op:hover{ background:color-mix(in srgb, var(--accent) 4%, var(--card)); }
+.estima.claro .est-op .cuerpo b{ color:var(--ink); }
+.estima.claro .est-op .cuerpo small{ color:var(--muted); }
+.estima.claro .est-op .desde{ color:var(--accent); }
+.estima.claro .est-caja{
+  background:var(--card); border-color:var(--line); backdrop-filter:none;
+  box-shadow:var(--shadow);
+}
+.estima.claro .est-caja .kicker{ color:var(--accent); }
+.estima.claro .est-caja .uf .pre{ color:var(--muted); }
+.estima.claro .est-caja .uf b{ color:var(--ink); }
+.estima.claro .est-caja .uf span{ color:var(--muted); }
+.estima.claro .est-caja .uf-pesos{ color:var(--ink-2); }
+.estima.claro .est-caja .uf-pesos b{ color:var(--ink); }
+.estima.claro .est-caja .uf-peso{ color:var(--muted); }
+.estima.claro .est-caja .uf-incluye{
+  color:var(--muted); border-top-color:var(--line);
+}
+.estima.claro .est-caja .uf-incluye a{ color:var(--accent); border-bottom-color:color-mix(in srgb, var(--accent) 40%, transparent); }
+.estima.claro .est-puesta{
+  background:color-mix(in srgb, var(--ink) 3%, transparent); border-color:var(--line);
+}
+.estima.claro .est-puesta span{ color:var(--muted); }
+.estima.claro .est-puesta b{ color:var(--ink); }
+.estima.claro .est-resumen li{ color:var(--ink-2); border-bottom-color:var(--line); }
+.estima.claro .est-resumen li b, .estima.claro .est-resumen li i{ color:var(--ink); }
+.estima.claro .est-etapas{
+  background:color-mix(in srgb, var(--accent) 6%, transparent);
+  border-color:color-mix(in srgb, var(--accent) 26%, transparent);
+  color:var(--ink-2);
+}
+.estima.claro .est-etapas b{ color:var(--ink); }
+.estima.claro .est-nota{ color:var(--muted); }
+
+/* --- proceso --- */
+.camino.claro .etp .pieza{
+  border-color:var(--line);
+  box-shadow:0 22px 44px -26px rgba(10,23,48,.4);
+}
+.camino.claro .etp .np{
+  color:var(--accent);
+  background:color-mix(in srgb, var(--accent) 8%, transparent);
+  border-color:color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.camino.claro .etp h3{ color:var(--ink); }
+.camino.claro .etp p{ color:var(--muted); }
+.camino.claro .camino-pie{ color:var(--muted); }
+.camino.claro .camino-pie a{ color:var(--accent); }
+
+/* Dos correcciones al pasar estas secciones a claro: el interruptor activo
+   quedaba cian sobre cian, y el circulo de seleccion sin marcar se dibujaba
+   con un blanco translucido que sobre fondo claro desaparecia. */
+.explora.claro .exp-switch button{ color:var(--muted); }
+.explora.claro .exp-switch button:hover{ color:var(--ink); }
+.explora.claro .exp-switch button.on{
+  background:var(--accent); color:#fff;
+  box-shadow:0 6px 16px -8px rgba(31,95,224,.8);
+}
+.explora.claro .exp-info .tag{ color:var(--accent); }
+
+.estima.claro .est-op input{
+  border-color:color-mix(in srgb, var(--ink) 26%, transparent);
+  background:var(--card);
+}
+.estima.claro .est-op input:checked{
+  border-color:var(--accent); background:var(--accent);
+}
+
 /* --- formulario de contacto en oscuro ---
    Los campos piden mas cuidado que el resto: lo que escribe el visitante, el
    texto de ayuda, el foco y los dos avisos tienen que seguir leyendose, y el
