@@ -39,7 +39,6 @@ MENU = [
     ('Servicios', 'servicios.html', 'servicios'),
     ('Qué resolvemos', 'que-resolvemos.html', 'problemas'),
     ('Proceso', 'proceso.html', 'proceso'),
-    ('Producto', 'productos.html', 'productos'),
     ('Nosotros', 'nosotros.html', 'nosotros'),
 ]
 
@@ -112,7 +111,6 @@ PIE = f'''<footer class="foot">
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="productos.html">Producto propio</a></li>
         </ul>
       </div>
       <div>

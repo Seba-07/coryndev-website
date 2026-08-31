@@ -151,22 +151,6 @@ PAGINAS = [
                 'te decimos con honestidad si podemos ayudarte.'),
     ),
     dict(
-        slug='productos',
-        clase_body='pg-oscura',
-        titulo='PrecioRadar — Nuestro producto propio | CORYN',
-        desc='PrecioRadar es la aplicación móvil que desarrollamos como producto '
-             'propio: lectura automática de boletas y comparación de precios.',
-        activa='productos',
-        cabecera=('No solo desarrollamos para otros',
-                  'PrecioRadar es producto nuestro: lo pensamos, lo diseñamos y lo '
-                  'construimos completo. Todo lo que aprendimos ahí lo usamos en los '
-                  'proyectos de clientes.',
-                  'Producto propio'),
-        cierre=('¿Tienes una idea de producto?',
-                'Llevar una idea hasta una aplicación que funciona es un camino que '
-                'ya recorrimos por cuenta propia. Conversemos sobre el tuyo.'),
-    ),
-    dict(
         slug='nosotros',
         clase_body='pg-oscura',
         titulo='Nosotros — Quiénes están detrás de CORYN',
