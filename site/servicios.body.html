@@ -1,329 +1,235 @@
-<section class="svc-intro" style="padding-bottom:52px">
+<section class="svc-intro">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch; margin-bottom:26px">
       <p class="eyebrow">Vista rápida</p>
       <h2>Seis servicios y cuánto demora cada uno</h2>
-      <p>El primero es donde nos concentramos; los otros cinco suelen aparecer alrededor.
-      Toca cualquiera para ver el alcance completo, incluido lo que no incluye.</p>
+      <p>Elige cualquiera para ver el alcance completo: qué incluye, qué no incluye
+      y cuánto suele demorar. Sin letra chica.</p>
     </div>
-    <div class="svc-indice rv">
-      <a href="#sistemas" class="destacada">
-        <span class="qu"><img src="assets/ic-erp.webp" alt="" width="30" height="30" loading="lazy">Sistemas de gestión (ERP / CRM)<em>Lo que más hacemos</em></span>
-        <span class="cu">Desde <b>$129.000</b> + 1 UF al mes</span>
-      </a>
-      <a href="#web">
-        <span class="qu"><img src="assets/ic-web.webp" alt="" width="30" height="30" loading="lazy">Páginas web</span>
-        <span class="cu">Plazo típico <b>3 a 6 semanas</b></span>
-      </a>
-      <a href="#moviles">
-        <span class="qu"><img src="assets/ic-movil.webp" alt="" width="30" height="30" loading="lazy">Aplicaciones móviles</span>
-        <span class="cu">Plazo típico <b>2 a 4 meses</b></span>
-      </a>
-      <a href="#tiendas">
-        <span class="qu"><img src="assets/ic-tienda.webp" alt="" width="30" height="30" loading="lazy">Tiendas online</span>
-        <span class="cu">Plazo típico <b>6 a 12 semanas</b></span>
-      </a>
-      <a href="#integraciones">
-        <span class="qu"><img src="assets/ic-integra.webp" alt="" width="30" height="30" loading="lazy">Integraciones</span>
-        <span class="cu">Plazo típico <b>2 a 5 semanas</b></span>
-      </a>
-      <a href="#soporte">
-        <span class="qu"><img src="assets/ic-soporte.webp" alt="" width="30" height="30" loading="lazy">Acompañamiento mensual</span>
-        <span class="cu">Va <b>incluido</b></span>
-      </a>
+
+    <div class="svc-tabla rv">
+      <div class="svc-lista" role="tablist" aria-label="Servicios">
+        <button class="svc-fila activa" role="tab" id="stab-0"
+                aria-selected="true" aria-controls="svc-panel" data-i="0">
+          <span class="svc-n">01</span>
+          <span class="svc-nom"><img src="assets/ic-erp.webp" alt="" width="26" height="26" loading="lazy">Sistemas de gestión (ERP / CRM)<em>Lo que más hacemos</em></span>
+          <span class="svc-clave">Desde $129.000 + 1 UF</span>
+        </button>
+        <button class="svc-fila" role="tab" id="stab-1"
+                aria-selected="false" aria-controls="svc-panel" data-i="1">
+          <span class="svc-n">02</span>
+          <span class="svc-nom"><img src="assets/ic-web.webp" alt="" width="26" height="26" loading="lazy">Páginas web</span>
+          <span class="svc-clave">3 a 6 semanas</span>
+        </button>
+        <button class="svc-fila" role="tab" id="stab-2"
+                aria-selected="false" aria-controls="svc-panel" data-i="2">
+          <span class="svc-n">03</span>
+          <span class="svc-nom"><img src="assets/ic-movil.webp" alt="" width="26" height="26" loading="lazy">Aplicaciones móviles</span>
+          <span class="svc-clave">2 a 4 meses</span>
+        </button>
+        <button class="svc-fila" role="tab" id="stab-3"
+                aria-selected="false" aria-controls="svc-panel" data-i="3">
+          <span class="svc-n">04</span>
+          <span class="svc-nom"><img src="assets/ic-tienda.webp" alt="" width="26" height="26" loading="lazy">Tiendas online</span>
+          <span class="svc-clave">6 a 12 semanas</span>
+        </button>
+        <button class="svc-fila" role="tab" id="stab-4"
+                aria-selected="false" aria-controls="svc-panel" data-i="4">
+          <span class="svc-n">05</span>
+          <span class="svc-nom"><img src="assets/ic-integra.webp" alt="" width="26" height="26" loading="lazy">Integraciones y automatizaciones</span>
+          <span class="svc-clave">2 a 5 semanas</span>
+        </button>
+        <button class="svc-fila" role="tab" id="stab-5"
+                aria-selected="false" aria-controls="svc-panel" data-i="5">
+          <span class="svc-n">06</span>
+          <span class="svc-nom"><img src="assets/ic-soporte.webp" alt="" width="26" height="26" loading="lazy">Acompañamiento mensual</span>
+          <span class="svc-clave">Va incluido</span>
+        </button>
+      </div>
+
+      <div class="svc-panel" id="svc-panel" role="tabpanel" aria-labelledby="stab-0">
+      <div class="svc-hoja" data-i="0">
+        <figure class="svc-captura">
+          <img src="assets/demo-medida.webp" alt="Un sistema de gestión con inventario, ventas y márgenes" loading="lazy">
+        </figure>
+        <div class="svc-info">
+          <h2>Sistemas de gestión (ERP / CRM)</h2>
+          <p class="svc-resumen">Reemplaza las planillas y ordena la operación completa en un solo lugar. Es donde más aportamos y donde el cliente nota antes la diferencia: puedes partir por un módulo y crecer desde ahí.</p>
+          <div class="svc-listas">
+            <div>
+              <h3>Incluye</h3>
+              <ul>
+            <li>{CHECK}Levantamiento de tus procesos reales, no de un manual</li>
+            <li>{CHECK}Módulos a medida: inventario, ventas, clientes, cobros</li>
+            <li>{CHECK}Usuarios con permisos según el rol de cada persona</li>
+            <li>{CHECK}Panel con los indicadores que tú decides mirar</li>
+            <li>{CHECK}Alertas automáticas y reportes exportables</li>
+            <li>{CHECK}Capacitación al equipo y acompañamiento en la marcha blanca</li>
+              </ul>
+            </div>
+            <div class="fuera">
+              <h3>No incluye</h3>
+              <ul>
+            <li>{CRUZ}Migración de datos históricos sucios sin revisión previa</li>
+            <li>{CRUZ}Certificación de facturación electrónica ante el SII</li>
+            <li>{CRUZ}Hardware, lectores o equipos de punto de venta</li>
+              </ul>
+            </div>
+          </div>
+          <p class="svc-plazo"><b>Plazo típico:</b> de 3 a 6 meses. Entregamos por etapas, así el primer módulo entra en uso mucho antes de que el sistema esté completo.</p>
+        </div>
+      </div>
+      <div class="svc-hoja" data-i="1" hidden>
+        <figure class="svc-captura">
+          <img src="assets/vivo-bysimmed.webp" alt="bySIMMED, sitio que construimos y está en línea" loading="lazy">
+        </figure>
+        <div class="svc-info">
+          <h2>Páginas web</h2>
+          <p class="svc-resumen">Sitios corporativos, catálogos y páginas de captación. Rápidos, adaptados a celular y pensados para que el visitante haga algo.</p>
+          <div class="svc-listas">
+            <div>
+              <h3>Incluye</h3>
+              <ul>
+            <li>{CHECK}Diseño propio, no una plantilla comprada</li>
+            <li>{CHECK}Adaptación a celular, tablet y escritorio</li>
+            <li>{CHECK}Optimización para buscadores y velocidad de carga</li>
+            <li>{CHECK}Formularios de contacto conectados a tu correo</li>
+            <li>{CHECK}Publicación, dominio y certificado de seguridad</li>
+              </ul>
+            </div>
+            <div class="fuera">
+              <h3>No incluye</h3>
+              <ul>
+            <li>{CRUZ}Redacción de todos los textos: los trabajamos juntos</li>
+            <li>{CRUZ}Sesión de fotos profesional</li>
+            <li>{CRUZ}Campañas de publicidad pagada</li>
+              </ul>
+            </div>
+          </div>
+          <p class="svc-plazo"><b>Plazo típico:</b> entre 3 y 6 semanas, según cuántas secciones tenga y qué tan lista esté la información.</p>
+        </div>
+      </div>
+      <div class="svc-hoja" data-i="2" hidden>
+        <figure class="svc-captura fono">
+          <img src="assets/demo-app.webp" alt="Una app instalada en el teléfono, con el trabajo del día" loading="lazy">
+        </figure>
+        <div class="svc-info">
+          <h2>Aplicaciones móviles</h2>
+          <p class="svc-resumen">Aplicaciones para iOS y Android, publicadas en las tiendas o distribuidas internamente a tu equipo.</p>
+          <div class="svc-listas">
+            <div>
+              <h3>Incluye</h3>
+              <ul>
+            <li>{CHECK}Una sola base de código para iOS y Android</li>
+            <li>{CHECK}Funcionamiento sin conexión y sincronización al recuperarla</li>
+            <li>{CHECK}Notificaciones push</li>
+            <li>{CHECK}Uso de cámara, ubicación y sensores del teléfono</li>
+            <li>{CHECK}Publicación en App Store y Google Play</li>
+              </ul>
+            </div>
+            <div class="fuera">
+              <h3>No incluye</h3>
+              <ul>
+            <li>{CRUZ}Las cuentas de desarrollador de Apple y Google, que van a tu nombre</li>
+            <li>{CRUZ}Promoción o posicionamiento dentro de las tiendas</li>
+            <li>{CRUZ}Desarrollo nativo separado por plataforma, salvo que el proyecto lo exija</li>
+              </ul>
+            </div>
+          </div>
+          <p class="svc-plazo"><b>Plazo típico:</b> de 2 a 4 meses hasta publicar, más el tiempo de revisión de cada tienda, que no controlamos.</p>
+        </div>
+      </div>
+      <div class="svc-hoja" data-i="3" hidden>
+        <figure class="svc-captura">
+          <img src="assets/demo-tienda.webp" alt="Una tienda en línea con catálogo y pago" loading="lazy">
+        </figure>
+        <div class="svc-info">
+          <h2>Tiendas online</h2>
+          <p class="svc-resumen">Comercio electrónico cuando una plataforma estándar no alcanza: catálogos complejos, precios por cliente o reglas propias de despacho.</p>
+          <div class="svc-listas">
+            <div>
+              <h3>Incluye</h3>
+              <ul>
+            <li>{CHECK}Catálogo con variantes, categorías y buscador</li>
+            <li>{CHECK}Pasarela de pago integrada</li>
+            <li>{CHECK}Control de inventario y estados de pedido</li>
+            <li>{CHECK}Panel de administración para tu equipo</li>
+            <li>{CHECK}Correos automáticos de confirmación y despacho</li>
+              </ul>
+            </div>
+            <div class="fuera">
+              <h3>No incluye</h3>
+              <ul>
+            <li>{CRUZ}Convenios con la pasarela de pago: los firmas tú</li>
+            <li>{CRUZ}Logística, bodega o despacho</li>
+            <li>{CRUZ}Fotografía y descripción de cada producto</li>
+              </ul>
+            </div>
+          </div>
+          <p class="svc-plazo"><b>Plazo típico:</b> de 6 a 12 semanas. Si tu catálogo es simple, muchas veces te conviene más una plataforma estándar, y te lo diremos.</p>
+        </div>
+      </div>
+      <div class="svc-hoja" data-i="4" hidden>
+        <figure class="svc-captura">
+          <img src="assets/demo-ordenes.webp" alt="Un tablero donde el trabajo avanza entre etapas" loading="lazy">
+        </figure>
+        <div class="svc-info">
+          <h2>Integraciones y automatizaciones</h2>
+          <p class="svc-resumen">Conectar sistemas que hoy no se hablan, para eliminar el trabajo de copiar datos de un lado a otro.</p>
+          <div class="svc-listas">
+            <div>
+              <h3>Incluye</h3>
+              <ul>
+            <li>{CHECK}Conexión con servicios que ya usas</li>
+            <li>{CHECK}Traspaso automático de datos entre sistemas</li>
+            <li>{CHECK}Procesos programados: reportes, respaldos, avisos</li>
+            <li>{CHECK}Registro de errores para saber cuándo algo falló</li>
+              </ul>
+            </div>
+            <div class="fuera">
+              <h3>No incluye</h3>
+              <ul>
+            <li>{CRUZ}Licencias o planes de los servicios que se integran</li>
+            <li>{CRUZ}Soporte del sistema de terceros cuando el problema es de ellos</li>
+              </ul>
+            </div>
+          </div>
+          <p class="svc-plazo"><b>Plazo típico:</b> de 2 a 5 semanas por integración, dependiendo de qué tan documentado esté el otro sistema.</p>
+        </div>
+      </div>
+      <div class="svc-hoja" data-i="5" hidden>
+        <figure class="svc-captura">
+          <img src="assets/demo-panel.webp" alt="Un panel con los indicadores de la semana" loading="lazy">
+        </figure>
+        <div class="svc-info">
+          <h2>Acompañamiento mensual</h2>
+          <p class="svc-resumen">Va incluido en todo lo que entregamos. Es lo que separa un sistema que sigue sirviendo de uno que quedó congelado el día de la entrega.</p>
+          <div class="svc-listas">
+            <div>
+              <h3>Incluye</h3>
+              <ul>
+            <li>{CHECK}Atención con prioridad ante fallas</li>
+            <li>{CHECK}Mantención, respaldos y actualizaciones de seguridad</li>
+            <li>{CHECK}Ajustes y mejoras pequeñas cada mes</li>
+            <li>{CHECK}Monitoreo para enterarnos antes que tú</li>
+              </ul>
+            </div>
+            <div class="fuera">
+              <h3>No incluye</h3>
+              <ul>
+            <li>{CRUZ}Funcionalidades grandes nuevas, que se cotizan aparte</li>
+            <li>{CRUZ}Soporte a software de terceros que no desarrollamos</li>
+              </ul>
+            </div>
+          </div>
+          <p class="svc-plazo"><b>Cómo funciona:</b> se cobra a partir de la entrega, mes a mes y sin permanencia. Es el corazón de cómo trabajamos: preferimos cobrar poco al empezar y responder por el sistema todos los meses, antes que cobrar caro una vez y desaparecer.</p>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="servicios-lista">
-  <div class="wrap">
-    <article class="servicio rv destacado-svc" id="sistemas">
-      <header class="svc-id">
-        <span class="svc-num">01</span>
-        <img src="assets/ic-erp.webp" alt="" width="64" height="64" loading="lazy">
-        <div>
-          <span class="svc-marca">Lo que más hacemos</span>
-          <h2>Sistemas de gestión (ERP / CRM)</h2>
-          <p class="resumen">Reemplaza las planillas y ordena la operación completa en
-          un solo lugar. Es donde más aportamos y donde el cliente nota antes la
-          diferencia: puedes partir por un módulo y crecer desde ahí.</p>
-        </div>
-      </header>
-      <div class="svc-cuerpo">
-        <figure class="svc-modulos">
-          <div class="svc-par">
-            <div class="svc-vista">
-              <div class="svc-marco">
-                <div class="svc-barra"><i></i><i></i><i></i><span>ordenes.tuempresa.cl</span></div>
-                <img src="assets/demo-ordenes.webp" width="1500" height="938" loading="lazy"
-                     alt="Módulo de órdenes de trabajo, con cada pedido en su etapa">
-              </div>
-              <b>Órdenes de trabajo</b>
-              <span>Cada pedido en su etapa, con su responsable y su plazo.</span>
-            </div>
-            <div class="svc-vista">
-              <div class="svc-marco">
-                <div class="svc-barra"><i></i><i></i><i></i><span>cobranza.tuempresa.cl</span></div>
-                <img src="assets/demo-cobranza.webp" width="1500" height="938" loading="lazy"
-                     alt="Módulo de cobranza, con las facturas ordenadas por antigüedad">
-              </div>
-              <b>Cobranza y pagos</b>
-              <span>Quién debe, desde cuándo y a quién hay que recordarle.</span>
-            </div>
-          </div>
-          <figcaption>Dos módulos del mismo sistema. No hace falta partir con los
-          dos: se suma el segundo cuando el primero ya está en uso.</figcaption>
-        </figure>
-
-        <p class="plazo"><b>Plazo típico:</b> de 3 a 6 meses. Entregamos por etapas,
-        así el primer módulo entra en uso mucho antes de que el sistema esté completo.</p>
-
-        <details class="svc-mas" open>
-
-          <summary>Qué incluye y qué no incluye</summary>
-          <div class="detalle">
-            <div class="incluye">
-              <h3>Incluye</h3>
-              <ul>
-                <li>{CHECK}Levantamiento de tus procesos reales, no de un manual</li>
-                <li>{CHECK}Módulos a medida: inventario, ventas, clientes, cobros</li>
-                <li>{CHECK}Usuarios con permisos según el rol de cada persona</li>
-                <li>{CHECK}Panel con los indicadores que tú decides mirar</li>
-                <li>{CHECK}Alertas automáticas y reportes exportables</li>
-                <li>{CHECK}Capacitación al equipo y acompañamiento en la marcha blanca</li>
-              </ul>
-            </div>
-            <div class="fuera">
-              <h3>No incluye</h3>
-              <ul>
-                <li>{CRUZ}Migración de datos históricos sucios sin revisión previa</li>
-                <li>{CRUZ}Certificación de facturación electrónica ante el SII</li>
-                <li>{CRUZ}Hardware, lectores o equipos de punto de venta</li>
-              </ul>
-            </div>
-          </div>
-
-        </details>
-
-      </div>
-    </article>
-
-    <article class="servicio rv" id="web">
-      <header class="svc-id">
-        <span class="svc-num">02</span>
-        <img src="assets/ic-web.webp" alt="" width="64" height="64" loading="lazy">
-        <div>
-          <h2>Páginas web</h2>
-          <p class="resumen">Sitios corporativos, catálogos y páginas de captación.
-          Rápidos, adaptados a celular y pensados para que el visitante haga algo.</p>
-        </div>
-      </header>
-      <div class="svc-cuerpo">
-        <p class="plazo"><b>Plazo típico:</b> entre 3 y 6 semanas, según cuántas
-        secciones tenga y qué tan lista esté la información.</p>
-        <details class="svc-mas">
-          <summary>Qué incluye y qué no incluye</summary>
-          <div class="detalle">
-            <div class="incluye">
-              <h3>Incluye</h3>
-              <ul>
-                <li>{CHECK}Diseño propio, no una plantilla comprada</li>
-                <li>{CHECK}Adaptación a celular, tablet y escritorio</li>
-                <li>{CHECK}Optimización para buscadores y velocidad de carga</li>
-                <li>{CHECK}Formularios de contacto conectados a tu correo</li>
-                <li>{CHECK}Publicación, dominio y certificado de seguridad</li>
-              </ul>
-            </div>
-            <div class="fuera">
-              <h3>No incluye</h3>
-              <ul>
-                <li>{CRUZ}Redacción de todos los textos: los trabajamos juntos</li>
-                <li>{CRUZ}Sesión de fotos profesional</li>
-                <li>{CRUZ}Campañas de publicidad pagada</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </article>
-
-    <article class="servicio rv" id="moviles">
-      <header class="svc-id">
-        <span class="svc-num">03</span>
-        <img src="assets/ic-movil.webp" alt="" width="64" height="64" loading="lazy">
-        <div>
-          <h2>Aplicaciones móviles</h2>
-          <p class="resumen">Aplicaciones para iOS y Android, publicadas en las tiendas
-          o distribuidas internamente a tu equipo.</p>
-        </div>
-      </header>
-      <div class="svc-cuerpo">
-        <p class="plazo"><b>Plazo típico:</b> de 2 a 4 meses hasta publicar, más el
-        tiempo de revisión de cada tienda, que no controlamos.</p>
-        <details class="svc-mas">
-          <summary>Qué incluye y qué no incluye</summary>
-          <div class="detalle">
-            <div class="incluye">
-              <h3>Incluye</h3>
-              <ul>
-                <li>{CHECK}Una sola base de código para iOS y Android</li>
-                <li>{CHECK}Funcionamiento sin conexión y sincronización al recuperarla</li>
-                <li>{CHECK}Notificaciones push</li>
-                <li>{CHECK}Uso de cámara, ubicación y sensores del teléfono</li>
-                <li>{CHECK}Publicación en App Store y Google Play</li>
-              </ul>
-            </div>
-            <div class="fuera">
-              <h3>No incluye</h3>
-              <ul>
-                <li>{CRUZ}Las cuentas de desarrollador de Apple y Google, que van a tu nombre</li>
-                <li>{CRUZ}Promoción o posicionamiento dentro de las tiendas</li>
-                <li>{CRUZ}Desarrollo nativo separado por plataforma, salvo que el proyecto lo exija</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </article>
-
-    <article class="servicio rv" id="tiendas">
-      <header class="svc-id">
-        <span class="svc-num">04</span>
-        <img src="assets/ic-tienda.webp" alt="" width="64" height="64" loading="lazy">
-        <div>
-          <h2>Tiendas online</h2>
-          <p class="resumen">Comercio electrónico cuando una plataforma estándar
-          no alcanza: catálogos complejos, precios por cliente o reglas propias de despacho.</p>
-        </div>
-      </header>
-      <div class="svc-cuerpo">
-        <p class="plazo"><b>Plazo típico:</b> de 6 a 12 semanas. Si tu catálogo es
-        simple, muchas veces te conviene más una plataforma estándar, y te lo diremos.</p>
-        <details class="svc-mas">
-          <summary>Qué incluye y qué no incluye</summary>
-          <div class="detalle">
-            <div class="incluye">
-              <h3>Incluye</h3>
-              <ul>
-                <li>{CHECK}Catálogo con variantes, categorías y buscador</li>
-                <li>{CHECK}Pasarela de pago integrada</li>
-                <li>{CHECK}Control de inventario y estados de pedido</li>
-                <li>{CHECK}Panel de administración para tu equipo</li>
-                <li>{CHECK}Correos automáticos de confirmación y despacho</li>
-              </ul>
-            </div>
-            <div class="fuera">
-              <h3>No incluye</h3>
-              <ul>
-                <li>{CRUZ}Convenios con la pasarela de pago: los firmas tú</li>
-                <li>{CRUZ}Logística, bodega o despacho</li>
-                <li>{CRUZ}Fotografía y descripción de cada producto</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </article>
-
-    <article class="servicio rv" id="integraciones">
-      <header class="svc-id">
-        <span class="svc-num">05</span>
-        <img src="assets/ic-integra.webp" alt="" width="64" height="64" loading="lazy">
-        <div>
-          <h2>Integraciones y automatizaciones</h2>
-          <p class="resumen">Conectar sistemas que hoy no se hablan, para eliminar
-          el trabajo de copiar datos de un lado a otro.</p>
-        </div>
-      </header>
-      <div class="svc-cuerpo">
-        <p class="plazo"><b>Plazo típico:</b> de 2 a 5 semanas por integración,
-        dependiendo de qué tan documentado esté el otro sistema.</p>
-        <details class="svc-mas">
-          <summary>Qué incluye y qué no incluye</summary>
-          <div class="detalle">
-            <div class="incluye">
-              <h3>Incluye</h3>
-              <ul>
-                <li>{CHECK}Conexión con servicios que ya usas</li>
-                <li>{CHECK}Traspaso automático de datos entre sistemas</li>
-                <li>{CHECK}Procesos programados: reportes, respaldos, avisos</li>
-                <li>{CHECK}Registro de errores para saber cuándo algo falló</li>
-              </ul>
-            </div>
-            <div class="fuera">
-              <h3>No incluye</h3>
-              <ul>
-                <li>{CRUZ}Licencias o planes de los servicios que se integran</li>
-                <li>{CRUZ}Soporte del sistema de terceros cuando el problema es de ellos</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </article>
-
-    <article class="servicio rv" id="soporte">
-      <header class="svc-id">
-        <span class="svc-num">06</span>
-        <img src="assets/ic-soporte.webp" alt="" width="64" height="64" loading="lazy">
-        <div>
-          <h2>Acompañamiento mensual</h2>
-          <p class="resumen">Va incluido en todo lo que entregamos. Es lo que separa un
-          sistema que sigue sirviendo de uno que quedó congelado el día de la entrega.</p>
-        </div>
-      </header>
-      <div class="svc-cuerpo">
-        <div class="escalera">
-          <h3>Cuándo sube, exactamente</h3>
-          <p>El mensual parte en 1 UF (1,5 en tiendas y apps) y sube solo por dos
-          motivos, ninguno de los cuales es una sorpresa:</p>
-          <ul>
-            <li>{CHECK}<span><b>+0,25 UF por cada módulo</b> que se sume después de la
-            entrega. El módulo nuevo se cotiza aparte; su mantención entra aquí.</span></li>
-            <li>{CHECK}<span><b>+0,5 UF por tramo de uso</b>, cuando el sistema crece y
-            con él lo que cuesta mantenerlo corriendo: más datos, más respaldos, más
-            infraestructura. Los tramos quedan definidos por escrito en la cotización
-            &mdash;usuarios activos en un sistema, pedidos mensuales en una tienda&mdash;
-            así sabes de antemano cuál es el siguiente peldaño y cuánto vale.</span></li>
-          </ul>
-          <p class="cierre-esc">Un sitio web no tiene tramos de uso: paga 1 UF plana y
-          solo sube si le agregas módulos. Y dentro de un tramo el valor no se toca
-          nunca: lo único que lo mueve es la UF misma.</p>
-        </div>
-        <p class="plazo"><b>Cómo funciona:</b> se cobra a partir de la entrega, mes a
-        mes y sin permanencia. Es el corazón de cómo trabajamos: preferimos cobrar
-        poco al empezar y responder por el sistema todos los meses, antes que cobrar
-        caro una vez y desaparecer.</p>
-        <details class="svc-mas">
-          <summary>Qué incluye y qué no incluye</summary>
-          <div class="detalle">
-            <div class="incluye">
-              <h3>Incluye</h3>
-              <ul>
-                <li>{CHECK}Atención con prioridad ante fallas</li>
-                <li>{CHECK}Mantención, respaldos y actualizaciones de seguridad</li>
-                <li>{CHECK}Ajustes y mejoras pequeñas cada mes</li>
-                <li>{CHECK}Monitoreo para enterarnos antes que tú</li>
-              </ul>
-            </div>
-            <div class="fuera">
-              <h3>No incluye</h3>
-              <ul>
-                <li>{CRUZ}Funcionalidades grandes nuevas, que se cotizan aparte</li>
-                <li>{CRUZ}Soporte a software de terceros que no desarrollamos</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </article>
-  </div>
-</div>
 <section class="svc-cita">
   <div class="wrap">
     <blockquote class="cita rv">
@@ -336,3 +242,37 @@
     </blockquote>
   </div>
 </section>
+
+<script>
+  (function () {
+    var lista = document.querySelector('.svc-lista');
+    if (!lista) return;
+    var filas = [].slice.call(lista.querySelectorAll('.svc-fila'));
+    var hojas = [].slice.call(document.querySelectorAll('.svc-hoja'));
+
+    function muestra (i) {
+      filas.forEach(function (f, k) {
+        f.classList.toggle('activa', k === i);
+        f.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      });
+      hojas.forEach(function (h, k) { h.hidden = k !== i; });
+      document.getElementById('svc-panel').setAttribute('aria-labelledby', 'stab-' + i);
+    }
+
+    lista.addEventListener('click', function (e) {
+      var f = e.target.closest('.svc-fila');
+      if (f) muestra(+f.dataset.i);
+    });
+
+    // flechas para recorrer la lista sin el raton
+    lista.addEventListener('keydown', function (e) {
+      var i = filas.indexOf(document.activeElement);
+      if (i < 0) return;
+      var d = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = (i + d + filas.length) % filas.length;
+      filas[n].focus(); muestra(n);
+    });
+  })();
+</script>
