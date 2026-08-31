@@ -2265,7 +2265,7 @@ body.pg-oscura{ background:var(--band-a); }
 /* Las claras se excluyen aqui y no con una regla aparte: este selector suma
    dos :not() y le gana por especificidad a cualquier regla posterior que
    apunte solo a la clase. */
-body.pg-oscura > section:not(.page-head):not(.close):not(.prod-ficha):not(.prod-cita),
+body.pg-oscura > section:not(.page-head):not(.close):not(.prod-ficha):not(.prod-cita):not(.nos-como),
 body.pg-oscura > .franja{
   color:#fff;
   background-color:var(--band-a);
@@ -3140,6 +3140,126 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 .proc-etapa.papel .et-caja{ border-left-color:color-mix(in srgb, var(--accent) 55%, transparent) !important; }
 .proc-etapa.papel .et-caja h3{ color:var(--accent); }
 .proc-etapa.papel .et-caja p{ color:var(--ink-2); }
+
+/* --- nosotros: alternancia ---
+   Cuatro bloques oscuros seguidos en la pagina mas corta del sitio. La primera
+   seccion pasa a papel, asi el recorrido con las capturas queda enmarcado entre
+   dos oscuras y la ficha del fundador conserva su peso. */
+body.pg-oscura > .nos-como{
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-problemas.webp");
+  background-size:auto, cover;
+  border-bottom:1px solid var(--line);
+}
+body.pg-oscura .nos-como .eyebrow{ color:var(--accent); }
+body.pg-oscura .nos-como .sec-head h2{ color:var(--ink); }
+body.pg-oscura .nos-como .sec-head p{ color:var(--muted); }
+body.pg-oscura .nos-como .indice{ border-top-color:var(--line); }
+body.pg-oscura .nos-como .indice .fila{ border-bottom-color:var(--line); }
+body.pg-oscura .nos-como .indice .fila:hover{ background:color-mix(in srgb, var(--accent) 4%, transparent); }
+body.pg-oscura .nos-como .indice .nombre{ color:var(--ink); }
+body.pg-oscura .nos-como .indice .nombre svg{ stroke:var(--accent); }
+body.pg-oscura .nos-como .indice .que{ color:var(--ink-2); }
+body.pg-oscura .nos-como .indice .quien{ color:var(--accent); }
+
+/* --- nosotros: la ficha de quien responde ---
+   Era una tarjeta pequeña y suelta en una banda grande, siendo el bloque que
+   da nombre a la pagina. Ahora ocupa el ancho, con el retrato a un lado y, en
+   el otro, lo que esa persona hace de verdad en cada proyecto.
+   El retrato acepta una fotografia sin cambiar el marcado: basta reemplazar el
+   span de iniciales por una <img>. */
+.persona{
+  display:grid; gap:26px; grid-template-columns:1fr; align-items:start;
+  padding:28px; border-radius:var(--radius);
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(159,186,234,.18);
+}
+@media (min-width:760px){
+  .persona{ grid-template-columns:190px 1fr; gap:36px; padding:34px 36px; }
+}
+.persona-retrato{ display:grid; place-items:center; }
+.persona-retrato .cara{
+  width:150px; height:150px; border-radius:50%;
+  display:grid; place-items:center;
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:44px;
+  letter-spacing:.02em; color:#fff;
+  background:linear-gradient(150deg, var(--accent), var(--cyan));
+}
+.persona-retrato img{
+  width:150px; height:150px; border-radius:50%; object-fit:cover;
+  border:2px solid rgba(159,186,234,.3);
+}
+.persona-texto h3{ font-size:24px; color:#fff; }
+.persona-texto .rol{
+  margin-top:4px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+  font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#6fd8ec;
+}
+.persona-texto .bio{
+  margin-top:14px; font-size:16px; line-height:1.62; color:#c3d5f2; max-width:56ch;
+}
+.persona-hace{
+  list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px;
+}
+.persona-hace li{
+  display:grid; grid-template-columns:18px 1fr; gap:10px;
+  font-size:14.5px; line-height:1.5; color:#9fbaea;
+}
+.persona-hace li svg{
+  width:16px; height:16px; margin-top:3px; fill:none; stroke:var(--cyan);
+  stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;
+}
+.persona-pie{
+  margin-top:18px; padding-top:15px;
+  border-top:1px solid rgba(159,186,234,.16);
+  font-family:'IBM Plex Mono',monospace; font-size:13.5px;
+}
+.persona-pie a{
+  color:#9ce8f7; text-decoration:none;
+  border-bottom:1px solid rgba(156,232,247,.4);
+}
+.persona-pie a:hover{ color:#fff; border-color:#6fd8ec; }
+
+/* --- nosotros: el recorrido con capturas reales ---
+   Era una lista de texto con tres filas, identica en estructura a la de arriba.
+   Ahora muestra los tres proyectos con su captura: bySIMMED y AvenProp estan en
+   linea, asi que se puede mostrar lo que se hizo en vez de describirlo. */
+.obras{ display:grid; gap:20px; grid-template-columns:1fr; margin-top:6px; }
+@media (min-width:720px){ .obras{ grid-template-columns:repeat(3, 1fr); gap:22px; } }
+.obra{
+  display:block; text-decoration:none; border-radius:var(--radius); padding:16px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(159,186,234,.16);
+  transition:background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.obra:hover{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(111,216,236,.45);
+  transform:translateY(-3px);
+}
+.obra-vista{
+  border-radius:10px; overflow:hidden; height:172px;
+  background:rgba(0,0,0,.25);
+  border:1px solid rgba(159,186,234,.14);
+}
+.obra-vista img{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+.obra-vista.fono{ display:grid; place-items:center; padding:10px 0; }
+.obra-vista.fono img{ width:auto; height:100%; object-fit:contain; border-radius:8px; }
+.obra-sector{
+  margin-top:15px; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+  font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#6fd8ec;
+}
+.obra h3{ margin-top:6px; font-size:20px; color:#fff; }
+.obra-que{ margin-top:8px; font-size:14.5px; line-height:1.55; color:#9fbaea; }
+.obra-ver{
+  display:inline-block; margin-top:14px;
+  font-size:14px; font-weight:600; color:#9ce8f7;
+}
+@media (prefers-reduced-motion: reduce){
+  .obra, .obra:hover{ transition:none; transform:none; }
+}
 
 /* --- productos: alternancia ---
    Era la pagina mas liviana del sitio -393 palabras- y aun asi se sentia

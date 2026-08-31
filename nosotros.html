@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=e30c2c58">
+<link rel="stylesheet" href="styles-v2.css?v=c60ef13c">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -75,7 +75,7 @@
   </div>
 </section>
 
-<section style="padding-bottom:44px">
+<section class="nos-como" style="padding-bottom:44px">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:62ch">
       <p class="eyebrow">Cómo trabajamos</p>
@@ -135,22 +135,28 @@
       <p>Cuando escribes, sabes con quién estás hablando desde el primer mensaje.</p>
     </div>
 
-    <div class="gente">
-      <div class="quien rv">
+    <div class="persona rv">
+      <div class="persona-retrato">
         <span class="cara" aria-hidden="true">SA</span>
-        <div>
-          <h3>Sebastián Aránguiz</h3>
-          <p class="rol">Fundador</p>
-        </div>
+      </div>
+      <div class="persona-texto">
+        <h3>Sebastián Aránguiz</h3>
+        <p class="rol">Fundador</p>
         <p class="bio">Lleva el levantamiento con el cliente, el diseño de las pantallas,
         el desarrollo y el soporte posterior. Los proyectos que ves en este sitio están
         hechos así, de principio a fin.</p>
+        <ul class="persona-hace">
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Toma la reunión de levantamiento</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Diseña las pantallas y escribe el código</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Responde el WhatsApp cuando algo falla</li>
+        </ul>
+        <p class="persona-pie"><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></p>
       </div>
     </div>
   </div>
 </div>
 
-<section id="recorrido">
+<section class="nos-obras" id="recorrido">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:62ch">
       <p class="eyebrow">Recorrido</p>
@@ -161,25 +167,42 @@
       producto en el supermercado.</p>
     </div>
 
-    <div class="indice rv">
-      <div class="fila">
-        <div class="nombre">Salud</div>
-        <p class="que">Simulación clínica y equipamiento médico, con venta a
+    <div class="obras">
+      <a class="obra rv" href="caso-bysimmed.html">
+        <div class="obra-vista">
+          <img src="assets/vivo-bysimmed.webp" width="1500" height="938" loading="lazy"
+               alt="Portada del sitio de bySIMMED">
+        </div>
+        <p class="obra-sector">Salud</p>
+        <h3>bySIMMED</h3>
+        <p class="obra-que">Simulación clínica y equipamiento médico, con venta a
         especialistas en varios países.</p>
-        <span class="quien"><a href="caso-bysimmed.html">bySIMMED &rarr;</a></span>
-      </div>
-      <div class="fila">
-        <div class="nombre">Inmobiliario</div>
-        <p class="que">Corretaje de propiedades y seguros, con captación directa de
-        interesados.</p>
-        <span class="quien"><a href="caso-avenprop.html">AvenProp &rarr;</a></span>
-      </div>
-      <div class="fila">
-        <div class="nombre">Retail</div>
-        <p class="que">Lectura automática de boletas y comparación de precios entre
-        cadenas. Producto propio.</p>
-        <span class="quien"><a href="caso-precioradar.html">PrecioRadar &rarr;</a></span>
-      </div>
+        <span class="obra-ver">Ver el caso &rarr;</span>
+      </a>
+
+      <a class="obra rv" href="caso-avenprop.html">
+        <div class="obra-vista">
+          <img src="assets/vivo-avenprop.webp" width="1500" height="938" loading="lazy"
+               alt="Portada del sitio de AvenProp">
+        </div>
+        <p class="obra-sector">Inmobiliario</p>
+        <h3>AvenProp</h3>
+        <p class="obra-que">Corretaje de propiedades y seguros, con captación directa
+        de interesados.</p>
+        <span class="obra-ver">Ver el caso &rarr;</span>
+      </a>
+
+      <a class="obra rv" href="caso-precioradar.html">
+        <div class="obra-vista fono">
+          <img src="assets/app-buscar.webp" width="520" height="1035" loading="lazy"
+               alt="Pantalla de búsqueda de PrecioRadar">
+        </div>
+        <p class="obra-sector">Retail &middot; Producto propio</p>
+        <h3>PrecioRadar</h3>
+        <p class="obra-que">Lectura automática de boletas y comparación de precios
+        entre cadenas.</p>
+        <span class="obra-ver">Ver el caso &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
