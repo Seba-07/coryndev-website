@@ -2818,7 +2818,10 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 /* ============================================================
    Pagina de proceso en oscuro, con las piezas de cristal
    ============================================================ */
-.proc-oscuro, .proc-etapas, .proc-cita{
+/* .proc-etapas se dividio en varias .proc-etapa, una por paso. El fondo
+   oscuro venia de aqui, asi que la nueva clase tiene que heredarlo o las
+   etapas impares quedan con texto claro sobre claro. */
+.proc-oscuro, .proc-etapa, .proc-cita{
   color:#fff; position:relative; overflow:hidden;
   background-color:#060c1a;
 }
@@ -3091,6 +3094,49 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
   font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9fbaea; margin:-2px 0 8px;
 }
 .est-caja .uf-pesos b{ color:#dbe7fb; font-weight:600; }
+
+/* --- proceso: cada etapa en su propia banda ---
+   Eran cinco bloques identicos y oscuros dentro de una sola seccion. Al darle
+   a cada etapa su banda, y alternando el tono, cada paso se lee como un
+   momento distinto en vez de como una lista larga. */
+.proc-etapa{ padding:0; }
+.proc-etapa .et-bloque{ border-top:0; padding:56px 0; }
+.proc-etapa.papel{
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-proceso.webp");
+  background-size:auto, cover;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.proc-etapa.papel .et-num{ color:var(--accent); }
+.proc-etapa.papel .et-texto h2{ color:var(--ink); }
+.proc-etapa.papel .et-texto > p{ color:var(--ink-2); }
+.proc-etapa.papel .et-pieza img{
+  border-color:var(--line);
+  box-shadow:0 26px 50px -28px rgba(10,23,48,.45);
+}
+
+/* --- las dos cajas pasan a filete ---
+   Diez recuadros rellenos en la pagina, dos por etapa, pesaban mas que lo que
+   dicen. La jerarquia la da la etiqueta y una linea al costado, igual que en
+   que-resolvemos. */
+.et-caja{
+  border:0 !important; border-radius:0 !important;
+  background:none !important;
+  padding:0 0 0 15px !important;
+  border-left:2px solid rgba(111,216,236,.5) !important;
+}
+.et-caja h3{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:#6fd8ec; margin-bottom:6px;
+}
+.et-caja p{ font-size:14.5px; line-height:1.58; color:#c3d5f2; }
+.proc-etapa.papel .et-caja{ border-left-color:color-mix(in srgb, var(--accent) 55%, transparent) !important; }
+.proc-etapa.papel .et-caja h3{ color:var(--accent); }
+.proc-etapa.papel .et-caja p{ color:var(--ink-2); }
 
 /* --- servicios: intro y declaracion en papel ---
    Va al final y con selectores dirigidos a las clases reales. Los dos intentos
