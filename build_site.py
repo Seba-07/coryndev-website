@@ -158,13 +158,13 @@ PAGINAS = [
              'propio: lectura automática de boletas y comparación de precios.',
         activa='productos',
         cabecera=('No solo desarrollamos para otros',
-                  'PrecioRadar es producto nuestro. Lo llevamos de la idea a las '
-                  'tiendas de aplicaciones, y todo lo que aprendimos ahí lo usamos '
-                  'en los proyectos de clientes.',
+                  'PrecioRadar es producto nuestro: lo pensamos, lo diseñamos y lo '
+                  'construimos completo. Todo lo que aprendimos ahí lo usamos en los '
+                  'proyectos de clientes.',
                   'Producto propio'),
         cierre=('¿Tienes una idea de producto?',
-                'Convertir una idea en un producto publicado es un camino que ya '
-                'recorrimos completo. Conversemos sobre el tuyo.'),
+                'Llevar una idea hasta una aplicación que funciona es un camino que '
+                'ya recorrimos por cuenta propia. Conversemos sobre el tuyo.'),
     ),
     dict(
         slug='nosotros',

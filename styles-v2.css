@@ -2262,7 +2262,10 @@ body.pg-oscura .faq .resp{ color:#9fbaea; }
    ya traen su propio fondo, asi que quedan excluidas.
    ============================================================ */
 body.pg-oscura{ background:var(--band-a); }
-body.pg-oscura > section:not(.page-head):not(.close),
+/* Las claras se excluyen aqui y no con una regla aparte: este selector suma
+   dos :not() y le gana por especificidad a cualquier regla posterior que
+   apunte solo a la clase. */
+body.pg-oscura > section:not(.page-head):not(.close):not(.prod-ficha):not(.prod-cita),
 body.pg-oscura > .franja{
   color:#fff;
   background-color:var(--band-a);
@@ -3137,6 +3140,43 @@ body.pg-oscura .work{ border-top-color:rgba(159,186,234,.16); }
 .proc-etapa.papel .et-caja{ border-left-color:color-mix(in srgb, var(--accent) 55%, transparent) !important; }
 .proc-etapa.papel .et-caja h3{ color:var(--accent); }
 .proc-etapa.papel .et-caja p{ color:var(--ink-2); }
+
+/* --- productos: alternancia ---
+   Era la pagina mas liviana del sitio -393 palabras- y aun asi se sentia
+   plana, porque sus cuatro bloques eran todos oscuros. La ficha del producto
+   y la declaracion pasan a papel; las tarjetas se quedan en oscuro y ahora
+   resaltan entre las dos claras. */
+body.pg-oscura > .prod-ficha,
+body.pg-oscura > .prod-cita{
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
+    url("assets/papel-ejemplos.webp");
+  background-size:auto, cover;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+body.pg-oscura .prod-ficha .eyebrow, .prod-cita .eyebrow{ color:var(--accent); }
+body.pg-oscura .prod-ficha .sec-head h2{ color:var(--ink); }
+body.pg-oscura .prod-ficha .sec-head p{ color:var(--muted); }
+body.pg-oscura .prod-ficha .work{ border-top-color:var(--line); }
+body.pg-oscura .prod-ficha .work .tag{ color:var(--accent); }
+body.pg-oscura .prod-ficha .work h3{ color:var(--ink); }
+body.pg-oscura .prod-ficha .work p{ color:var(--ink-2); }
+body.pg-oscura .prod-ficha .work .meta span{
+  color:var(--ink-2);
+  background:color-mix(in srgb, var(--accent) 7%, transparent);
+  border-color:var(--line);
+}
+body.pg-oscura .prod-ficha .btn-ghost{ border-color:var(--line); color:var(--ink); }
+body.pg-oscura .prod-ficha .btn-ghost:hover{ background:color-mix(in srgb, var(--ink) 4%, transparent); }
+body.pg-oscura .prod-cita .cita{
+  background:color-mix(in srgb, var(--accent) 5%, transparent);
+  border-left-color:var(--accent);
+}
+body.pg-oscura .prod-cita .cita p{ color:var(--ink); }
+body.pg-oscura .prod-cita .cita .firma{ color:var(--muted); }
 
 /* --- servicios: intro y declaracion en papel ---
    Va al final y con selectores dirigidos a las clases reales. Los dos intentos
