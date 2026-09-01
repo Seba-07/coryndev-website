@@ -46,6 +46,11 @@ JS_FORMULARIO = '''<script>
       aviso.textContent = texto;
     };
 
+    var refFirma = function () {
+      var r = window.CORYN && window.CORYN.ref;
+      return r ? '\\n\\n---\\nLlegó con el código de referido: ' + r : '';
+    };
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       if (!form.checkValidity()) {
@@ -68,7 +73,10 @@ JS_FORMULARIO = '''<script>
             name: form.name.value.trim(),
             email: form.email.value.trim(),
             phone: form.phone.value.trim(),
-            message: form.message.value.trim()
+            // El referido viaja tambien dentro del mensaje: el backend vive
+            // aparte y si ignora el campo nuevo, el dato se perderia igual.
+            message: form.message.value.trim() + refFirma(),
+            ref: (window.CORYN && window.CORYN.ref) || ''
           })
         });
         var data = await resp.json();
@@ -95,12 +103,13 @@ JS_FORMULARIO = '''<script>
 PAGINAS = [
     dict(
         slug='index',
-        titulo='CORYN — Saca tu operación de las planillas | Software a medida en Chile',
-        desc='¿Tu inventario, tus ventas y tus cobros viven en planillas que solo una '
-             'persona entiende? Construimos el sistema que ordena tu pyme: puesta en '
-             'marcha desde $129.000 y desde 1 UF al mes. Primera reunión sin costo.',
+        titulo='Desarrollo de software a medida para pymes | CORYN',
+        desc='Sistemas de gestión, sitios web, tiendas y apps a medida para pymes '
+             'chilenas. Desde $129.000, con precio cerrado antes de empezar. '
+             'Primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
+        preload=('assets/real-planilla.webp',),
         cierre=('Conversemos 30 minutos, sin costo.',
                 'Cuéntanos tu situación y te decimos con honestidad qué se puede '
                 'resolver con software, qué conviene priorizar y cuánto costaría '
@@ -108,7 +117,7 @@ PAGINAS = [
     ),
     dict(
         slug='servicios',
-        titulo='Servicios — Qué desarrollamos y qué no | CORYN',
+        titulo='Servicios: sistemas, webs, tiendas y apps a medida | CORYN',
         desc='Páginas web, sistemas de gestión, aplicaciones móviles, tiendas online '
              'e integraciones. Con el alcance, los plazos y los límites de cada uno.',
         activa='servicios',
@@ -121,11 +130,26 @@ PAGINAS = [
                 'proyectos empieza con alguien que no sabía en qué categoría entraba.'),
     ),
     dict(
+        slug='privacidad',
+        titulo='Política de privacidad | CORYN',
+        desc='Qué datos recoge coryndev.com, para qué los usamos y con quién se '
+             'comparten. Sin cookies de publicidad ni seguimiento entre sitios.',
+        activa='',
+        clase_body='pg-oscura',
+        cabecera=('Política de privacidad',
+                  'Qué datos recoge este sitio, para qué los usamos y con quién '
+                  'se comparten. En castellano, no en jerga legal.',
+                  'Legal'),
+        cierre=('¿Alguna duda sobre tus datos?',
+                'Escríbenos y te respondemos. Puedes pedirnos qué tenemos tuyo, '
+                'que lo corrijamos o que lo borremos, sin dar explicaciones.'),
+    ),
+    dict(
         slug='que-resolvemos',
-        titulo='Qué resolvemos — Seis problemas concretos de una pyme | CORYN',
-        desc='Tu operación en una planilla, no aparecer en Google, explicar lo mismo '
-             'por WhatsApp todo el día, agendar por teléfono, cobrar tarde y perder '
-             'pedidos. Qué le cuesta cada uno a tu negocio y qué construimos.',
+        titulo='Qué resolvemos: seis problemas de pyme | CORYN',
+        desc='Operación en planillas, no aparecer en Google, responder lo mismo por '
+             'WhatsApp, agendar por teléfono. Qué le cuesta cada uno a tu negocio '
+             'y qué construimos.',
         activa='problemas',
         clase_body='pg-oscura',
         cabecera=('Cuál de estas se parece a tu semana',
@@ -139,8 +163,8 @@ PAGINAS = [
     dict(
         slug='proceso',
         titulo='Proceso — Cómo trabajamos, etapa por etapa | CORYN',
-        desc='Las cinco etapas de un proyecto con CORYN: qué hacemos nosotros y qué '
-             'necesitamos de ti en cada una.',
+        desc='Las cinco etapas de un proyecto con CORYN: nos conocemos, diseñamos, '
+             'construimos, probamos y te acompañamos. Qué esperar en cada una.',
         activa='proceso',
         cabecera=('Cómo trabajamos, etapa por etapa',
                   'Un proceso definido, para que en cada momento sepas qué está '
@@ -154,8 +178,8 @@ PAGINAS = [
         slug='nosotros',
         clase_body='pg-oscura',
         titulo='Nosotros — Quiénes están detrás de CORYN',
-        desc='Estudio de desarrollo de software a medida en Chile. Hablas '
-             'directamente con quien programa tu proyecto, sin intermediarios.',
+        desc='Estudio chileno de desarrollo de software a medida. Hablas directamente '
+             'con quien programa tu proyecto, sin intermediarios ni vendedores.',
         activa='nosotros',
         cabecera=('Hablas con quien programa',
                   'Literalmente. No es una frase de marketing: quien toma la reunión '
@@ -180,8 +204,8 @@ PAGINAS = [
         slug='contacto',
         clase_body='pg-oscura',
         titulo='Contacto — Conversemos sobre tu proyecto | CORYN',
-        desc='Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo, '
-             'respuesta en menos de 24 horas.',
+        desc='Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo y '
+             'respuesta en menos de 24 horas hábiles. También por WhatsApp.',
         activa='',
         cabecera=('Conversemos sobre tu proyecto',
                   'La primera reunión es sin costo y sin compromiso. Cuéntanos qué '
@@ -193,6 +217,123 @@ PAGINAS = [
         js_extra=JS_FORMULARIO,
     ),
 ]
+
+
+# ---------- datos estructurados por pagina ----------
+
+def migas_ld(camino):
+    """BreadcrumbList a partir de la ruta visible.
+
+    camino: [(nombre, href|None), ...] en el mismo orden que las migas que ve
+    el visitante. Google exige que coincidan; por eso se arman del mismo dato.
+    """
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i, 'name': nom,
+             **({'item': f'https://coryndev.com/{href}'} if href else {})}
+            for i, (nom, href) in enumerate(camino, 1)
+        ],
+    }
+
+
+def faq_ld(cuerpo):
+    """FAQPage leida del propio HTML.
+
+    Se extrae de los <details> ya publicados en vez de escribirla aparte: si
+    manana cambia una respuesta en la pagina, el dato estructurado cambia con
+    ella y no quedan las dos versiones peleando.
+    """
+    import re, html as _html
+    pares = re.findall(
+        r'<details[^>]*>\s*<summary[^>]*>(.*?)</summary>(.*?)</details>',
+        cuerpo, re.S)
+    def limpio(x):
+        x = re.sub(r'<[^>]+>', ' ', x)
+        return _html.unescape(re.sub(r'\s+', ' ', x)).strip()
+    if not pares:
+        return None
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+            {'@type': 'Question', 'name': limpio(q),
+             'acceptedAnswer': {'@type': 'Answer', 'text': limpio(r)}}
+            for q, r in pares
+        ],
+    }
+
+
+# Solo lleva precio el servicio que lo publica en la pagina. Declarar en los
+# datos estructurados un precio que el visitante no ve es justamente lo que
+# Google sanciona, y ademas seria mentir.
+SERVICIOS_LD = [
+    ('Sistemas de gestión (ERP / CRM)',
+     'Inventario, ventas, clientes y cobros en un solo lugar. Se puede partir '
+     'por un módulo y crecer desde ahí.', 129000),
+    ('Páginas web',
+     'Sitios para que te encuentren en Google y sepan a qué te dedicas.', 69000),
+    ('Aplicaciones móviles',
+     'Apps para iOS y Android, o instalables desde el navegador.', None),
+    ('Tiendas online',
+     'Catálogo, carro y pago en línea, con el stock siempre al día.', None),
+    ('Integraciones y automatizaciones',
+     'Conectar sistemas que hoy no se hablan y dejar de copiar datos a mano.', None),
+    ('Acompañamiento mensual',
+     'Mantención, respaldos, monitoreo y mejoras pequeñas cada mes.', None),
+]
+
+
+def servicios_ld():
+    def oferta(nombre, desc, desde):
+        s = {
+            '@type': 'Service',
+            'name': nombre,
+            'description': desc,
+            'serviceType': nombre,
+            'provider': {'@id': 'https://coryndev.com/#coryn'},
+            'areaServed': {'@type': 'Country', 'name': 'Chile'},
+        }
+        if desde:
+            s['offers'] = {
+                '@type': 'Offer',
+                'priceCurrency': 'CLP',
+                'priceSpecification': {
+                    '@type': 'PriceSpecification',
+                    'minPrice': desde,
+                    'priceCurrency': 'CLP',
+                    'valueAddedTaxIncluded': False,
+                },
+                'availability': 'https://schema.org/InStock',
+                'url': 'https://coryndev.com/servicios.html',
+            }
+        return s
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'name': 'Servicios de CORYN',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i, 'item': oferta(*s)}
+            for i, s in enumerate(SERVICIOS_LD, 1)
+        ],
+    }
+
+
+def caso_ld(c):
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        'name': f"{c['titulo']} — caso de proyecto",
+        'headline': c['h1'],
+        'description': c['meta_desc'],
+        'url': f"https://coryndev.com/caso-{c['slug']}.html",
+        'image': f"https://coryndev.com/{c['figura']}",
+        'inLanguage': 'es-CL',
+        'creator': {'@id': 'https://coryndev.com/#coryn'},
+        'about': {'@type': 'Thing', 'name': c['sector']},
+        'genre': c['tipo'],
+    }
 
 
 def aplicar_fichas(txt):
@@ -214,12 +355,25 @@ def construir_paginas():
         if p['cierre']:
             partes.append(S._cierre(*p['cierre'],
                                     clase_cierre=' claro' if p['slug'] == 'index' else ''))
+        ld = []
+        if p['slug'] not in ('index', '404'):
+            ld.append(migas_ld([('Inicio', 'index.html'),
+                                (p['cabecera'][2] or p['titulo'], None)]))
+        if p['slug'] == 'contacto':
+            faq = faq_ld(cuerpo)
+            if faq:
+                ld.append(faq)
+        if p['slug'] == 'servicios':
+            ld.append(servicios_ld())
+
         html = S.render(
             titulo=p['titulo'], descripcion=p['desc'], cuerpo='\n\n'.join(partes),
             activa=p['activa'], js_extra=p.get('js_extra', ''),
             nav_solida=False,
             canonico='' if p['slug'] == 'index' else f"{p['slug']}.html",
             clase_body=p.get('clase_body', ''),
+            ld_extra=ld,
+            preload=p.get('preload', ()),
         )
         if p['slug'] == '404':
             # que los buscadores no la guarden como si fuera contenido
@@ -266,10 +420,10 @@ def cuerpo_caso(c):
 
 def construir_casos():
     for c in CASOS:
+        camino = [('Inicio', 'index.html'), ('Proyectos', 'nosotros.html#recorrido'),
+                  (c['titulo'], None)]
         cabecera = S.cabecera(
-            c['h1'], c['lead'], f"{c['sector']} &middot; {c['tipo']}",
-            migas=[('Inicio', 'index.html'), ('Proyectos', 'nosotros.html#recorrido'),
-                   (c['titulo'], None)])
+            c['h1'], c['lead'], f"{c['sector']} &middot; {c['tipo']}", migas=camino)
         cuerpo = f'''<section>
   <div class="wrap caso-grid">
     <article class="caso-body">
@@ -288,28 +442,65 @@ def construir_casos():
             descripcion=c['meta_desc'],
             cuerpo='\n\n'.join([cabecera, cuerpo, cierre]),
             activa='', og_img=c['figura'], og_tipo='article',
-            canonico=f"caso-{c['slug']}.html")
+            canonico=f"caso-{c['slug']}.html",
+            ld_extra=[migas_ld(camino), caso_ld(c)],
+            preload=(c['figura'],))
         destino = SALIDA / f"caso-{c['slug']}.html"
         destino.write_text(html)
         yield destino
+
+
+def _ultimo_cambio(*fuentes):
+    """Fecha del ultimo commit que toco el contenido de la pagina.
+
+    Se mira la fuente, no el HTML generado: el HTML se reescribe entero en
+    cada build y un <lastmod> que cambia sin que cambie el contenido es ruido
+    que los buscadores terminan ignorando.
+    """
+    import subprocess, datetime
+    fechas = []
+    for f in fuentes:
+        ruta = RAIZ / f
+        if not ruta.exists():
+            continue
+        try:
+            r = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', str(f)],
+                               cwd=RAIZ, capture_output=True, text=True, timeout=10)
+            if r.returncode == 0 and r.stdout.strip():
+                fechas.append(r.stdout.strip())
+                continue
+        except Exception:
+            pass
+        fechas.append(datetime.date.fromtimestamp(ruta.stat().st_mtime).isoformat())
+    return max(fechas) if fechas else None
 
 
 def construir_sitemap():
     """Un <url> por pagina publica. La 404 y las paginas legales de apps
     (cunde-*, precioradar-privacy) quedan fuera: existen para ser enlazadas,
     no para aparecer en buscadores."""
-    urls = ['https://coryndev.com/']
-    urls += [f"https://coryndev.com/{p['slug']}.html" for p in PAGINAS
-             if p['slug'] not in ('index', '404')]
-    urls += [f"https://coryndev.com/caso-{c['slug']}.html" for c in CASOS]
-    cuerpo = '\n'.join(f'  <url><loc>{u}</loc></url>' for u in urls)
+    urls = [('https://coryndev.com/', _ultimo_cambio('site/inicio.body.html'))]
+    urls += [(f"https://coryndev.com/{p['slug']}.html",
+              _ultimo_cambio(f"site/{p['slug']}.body.html"))
+             for p in PAGINAS if p['slug'] not in ('index', '404')]
+    urls += [(f"https://coryndev.com/caso-{c['slug']}.html",
+              _ultimo_cambio('casos_data.py')) for c in CASOS]
+    cuerpo = '\n'.join(
+        f'  <url><loc>{u}</loc>' + (f'<lastmod>{d}</lastmod>' if d else '') + '</url>'
+        for u, d in urls)
     destino = SALIDA / 'sitemap.xml'
     destino.write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f'{cuerpo}\n</urlset>\n')
+    # Sin Disallow a proposito. Las paginas que no queremos en el indice
+    # (legales de apps, 404, redirecciones) llevan <meta robots="noindex">, y
+    # para obedecerlo el buscador necesita poder entrar a leerlo. Bloquearlas
+    # aqui ademas dejaria fuera al robot y la URL podria indexarse igual.
     (SALIDA / 'robots.txt').write_text(
-        'User-agent: *\nAllow: /\n\nSitemap: https://coryndev.com/sitemap.xml\n')
+        'User-agent: *\n'
+        'Allow: /\n\n'
+        'Sitemap: https://coryndev.com/sitemap.xml\n')
     return destino, len(urls)
 
 

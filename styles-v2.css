@@ -3410,3 +3410,49 @@ body.pg-oscura .prod-cita .cita .firma{ color:var(--muted); }
 @media (prefers-reduced-motion: reduce){
   .svc-fila, .svc-fila:hover{ transition:none; padding-left:14px; }
 }
+
+/* Voz de cliente en el inicio: seccion propia, sobre fondo claro. */
+.cita-voz{ padding:64px 0 72px; border-top:1px solid var(--line); }
+.cita-voz .cita{ margin:0 auto; }
+
+/* --- paginas legales: una columna de lectura, nada mas ---
+   Sin colores de texto propios: la pagina puede ser clara u oscura y el color
+   lo fija la seccion. Fijar var(--ink) aqui pintaba tinta sobre fondo oscuro. */
+.legal .legal-cuerpo{ max-width:72ch; }
+.legal-fecha{
+  font-family:'IBM Plex Mono',monospace; font-size:14px; letter-spacing:.04em;
+  opacity:.62; margin-bottom:26px;
+}
+.legal-intro{ font-size:19px; line-height:1.6; margin-bottom:12px; }
+.legal h2{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(22px,2.4vw,28px); letter-spacing:-.02em; line-height:1.2;
+  margin:44px 0 14px; padding-top:22px; border-top:1px solid var(--line);
+}
+.legal h3{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:19px; letter-spacing:-.01em; margin:26px 0 8px;
+}
+.legal p{ font-size:17px; line-height:1.65; margin-bottom:14px; }
+.legal p b{ font-weight:600; }
+.legal code{
+  font-family:'IBM Plex Mono',monospace; font-size:.9em;
+  background:color-mix(in srgb, var(--accent) 22%, transparent);
+  padding:2px 6px; border-radius:5px;
+}
+.legal-lista{ margin:0 0 16px; padding-left:22px; }
+.legal-lista li{ font-size:17px; line-height:1.6; margin-bottom:9px; }
+.legal-tabla{
+  width:100%; border-collapse:collapse; margin:8px 0 18px; font-size:15.5px;
+  display:block; overflow-x:auto;
+}
+.legal-tabla th{
+  text-align:left; font-weight:600; font-size:13px; letter-spacing:.06em;
+  text-transform:uppercase; opacity:.62; padding:0 16px 10px 0;
+  white-space:nowrap;
+}
+.legal-tabla td{
+  padding:11px 16px 11px 0; border-top:1px solid var(--line);
+  line-height:1.5; vertical-align:top;
+}
+.legal-tabla td:first-child{ font-weight:600; white-space:nowrap; }

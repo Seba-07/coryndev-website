@@ -9,12 +9,27 @@ Todo lo que está aquí es para copiar y pegar.
 
 | Momento | Qué mandar |
 |---|---|
-| Primer contacto por WhatsApp | El **mensaje corto** (abajo) + la **imagen** `flyer-coryn-socio01-p1.jpg` |
-| Si la persona muestra interés | El **PDF completo** `flyer-coryn-socio01.pdf` |
-| Si prefiere mirar por su cuenta | El link `https://coryndev.com` |
+| Primer contacto por WhatsApp | El **mensaje corto** (abajo) + la **imagen** `flyer-coryn-socio01.jpg` |
+| Si la persona pregunta más | El link `https://coryndev.com/?ref=SOCIO01` |
+| Si lo va a imprimir o reenviar por correo | El **PDF** `flyer-coryn-socio01.pdf` |
 
-La imagen se ve completa en el chat sin que la persona tenga que abrir nada.
-El PDF es para quien ya quiere entender bien de qué se trata.
+El volante es de una sola hoja y no pretende explicarlo todo: su trabajo es que
+la persona quiera entrar a la web, que es donde está el detalle. El QR del
+volante lleva justamente ahí, con el código de referido incluido.
+
+---
+
+## 1.b Cómo se registra tu código
+
+El código viaja solo, no hay que anotar nada:
+
+- Quien entra con tu link o escanea el QR queda marcado por **30 días**, aunque
+  después navegue por el sitio o vuelva otro día.
+- Si escribe por WhatsApp desde el sitio, el mensaje llega con `(Ref: SOCIO01)`.
+- Si manda el formulario de contacto, el correo llega con tu código al final.
+
+Por eso importa mandar **tu** link (`coryndev.com/?ref=SOCIO01`) y no
+`coryndev.com` a secas: sin el código, el contacto llega sin dueño.
 
 ---
 
@@ -55,9 +70,14 @@ justifican la inversión y la conversación termina incómoda.
 > apps y sistemas de gestión hechos a la medida de cada negocio.
 > Me acordé de ti porque me habías comentado lo de [el problema que mencionó].
 > La primera reunión es sin costo y sin compromiso, solo para ver si tiene sentido.
+> Acá los puedes ver: https://coryndev.com/?ref=SOCIO01
 > Te dejo el resumen por si te sirve 👇
 
 *(y adjuntas la imagen)*
+
+**El link va escrito en el mensaje, siempre.** Los QR de la imagen sirven en
+papel o en la pantalla de otro; nadie puede escanear su propio teléfono. Si
+mandas la imagen sin link, el interesado no tiene nada que tocar.
 
 ### 4.2 Primer contacto — contacto de trabajo, más formal
 
@@ -65,7 +85,8 @@ justifican la inversión y la conversación termina incómoda.
 > Le comparto información de CORYN, una empresa chilena de desarrollo de software
 > a medida (páginas web, aplicaciones móviles y sistemas de gestión).
 > Trabajan con proyectos personalizados y ofrecen una primera reunión de diagnóstico
-> sin costo. Le dejo el documento por si le hace sentido para su operación.
+> sin costo. Le dejo el documento por si le hace sentido para su operación,
+> y su sitio con el detalle: https://coryndev.com/?ref=SOCIO01
 
 ### 4.3 Si responde "¿y de qué se trata exactamente?"
 
@@ -78,12 +99,12 @@ justifican la inversión y la conversación termina incómoda.
 
 ### 4.4 Si responde "¿cuánto cuesta?"
 
-> Depende harto del alcance, por eso no manejan lista de precios.
-> En la reunión inicial te dicen qué se puede hacer y cuánto sale, sin compromiso.
-> Prefiero que te lo digan ellos y no inventar yo un número.
+> Los precios están publicados en su página: eliges lo que necesitas y te dice
+> cuánto sale. Mira acá: https://coryndev.com/?ref=SOCIO01
+> Y la reunión inicial es gratis, ahí te confirman el número para tu caso.
 
-*(Importante: no dar cifras. Un precio equivocado mata la conversación o genera un
-problema después.)*
+*(Importante: no dar cifras de memoria. El número lo da la web o lo dan ellos;
+un precio equivocado genera un problema después.)*
 
 ### 4.5 Seguimiento, 3 o 4 días después
 
@@ -96,7 +117,8 @@ problema después.)*
 
 > ¿Tu negocio funciona a punta de Excel y WhatsApp?
 > CORYN desarrolla páginas web, apps y sistemas de gestión hechos a la medida.
-> Primera reunión sin costo. Escríbeme y te paso el contacto.
+> Primera reunión sin costo. Mira https://coryndev.com/?ref=SOCIO01
+> o escríbeme y te paso el contacto.
 
 ---
 
@@ -113,10 +135,10 @@ problema después.)*
 > A diferencia de las soluciones estándar, cada proyecto se diseña según los procesos
 > reales de la empresa, y luego se mantiene con un plan mensual de soporte y mejoras.
 >
-> Ofrecen una primera reunión de diagnóstico sin costo ni compromiso. Adjunto el
-> documento con el detalle de servicios y su proceso de trabajo.
+> Ofrecen una primera reunión de diagnóstico sin costo ni compromiso. Adjunto un
+> resumen; en coryndev.com está el detalle de cada servicio, con precios y plazos.
 >
-> Contacto directo: contacto@coryndev.com — WhatsApp +56 9 4878 0902 — coryndev.com
+> Contacto directo: contacto@coryndev.com — [escribir por WhatsApp](https://wa.me/56948780902) — coryndev.com
 >
 > Saludos cordiales,
 > [nombre]

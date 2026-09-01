@@ -1,4 +1,4 @@
-<section class="svc-intro">
+<section class="svc-intro" id="soporte">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch; margin-bottom:26px">
       <p class="eyebrow">Vista rápida</p>
@@ -19,7 +19,7 @@
                 aria-selected="false" aria-controls="svc-panel" data-i="1">
           <span class="svc-n">02</span>
           <span class="svc-nom"><img src="assets/ic-web.webp" alt="" width="26" height="26" loading="lazy">Páginas web</span>
-          <span class="svc-clave">3 a 6 semanas</span>
+          <span class="svc-clave">Desde $69.000 + 1 UF</span>
         </button>
         <button class="svc-fila" role="tab" id="stab-2"
                 aria-selected="false" aria-controls="svc-panel" data-i="2">
@@ -43,7 +43,7 @@
                 aria-selected="false" aria-controls="svc-panel" data-i="5">
           <span class="svc-n">06</span>
           <span class="svc-nom"><img src="assets/ic-soporte.webp" alt="" width="26" height="26" loading="lazy">Acompañamiento mensual</span>
-          <span class="svc-clave">Va incluido</span>
+          <span class="svc-clave">1 o 1,5 UF al mes</span>
         </button>
       </div>
 
@@ -212,7 +212,7 @@
         </figure>
         <div class="svc-info">
           <h2>Acompañamiento mensual</h2>
-          <p class="svc-resumen">Va incluido en todo lo que entregamos. Es lo que separa un sistema que sigue sirviendo de uno que quedó congelado el día de la entrega.</p>
+          <p class="svc-resumen">Va en todo lo que entregamos, y se cobra aparte de la puesta en marcha: 1 UF al mes, o 1,5 UF si es tienda online o app. Es lo que separa un sistema que sigue sirviendo de uno que quedó congelado el día de la entrega.</p>
           <div class="svc-listas">
             <div>
               <h3>Incluye</h3>
@@ -231,7 +231,7 @@
               </ul>
             </div>
           </div>
-          <p class="svc-plazo"><b>Cómo funciona:</b> se cobra a partir de la entrega, mes a mes y sin permanencia. Es el corazón de cómo trabajamos: preferimos cobrar poco al empezar y responder por el sistema todos los meses, antes que cobrar caro una vez y desaparecer.</p>
+          <p class="svc-plazo"><b>Cómo funciona:</b> se cobra a partir de la entrega, mes a mes y sin permanencia. El valor se revisa una vez al año, cuando tu operación es más grande que la que dejamos andando; entremedio no cambia, y si el número nuevo no te convence te vas ese mismo mes. Es el corazón de cómo trabajamos: preferimos cobrar poco al empezar y responder por el sistema todos los meses, antes que cobrar caro una vez y desaparecer.</p>
         </div>
       </div>
       </div>
@@ -267,6 +267,9 @@
       hojas.forEach(function (h, k) { h.hidden = k !== i; });
       document.getElementById('svc-panel').setAttribute('aria-labelledby', 'stab-' + i);
     }
+
+    // se llega desde el inicio con #soporte: abrir esa pestana, no la primera
+    if (location.hash === '#soporte') muestra(filas.length - 1);
 
     lista.addEventListener('click', function (e) {
       var f = e.target.closest('.svc-fila');

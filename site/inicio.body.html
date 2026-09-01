@@ -2,6 +2,7 @@
 <section class="hero">
   <figure class="hero-foto">
     <img src="assets/real-planilla.webp" width="1400" height="933"
+         fetchpriority="high" decoding="async"
          alt="Un notebook con una planilla abierta entre papeles y notas pegadas, en el mesón de un taller">
   </figure>
 
@@ -90,7 +91,7 @@
           <div class="capas">
             <img class="capa on" id="capaAntes" src="assets/real-planilla.webp"
                  alt="Un notebook con una planilla abierta entre papeles y notas pegadas">
-            <img class="capa" id="capaDespues" src="assets/after-sistema.webp" alt="" aria-hidden="true">
+            <img class="capa" id="capaDespues" src="assets/demo-medida.webp" alt="" aria-hidden="true">
           </div>
         </div>
         <div class="exp-info">
@@ -116,7 +117,7 @@
           nom: 'Una planilla que ya nadie controla',
           desc: 'Stock negativo, fórmulas rotas, filas duplicadas y una columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.',
           meta: ['Solo una persona la entiende', 'Sin respaldo', 'Errores que nadie ve'] },
-        despues: { url: 'sistema.tuempresa.cl', img: 'assets/after-sistema.webp',
+        despues: { url: 'sistema.tuempresa.cl', img: 'assets/demo-medida.webp',
           alt: 'Panel de un sistema de gestión con indicadores, inventario y alertas',
           nom: 'La misma operación, ordenada',
           desc: 'Inventario, ventas y cobros en un solo lugar, con alertas de stock, permisos por persona y respaldo automático. Puedes partir por un módulo.',
@@ -128,7 +129,7 @@
           nom: 'La competencia aparece, tú no',
           desc: 'Alguien busca justo lo que vendes, en tu comuna, ahora mismo. Encuentra cuatro negocios y ninguno es el tuyo, porque solo tienes Instagram.',
           meta: ['Solo redes sociales', 'Sin ficha en Maps', 'Te encuentran de casualidad'] },
-        despues: { url: 'www.tuempresa.cl', img: 'assets/after-sitio.webp',
+        despues: { url: 'www.tuempresa.cl', img: 'assets/demo-web.webp',
           alt: 'Sitio web de un negocio local, con foto de la tienda, productos destacados y datos de contacto',
           nom: 'Tu propio sitio, no el de un portal',
           desc: 'Con la foto de tu local, tus productos destacados y tu dirección, horario y teléfono siempre a la vista. Aparece en Google y el contacto llega directo a ti.',
@@ -140,7 +141,7 @@
           nom: 'La misma conversación, todo el día',
           desc: 'Precio, color, medidas, despacho y plazo. Siete conversaciones abiertas preguntando lo mismo, y cada respuesta te saca de lo que estabas haciendo.',
           meta: ['Respondes tú siempre', 'Se pierden mensajes', 'Nadie compra de noche'] },
-        despues: { url: 'catalogo.tuempresa.cl', img: 'assets/after-catalogo.webp',
+        despues: { url: 'catalogo.tuempresa.cl', img: 'assets/demo-tienda.webp',
           alt: 'Catálogo en línea con filtros por categoría, precio y disponibilidad',
           nom: 'El catálogo responde por ti',
           desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados. El cliente llega sabiendo qué quiere, y te escribe para comprar, no para preguntar.',
@@ -152,7 +153,7 @@
           nom: 'Cada llamada perdida es una hora vacía',
           desc: 'Mientras atiendes a alguien, el teléfono suena y nadie contesta. La agenda vive en un cuaderno y el que no llega no avisa.',
           meta: ['14 perdidas en un día', 'Agenda en papel', 'Nadie confirma'] },
-        despues: { url: 'reservas.tuempresa.cl', img: 'assets/after-reservas.webp',
+        despues: { url: 'reservas.tuempresa.cl', img: 'assets/demo-agenda.webp',
           alt: 'Agenda semanal con reservas hechas en línea y confirmaciones automáticas',
           nom: 'Reservan solos, y confirman solos',
           desc: 'El cliente ve los bloques libres y reserva desde el sitio. El sistema confirma y manda recordatorio, así el teléfono deja de ser el único canal.',
@@ -377,7 +378,6 @@
       io.observe(lienzo);
     })();
   })();
-  })();
 </script>
 
 
@@ -490,6 +490,20 @@
 </script>
 
 <!-- ================= COTIZACION (estimador) ================= -->
+<!-- ================= VOZ DE CLIENTE ================= -->
+<section class="claro cita-voz">
+  <div class="wrap">
+    <blockquote class="cita rv">
+      <span class="eyebrow">Lo que dice una clienta</span>
+      <p>Llegamos con una idea en la cabeza y salimos con un sistema que hoy
+      usamos todos los días. Entendieron cómo trabajamos antes de escribir una
+      sola línea de código.</p>
+      <p class="firma">Ivonne Rivera &middot; Gerente de
+      <a href="caso-bysimmed.html">bySIMMED</a></p>
+    </blockquote>
+  </div>
+</section>
+
 <section id="cotizar" class="estima">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch">
@@ -513,10 +527,11 @@
           <p class="kicker">Acompañamiento mensual</p>
           <p class="uf"><em class="pre">desde</em><b id="estUf">1 UF</b><span>al mes</span></p>
           <p class="uf-pesos" id="estUfPeso" hidden></p>
-          <p class="uf-peso">En UF, así lo ajusta la inflación y no nosotros. Y si tu
-          sistema crece, el valor sube por una escalera publicada, nunca por sorpresa.</p>
+          <p class="uf-peso">Son 1 UF al mes, o 1,5 UF si es tienda online o app. Va
+          en UF, así lo ajusta la inflación y no nosotros.</p>
           <p class="uf-incluye">Incluye mantención, respaldos, monitoreo y mejoras
-          pequeñas cada mes. <a href="servicios.html#soporte">Ver qué incluye y cuándo sube</a></p>
+          pequeñas cada mes. El valor se revisa una vez al año y entremedio no cambia.
+          <a href="servicios.html#soporte">Ver qué incluye y cuándo sube</a></p>
 
           <div class="est-puesta">
             <span>Puesta en marcha, una sola vez</span>
@@ -660,9 +675,10 @@
       </div>
       <div class="junto-item rv">
         <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h4.5v-4.5H12V12h4.5V7.5H21V3"/></svg>
-        <b>El mensual sube solo si tú creces</b>
-        <p>No por nuestros costos ni porque sí. Sube cuando tu operación es más grande,
-        por una <a href="servicios.html#soporte">escalera que conoces antes de firmar</a>.</p>
+        <b>El mensual se revisa una vez al año</b>
+        <p>Parte en 1 UF, o 1,5 UF en tienda y app. Sube cuando tu operación creció, no
+        por nuestros costos, y solo en esa <a href="servicios.html#soporte">conversación
+        anual</a>: entremedio no cambia.</p>
       </div>
       <div class="junto-item rv">
         <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.5"/><path d="M13.5 10.5 20 4"/><path d="M15 4h5v5"/></svg>

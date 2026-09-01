@@ -15,6 +15,12 @@ WA_ETIQUETA = 'Escríbenos por WhatsApp'
 EMAIL = 'contacto@coryndev.com'
 BACKEND = 'https://coryn-backend-production.up.railway.app/api/contact'
 
+# Analitica de Vercel: sin cookies y sin identificadores por persona, solo
+# cuenta paginas vistas en agregado. Hay que activarla en el panel del proyecto
+# (Analytics > Enable); mientras no lo este el script responde 404 y la pagina
+# sigue funcionando igual.
+ANALITICA = '<script defer src="/_vercel/insights/script.js"></script>'
+
 WA_SVG = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 '
           '14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 '
           '1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 '
@@ -109,6 +115,7 @@ PIE = f'''<footer class="foot">
         <h4>Empresa</h4>
         <ul>
           <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="que-resolvemos.html">Qué resolvemos</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
@@ -124,7 +131,7 @@ PIE = f'''<footer class="foot">
     </div>
     <div class="base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="precioradar-privacy.html">Pol&iacute;tica de privacidad</a></span>
+      <span><a href="privacidad.html">Pol&iacute;tica de privacidad</a></span>
     </div>
   </div>
 </footer>'''
@@ -159,6 +166,73 @@ JS_COMUN = '''<script>
       burger.focus();
     }
   });
+
+  // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
+  // que comparte un referidor. Sin esto el codigo moria en la primera pagina:
+  // la persona navegaba, se convencia, apretaba WhatsApp y el mensaje salia sin
+  // marca, asi que no habia forma de saber quien la trajo.
+  window.CORYN = window.CORYN || {};
+  (function () {
+    var CLAVE = 'coryn_ref', DIAS = 30;
+
+    // El valor termina dentro de un mensaje de WhatsApp y del formulario, asi
+    // que solo se aceptan letras, numeros y guiones.
+    function limpio (v) {
+      return (v || '').trim().slice(0, 24).replace(/[^A-Za-z0-9_-]/g, '');
+    }
+
+    function guardado () {
+      try {
+        var d = JSON.parse(localStorage.getItem(CLAVE) || 'null');
+        if (d && d.ref && Date.now() < d.vence) return d.ref;
+        if (d) localStorage.removeItem(CLAVE);
+      } catch (e) { /* modo privado, o el navegador bloquea el storage */ }
+      return '';
+    }
+
+    var deUrl = '';
+    try { deUrl = limpio(new URLSearchParams(location.search).get('ref')); } catch (e) {}
+
+    if (deUrl) {
+      try {
+        localStorage.setItem(CLAVE, JSON.stringify({
+          ref: deUrl, vence: Date.now() + DIAS * 864e5
+        }));
+      } catch (e) {}
+    }
+
+    var ref = deUrl || guardado();
+    window.CORYN.ref = ref;
+    if (!ref) return;
+
+    // Si la analitica esta activa, deja constancia de que la visita llego con
+    // codigo. Se encola con el stub que recomienda Vercel porque su script
+    // carga con defer y todavia no existe en este punto.
+    try {
+      window.va = window.va || function () {
+        (window.vaq = window.vaq || []).push(arguments);
+      };
+      window.va('event', { name: 'referido', data: { ref: ref } });
+    } catch (e) {}
+
+    // Se marca en el clic y no al cargar la pagina: el estimador rehace su
+    // enlace de WhatsApp cada vez que cambias la seleccion, y de esta forma
+    // tambien queda marcado sin tener que engancharse a su codigo.
+    document.addEventListener('click', function (e) {
+      var el = e.target;
+      if (el && el.nodeType !== 1) el = el.parentElement;
+      var a = el && el.closest ? el.closest('a[href*="wa.me"]') : null;
+      if (!a) return;
+      var u;
+      try { u = new URL(a.href); } catch (err) { return; }
+      var t = u.searchParams.get('text') || 'Hola CORYN';
+      if (t.indexOf('(Ref:') > -1) return;
+      // Se rearma a mano y no con searchParams.set, que escribe los espacios
+      // como "+"; el resto del sitio los manda como %20.
+      a.href = u.origin + u.pathname + '?text=' +
+               encodeURIComponent(t + ' (Ref: ' + ref + ')');
+    }, true);
+  })();
 
   // Aparicion progresiva, con red de seguridad si el observer no dispara
   (function () {
@@ -196,54 +270,143 @@ def _firma_css():
     return hashlib.sha1(hoja.read_bytes()).hexdigest()[:8]
 
 
+def _medidas(ruta):
+    """Alto y ancho reales de la imagen social.
+
+    Declararlos deja que Facebook y WhatsApp reserven el espacio de la tarjeta
+    sin bajar la imagen primero. Fijarlos a mano seria peor que omitirlos: las
+    fichas de caso no usan la og.jpg de 1200x630.
+    """
+    import pathlib as _pl
+    f = _pl.Path(__file__).parent / ruta
+    if not f.exists():
+        return 1200, 630
+    try:
+        from PIL import Image
+        with Image.open(f) as im:
+            return im.width, im.height
+    except Exception:
+        return 1200, 630
+
+
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
            og_tipo='website', js_extra='', nav_solida=False, canonico='',
-           clase_body=''):
+           clase_body='', ld_extra=(), preload=()):
     """Arma una pagina completa a partir del cuerpo.
 
     canonico:   ruta de la pagina para el <link rel=canonical> ('' = portada).
     clase_body: clase en <body>, para dar tono a una pagina entera sin tener
                 que etiquetar cada seccion a mano.
+    ld_extra:   datos estructurados propios de la pagina (migas, FAQ, caso).
+                El bloque de empresa va en todas; esto se suma.
+    preload:    imagenes que conviene pedir antes de que el navegador
+                descubra el <img>. Solo la que abre la pagina: precargar de
+                mas retrasa justamente lo que se queria adelantar.
     """
+    import json as _json
+    bloques_ld = ''.join(
+        '<script type="application/ld+json">\n'
+        + _json.dumps(d, ensure_ascii=False, indent=2) + '\n</script>\n'
+        for d in ld_extra)
+    precargas = ''.join(
+        f'<link rel="preload" as="image" href="{h}" fetchpriority="high">\n'
+        for h in preload)
     firma = _firma_css()
     og_img_abs = og_img.lstrip('./')
+    og_w, og_h = _medidas(og_img_abs)
     nav = _nav(activa)
     if nav_solida:
         nav = nav.replace('class="nav" id="nav"', 'class="nav solid solid-fija" id="nav"')
+    url_abs = f'https://coryndev.com/{canonico}'
     return f'''<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{titulo}</title>
 <meta name="description" content="{descripcion}">
+<link rel="canonical" href="{url_abs}">
+<meta name="theme-color" content="#070e20">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="{og_tipo}">
+<meta property="og:site_name" content="CORYN">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="{url_abs}">
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{descripcion}">
 <meta property="og:image" content="https://coryndev.com/{og_img_abs}">
+<meta property="og:image:width" content="{og_w}">
+<meta property="og:image:height" content="{og_h}">
+<meta property="og:image:alt" content="CORYN, desarrollo de software a medida en Chile">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://coryndev.com/{canonico}">
+<meta name="twitter:title" content="{titulo}">
+<meta name="twitter:description" content="{descripcion}">
+<meta name="twitter:image" content="https://coryndev.com/{og_img_abs}">
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://coryndev.com/#coryn",
-  "name": "CORYN",
-  "description": "Desarrollo de software a medida para pymes en Chile: sistemas de gestión, sitios web, tiendas online y aplicaciones.",
-  "url": "https://coryndev.com/",
-  "logo": "https://coryndev.com/assets/icon-512.png",
-  "image": "https://coryndev.com/assets/og.jpg",
-  "email": "contacto@coryndev.com",
-  "areaServed": {{ "@type": "Country", "name": "Chile" }},
-  "knowsLanguage": "es-CL",
-  "priceRange": "$$",
-  "sameAs": []
+  "@graph": [
+    {{
+      "@type": "ProfessionalService",
+      "@id": "https://coryndev.com/#coryn",
+      "name": "CORYN",
+      "description": "Desarrollo de software a medida para pymes en Chile: sistemas de gestión, sitios web, tiendas online, aplicaciones móviles e integraciones.",
+      "slogan": "Software a medida de cómo trabajas",
+      "url": "https://coryndev.com/",
+      "logo": {{
+        "@type": "ImageObject",
+        "url": "https://coryndev.com/assets/icon-512.png",
+        "width": 512,
+        "height": 512
+      }},
+      "image": "https://coryndev.com/assets/og.jpg",
+      "email": "contacto@coryndev.com",
+      "address": {{ "@type": "PostalAddress", "addressCountry": "CL" }},
+      "areaServed": {{ "@type": "Country", "name": "Chile" }},
+      "knowsLanguage": "es-CL",
+      "currenciesAccepted": "CLP",
+      "priceRange": "$$",
+      "serviceType": [
+        "Desarrollo de software a medida",
+        "Sistemas de gestión ERP y CRM",
+        "Desarrollo de páginas web",
+        "Desarrollo de tiendas online",
+        "Desarrollo de aplicaciones móviles",
+        "Integraciones y automatizaciones"
+      ],
+      "contactPoint": {{
+        "@type": "ContactPoint",
+        "contactType": "ventas",
+        "email": "contacto@coryndev.com",
+        "areaServed": "CL",
+        "availableLanguage": "es"
+      }},
+      "sameAs": ["https://www.instagram.com/coryn.studio/"]
+    }},
+    {{
+      "@type": "WebSite",
+      "@id": "https://coryndev.com/#sitio",
+      "url": "https://coryndev.com/",
+      "name": "CORYN",
+      "inLanguage": "es-CL",
+      "publisher": {{ "@id": "https://coryndev.com/#coryn" }}
+    }},
+    {{
+      "@type": "WebPage",
+      "@id": "{url_abs}#pagina",
+      "url": "{url_abs}",
+      "name": "{titulo}",
+      "description": "{descripcion}",
+      "inLanguage": "es-CL",
+      "isPartOf": {{ "@id": "https://coryndev.com/#sitio" }},
+      "about": {{ "@id": "https://coryndev.com/#coryn" }}
+    }}
+  ]
 }}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+{bloques_ld}{precargas}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="styles-v2.css?v={firma}">
@@ -264,6 +427,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
 
 {JS_COMUN}
 {js_extra}
+{ANALITICA}
 </body>
 </html>
 '''

@@ -16,7 +16,12 @@
     },
     {
       "source": "/privacy",
-      "destination": "/precioradar-privacy.html",
+      "destination": "/privacidad.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacidad.html",
       "permanent": true
     }
   ],

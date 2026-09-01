@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CORYN — portada de destacada</title>
+<style>
+  /* Portada de destacada: 1080x1920, pero Instagram solo muestra un circulo
+     del centro, y en el perfil ese circulo mide unos 64px. A ese tamano una
+     foto se convierte en una mancha, asi que va un simbolo plano y grande.
+     Tampoco lleva texto: Instagram escribe el nombre debajo del circulo. */
+  :root{ --papel:#eaf1fb; --azul:#1f5fe0; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--papel); }
+
+  .portada{
+    width:1080px; height:1920px; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    /* Papel, no blanco puro: el perfil de Instagram ya es blanco y un circulo
+       blanco desapareceria contra el fondo. */
+    background:
+      radial-gradient(62% 36% at 50% 50%, #ffffff 0%, rgba(255,255,255,0) 72%),
+      var(--papel);
+  }
+  /* Zona que sobrevive al recorte circular. Nada importante fuera de aqui. */
+  .segura{
+    width:620px; height:620px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  svg{
+    width:360px; height:360px;
+    fill:none; stroke:var(--azul); stroke-width:1.7;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+</style>
+</head>
+<body>
+  <div class="portada">
+    <div class="segura">{{SVG}}</div>
+  </div>
+</body>
+</html>

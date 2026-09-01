@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 """Genera el flyer de CORYN en PDF + JPG, personalizado por referidor.
 
+El flyer es de una sola hoja: se reparte por WhatsApp como imagen y en un
+telefono no se lee nada bajo los 5mm. El detalle completo vive en la web, que
+es a donde lleva el QR.
+
 Uso:
   python3 build.py                       # version generica
   python3 build.py --ref TIO01 --nombre "Juan Perez" --fono "+56 9 1234 5678"
 """
-import argparse, base64, pathlib, subprocess, sys, urllib.parse
+import argparse, base64, pathlib, subprocess, urllib.parse
 
 BASE = pathlib.Path(__file__).parent
 ASSETS = BASE / "assets"
 OUT = BASE / "out"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-WHATSAPP = "56948780902"
 WEB = "https://coryndev.com"
+WHATSAPP = "56948780902"
 
 
 def b64(path):
@@ -36,9 +40,9 @@ def main():
     ap.add_argument("--fono", default="", help="teléfono del referidor (opcional)")
     a = ap.parse_args()
 
-    msg = f"Hola CORYN, me interesa cotizar un proyecto. (Ref: {a.ref})"
-    wa_link = f"https://wa.me/{WHATSAPP}?text=" + urllib.parse.quote(msg)
     web_link = f"{WEB}/?ref={a.ref}"
+    msg = f"Hola CORYN, vi el volante. (Ref: {a.ref})"
+    wa_link = f"https://wa.me/{WHATSAPP}?text=" + urllib.parse.quote(msg)
 
     if a.nombre:
         credito = f"Te compartió esto <b>{a.nombre}</b>"
@@ -47,11 +51,28 @@ def main():
         credito = "Comparte este documento con quien lo necesite"
 
     html = (BASE / "flyer.template.html").read_text()
+    def img(nombre, ancho=None):
+        """Las fotos van incrustadas en el propio PDF: el flyer se reparte por
+        WhatsApp y tiene que verse igual sin conexion. Las que salen chicas se
+        reducen antes de incrustarlas, si no el archivo se va a los 8 MB."""
+        ruta = BASE.parent / "assets" / nombre
+        if ancho is None:
+            return "data:image/webp;base64," + b64(ruta)
+        from PIL import Image
+        import io
+        im = Image.open(ruta).convert("RGB")
+        if im.width > ancho:
+            im = im.resize((ancho, round(im.height * ancho / im.width)), Image.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, "WEBP", quality=82, method=6)
+        return "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
+
     repl = {
         "{{MARK}}": "data:image/png;base64," + b64(ASSETS / "mark.png"),
-        "{{QR_WA}}": qr_svg(wa_link),
+        "{{FOTO}}": img("real-planilla.webp", 1400),
         "{{QR_WEB}}": qr_svg(web_link),
-        "{{REF}}": a.ref,
+        "{{QR_WA}}": qr_svg(wa_link),
+        "{{REF}}": "" if a.ref == "WEB" else f"Ref: {a.ref}",
         "{{CREDITO}}": credito,
     }
     for k, v in repl.items():
@@ -67,8 +88,8 @@ def main():
                     f"--print-to-pdf={pdf_path}", html_path.as_uri()], check=True,
                    capture_output=True)
 
-    # Página 1 como imagen para compartir por WhatsApp
-    png_path = OUT / f"flyer-coryn-{slug}-p1.png"
+    # La hoja como imagen, que es como se comparte por WhatsApp
+    png_path = OUT / f"flyer-coryn-{slug}.png"
     subprocess.run([CHROME, "--headless", "--disable-gpu", "--hide-scrollbars",
                     "--window-size=794,1123", "--force-device-scale-factor=2",
                     f"--screenshot={png_path}", html_path.as_uri()],
@@ -76,7 +97,7 @@ def main():
     try:
         from PIL import Image
         im = Image.open(png_path).convert("RGB")
-        im.save(OUT / f"flyer-coryn-{slug}-p1.jpg", quality=88, optimize=True)
+        im.save(OUT / f"flyer-coryn-{slug}.jpg", quality=88, optimize=True)
     except ImportError:
         pass
 
