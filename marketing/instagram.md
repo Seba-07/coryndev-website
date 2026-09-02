@@ -123,8 +123,9 @@ agencia los publica, y tú sí. Es coherente con el "sin letra chica" del sitio.
 
 ## 4. Orden de publicación
 
-Los seis carruseles ya generados, uno cada dos semanas. Este orden parte por los
-problemas más transversales y deja los de nicho para después:
+Los seis carruseles ya generados, **uno por semana**, mismo día y misma hora.
+Este orden parte por los problemas más transversales y deja los de nicho para
+después:
 
 | # | Carrusel | Por qué acá |
 |---|---|---|
@@ -136,6 +137,16 @@ problemas más transversales y deja los de nicho para después:
 | 6 | `caso-6` Los pedidos se pierden | Más de nicho: talleres y producción |
 
 Cada carpeta trae las cuatro imágenes y el `texto.txt` con el pie listo.
+
+**Por qué uno por semana y no todos juntos.** A un seguidor le llega más o menos
+un post tuyo por sesión: publicar cinco el mismo día hace que compitan entre
+ellos y cuatro se pierdan. Y uno por día tampoco, porque el contenido es el
+recurso escaso, no la atención: seis piezas quemadas en seis días dejan la
+cuenta muerta la semana siguiente.
+
+**Las historias llenan el resto de la semana.** Las 26 de las destacadas no
+gastan contenido del feed. Un carrusel semanal más historias sueltas mantiene la
+cuenta viva sin consumir el inventario.
 
 **Las cuatro láminas llevan imagen real, y el fondo es claro.** La primera
 versión era oscura y de puro texto: se leía como plantilla genérica, que es
