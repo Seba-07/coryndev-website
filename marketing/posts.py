@@ -356,13 +356,25 @@ def _recorta(texto, tope=210):
     return texto[:corte + 1] if corte > tope * 0.55 else texto[:tope].rsplit(" ", 1)[0] + "..."
 
 
+def _clase_imagen(ruta):
+    """Vertical va en marco de telefono; apaisada, en franja a sangre."""
+    try:
+        from PIL import Image as _I
+        with _I.open(RAIZ / ruta) as im:
+            vertical = im.size[0] / im.size[1] < 0.8
+    except Exception:
+        vertical = False
+    return "imagen telefono" if vertical else "imagen"
+
+
 def _que_hacemos():
     laminas = [("Servicios", """    <p class="rot">Lo que hacemos</p>
     <h1>Seis formas<br><em>de ayudarte</em></h1>
     <p class="texto">Con el alcance, el plazo y el precio de cada una. Sin letra
     chica: también decimos lo que no incluye.</p>""")]
     for nombre, clave, resumen, img in servicios_del_sitio():
-        imagen = (f'    <div class="imagen"><img src="{{{{IMG:{img}}}}}" alt=""></div>\n'
+        imagen = (f'    <div class="{_clase_imagen(img)}">'
+                  f'<img src="{{{{IMG:{img}}}}}" alt=""></div>\n'
                   if img else "")
         laminas.append((nombre.split("(")[0].strip(), imagen +
                         f"""    <p class="rot">{html.escape(clave)}</p>

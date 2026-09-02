@@ -43,6 +43,14 @@
   .imagen{ margin:0 -72px 44px; height:620px; overflow:hidden; background:#0a1730; }
   .imagen img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
 
+  /* Capturas verticales: recortadas a una franja apaisada se leen como pantalla
+     de escritorio. Van dentro de un marco con forma de telefono, sin recortar. */
+  .imagen.telefono{ margin:0 0 44px; height:700px; background:none;
+                    display:flex; align-items:center; justify-content:center; }
+  .imagen.telefono img{ width:auto; height:100%; object-fit:contain;
+                        border-radius:38px; border:9px solid var(--tinta);
+                        box-shadow:0 24px 60px rgba(10,23,48,.18); }
+
   /* tabla de precios */
   .tabla{ width:100%; border-collapse:collapse; margin-top:14px; }
   .tabla td{ padding:30px 0; border-top:2px solid var(--linea); font-size:40px; }
