@@ -272,8 +272,13 @@ Si no aparece, entra directo a business.google.com con esa cuenta.
 
 ### Paso 1 — Agregar un segundo propietario (5 minutos, hazlo primero)
 
-*Editar perfil* → pestaña **Administradores** → **Agregar** →
-`sa.aranguiz.rivera@gmail.com` → rol **Propietario**.
+En el panel, menu **tres puntos** (arriba a la derecha, junto a "Punto fuerte
+del perfil") → **Configuracion del perfil de empresa** → **Usuarios y acceso**
+(a veces "Personas y acceso") → boton **Agregar**, arriba a la izquierda →
+`sa.aranguiz.rivera@gmail.com` → en *Acceso* elige **Propietario** →
+**Invitar**. Llega un correo con la invitacion y hay que aceptarla.
+
+No esta bajo *Editar perfil*: la gestion de usuarios vive solo en ese menu.
 
 Hoy la ficha depende de una sola cuenta. Si pierdes el acceso a
 `contacto@coryndev.com`, recuperarla ante Google es un tramite largo. Con dos
