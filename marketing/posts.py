@@ -367,6 +367,50 @@ def _clase_imagen(ruta):
     return "imagen telefono" if vertical else "imagen"
 
 
+
+def _reel_precios():
+    """Los fotogramas del reel de precios. Los montos salen del estimador del
+    sitio, igual que todo lo demas: si cambia alla, cambia aca."""
+    fs = [
+        """    <h1>¿Cuánto cuesta<br><em>un sistema<br>a medida?</em></h1>""",
+        """    <h1>Nadie<br>te lo dice.</h1>
+    <p class="sub">Todos escriben <b>"cotízalo con nosotros"</b>. Ahí van los precios.</p>""",
+    ]
+    for nombre, monto, uf in precios_del_sitio():
+        fs.append(f"""    <p class="que">{nombre}</p>
+    <p class="monto">{monto}</p>
+    <p class="mas">+ {uf} al mes</p>
+    <p class="nota">Puesta en marcha. El acompañamiento mensual va aparte
+    y no tiene permanencia.</p>""")
+    fs.append("""    <h1>Precio cerrado<br><em>antes de<br>empezar.</em></h1>
+    <p class="sub">Calcula el tuyo en coryndev.com.
+    <b>La primera reunión no tiene costo.</b></p>""")
+    return fs
+
+
+def reel():
+    """Los fotogramas del reel, listos para montar en Instagram."""
+    plantilla = (BASE / "reel.template.html").read_text()
+    marca = "data:image/png;base64," + base64.b64encode(
+        (ASSETS / "mark.png").read_bytes()).decode()
+    carpeta = OUT / "reel-precios"
+    carpeta.mkdir(parents=True, exist_ok=True)
+    hechos = []
+    for i, contenido in enumerate(_reel_precios(), 1):
+        fuente = carpeta / f"{i:02d}.html"
+        fuente.write_text(plantilla.replace("{{MARK}}", marca)
+                                   .replace("{{CONTENIDO}}", contenido))
+        destino = carpeta / f"{i:02d}.png"
+        subprocess.run(
+            [CHROME, "--headless", "--disable-gpu", "--hide-scrollbars",
+             "--window-size=1080,1920", "--virtual-time-budget=4000",
+             f"--screenshot={destino}", fuente.as_uri()],
+            check=True, capture_output=True)
+        fuente.unlink()
+        hechos.append(destino)
+    return hechos
+
+
 def _que_hacemos():
     laminas = [("Servicios", """    <p class="rot">Lo que hacemos</p>
     <h1>Seis formas<br><em>de ayudarte</em></h1>
@@ -582,12 +626,17 @@ def main():
     ap.add_argument("--destacadas", action="store_true", help="generar las portadas de destacadas")
     ap.add_argument("--historias", choices=sorted(HISTORIAS),
                     help="generar las historias de una destacada")
+    ap.add_argument("--reel", action="store_true",
+                    help="generar los fotogramas del reel de precios")
     a = ap.parse_args()
 
     if a.perfil:
         print(f"OK -> {foto_perfil()}")
         return
 
+    if a.reel:
+        for r in reel():
+            print("OK ->", r)
     if a.historias:
         for r in historias(a.historias):
             print(f"OK -> {r}")
