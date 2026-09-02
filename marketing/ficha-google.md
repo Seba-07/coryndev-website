@@ -253,3 +253,84 @@ cargadas, porque si no las escribe cualquiera:
 2. **Pedir reseñas a bySIMMED y AvenProp.** Una ficha sin reseñas convierte
    poco, y son los dos clientes que ya te conocen.
 3. Revisar en un mes cuántos contactos llegaron con `Ref: GOOGLE`.
+
+---
+
+## 10. Paso a paso de lo que falta (ficha ya creada y verificada)
+
+La ficha existe, está verificada y tiene su primera reseña. Falta cargarle
+contenido. **Todo esto se hace desde la cuenta `contacto@coryndev.com`**, que
+es la dueña — no desde el Gmail personal.
+
+### Paso 0 — Abrir el panel
+
+Entra a Google con `contacto@coryndev.com` y busca `CORYN`. Aparece el panel
+de dueño: "Tu negocio en Google", con los botones *Editar perfil*, *Fotos*,
+*Publicaciones*, *Editar servicios*, etc. Ese es el lugar de trabajo.
+
+Si no aparece, entra directo a business.google.com con esa cuenta.
+
+### Paso 1 — Agregar un segundo propietario (5 minutos, hazlo primero)
+
+*Editar perfil* → pestaña **Administradores** → **Agregar** →
+`sa.aranguiz.rivera@gmail.com` → rol **Propietario**.
+
+Hoy la ficha depende de una sola cuenta. Si pierdes el acceso a
+`contacto@coryndev.com`, recuperarla ante Google es un tramite largo. Con dos
+propietarios entras por la otra puerta.
+
+### Paso 2 — Cargar los 6 servicios
+
+Boton **Editar servicios** → **Agregar servicio** → *Servicio personalizado*.
+Uno por uno, seis veces.
+
+**Google rechaza precios y telefonos escritos dentro del nombre o la
+descripcion.** El precio va en su campo aparte. Por eso las descripciones de
+abajo no llevan cifras.
+
+| Nombre | Precio | Descripcion |
+|---|---|---|
+| Sistemas de gestion (ERP / CRM) | 129000 | Reemplaza las planillas y ordena la operacion completa en un solo lugar: inventario, ventas, clientes y cobros. Puedes partir por un modulo y crecer desde ahi. |
+| Paginas web | 69000 | Sitios corporativos, catalogos y paginas de captacion. Rapidos, adaptados a celular y pensados para que el visitante haga algo. |
+| Aplicaciones moviles | 159000 | Aplicaciones para iOS y Android, publicadas en las tiendas o distribuidas internamente a tu equipo. |
+| Tiendas online | 189000 | Comercio electronico cuando una plataforma estandar no alcanza: catalogos complejos, precios por cliente o reglas propias de despacho. |
+| Integraciones y automatizaciones | *(vacio)* | Conectamos sistemas que hoy no se hablan, para eliminar el trabajo de copiar datos de un lado a otro. |
+| Acompanamiento mensual | *(vacio)* | Acompana todo lo que entregamos y se cobra aparte de la puesta en marcha. Es lo que separa un sistema que sigue sirviendo de uno que quedo congelado el dia de la entrega. |
+
+**No uses "Editar productos".** Es para retail con inventario; duplicarias los
+servicios y ninguno quedaria bien.
+
+**Deuda que creas al poner precios aca:** pasan a vivir en dos lugares (el
+estimador del sitio y Google). Si cambias uno, hay que cambiar el otro. Si
+prefieres evitarlo, deja los cuatro campos de precio vacios.
+
+### Paso 3 — Publicar las 3 publicaciones
+
+Boton **Publicaciones** → **Agregar novedad**. Los textos estan en la seccion 7
+de este archivo. Para cada una: pegar el texto, agregar una foto, boton
+*Mas informacion* con su URL, y publicar.
+
+Una por semana rinde mas que las tres el mismo dia: Google premia la ficha
+activa, no la ficha llena.
+
+### Paso 4 — Cargar las 4 preguntas frecuentes
+
+**Esto NO esta en el panel.** Vive en la ficha publica.
+
+Truco para que se vea bien: **pregunta desde el Gmail personal y responde desde
+la cuenta de la empresa.** Asi la pregunta parece de un usuario y la respuesta
+sale marcada como "Respuesta del propietario". Si preguntas y respondes con la
+misma cuenta, se nota.
+
+1. Con `sa.aranguiz.rivera@gmail.com`, busca `CORYN` en Google.
+2. En la tarjeta de la derecha, baja hasta **Preguntas y respuestas**.
+3. **Hacer una pregunta** → pega la pregunta → publicar. Repite las cuatro.
+4. Cambia a `contacto@coryndev.com` y responde cada una.
+
+Las cuatro preguntas y respuestas estan en la seccion 8.
+
+### Paso 5 — En una semana, revisar la indexacion
+
+Busca `CORYN` en Google Maps desde el telefono. Una ficha nueva demora dias en
+aparecer en Busqueda y Maps aunque ya este verificada. Si a la semana sigue sin
+salir, ahi si hay algo que revisar.
