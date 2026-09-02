@@ -476,9 +476,8 @@ def _ultimo_cambio(*fuentes):
 
 
 def construir_sitemap():
-    """Un <url> por pagina publica. La 404 y las paginas legales de apps
-    (cunde-*) quedan fuera: existen para ser enlazadas, no para aparecer en
-    buscadores."""
+    """Un <url> por pagina publica. La 404 queda fuera: existe para
+    responder, no para aparecer en buscadores."""
     urls = [('https://coryndev.com/', _ultimo_cambio('site/inicio.body.html'))]
     urls += [(f"https://coryndev.com/{p['slug']}.html",
               _ultimo_cambio(f"site/{p['slug']}.body.html"))
