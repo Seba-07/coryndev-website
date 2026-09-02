@@ -387,7 +387,7 @@ def construir_paginas():
 # ---------- paginas de caso ----------
 
 def ficha_caso(c):
-    filas = [('Cliente', 'Producto propio de CORYN' if c['slug'] == 'precioradar' else c['titulo']),
+    filas = [('Cliente', c['titulo']),
              ('Sector', c['sector']),
              ('Tipo de proyecto', c['tipo']),
              ('Estado', 'En línea')]
@@ -477,8 +477,8 @@ def _ultimo_cambio(*fuentes):
 
 def construir_sitemap():
     """Un <url> por pagina publica. La 404 y las paginas legales de apps
-    (cunde-*, precioradar-privacy) quedan fuera: existen para ser enlazadas,
-    no para aparecer en buscadores."""
+    (cunde-*) quedan fuera: existen para ser enlazadas, no para aparecer en
+    buscadores."""
     urls = [('https://coryndev.com/', _ultimo_cambio('site/inicio.body.html'))]
     urls += [(f"https://coryndev.com/{p['slug']}.html",
               _ultimo_cambio(f"site/{p['slug']}.body.html"))

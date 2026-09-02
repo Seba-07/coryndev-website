@@ -108,7 +108,6 @@ PIE = f'''<footer class="foot">
         <ul>
           <li><a href="caso-bysimmed.html">bySIMMED</a></li>
           <li><a href="caso-avenprop.html">AvenProp</a></li>
-          <li><a href="caso-precioradar.html">PrecioRadar</a></li>
         </ul>
       </div>
       <div>
