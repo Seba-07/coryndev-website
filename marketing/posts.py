@@ -234,8 +234,14 @@ def precios_del_sitio():
 
 
 def _tabla_precios():
-    return "".join(f'<tr><td>{n}</td><td class="n">desde {b}</td></tr>'
-                   for n, b, _ in precios_del_sitio())
+    """De menor a mayor: el numero mas bajo primero baja la guardia, y una
+    columna ordenada se lee de un vistazo. El "desde" va aparte y mas chico
+    para que mande la cifra, no la palabra."""
+    filas = sorted(precios_del_sitio(),
+                   key=lambda p: int(p[1].replace("$", "").replace(".", "")))
+    return "".join(f'<tr><td>{n}</td>'
+                   f'<td class="n"><i>desde</i>{b}</td></tr>'
+                   for n, b, _ in filas)
 
 
 # Las historias que van dentro de cada destacada. La portada es solo la tapa;
