@@ -394,15 +394,56 @@ def _reel_precios():
     return fs
 
 
-def reel():
+def _reel_cotizaciones():
+    """La duda mas repetida despues del precio: por que el mismo proyecto se
+    cotiza tan distinto. El reel no la resuelve vendiendo, la resuelve dandole
+    al que mira las tres preguntas que igualan las cotizaciones."""
+    return [
+        """    <h1>Mismo proyecto.<br><em>Tres cotizaciones.</em></h1>
+    <p class="sub"><b>$1.500.000</b>, <b>$6.000.000</b> y <b>$18.000.000</b>.
+    Pasa todos los días en Chile.</p>""",
+
+        """    <h1><em>Ninguna</em><br>miente.</h1>
+    <p class="sub">Te cotizaron <b>tres cosas distintas</b>.
+    Y ninguna te dijo cuál.</p>""",
+
+        """    <p class="rot">Lo que cambia · 1</p>
+    <h1 class="chico">Qué entra<br><em>y qué no.</em></h1>
+    <p class="nota">Uno cotizó el sistema. Otro cotizó el sistema, pasar tus
+    datos viejos y enseñarle a tu equipo a usarlo.</p>""",
+
+        """    <p class="rot">Lo que cambia · 2</p>
+    <h1 class="chico">Quién lo<br><em>mantiene.</em></h1>
+    <p class="nota">Un sistema sin mantención, en un año no arranca.
+    Pregunta cuánto cuesta el mes 13.</p>""",
+
+        """    <p class="rot">Lo que cambia · 3</p>
+    <h1 class="chico">A nombre<br><em>de quién queda.</em></h1>
+    <p class="nota">El código, el dominio y las cuentas: tuyas o del proveedor.
+    Si quedan a nombre de él, no te puedes cambiar.</p>""",
+
+        """    <h1>Pide esas tres<br><em>por escrito.</em></h1>
+    <p class="sub">Recién ahí estás comparando lo mismo.
+    <b>Sirve con nosotros y con cualquiera.</b></p>""",
+
+        """    <h1>Nosotros los<br><em>publicamos.</em></h1>
+    <p class="sub">Los precios están en <b>coryndev.com</b>, antes de que
+    hables con nadie.</p>""",
+    ]
+
+
+REELES = {"precios": _reel_precios, "cotizaciones": _reel_cotizaciones}
+
+
+def reel(nombre="precios"):
     """Los fotogramas del reel, listos para montar en Instagram."""
     plantilla = (BASE / "reel.template.html").read_text()
     marca = "data:image/png;base64," + base64.b64encode(
         (ASSETS / "mark.png").read_bytes()).decode()
-    carpeta = OUT / "reel-precios"
+    carpeta = OUT / f"reel-{nombre}"
     carpeta.mkdir(parents=True, exist_ok=True)
     hechos = []
-    for i, contenido in enumerate(_reel_precios(), 1):
+    for i, contenido in enumerate(REELES[nombre](), 1):
         fuente = carpeta / f"{i:02d}.html"
         fuente.write_text(plantilla.replace("{{MARK}}", marca)
                                    .replace("{{CONTENIDO}}", contenido))
@@ -632,8 +673,8 @@ def main():
     ap.add_argument("--destacadas", action="store_true", help="generar las portadas de destacadas")
     ap.add_argument("--historias", choices=sorted(HISTORIAS),
                     help="generar las historias de una destacada")
-    ap.add_argument("--reel", action="store_true",
-                    help="generar los fotogramas del reel de precios")
+    ap.add_argument("--reel", choices=sorted(REELES),
+                    help="generar los fotogramas de este reel")
     a = ap.parse_args()
 
     if a.perfil:
@@ -641,7 +682,7 @@ def main():
         return
 
     if a.reel:
-        for r in reel():
+        for r in reel(a.reel):
             print("OK ->", r)
     if a.historias:
         for r in historias(a.historias):
