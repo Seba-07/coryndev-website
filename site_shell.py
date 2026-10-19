@@ -56,7 +56,7 @@ def _nav(activa):
     return f'''<header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="assets/mark.webp" alt="" width="28" height="28">
+      <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
       <span>CORYN</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -97,7 +97,7 @@ PIE = f'''<footer class="foot">
     <div class="cols">
       <div class="foot-marca">
         <a class="brand" href="index.html">
-          <img src="assets/mark-claro.webp" alt="" width="28" height="28">
+          <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
           <span>CORYN</span>
         </a>
         <p>Software 100% personalizado para negocios que necesitan que la

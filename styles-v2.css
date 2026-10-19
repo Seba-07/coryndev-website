@@ -65,7 +65,8 @@ a{ color:inherit; }
 }
 .nav .wrap{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
 .brand{ display:flex; align-items:center; gap:9px; text-decoration:none; }
-.brand img{ width:28px; }
+.brand .marca-svg{ width:28px; height:auto; display:block; color:#fff; }
+.nav.solid .brand .marca-svg{ color:var(--ink); }
 .brand span{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
   font-size:18px; letter-spacing:.18em; color:#fff;
@@ -405,7 +406,7 @@ section{ padding:74px 0; }
 @media (min-width:980px){ .foot .cols{ grid-template-columns:1.7fr 1fr 1fr 1.15fr; gap:48px; } }
 
 .foot .brand{ gap:11px; }
-.foot .brand img{ width:34px; }
+.foot .brand .marca-svg{ width:34px; color:#fff; }
 .foot .brand span{ color:#fff; font-size:19px; }
 .foot-marca > p{
   color:#8ea8d4; font-size:14.5px; line-height:1.62;
