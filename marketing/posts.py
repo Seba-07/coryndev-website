@@ -554,7 +554,8 @@ def foto_perfil():
     una pieza propia en vez de reutilizar un asset del sitio."""
     from PIL import Image
     lado, noche = 1080, (7, 14, 32)
-    simbolo = Image.open(ASSETS / "mark.png").convert("RGBA")
+    # Fondo oscuro: va la version clara del simbolo (C blanca, pieza azul).
+    simbolo = Image.open(ASSETS / "mark-claro.png").convert("RGBA")
     ancho = int(lado * 0.52)
     alto = round(simbolo.height * ancho / simbolo.width)
     simbolo = simbolo.resize((ancho, alto), Image.LANCZOS)

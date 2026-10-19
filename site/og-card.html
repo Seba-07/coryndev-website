@@ -1,36 +1,32 @@
 <!-- Fuente de la tarjeta de vista previa (Open Graph).
      Para regenerarla:
        chrome --headless --window-size=1200,630 --screenshot=assets/og.jpg site/og-card.html
-     o mas simple: abrela en el navegador y captura a 1200x630. -->
+     El logo va incrustado desde marketing/assets/marca/ para que la tarjeta no
+     dependa de rutas relativas al abrirla suelta. -->
 <!DOCTYPE html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <style>
  *{margin:0;padding:0;box-sizing:border-box}
- body{width:1200px;height:630px;overflow:hidden;position:relative;
-   background:#0a1730 url("../assets/mark.webp") right center/cover no-repeat;
+ body{width:1200px;height:630px;overflow:hidden;position:relative;background:#0a1730;
    font-family:'IBM Plex Sans',sans-serif;color:#fff}
- .velo{position:absolute;inset:0;background:
-   radial-gradient(55% 80% at 76% 46%, rgba(35,150,190,.30) 0%, rgba(35,150,190,0) 64%),
-   linear-gradient(100deg, rgba(7,14,32,.95) 0%, rgba(7,14,32,.7) 44%, rgba(7,14,32,.1) 100%)}
+ .agua{position:absolute;right:-120px;top:-40px;width:720px;opacity:.07}
+ .velo{position:absolute;inset:0;background:radial-gradient(60% 90% at 80% 50%, rgba(31,95,224,.22) 0%, rgba(31,95,224,0) 70%)}
  .cont{position:relative;padding:66px 72px;height:100%;display:flex;flex-direction:column}
- .marca{display:flex;align-items:center;gap:14px}
- .marca img{width:52px}
- .marca span{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:.2em}
+ .marca img{height:54px}
  .ceja{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;letter-spacing:.17em;
-   text-transform:uppercase;color:#6fd8ec;margin-top:auto}
+   text-transform:uppercase;color:#7fb0ff;margin-top:auto}
  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:64px;line-height:1.05;
    letter-spacing:-.03em;margin-top:18px;max-width:17ch}
- h1 em{font-style:normal;background:linear-gradient(96deg,#6fd8ec,#74a6ff);
-   -webkit-background-clip:text;color:transparent}
- .pie{margin-top:26px;display:flex;gap:26px;font-family:'IBM Plex Mono',monospace;
-   font-size:19px;color:#9fbaea}
+ h1 em{font-style:normal;color:#7fb0ff}
+ .pie{margin-top:26px;display:flex;gap:26px;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#9fbaea}
  .pie b{color:#dbe7fb;font-weight:600}
 </style></head><body>
+<img class="agua" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3OS41MCA4NC4wMCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguMDAsLTguMDApIHNjYWxlKDEuMDAwMDApIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNODEuNzAgNzcuNTVBNDIgNDIgMCAxIDEgODEuNzAgMjIuNDVMNjguMTEgMzQuMjVBMjQgMjQgMCAxIDAgNjguMTEgNjUuNzVaIi8+PHBhdGggZmlsbD0iIzFmNWZlMCIgZD0iTTczLjEgNDEuNUg4NC45QTIuNiAyLjYgMCAwIDEgODcuNSA0NC4xVjU1LjlBMi42IDIuNiAwIDAgMSA4NC45IDU4LjVINzMuMUEyLjYgMi42IDAgMCAxIDcwLjUgNTUuOVY0NC4xQTIuNiAyLjYgMCAwIDEgNzMuMSA0MS41WiIvPjwvZz48L3N2Zz4=" alt="">
 <div class="velo"></div>
 <div class="cont">
-  <div class="marca"><img src="../assets/mark.webp" alt=""><span>CORYN</span></div>
+  <div class="marca"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDIuNjcgODQuMDAiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04LjAwLC04LjAwKSBzY2FsZSgxLjAwMDAwKSI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTgxLjcwIDc3LjU1QTQyIDQyIDAgMSAxIDgxLjcwIDIyLjQ1TDY4LjExIDM0LjI1QTI0IDI0IDAgMSAwIDY4LjExIDY1Ljc1WiIvPjxwYXRoIGZpbGw9IiMxZjVmZTAiIGQ9Ik03My4xIDQxLjVIODQuOUEyLjYgMi42IDAgMCAxIDg3LjUgNDQuMVY1NS45QTIuNiAyLjYgMCAwIDEgODQuOSA1OC41SDczLjFBMi42IDIuNiAwIDAgMSA3MC41IDU1LjlWNDQuMUEyLjYgMi42IDAgMCAxIDczLjEgNDEuNVoiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTkuNTAsMTUuOTYpIHNjYWxlKDAuMTg5MzgyKSI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTExNC41MCAyNzMuODVDNDcuMTMgMjcwLjE4IDYuMDkgMjI1LjY5IDEuMDkgMTUwLjkwQy0xLjU5IDExMC44MiA3LjUzIDcxLjYwIDI1LjQ4IDQ2LjAwQzM4LjkxIDI2LjgzIDYwLjgyIDExLjIxIDgyLjc3IDUuMTNDOTcuOTAgMC45NCAxMTAuMTIgLTAuMjkgMTMxLjAwIDAuMjdDMTQ4LjY5IDAuNzQgMTUxLjYyIDEuMDggMTYyLjUwIDMuOTNDMTgyLjU5IDkuMTkgMTk4Ljg1IDE4LjgzIDIwOS42OCAzMS45MkMyMTUuODkgMzkuNDIgMjIzLjI2IDUzLjY1IDIyNS41MiA2Mi41MEMyMjcuNzQgNzEuMjIgMjI5LjI1IDg3LjU0IDIyOC41MCA5NC43MEwyMjcuODUgMTAwLjkwTDIyMy42OCAxMDEuNDdDMjE2LjQ0IDEwMi40NiAxNzAuMDcgMTA4LjAwIDE2OS4wMSAxMDguMDBDMTY4LjQyIDEwOC4wMCAxNjcuOTkgMTA0LjgxIDE2Ny45OSAxMDAuMjVDMTY3Ljk0IDc2Ljk4IDE1Ni4xNSA1OS40MCAxMzcuMjkgNTQuNDlDMTI4Ljc1IDUyLjI2IDExNC4zMCA1Mi41NCAxMDYuNzcgNTUuMDhDODEuNTQgNjMuNTggNjguOTMgODkuNjQgNjguODMgMTMzLjUwQzY4Ljc1IDE2OC45MSA3NS4yMiAxOTEuMTMgODkuOTcgMjA2LjA4QzEwMC4zNCAyMTYuNTkgMTExLjE4IDIyMC45NCAxMjcuMDAgMjIwLjk2QzE0My4wNCAyMjAuOTggMTUzLjA0IDIxNy4xOSAxNjEuMzQgMjA3Ljk3QzE3MC4xMCAxOTguMjIgMTc0LjE4IDE4NS44MCAxNzQuMzggMTY4LjI2TDE3NC41MCAxNTcuMDJMMTc3LjUwIDE1Ny4wNEMxNzkuNzcgMTU3LjA3IDIzNC40OCAxNjEuNjcgMjM1Ljc1IDE2MS45NUMyMzUuODkgMTYxLjk4IDIzNi4wMCAxNjcuMDYgMjM2LjAwIDE3My4yNUMyMzUuOTggMjIwLjkzIDIxMy4wMSAyNTQuNzkgMTcxLjUwIDI2OC4zM0MxNTYuOTMgMjczLjA4IDEzNi41OSAyNzUuMDUgMTE0LjUwIDI3My44NVpNMzc0LjUwIDI3My44NEMzNDQuMTUgMjcyLjAyIDMyMC4zMCAyNjIuMTIgMzAxLjQ1IDI0My41MEMyNzkuNzggMjIyLjA5IDI2OC44MyAxOTQuMjIgMjY1Ljg5IDE1Mi45OEMyNjMuMzggMTE3Ljg2IDI2OC40NCA4Ni4xMyAyODAuNDkgNjEuMzdDMjk2Ljc0IDI4LjAxIDMyMi44NSA4LjkxIDM2MS44NiAxLjg4QzM3MS45OCAwLjA2IDM3NS45OSAtMC4xNSAzOTIuNTAgMC4zM0M0MTIuMjEgMC45MCA0MTguODIgMS45MSA0MzMuNTAgNi42MEM0ODEuMDMgMjEuODEgNTA4LjAwIDY4LjkwIDUwOC4wMCAxMzYuNzFDNTA4LjAwIDE5NS42OCA0ODguMDYgMjM3LjUwIDQ0OS40MyAyNTkuNTFDNDMwLjMzIDI3MC4zOSA0MDMuMjkgMjc1LjU3IDM3NC41MCAyNzMuODRaTTU0Ny4wMCAxMzcuMDBMNTQ3LjAwIDUuMDBMNjA1Ljg5IDUuMDBDNjY4LjcxIDUuMDAgNjc5LjM5IDUuNTUgNjk2LjAwIDkuNjNDNzE3LjQ0IDE0LjkwIDczMS40OSAyMi40MSA3NDMuMjkgMzQuOTJDNzYyLjEyIDU0Ljg4IDc2Ni42MCA4Ny44OCA3NTMuODEgMTEyLjMxQzc0OS45NiAxMTkuNjYgNzM5LjcyIDEzMC4xMiA3MzEuNzIgMTM0Ljg1QzcyMS4xMyAxNDEuMTMgNzA1LjI2IDE0Ni4zNSA2OTIuNzUgMTQ3LjY3QzY4OC4xOSAxNDguMTYgNjg3LjAwIDE0OC42NCA2ODcuMDAgMTUwLjAzQzY4Ny4wMCAxNTEuNDQgNjg4LjI3IDE1MS45MCA2OTMuNzUgMTUyLjQ2QzcxMi41NyAxNTQuMzkgNzI1LjMwIDE1OS41NCA3MzUuNzkgMTY5LjQ2Qzc0OC40OSAxODEuNDcgNzUyLjQ3IDE5MC44OSA3NjMuNDggMjM1LjA0Qzc2Ny42NiAyNTEuNzkgNzcxLjMyIDI2Ni4yOSA3NzEuNjEgMjY3LjI1Qzc3Mi4xMCAyNjguODkgNzY5Ljk2IDI2OS4wMCA3MzYuMjUgMjY5LjAwTDcwMC4zNyAyNjkuMDBMNjk1LjA0IDI0MC43NUM2ODcuODMgMjAyLjUyIDY4Ni4yNCAxOTcuNDcgNjc4LjkxIDE4OS41MkM2NzAuNzcgMTgwLjY5IDY1OS4zNCAxNzguMDAgNjI5LjkzIDE3OC4wMEw2MTIuMDAgMTc4LjAwTDYxMi4wMCAyMjMuNTBMNjEyLjAwIDI2OS4wMEw1NzkuNTAgMjY5LjAwTDU0Ny4wMCAyNjkuMDBMNTQ3LjAwIDEzNy4wMFpNODU5LjAwIDIyNS4xOEw4NTkuMDAgMTgxLjM1TDgxOC4zOSA5OC40M0M3OTYuMDYgNTIuODIgNzc2LjcxIDEzLjE0IDc3NS40MCAxMC4yNUw3NzMuMDMgNS4wMEw4MTEuMzIgNS4wMEw4NDkuNjIgNS4wMEw4NzAuMDYgNjIuODBDODgxLjMwIDk0LjYwIDg5MC45MSAxMjAuODEgODkxLjQxIDEyMS4wNUM4OTEuOTAgMTIxLjMwIDkwMS40NyA5NS40NCA5MTIuNjYgNjMuNThDOTIzLjg0IDMxLjczIDkzMy4xNSA1LjUxIDkzMy4zNCA1LjMyQzkzMy41NCA1LjEzIDk1MC42MyA1LjA5IDk3MS4zNCA1LjI0TDEwMDguOTkgNS41MEw5NjYuNTAgOTIuODNMOTI0LjAwIDE4MC4xNkw5MjQuMDAgMjI0LjU4TDkyNC4wMCAyNjkuMDBMODkxLjUwIDI2OS4wMEw4NTkuMDAgMjY5LjAwTDg1OS4wMCAyMjUuMThaTTEwMzguMDAgMTM3LjAwTDEwMzguMDAgNS4wMEwxMDgxLjQwIDUuMDBMMTEyNC43OSA1LjAwTDExNzEuNjAgOTQuMDBDMTE5Ny4zNCAxNDIuOTUgMTIxOC43NiAxODMuMDAgMTIxOS4yMCAxODMuMDBDMTIxOS42NCAxODMuMDAgMTIyMC4wMCAxNDIuOTUgMTIyMC4wMCA5NC4wMEwxMjIwLjAwIDUuMDBMMTI1Mi4wMCA1LjAwTDEyODQuMDAgNS4wMEwxMjg0LjAwIDEzNy4wMUwxMjg0LjAwIDI2OS4wMkwxMjQyLjg3IDI2OC43NkwxMjAxLjc0IDI2OC41MEwxMTUyLjEyIDE3Ni4wOUwxMTAyLjUwIDgzLjY4TDExMDIuMjQgMTc2LjM0TDExMDEuOTkgMjY5LjAwTDEwNjkuOTkgMjY5LjAwTDEwMzguMDAgMjY5LjAwTDEwMzguMDAgMTM3LjAwWk00MDQuMzAgMjE4Ljk5QzQyMS43OSAyMTMuNTkgNDMyLjcyIDE5OS4xNSA0MzguMDAgMTc0LjQ4QzQ0Mi42MSAxNTIuOTUgNDQxLjU3IDExMi45NCA0MzUuOTIgOTQuMzdDNDI2LjU2IDYzLjYwIDQwNi40MCA0OS4xMiAzNzguMjUgNTIuOTVDMzUzLjQxIDU2LjMzIDMzOC45NCA3NS4yOCAzMzMuOTQgMTExLjAwQzMzMS4yNCAxMzAuMzQgMzMzLjExIDE2NS44NyAzMzcuNjQgMTgxLjE2QzM0My43MyAyMDEuNzEgMzU2Ljk4IDIxNS45OSAzNzMuNTggMjE5Ljg4QzM4MS4wOCAyMjEuNjQgMzk3LjIzIDIyMS4xNyA0MDQuMzAgMjE4Ljk5Wk02NjcuNTAgMTI2LjAwQzY3Ni45NiAxMjMuNTggNjgyLjY1IDEyMC4zOSA2ODcuMzggMTE0Ljg3QzY5Mi43NCAxMDguNjEgNjk0LjM1IDEwMi42MSA2OTMuNzcgOTEuMTFDNjkzLjA2IDc2Ljg4IDY4OC4yOSA2OC4xOSA2NzguMTQgNjIuNjdDNjY5LjYzIDU4LjA0IDY2Mi4wOSA1Ny4wNCA2MzUuNzUgNTcuMDJMNjEyLjAwIDU3LjAwTDYxMi4wMCA5Mi41MEw2MTIuMDAgMTI4LjAwTDYzNS44NCAxMjguMDBDNjU2LjQxIDEyOC4wMCA2NjAuNzUgMTI3LjczIDY2Ny41MCAxMjYuMDBaIi8+PC9nPjwvc3ZnPg==" alt="CORYN"></div>
   <p class="ceja">Desarrollo de software a medida · Chile</p>
   <h1>Tu negocio ya no cabe <em>en una planilla</em></h1>
-  <div class="pie"><b>coryndev.com</b><span>Sistemas de gestión a medida · Desde $1.400.000</span></div>
+  <div class="pie"><b>coryndev.com</b><span>Sistemas de gestión a medida</span></div>
 </div>
 </body></html>

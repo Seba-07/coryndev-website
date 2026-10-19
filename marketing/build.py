@@ -68,7 +68,8 @@ def main():
         return "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
 
     repl = {
-        "{{MARK}}": "data:image/png;base64," + b64(ASSETS / "mark.png"),
+        # El flyer es oscuro: va la version clara del simbolo.
+        "{{MARK}}": "data:image/png;base64," + b64(ASSETS / "mark-claro.png"),
         "{{FOTO}}": img("real-planilla.webp", 1400),
         "{{QR_WEB}}": qr_svg(web_link),
         "{{QR_WA}}": qr_svg(wa_link),

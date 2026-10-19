@@ -56,7 +56,7 @@ def _nav(activa):
     return f'''<header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <img src="assets/mark.webp" alt="" width="28" height="26">
+      <img src="assets/mark.webp" alt="" width="28" height="28">
       <span>CORYN</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -97,7 +97,7 @@ PIE = f'''<footer class="foot">
     <div class="cols">
       <div class="foot-marca">
         <a class="brand" href="index.html">
-          <img src="assets/mark-claro.webp" alt="" width="28" height="26">
+          <img src="assets/mark-claro.webp" alt="" width="28" height="28">
           <span>CORYN</span>
         </a>
         <p>Software 100% personalizado para negocios que necesitan que la
