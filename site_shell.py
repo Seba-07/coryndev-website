@@ -44,6 +44,7 @@ MENU = [
     ('Inicio', 'index.html', 'inicio'),
     ('Servicios', 'servicios.html', 'servicios'),
     ('Qué resolvemos', 'que-resolvemos.html', 'problemas'),
+    ('Precios', 'precios.html', 'precios'),
     ('Proceso', 'proceso.html', 'proceso'),
     ('Nosotros', 'nosotros.html', 'nosotros'),
 ]

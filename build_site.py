@@ -116,6 +116,22 @@ PAGINAS = [
                 'hacerlo bien.'),
     ),
     dict(
+        slug='precios',
+        titulo='Precios de software a medida en Chile, publicados | CORYN',
+        desc='Cuánto cuesta un sistema de gestión, un sitio web, una tienda online o '
+             'una app con CORYN: puesta en marcha desde $69.000 y acompañamiento '
+             'desde 1 UF al mes. Precio cerrado antes de empezar.',
+        activa='precios',
+        cabecera=('Los precios, publicados',
+                  'Casi nadie en el rubro los muestra. Acá están: lo que cuesta '
+                  'partir, lo que cuesta cada mes y qué incluye. Sin letra chica.',
+                  'Precios'),
+        cierre=('¿Tu caso cabe en el precio base?',
+                'Escríbenos con lo que marcaste en el estimador y te lo decimos en '
+                'la primera conversación, sin costo. Si trae más, se cotiza y se '
+                'cierra por escrito antes de programar.'),
+    ),
+    dict(
         slug='servicios',
         titulo='Servicios: sistemas, webs, tiendas y apps a medida | CORYN',
         desc='Páginas web, sistemas de gestión, aplicaciones móviles, tiendas online '
@@ -337,6 +353,9 @@ def caso_ld(c):
 
 
 def aplicar_fichas(txt):
+    # El estimador vive en su propio archivo y lo usan dos paginas; va primero
+    # porque dentro trae fichas ({WA}, {WA_NUM}) que se resuelven en el bucle.
+    txt = txt.replace('{ESTIMADOR}', (CUERPOS / '_estimador.html').read_text())
     for k, v in FICHAS.items():
         txt = txt.replace(k, v)
     return txt
@@ -359,7 +378,7 @@ def construir_paginas():
         if p['slug'] not in ('index', '404'):
             ld.append(migas_ld([('Inicio', 'index.html'),
                                 (p['cabecera'][2] or p['titulo'], None)]))
-        if p['slug'] == 'contacto':
+        if p['slug'] in ('contacto', 'precios'):
             faq = faq_ld(cuerpo)
             if faq:
                 ld.append(faq)

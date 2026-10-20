@@ -110,6 +110,7 @@
         <a href="index.html" class="activa">Inicio</a>
         <a href="servicios.html">Servicios</a>
         <a href="que-resolvemos.html">Qué resolvemos</a>
+        <a href="precios.html">Precios</a>
         <a href="proceso.html">Proceso</a>
         <a href="nosotros.html">Nosotros</a>
     </nav>
@@ -628,6 +629,8 @@
   </div>
 </section>
 
+<!-- Estimador de precios. Fuente unica: el inicio y /precios lo incluyen con
+     {ESTIMADOR}, y marketing/posts.py lee los montos de aqui. -->
 <section id="cotizar" class="estima">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:60ch">
@@ -729,10 +732,12 @@
         if (guardado && guardado.fecha === hoy) { UF = guardado.valor; pintaPesos(); return; }
       } catch (e) { /* sin almacenamiento: se consulta igual */ }
 
-      fetch('https://mindicador.cl/api/uf')
+      // /api/uf la trae del servidor: mindicador.cl no deja consultar desde
+      // el navegador, y asi ademas queda guardada medio dia en el borde.
+      fetch('/api/uf')
         .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
         .then(function (d) {
-          var v = d && d.serie && d.serie[0] && d.serie[0].valor;
+          var v = d && d.valor;
           if (!v) return;
           UF = v;
           try { localStorage.setItem('coryn_uf', JSON.stringify({ fecha: hoy, valor: v })); } catch (e) {}
@@ -772,6 +777,7 @@
     pintaTipos(); calcula(); traeUf();
   })();
 </script>
+
 
 <!-- ================= ALINEACION ================= -->
 <section class="junto claro">

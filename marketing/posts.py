@@ -223,11 +223,11 @@ DESTACADAS = [
 
 def precios_del_sitio():
     """Los cuatro precios, leidos del estimador del inicio: fuente unica."""
-    fuente = (RAIZ / "site" / "inicio.body.html").read_text()
+    fuente = (RAIZ / "site" / "_estimador.html").read_text()
     crudos = re.findall(r"nom: '([^']+)',[\s\S]{0,260}?base: (\d+),\s*uf: ([\d.]+)", fuente)
     if len(crudos) < 4:
         raise SystemExit("No se pudieron leer los precios del estimador de "
-                         "site/inicio.body.html. Revisar la expresion regular.")
+                         "site/_estimador.html. Revisar la expresion regular.")
     return [(n.replace("Un ", "").replace("Una ", "").capitalize(),
              "$" + f"{int(b):,}".replace(",", "."),
              u.replace(".", ",") + " UF") for n, b, u in crudos]
