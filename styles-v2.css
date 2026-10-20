@@ -1582,15 +1582,6 @@ a.dato:hover{ transform:translateY(-2px);
    ============================================================ */
 /* la declaracion cierra la pagina, y era el ultimo bloque claro que quedaba
    entre secciones oscuras */
-.svc-cita{
-  color:var(--ink); padding:64px 0 72px;
-  background-color:var(--paper);
-  background-image:
-    radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%),
-    url("assets/papel-ejemplos.webp");
-  background-size:auto, cover;
-  border-top:1px solid var(--line);
-}
 .svc-cita .cita{
   background:rgba(45,170,210,.07);
   border-left-color:#6fd8ec;
