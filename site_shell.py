@@ -50,7 +50,18 @@ MENU = [
 ]
 
 
-def _nav(activa):
+def _nav(activa, landing=False):
+    if landing:
+        # Pagina para enlazar en un mensaje: un solo camino, el boton de
+        # WhatsApp del cuerpo. Sin menu ni "Conversemos" que lo compitan.
+        return '''<header class="nav nav-landing" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
+      <span>CORYN</span>
+    </a>
+  </div>
+</header>'''
     enlaces = '\n'.join(
         f'        <a href="{href}"{" class=\"activa\"" if key == activa else ""}>{txt}</a>'
         for txt, href, key in MENU)
@@ -107,8 +118,14 @@ PIE = f'''<footer class="foot">
       <div>
         <h4>Casos</h4>
         <ul>
-          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-bysimmed-sistema.html">bySIMMED &middot; sistema</a></li>
+          <li><a href="caso-bysimmed.html">bySIMMED &middot; sitio web</a></li>
           <li><a href="caso-avenprop.html">AvenProp</a></li>
+        </ul>
+        <h4>Productos propios</h4>
+        <ul>
+          <li><a href="producto-enumera.html">Enumera</a></li>
+          <li><a href="producto-precioradar.html">PrecioRadar</a></li>
         </ul>
       </div>
       <div>
@@ -148,6 +165,7 @@ JS_COMUN = '''<script>
   // Menu de celular
   var burger = document.getElementById('burger');
   var links = document.getElementById('navLinks');
+  if (burger && links) {
   burger.addEventListener('click', function () {
     var abierto = document.body.classList.toggle('menu-abierto');
     burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
@@ -166,6 +184,7 @@ JS_COMUN = '''<script>
       burger.focus();
     }
   });
+  }
 
   // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
   // que comparte un referidor. Sin esto el codigo moria en la primera pagina:
@@ -291,7 +310,7 @@ def _medidas(ruta):
 
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
            og_tipo='website', js_extra='', nav_solida=False, canonico='',
-           clase_body='', ld_extra=(), preload=()):
+           clase_body='', ld_extra=(), preload=(), landing=False):
     """Arma una pagina completa a partir del cuerpo.
 
     canonico:   ruta de la pagina para el <link rel=canonical> ('' = portada).
@@ -302,6 +321,8 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
     preload:    imagenes que conviene pedir antes de que el navegador
                 descubra el <img>. Solo la que abre la pagina: precargar de
                 mas retrasa justamente lo que se queria adelantar.
+    landing:    cabecera solo con la marca, para paginas que se enlazan en un
+                mensaje y tienen un unico boton.
     """
     import json as _json
     bloques_ld = ''.join(
@@ -314,7 +335,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
     firma = _firma_css()
     og_img_abs = og_img.lstrip('./')
     og_w, og_h = _medidas(og_img_abs)
-    nav = _nav(activa)
+    nav = _nav(activa, landing)
     if nav_solida:
         nav = nav.replace('class="nav" id="nav"', 'class="nav solid solid-fija" id="nav"')
     url_abs = f'https://coryndev.com/{canonico}'

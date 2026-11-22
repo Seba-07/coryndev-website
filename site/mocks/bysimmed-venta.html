@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<!-- Pantalla de ejemplo del sistema de bySIMMED: una venta de punta a punta,
+     de la cotizacion al cobro. Misma paleta que bysimmed-bandeja.html; todos
+     los nombres, folios y montos son inventados.
+     Se renderiza a assets/bysimmed-venta.webp (1400x875). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ :root{--bone:#f7f5f0;--card:#fffefb;--ink:#22303a;--soft:#5d6a70;--line:#e3ded3;
+   --teal:#14535d;--teal-d:#0c3d45;--teal-s:#dcebec;--or:#ee5a2a;--or-s:#fde5da;
+   --am:#b45309;--am-s:#fbe8cd;--ve:#157f4a;--ve-s:#d3f0df}
+ body{width:1400px;height:875px;background:var(--bone);font-family:'Inter',system-ui,sans-serif;
+   font-size:13px;color:var(--ink);overflow:hidden;display:flex}
+ .lat{width:208px;background:var(--teal-d);color:#fff;flex:none;padding:20px 0}
+ .lat .mk{padding:0 20px 26px;font-weight:700;font-size:17px;letter-spacing:-.01em}
+ .lat .mk small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.12em;
+   text-transform:uppercase;color:#8fbcc2;margin-top:3px}
+ .lat a{display:flex;align-items:center;gap:11px;padding:10px 20px;color:#b9d6da;font-size:13.5px}
+ .lat a i{width:16px;height:16px;border-radius:4px;border:1.6px solid currentColor;opacity:.8}
+ .lat a.on{background:rgba(255,255,255,.1);color:#fff;font-weight:600;box-shadow:inset 3px 0 0 var(--or)}
+ .main{flex:1;display:flex;flex-direction:column;min-width:0}
+ .ej{background:var(--am-s);color:var(--am);text-align:center;font-size:11.5px;font-weight:600;
+   letter-spacing:.08em;text-transform:uppercase;padding:6px 0;border-bottom:1px solid #f1d6ad}
+ .top{height:60px;background:var(--card);border-bottom:1px solid var(--line);display:flex;
+   align-items:center;justify-content:space-between;padding:0 26px}
+ .top h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+ .top h1 span{font-weight:500;color:var(--soft);font-size:13px;margin-left:10px}
+ .yo{width:32px;height:32px;border-radius:50%;background:var(--teal-s);display:grid;place-items:center;
+   font-size:11px;font-weight:700;color:var(--teal)}
+ .cnt{padding:20px 26px;overflow:hidden}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ /* la linea de la venta */
+ .linea{display:grid;grid-template-columns:repeat(6,1fr);padding:22px 24px 20px;gap:0}
+ .et{position:relative;text-align:center;padding-top:34px}
+ .et::before{content:"";position:absolute;top:12px;left:-50%;right:50%;height:3px;background:var(--line)}
+ .et:first-child::before{display:none}
+ .et.ok::before,.et.va::before{background:var(--teal)}
+ .et .b{position:absolute;top:0;left:50%;transform:translateX(-50%);width:27px;height:27px;border-radius:50%;
+   border:3px solid var(--line);background:var(--card);display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;z-index:1}
+ .et.ok .b{background:var(--teal);border-color:var(--teal)}
+ .et.va .b{border-color:var(--or);background:var(--or-s)}
+ .et.va .b::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--or)}
+ .et b{display:block;font-size:13.5px;font-weight:600}
+ .et span{display:block;font-size:11.8px;color:var(--soft);margin-top:3px;line-height:1.4}
+ .et.va b{color:#b8431b}
+ .fila{display:grid;grid-template-columns:1fr 400px;gap:18px;margin-top:18px}
+ .ch{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+ .ch b{font-size:14px;font-weight:700}
+ .ch span{font-size:12px;color:var(--soft)}
+ table{width:100%;border-collapse:collapse}
+ th,td{text-align:left;padding:11px 18px;font-size:12.8px;border-bottom:1px solid #efebe2}
+ th{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);font-weight:700;background:#fbf9f4}
+ td.n,th.n{text-align:right}
+ tr.tot td{font-weight:700;border-bottom:0;font-size:13.5px}
+ .unid{display:flex;gap:5px}
+ .unid i{width:22px;height:8px;border-radius:3px;background:var(--line)}
+ .unid i.l{background:var(--ve)}
+ .unid i.f{background:var(--or)}
+ .pill{display:inline-block;border-radius:999px;padding:3px 9px;font-size:11px;font-weight:600}
+ .pv{background:var(--ve-s);color:var(--ve)}.po{background:var(--or-s);color:#b8431b}
+ .ev{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 18px;border-bottom:1px solid #efebe2}
+ .ev:last-child{border-bottom:0}
+ .ev time{font-size:11.5px;color:var(--soft);font-weight:600;padding-top:1px}
+ .ev b{display:block;font-size:13px;font-weight:600;margin-bottom:2px}
+ .ev span{font-size:12px;color:var(--soft);line-height:1.45}
+ .ev.sig{background:#fbf9f4}
+ .ev.sig b{color:var(--teal)}
+ .notas{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+ .notas div{padding:13px 18px;border-right:1px solid #efebe2}
+ .notas div:last-child{border-right:0}
+ .notas small{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);font-weight:700}
+ .notas b{display:block;font-size:16px;font-weight:700;margin-top:4px}
+</style></head><body>
+ <div class="lat">
+   <div class="mk">bySIMMED<small>Administración</small></div>
+   <a><i></i>Inicio</a>
+   <a class="on"><i></i>Pedidos</a>
+   <a><i></i>Cotizar</a>
+   <a><i></i>Inventario</a>
+   <a><i></i>Calendario</a>
+   <a><i></i>Clientes</a>
+   <a><i></i>Gestión</a>
+ </div>
+ <div class="main">
+   <div class="ej">Pantalla con datos de ejemplo</div>
+   <div class="top"><h1>C-0318 · Universidad Demo<span>Santiago · pesos chilenos</span></h1><span class="yo">AD</span></div>
+   <div class="cnt">
+     <div class="card">
+       <div class="linea">
+         <div class="et ok"><span class="b">✓</span><b>Cotización</b><span>Enviada el 2 nov</span></div>
+         <div class="et ok"><span class="b">✓</span><b>Orden de compra</b><span>Llegó por correo el 5 nov</span></div>
+         <div class="et va"><span class="b"></span><b>Fabricación</b><span>2 de 3 unidades listas</span></div>
+         <div class="et"><span class="b"></span><b>Despacho</b><span>Agendado para el 25 nov</span></div>
+         <div class="et"><span class="b"></span><b>Factura</b><span>Al despachar</span></div>
+         <div class="et"><span class="b"></span><b>Cobro</b><span>A 30 días de la factura</span></div>
+       </div>
+       <div class="notas">
+         <div><small>Total cotizado</small><b>$1.475.600</b></div>
+         <div><small>Facturado</small><b>$0</b></div>
+         <div><small>Cobrado</small><b>$0</b></div>
+       </div>
+     </div>
+     <div class="fila">
+       <div class="card">
+         <div class="ch"><b>Qué lleva</b><span>Precios de la lista vigente</span></div>
+         <table>
+           <thead><tr><th>Modelo</th><th>Cant.</th><th>Avance</th><th class="n">Precio</th></tr></thead>
+           <tbody>
+             <tr><td>Modelo de sutura, piel y tejido</td><td>3</td>
+               <td><div class="unid"><i class="l"></i><i class="l"></i><i class="f"></i></div></td><td class="n">$1.050.000</td></tr>
+             <tr><td>Kit de reposición de tejido</td><td>2</td>
+               <td><span class="pill pv">En bodega</span></td><td class="n">$190.000</td></tr>
+             <tr><td>Bolso de transporte</td><td>1</td>
+               <td><span class="pill po">Pedido al proveedor</span></td><td class="n">Incluido</td></tr>
+             <tr><td style="color:var(--soft)">Neto</td><td></td><td></td><td class="n">$1.240.000</td></tr>
+             <tr><td style="color:var(--soft)">IVA</td><td></td><td></td><td class="n">$235.600</td></tr>
+             <tr class="tot"><td>Total</td><td></td><td></td><td class="n">$1.475.600</td></tr>
+           </tbody>
+         </table>
+       </div>
+       <div class="card">
+         <div class="ch"><b>Lo que pasó</b><span>Del correo y del taller</span></div>
+         <div class="ev"><time>2 nov</time><div><b>Cotización enviada</b><span>Armada desde el correo en que la pidieron.</span></div></div>
+         <div class="ev"><time>5 nov</time><div><b>Llegó la orden de compra</b><span>OC 4500-0142, leída del correo y anotada aquí.</span></div></div>
+         <div class="ev"><time>6 nov</time><div><b>Aprobada y enviada a fabricar</b><span>El taller la ve en su calendario.</span></div></div>
+         <div class="ev"><time>19 nov</time><div><b>2 de 3 unidades listas</b><span>La tercera sale esta semana.</span></div></div>
+         <div class="ev sig"><time>Después</time><div><b>Factura y cobro</b><span>Al despachar se emite la factura. Si vence sin pago, el correo de cobranza queda listo.</span></div></div>
+       </div>
+     </div>
+   </div>
+ </div>
+</body></html>

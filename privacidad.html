@@ -108,7 +108,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=abc9628b">
+<link rel="stylesheet" href="styles-v2.css?v=9c2aac40">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -305,8 +305,14 @@
       <div>
         <h4>Casos</h4>
         <ul>
-          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-bysimmed-sistema.html">bySIMMED &middot; sistema</a></li>
+          <li><a href="caso-bysimmed.html">bySIMMED &middot; sitio web</a></li>
           <li><a href="caso-avenprop.html">AvenProp</a></li>
+        </ul>
+        <h4>Productos propios</h4>
+        <ul>
+          <li><a href="producto-enumera.html">Enumera</a></li>
+          <li><a href="producto-precioradar.html">PrecioRadar</a></li>
         </ul>
       </div>
       <div>
@@ -346,6 +352,7 @@
   // Menu de celular
   var burger = document.getElementById('burger');
   var links = document.getElementById('navLinks');
+  if (burger && links) {
   burger.addEventListener('click', function () {
     var abierto = document.body.classList.toggle('menu-abierto');
     burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
@@ -364,6 +371,7 @@
       burger.focus();
     }
   });
+  }
 
   // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
   // que comparte un referidor. Sin esto el codigo moria en la primera pagina:

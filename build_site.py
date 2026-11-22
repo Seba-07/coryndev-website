@@ -11,9 +11,10 @@ Los marcadores <span class="pendiente"> senalan datos que faltan por confirmar;
 para encontrarlos todos:  grep -rn 'class="pendiente"' *.html
 """
 import pathlib
+from urllib.parse import quote
 
 import site_shell as S
-from casos_data import CASOS
+from casos_data import CASOS, PRODUCTOS
 
 RAIZ = pathlib.Path(__file__).parent
 CUERPOS = RAIZ / 'site'
@@ -33,6 +34,11 @@ FICHAS = {
     '{WA_NUM}': S.WA_NUM,
     '{EMAIL}': S.EMAIL,
     '{BACKEND}': S.BACKEND,
+    # El de correo.html dice de que pagina viene, para saber que el mensaje
+    # llego por ese enlace y no por el sitio.
+    '{WA_CORREO}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
+        'Hola CORYN, vi la página sobre el correo. En mi empresa las cotizaciones '
+        'y órdenes de compra llegan por correo. ¿Podemos conversarlo?', safe=''),
 }
 
 JS_FORMULARIO = '''<script>
@@ -206,6 +212,24 @@ PAGINAS = [
                 'con quien va a construir tu proyecto.'),
     ),
     dict(
+        # Pagina para enlazar en mensajes uno a uno. Fuera del menu y con un
+        # solo boton: cabecera solo con la marca y sin el cierre de siempre,
+        # que trae dos.
+        slug='correo',
+        titulo='Si todo te llega por correo: un sistema que lo anota solo | CORYN',
+        desc='Cotizaciones, órdenes de compra y facturas que llegan por correo y se '
+             'copian a mano. Lo que hicimos para bySIMMED, desde $129.000 y 1 UF al mes.',
+        activa='',
+        landing=True,
+        og_img='assets/og-correo.jpg',
+        cabecera=('Todo te llega por correo, y todo se copia a mano',
+                  'Cotizaciones, órdenes de compra, facturas, avisos de pago. Si hoy '
+                  'alguien los pasa uno por uno a una planilla, mira cómo lo '
+                  'resolvimos en una empresa como la tuya.',
+                  'Para empresas que trabajan por correo'),
+        cierre=None,
+    ),
+    dict(
         slug='404',
         titulo='Página no encontrada | CORYN',
         desc='La dirección que buscas no existe o cambió de lugar.',
@@ -336,20 +360,24 @@ def servicios_ld():
     }
 
 
-def caso_ld(c):
-    return {
+def caso_ld(c, propio=False):
+    pre = 'producto' if propio else 'caso'
+    d = {
         '@context': 'https://schema.org',
         '@type': 'CreativeWork',
-        'name': f"{c['titulo']} — caso de proyecto",
+        'name': f"{c.get('etiqueta', c['titulo'])} — "
+                + ('producto propio de CORYN' if propio else 'caso de proyecto'),
         'headline': c['h1'],
         'description': c['meta_desc'],
-        'url': f"https://coryndev.com/caso-{c['slug']}.html",
-        'image': f"https://coryndev.com/{c['figura']}",
+        'url': f"https://coryndev.com/{pre}-{c['slug']}.html",
         'inLanguage': 'es-CL',
         'creator': {'@id': 'https://coryndev.com/#coryn'},
         'about': {'@type': 'Thing', 'name': c['sector']},
         'genre': c['tipo'],
     }
+    if c.get('figura'):
+        d['image'] = f"https://coryndev.com/{c['figura']}"
+    return d
 
 
 def aplicar_fichas(txt):
@@ -393,6 +421,8 @@ def construir_paginas():
             clase_body=p.get('clase_body', ''),
             ld_extra=ld,
             preload=p.get('preload', ()),
+            og_img=p.get('og_img', 'assets/og.jpg'),
+            landing=p.get('landing', False),
         )
         if p['slug'] == '404':
             # que los buscadores no la guarden como si fuera contenido
@@ -403,68 +433,116 @@ def construir_paginas():
         yield destino
 
 
-# ---------- paginas de caso ----------
+# ---------- paginas de caso y de productos propios ----------
 
-def ficha_caso(c):
-    filas = [('Cliente', c['titulo']),
-             ('Sector', c['sector']),
-             ('Tipo de proyecto', c['tipo']),
-             ('Estado', 'En línea')]
+def ficha_caso(c, propio=False):
+    filas = c.get('ficha') or [('Cliente', c['titulo']),
+                               ('Sector', c['sector']),
+                               ('Tipo de proyecto', c['tipo']),
+                               ('Estado', 'En línea')]
     dl = '\n'.join(f'        <dt>{k}</dt><dd>{v}</dd>' for k, v in filas)
-    externo = ' target="_blank" rel="noopener"' if c['sitio_url'].startswith('http') else ''
+    boton = c.get('boton', (c.get('sitio'), c.get('sitio_url')))
+    enlace = ''
+    if boton and boton[1]:
+        externo = ' target="_blank" rel="noopener"' if boton[1].startswith('http') else ''
+        enlace = f'\n        <a class="btn btn-solid" href="{boton[1]}"{externo}>{boton[0]}</a>'
+    titulo = 'Ficha del producto' if propio else 'Ficha del proyecto'
     return f'''      <aside class="ficha">
-        <h3>Ficha del proyecto</h3>
+        <h3>{titulo}</h3>
         <dl>
 {dl}
-        </dl>
-        <a class="btn btn-solid" href="{c['sitio_url']}"{externo}>{c['sitio']}</a>
+        </dl>{enlace}
       </aside>'''
 
 
+def figura_html(src, alt, pie, ancho, alto):
+    if not src:
+        # Todavia no hay captura: se deja el hueco a la vista, con el mismo
+        # marcador que el resto de los datos por confirmar.
+        return f'''        <figure>
+          <div class="browser-lite captura-pendiente">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p>{S.PENDIENTE} {pie}</p>
+          </div>
+        </figure>'''
+    return f'''        <figure>
+          <div class="browser-lite">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="{src}" alt="{alt}" width="{ancho}" height="{alto}" loading="lazy">
+          </div>
+          <figcaption>{pie}</figcaption>
+        </figure>'''
+
+
 def cuerpo_caso(c):
+    extra = c.get('figuras', {})
     out = []
     for i, (titulo, parrafos) in enumerate(c['bloques']):
         out.append(f'        <h2>{titulo}</h2>')
         out.extend('        ' + p for p in parrafos)
         if i == 0:
-            out.append(f'''        <figure>
-          <div class="browser-lite">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <img src="{c['figura']}" alt="{c['figura_alt']}" width="{c['ancho']}" height="{c['alto']}">
-          </div>
-          <figcaption>{c['figura_pie']}</figcaption>
-        </figure>''')
+            fig = figura_html(c['figura'], c['figura_alt'], c['figura_pie'],
+                              c['ancho'], c['alto'])
+            # la primera imagen se ve sin desplazar: no se difiere su carga
+            out.append(fig.replace(' loading="lazy"', '', 1))
+        if i in extra:
+            out.append(figura_html(*extra[i]))
+    if c.get('testimonio'):
+        cita, firma = c['testimonio']
+        out.append(f'''        <blockquote class="cita caso-cita">
+          <span class="eyebrow">Lo que dice {c['titulo']}</span>
+          <p>{cita}</p>
+          <p class="firma">{firma}</p>
+        </blockquote>''')
     return '\n'.join(out)
 
 
 def construir_casos():
-    for c in CASOS:
-        camino = [('Inicio', 'index.html'), ('Proyectos', 'nosotros.html#recorrido'),
-                  (c['titulo'], None)]
-        cabecera = S.cabecera(
-            c['h1'], c['lead'], f"{c['sector']} &middot; {c['tipo']}", migas=camino)
+    lotes = [(c, False) for c in CASOS] + [(c, True) for c in PRODUCTOS]
+    for c, propio in lotes:
+        nombre = c.get('etiqueta', c['titulo'])
+        if propio:
+            pre = 'producto'
+            camino = [('Inicio', 'index.html'),
+                      ('Productos propios', 'nosotros.html#productos'), (nombre, None)]
+            eyebrow = f"Producto propio &middot; {c['tipo']}"
+            titulo = f"{nombre} — Producto propio | CORYN"
+            cierre = S._cierre(
+                'Lo mismo, en tu empresa.',
+                'Leer documentos con IA y cobrar en línea no son cosas de empresas '
+                'grandes. Cuéntanos qué te llega por correo o en papel y te decimos '
+                'cómo se resolvería.',
+                boton_extra='<a class="btn btn-ghost" href="correo.html">'
+                            'Si todo te llega por correo</a>')
+        else:
+            pre = 'caso'
+            camino = [('Inicio', 'index.html'), ('Proyectos', 'nosotros.html#recorrido'),
+                      (nombre, None)]
+            eyebrow = f"{c['sector']} &middot; {c['tipo']}"
+            titulo = f"{nombre} — Caso de proyecto | CORYN"
+            cierre = S._cierre(
+                'Conversemos 30 minutos, sin costo.',
+                'Cuéntanos tu situación y te decimos con honestidad qué se puede resolver '
+                'con software, qué conviene priorizar y cuánto costaría hacerlo bien.',
+                boton_extra='<a class="btn btn-ghost" href="nosotros.html#recorrido">Ver otros proyectos</a>')
+        cabecera = S.cabecera(c['h1'], c['lead'], eyebrow, migas=camino)
         cuerpo = f'''<section>
   <div class="wrap caso-grid">
     <article class="caso-body">
 {cuerpo_caso(c)}
     </article>
-{ficha_caso(c)}
+{ficha_caso(c, propio)}
   </div>
 </section>'''
-        cierre = S._cierre(
-            'Conversemos 30 minutos, sin costo.',
-            'Cuéntanos tu situación y te decimos con honestidad qué se puede resolver '
-            'con software, qué conviene priorizar y cuánto costaría hacerlo bien.',
-            boton_extra='<a class="btn btn-ghost" href="nosotros.html#recorrido">Ver otros proyectos</a>')
         html = S.render(
-            titulo=f"{c['titulo']} — Caso de proyecto | CORYN",
+            titulo=titulo,
             descripcion=c['meta_desc'],
             cuerpo='\n\n'.join([cabecera, cuerpo, cierre]),
-            activa='', og_img=c['figura'], og_tipo='article',
-            canonico=f"caso-{c['slug']}.html",
-            ld_extra=[migas_ld(camino), caso_ld(c)],
-            preload=(c['figura'],))
-        destino = SALIDA / f"caso-{c['slug']}.html"
+            activa='', og_img=c['figura'] or 'assets/og.jpg', og_tipo='article',
+            canonico=f"{pre}-{c['slug']}.html",
+            ld_extra=[migas_ld(camino), caso_ld(c, propio)],
+            preload=(c['figura'],) if c['figura'] else ())
+        destino = SALIDA / f"{pre}-{c['slug']}.html"
         destino.write_text(html)
         yield destino
 
@@ -503,6 +581,8 @@ def construir_sitemap():
              for p in PAGINAS if p['slug'] not in ('index', '404')]
     urls += [(f"https://coryndev.com/caso-{c['slug']}.html",
               _ultimo_cambio('casos_data.py')) for c in CASOS]
+    urls += [(f"https://coryndev.com/producto-{c['slug']}.html",
+              _ultimo_cambio('casos_data.py')) for c in PRODUCTOS]
     cuerpo = '\n'.join(
         f'  <url><loc>{u}</loc>' + (f'<lastmod>{d}</lastmod>' if d else '') + '</url>'
         for u, d in urls)

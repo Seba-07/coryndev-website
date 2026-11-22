@@ -1,0 +1,141 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<!-- Pantalla de ejemplo del sistema de bySIMMED: el inicio de administracion,
+     con lo que llego por correo ya leido. Imita la paleta y la estructura del
+     sistema real (bysimmed_app), pero todos los nombres, folios y montos son
+     inventados. Se renderiza a assets/bysimmed-bandeja.webp (1400x875). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ :root{--bone:#f7f5f0;--card:#fffefb;--ink:#22303a;--soft:#5d6a70;--line:#e3ded3;
+   --teal:#14535d;--teal-d:#0c3d45;--teal-s:#dcebec;--or:#ee5a2a;--or-s:#fde5da;
+   --am:#b45309;--am-s:#fbe8cd;--ve:#157f4a;--ve-s:#d3f0df;--bl:#35618f;--bl-s:#dde9f4;
+   --vi:#6d4aad;--vi-s:#ebe4f7}
+ body{width:1400px;height:875px;background:var(--bone);font-family:'Inter',system-ui,sans-serif;
+   font-size:13px;color:var(--ink);overflow:hidden;display:flex}
+ .lat{width:208px;background:var(--teal-d);color:#fff;flex:none;padding:20px 0;display:flex;flex-direction:column}
+ .lat .mk{padding:0 20px 26px;font-weight:700;font-size:17px;letter-spacing:-.01em}
+ .lat .mk small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.12em;
+   text-transform:uppercase;color:#8fbcc2;margin-top:3px}
+ .lat a{display:flex;align-items:center;gap:11px;padding:10px 20px;color:#b9d6da;font-size:13.5px}
+ .lat a i{width:16px;height:16px;border-radius:4px;border:1.6px solid currentColor;opacity:.8}
+ .lat a.on{background:rgba(255,255,255,.1);color:#fff;font-weight:600;box-shadow:inset 3px 0 0 var(--or)}
+ .lat a .n{margin-left:auto;background:var(--or);color:#fff;border-radius:999px;font-size:10.5px;
+   font-weight:700;padding:1px 7px}
+ .lat .pie{margin-top:auto;padding:0 20px;font-size:11px;color:#8fbcc2}
+ .main{flex:1;display:flex;flex-direction:column;min-width:0}
+ .ej{background:var(--am-s);color:var(--am);text-align:center;font-size:11.5px;font-weight:600;
+   letter-spacing:.08em;text-transform:uppercase;padding:6px 0;border-bottom:1px solid #f1d6ad}
+ .top{height:60px;background:var(--card);border-bottom:1px solid var(--line);display:flex;
+   align-items:center;justify-content:space-between;padding:0 26px}
+ .top h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+ .top h1 span{font-weight:500;color:var(--soft);font-size:13px;margin-left:10px}
+ .top .r{display:flex;align-items:center;gap:12px}
+ .leido{font-size:12px;color:var(--soft)}
+ .leido b{color:var(--ve);font-weight:600}
+ .yo{width:32px;height:32px;border-radius:50%;background:var(--teal-s);display:grid;place-items:center;
+   font-size:11px;font-weight:700;color:var(--teal)}
+ .cnt{padding:20px 26px;display:grid;grid-template-columns:1fr 330px;gap:18px;overflow:hidden}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ .gh{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;
+   border-bottom:1px solid var(--line);background:#fbf9f4}
+ .gh b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:700}
+ .gh span{font-size:12px;color:var(--soft)}
+ .it{display:grid;grid-template-columns:118px 1fr auto;gap:14px;align-items:center;
+   padding:13px 18px;border-bottom:1px solid #efebe2}
+ .it:last-child{border-bottom:0}
+ .tp{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;
+   padding:5px 8px;text-align:center}
+ .oc{background:var(--teal-s);color:var(--teal)}
+ .fa{background:var(--vi-s);color:var(--vi)}
+ .pa{background:var(--ve-s);color:var(--ve)}
+ .en{background:var(--bl-s);color:var(--bl)}
+ .cl{background:var(--or-s);color:#b8431b}
+ .tx b{display:block;font-size:13.5px;font-weight:600;margin-bottom:3px}
+ .tx span{font-size:12.2px;color:var(--soft);line-height:1.45}
+ .tx em{font-style:normal;color:var(--ve);font-weight:600}
+ .ac{display:flex;gap:8px}
+ .bt{border-radius:8px;padding:7px 12px;font-size:12px;font-weight:600;white-space:nowrap}
+ .p{background:var(--teal);color:#fff}
+ .s{border:1px solid var(--line);color:var(--soft);background:#fff}
+ .grupo + .grupo{margin-top:16px}
+ .der{display:flex;flex-direction:column;gap:16px}
+ .ph{padding:14px 18px;border-bottom:1px solid var(--line);font-weight:700;font-size:14px}
+ .ph small{display:block;font-weight:500;color:var(--soft);font-size:12px;margin-top:2px}
+ .pe{padding:13px 18px;border-bottom:1px solid #efebe2;display:flex;gap:11px}
+ .pe:last-child{border-bottom:0}
+ .pt{width:8px;height:8px;border-radius:50%;margin-top:5px;flex:none}
+ .pe b{display:block;font-size:13px;font-weight:600;margin-bottom:2px}
+ .pe span{font-size:12px;color:var(--soft);line-height:1.45}
+ .pe .lk{display:inline-block;margin-top:6px;color:var(--teal);font-weight:600;font-size:12px}
+ .monto{font-size:24px;font-weight:700;letter-spacing:-.02em;padding:16px 18px 2px}
+ .monto + p{padding:0 18px 14px;font-size:12px;color:var(--soft)}
+</style></head><body>
+ <div class="lat">
+   <div class="mk">bySIMMED<small>Administración</small></div>
+   <a class="on"><i></i>Inicio<span class="n">6</span></a>
+   <a><i></i>Pedidos</a>
+   <a><i></i>Cotizar</a>
+   <a><i></i>Inventario</a>
+   <a><i></i>Calendario</a>
+   <a><i></i>Clientes</a>
+   <a><i></i>Gestión</a>
+ </div>
+ <div class="main">
+   <div class="ej">Pantalla con datos de ejemplo</div>
+   <div class="top"><h1>Inicio<span>lunes 23 de noviembre</span></h1>
+     <div class="r"><span class="leido">Correo leído a las 9:40 · <b>6 nuevos</b></span><span class="yo">AD</span></div></div>
+   <div class="cnt">
+     <div>
+       <div class="card grupo">
+         <div class="gh"><b>Para anotar</b><span>Llegaron por correo. Revisa y confirma.</span></div>
+         <div class="it"><span class="tp oc">Orden de compra</span>
+           <div class="tx"><b>OC 4500-0142 · Universidad Demo</b>
+             <span>3 modelos de sutura · $1.240.000 + IVA · <em>calza con la cotización C-0318</em></span></div>
+           <div class="ac"><span class="bt p">Aprobarla y mandar a fabricar</span><span class="bt s">No es una OC</span></div></div>
+         <div class="it"><span class="tp fa">Factura</span>
+           <div class="tx"><b>Factura 88231 · Insumos Ejemplo Ltda.</b>
+             <span>Silicona, 6 frascos · $214.200 · cita tu pedido de compra PC-061</span></div>
+           <div class="ac"><span class="bt p">Sí, anotar la factura</span><span class="bt s">No es nuestra</span></div></div>
+         <div class="it"><span class="tp pa">Pago</span>
+           <div class="tx"><b>Transferencia recibida · Clínica Ejemplo</b>
+             <span>$890.000 · <em>paga completa la factura 1187</em></span></div>
+           <div class="ac"><span class="bt p">Sí, anotar el pago</span></div></div>
+         <div class="it"><span class="tp en">Despacho</span>
+           <div class="tx"><b>Envío creado · guía 7412 3456</b>
+             <span>2 modelos a Lima, Perú · llega el jueves 26</span></div>
+           <div class="ac"><span class="bt p">Sí, anotar el envío</span></div></div>
+       </div>
+       <div class="card grupo">
+         <div class="gh"><b>Para responder o revisar</b><span>Nada se envía sin que lo mires.</span></div>
+         <div class="it"><span class="tp cl">Pide precio</span>
+           <div class="tx"><b>Hospital Demo · «¿Nos pueden cotizar dos modelos de laparoscopía?»</b>
+             <span>Cotización armada con el catálogo y la lista de precios</span></div>
+           <div class="ac"><span class="bt p">Revisar la cotización</span><span class="bt s">Ver respuesta</span></div></div>
+         <div class="it"><span class="tp cl">Pregunta</span>
+           <div class="tx"><b>Centro Ejemplo · «¿Cuándo nos llega el pedido?»</b>
+             <span>Respuesta sugerida con la fecha del pedido en fabricación</span></div>
+           <div class="ac"><span class="bt p">Revisar y enviar</span></div></div>
+       </div>
+     </div>
+     <div class="der">
+       <div class="card">
+         <div class="ph">Falta cobrar<small>Facturas emitidas sin pago anotado</small></div>
+         <div class="monto">$2.430.000</div>
+         <p>3 facturas vencidas · correo de cobranza listo para cada una</p>
+       </div>
+       <div class="card">
+         <div class="ph">Pendiente hoy</div>
+         <div class="pe"><span class="pt" style="background:#ee5a2a"></span>
+           <div><b>2 cotizaciones sin respuesta</b><span>Enviadas hace más de una semana. El correo de seguimiento ya está escrito.</span>
+           <span class="lk">Revisar →</span></div></div>
+         <div class="pe"><span class="pt" style="background:#b45309"></span>
+           <div><b>Silicona bajo el mínimo</b><span>Quedan 2 frascos. Se creó el pedido de compra para que lo apruebes.</span>
+           <span class="lk">Ver pedido →</span></div></div>
+         <div class="pe"><span class="pt" style="background:#157f4a"></span>
+           <div><b>Pedido C-0301 listo</b><span>Las 4 unidades terminaron en el taller. Falta agendar el despacho.</span>
+           <span class="lk">Agendar →</span></div></div>
+       </div>
+     </div>
+   </div>
+ </div>
+</body></html>

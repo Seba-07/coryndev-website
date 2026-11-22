@@ -90,7 +90,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=abc9628b">
+<link rel="stylesheet" href="styles-v2.css?v=9c2aac40">
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -157,6 +157,39 @@
         <span class="ic"><svg viewBox="0 0 24 24"><path d="m9 8.5-3.5 3.5L9 15.5M15 8.5l3.5 3.5L15 15.5"/><rect x="2.5" y="3.5" width="19" height="17" rx="2.5"/></svg></span>
         <span class="txt"><b>El código y los datos son tuyos</b><small>a tu nombre, desde el primer día</small></span>
       </div>
+  </div>
+</section>
+
+<!-- ================= CASO: SISTEMA DE BYSIMMED =================
+     Lo primero despues del encabezado: es la mejor prueba de lo que vendemos.
+     La pantalla es una recreacion con datos de ejemplo, nunca datos reales. -->
+<section class="bys" id="caso">
+  <div class="wrap bys-grid">
+    <div class="bys-texto rv">
+      <p class="eyebrow">Caso real &middot; bySIMMED</p>
+      <h2>Un fabricante con las ventas repartidas en el correo</h2>
+      <p>Cotizaciones, órdenes de compra, facturas y pagos le llegaban por correo.
+      Le hicimos un sistema que los lee y deja cada venta en un solo lugar.</p>
+      <ul class="lista-check">
+        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Lee lo que llega por correo y lo deja anotado. Una persona
+        confirma con un clic.</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Si un cliente pide precio, la cotización queda armada para
+        revisarla y enviarla.</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cada venta en una pantalla, de la cotización al cobro.</span></li>
+      </ul>
+      <div class="bys-acciones">
+        <a class="btn btn-solid btn-sm" href="caso-bysimmed-sistema.html">Ver el caso</a>
+        <a class="bys-link" href="correo.html">¿A tu empresa todo le llega por correo? &rarr;</a>
+      </div>
+    </div>
+    <figure class="bys-vista rv">
+      <div class="browser-lite">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" decoding="async"
+             alt="Inicio del sistema de bySIMMED con los correos del día ya leídos: una orden de compra, una factura, un pago y un despacho esperando confirmación">
+      </div>
+      <figcaption>El sistema de bySIMMED. Pantalla con datos de ejemplo.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -624,7 +657,7 @@
       usamos todos los días. Entendieron cómo trabajamos antes de escribir una
       sola línea de código.</p>
       <p class="firma">Ivonne Rivera &middot; Gerente de
-      <a href="caso-bysimmed.html">bySIMMED</a></p>
+      <a href="caso-bysimmed-sistema.html">bySIMMED</a></p>
     </blockquote>
   </div>
 </section>
@@ -904,8 +937,14 @@
       <div>
         <h4>Casos</h4>
         <ul>
-          <li><a href="caso-bysimmed.html">bySIMMED</a></li>
+          <li><a href="caso-bysimmed-sistema.html">bySIMMED &middot; sistema</a></li>
+          <li><a href="caso-bysimmed.html">bySIMMED &middot; sitio web</a></li>
           <li><a href="caso-avenprop.html">AvenProp</a></li>
+        </ul>
+        <h4>Productos propios</h4>
+        <ul>
+          <li><a href="producto-enumera.html">Enumera</a></li>
+          <li><a href="producto-precioradar.html">PrecioRadar</a></li>
         </ul>
       </div>
       <div>
@@ -945,6 +984,7 @@
   // Menu de celular
   var burger = document.getElementById('burger');
   var links = document.getElementById('navLinks');
+  if (burger && links) {
   burger.addEventListener('click', function () {
     var abierto = document.body.classList.toggle('menu-abierto');
     burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
@@ -963,6 +1003,7 @@
       burger.focus();
     }
   });
+  }
 
   // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
   // que comparte un referidor. Sin esto el codigo moria en la primera pagina:

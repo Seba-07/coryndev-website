@@ -3448,3 +3448,105 @@ body.pg-oscura .prod-cita .cita .firma{ color:var(--muted); }
   line-height:1.5; vertical-align:top;
 }
 .legal-tabla td:first-child{ font-weight:600; white-space:nowrap; }
+
+/* ============================================================
+   Caso del sistema de bySIMMED, pagina de correo y productos propios
+   ============================================================ */
+
+/* lista con check: la usan el inicio y correo.html */
+.lista-check{ list-style:none; margin:20px 0 0; padding:0; display:grid; gap:12px; }
+.lista-check li{
+  display:grid; grid-template-columns:22px 1fr; gap:10px;
+  color:var(--ink-2); font-size:16px; line-height:1.5;
+}
+.lista-check li svg{
+  width:18px; height:18px; margin-top:3px; fill:none; stroke:var(--accent);
+  stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+}
+
+/* --- inicio: el caso del sistema, apenas termina la portada --- */
+.bys{ background:var(--card); border-bottom:1px solid var(--line); padding:64px 0 70px; }
+.bys-grid{ display:grid; gap:34px; grid-template-columns:1fr; align-items:center; }
+@media (min-width:960px){ .bys-grid{ grid-template-columns:.85fr 1.15fr; gap:54px; } }
+.bys .eyebrow{ color:var(--accent); }
+.bys h2{ font-size:clamp(26px,3.3vw,38px); margin-top:12px; }
+.bys-texto > p:not(.eyebrow){ margin-top:14px; color:var(--muted); max-width:46ch; }
+.bys-acciones{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 22px; margin-top:26px; }
+.bys-link{
+  font-size:15px; font-weight:600; color:var(--accent); text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.bys-link:hover{ border-bottom-color:var(--accent); }
+.bys-vista figcaption, .correo-vista figcaption{ color:var(--muted); font-size:13.5px; margin-top:10px; }
+
+/* --- correo.html --- */
+.correo-problema{ padding:64px 0 58px; }
+.correo-problema .eyebrow{ color:var(--accent); }
+.correo-tres{ display:grid; gap:16px; grid-template-columns:1fr; }
+@media (min-width:820px){ .correo-tres{ grid-template-columns:repeat(3,1fr); gap:20px; } }
+.correo-item{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px 22px 24px; box-shadow:var(--shadow);
+}
+.correo-item .n{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
+  letter-spacing:.12em; color:var(--accent);
+}
+.correo-item b{
+  display:block; margin-top:10px; font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:700; font-size:20px; line-height:1.2; letter-spacing:-.015em;
+}
+.correo-item p{ margin-top:8px; color:var(--muted); font-size:15.5px; line-height:1.55; }
+
+.correo-que{
+  background:color-mix(in srgb, var(--accent) 5%, var(--paper));
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.correo-grid{ display:grid; gap:34px; grid-template-columns:1fr; align-items:center; }
+@media (min-width:960px){ .correo-grid{ grid-template-columns:.9fr 1.1fr; gap:52px; } }
+.correo-que .eyebrow{ color:var(--accent); }
+.correo-que h2{ font-size:clamp(26px,3.3vw,38px); margin-top:12px; }
+.correo-nota{ margin-top:20px; font-size:15px; color:var(--muted); }
+.correo-nota a{ color:var(--accent); font-weight:600; }
+
+.correo-voz{ padding:60px 0 56px; }
+.correo-voz .cita{ margin:0 auto; }
+
+.correo-precio{ padding:12px 0 84px; }
+.correo-caja{
+  max-width:720px; margin:0 auto; text-align:center; background:var(--card);
+  border:1px solid var(--line); border-radius:20px; padding:40px 32px 42px;
+  box-shadow:var(--lift);
+}
+.correo-caja .eyebrow{ color:var(--accent); }
+.correo-caja h2{ font-size:clamp(26px,3.4vw,38px); margin-top:12px; }
+.correo-caja p:not(.eyebrow){ margin:14px auto 0; color:var(--muted); max-width:52ch; }
+.correo-caja p a{ color:var(--accent); }
+.correo-caja .btn{ margin-top:28px; }
+@media (max-width:520px){
+  .correo-caja{ padding:30px 20px 32px; }
+  .correo-caja .btn{ width:100%; justify-content:center; }
+}
+
+/* --- paginas de caso: testimonio y captura que falta --- */
+.caso-body .caso-cita{ margin:34px 0 0; padding:26px 26px 28px; }
+.caso-body .caso-cita p{ color:var(--ink); margin-bottom:0; font-size:clamp(19px,2.2vw,23px); }
+.caso-body .caso-cita .firma{ margin-top:14px; font-size:15px; color:var(--muted); }
+.caso-body .captura-pendiente p{
+  margin:0; aspect-ratio:16/9; display:flex; flex-wrap:wrap; gap:8px;
+  align-items:center; justify-content:center; padding:24px; text-align:center;
+  color:var(--muted); font-size:15px;
+}
+
+/* --- nosotros: productos propios, aparte del recorrido --- */
+body.pg-oscura > section.nos-productos{ border-top:1px solid rgba(159,186,234,.14); }
+@media (min-width:720px){ .obras.dos{ grid-template-columns:repeat(2, 1fr); } }
+@media (min-width:720px){ .obras.dos .obra-vista{ height:230px; } }
+.obra-vista.vista-pendiente{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+}
+.vista-pendiente .pendiente{ color:#f0c27a; }
+.vista-pendiente small{ font-size:13px; color:#9fbaea; }
+
+/* --- pie: segundo titulo dentro de una columna --- */
+.foot ul + h4{ margin-top:26px; }
