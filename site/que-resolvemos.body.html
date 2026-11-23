@@ -1,204 +1,204 @@
-<section class="pb-lista">
+<!-- Seis problemas, cada uno con su foto de hoy y la pantalla de como se
+     resuelve. marketing/posts.py lee estos bloques: si cambia la estructura
+     (las dos img, el h2 con pb-sintoma, pb-costo y pb-sol), hay que ajustar
+     su expresion regular. -->
+<section class="seccion problemas-lista">
   <div class="wrap">
-    <p class="pb-encabeza rv">Todas son problemas de negocio que se resuelven con
-    software. Por eso no partimos preguntándote qué sistema quieres, sino cuál de
-    estas escenas se parece a tu semana.</p>
-
-  <article class="pb rv" id="planilla">
-    <div class="pb-par">
-      <figure class="pb-foto">
-        <img src="assets/real-planilla.webp" width="1400" height="933" loading="lazy" alt="Tu operación vive en una planilla">
-        <figcaption><span class="et hoy">Hoy</span></figcaption>
-      </figure>
-      <figure class="pb-foto pb-foto-sol">
-        <img src="assets/demo-medida.webp" width="1500" height="938" loading="lazy"
-             alt="La solución para: tu operación vive en una planilla">
-        <figcaption><span class="et sol">Con un sistema</span></figcaption>
-      </figure>
-    </div>
-
-    <div class="pb-texto">
-      <p class="pb-num">01</p>
-      <h2>Tu operación vive en una planilla</h2>
-      <p class="pb-sintoma">Inventario, ventas y cobros en un archivo que se llama <code>final_v3_ok.xlsx</code>. Hay fórmulas rotas, filas duplicadas y una columna de notas que dice "preguntar a Ana".</p>
-
-      <div class="pb-dato pb-costo">
-        <h3>Lo que te cuesta</h3>
-        <p>Si Ana no está, nadie sabe qué stock hay ni a quién había que cobrarle. Y el día que el archivo se corrompa, no hay versión anterior a la que volver.</p>
+  <article class="problema" id="planilla">
+    <div class="problema-grid">
+      <div class="problema-visual posar" data-ad>
+        <div class="ad-marco">
+          <div class="ad-capas">
+            <img src="assets/real-planilla.webp" width="1400" height="933" loading="lazy" alt="Una planilla de inventario abierta en un notebook, entre papeles">
+            <img src="assets/demo-medida.webp" width="1500" height="938" loading="lazy" alt="Panel de un sistema de gestión con indicadores, inventario y alertas">
+          </div>
+        </div>
+        <span class="postit" aria-hidden="true"><span class="postit-papel" style="--r:-4deg"><span class="postit-texto">preguntar a Ana</span></span></span>
+        <div class="ad-botones" role="group" aria-label="Comparar cómo se ve hoy y con un sistema">
+          <button type="button" data-v="antes" aria-pressed="true">Hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Con un sistema</button>
+        </div>
       </div>
-
-      <div class="pb-dato pb-sol">
-        <h3>Lo que construimos</h3>
-        <p>Un sistema donde cada dato vive una sola vez, con respaldo automático y permisos por persona. Puedes partir por un módulo: el que más te duela.</p>
+      <div class="problema-texto">
+        <h2>Tu operación vive en una planilla</h2>
+        <p class="pb-sintoma">Inventario, ventas y cobros en un archivo que se llama final_v3_ok.xlsx, con fórmulas rotas y filas duplicadas.</p>
+        <div class="pb-partes">
+          <div class="pb-costo">
+            <h3>Lo que te cuesta</h3>
+            <p>Si Ana no está, nadie sabe qué stock hay ni a quién había que cobrarle.</p>
+          </div>
+          <div class="pb-sol">
+            <h3>Lo que construimos</h3>
+            <p>Un sistema donde cada dato vive una sola vez, con respaldo automático y permisos por persona. Puedes partir por el módulo que más te duela.</p>
+          </div>
+        </div>
+        <div class="pb-precio"><span>Desde</span><b>$129.000 + 1 UF al mes</b><a class="enlace" href="precios.html#cotizar">Estimar mi caso {FLECHA}</a></div>
       </div>
-
-      <p class="pb-precio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em>
-        <a href="index.html#cotizar">Estimar mi caso &rarr;</a></p>
     </div>
   </article>
 
-  <article class="pb rv" id="google">
-    <div class="pb-par">
-      <figure class="pb-foto">
-        <img src="assets/real-google.webp" width="1400" height="933" loading="lazy" alt="Te buscan en Google y no apareces">
-        <figcaption><span class="et hoy">Hoy</span></figcaption>
-      </figure>
-      <figure class="pb-foto pb-foto-sol">
-        <img src="assets/demo-web.webp" width="1500" height="938" loading="lazy"
-             alt="La solución para: te buscan en google y no apareces">
-        <figcaption><span class="et sol">Con un sistema</span></figcaption>
-      </figure>
-    </div>
-
-    <div class="pb-texto">
-      <p class="pb-num">02</p>
-      <h2>Te buscan en Google y no apareces</h2>
-      <p class="pb-sintoma">Alguien busca justo lo que vendes, en tu comuna, ahora mismo. Encuentra cuatro negocios y ninguno es el tuyo, porque solo tienes Instagram.</p>
-
-      <div class="pb-dato pb-costo">
-        <h3>Lo que te cuesta</h3>
-        <p>No es que pierdas una venta: es que nunca supiste que existió. Esa persona ya compró en otro lado y no hay forma de contarla.</p>
+  <article class="problema" id="google">
+    <div class="problema-grid">
+      <div class="problema-visual posar" data-ad>
+        <div class="ad-marco">
+          <div class="ad-capas">
+            <img src="assets/real-google.webp" width="1400" height="933" loading="lazy" alt="Un teléfono mostrando en el mapa a la competencia, dentro del local">
+            <img src="assets/demo-web.webp" width="1500" height="938" loading="lazy" alt="Sitio web de un negocio local con productos destacados y datos de contacto">
+          </div>
+        </div>
+        <span class="postit" aria-hidden="true"><span class="postit-papel" style="--r:3deg"><span class="postit-texto">¿por qué no salimos en Google?</span></span></span>
+        <div class="ad-botones" role="group" aria-label="Comparar cómo se ve hoy y con un sistema">
+          <button type="button" data-v="antes" aria-pressed="true">Hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Con un sistema</button>
+        </div>
       </div>
-
-      <div class="pb-dato pb-sol">
-        <h3>Lo que construimos</h3>
-        <p>Un sitio propio con tus productos, tu dirección y tu horario, hecho para que Google lo entienda y lo muestre. El contacto llega directo a ti, no a un portal.</p>
+      <div class="problema-texto">
+        <h2>Te buscan en Google y no apareces</h2>
+        <p class="pb-sintoma">Alguien busca justo lo que vendes, en tu comuna, y encuentra cuatro negocios. Ninguno es el tuyo.</p>
+        <div class="pb-partes">
+          <div class="pb-costo">
+            <h3>Lo que te cuesta</h3>
+            <p>No pierdes una venta: nunca supiste que existió.</p>
+          </div>
+          <div class="pb-sol">
+            <h3>Lo que construimos</h3>
+            <p>Un sitio propio con tus productos, tu dirección y tu horario, hecho para que Google lo entienda y lo muestre.</p>
+          </div>
+        </div>
+        <div class="pb-precio"><span>Desde</span><b>$69.000 + 1 UF al mes</b><a class="enlace" href="precios.html#cotizar">Estimar mi caso {FLECHA}</a></div>
       </div>
-
-      <p class="pb-precio">Desde <b>$69.000</b> <em>+ 1 UF al mes</em>
-        <a href="index.html#cotizar">Estimar mi caso &rarr;</a></p>
-    </div>
-  </article>
-
-  <article class="pb rv" id="whatsapp">
-    <div class="pb-par">
-      <figure class="pb-foto">
-        <img src="assets/real-whatsapp.webp" width="1400" height="933" loading="lazy" alt="Explicas lo mismo por WhatsApp, todo el día">
-        <figcaption><span class="et hoy">Hoy</span></figcaption>
-      </figure>
-      <figure class="pb-foto pb-foto-sol">
-        <img src="assets/demo-tienda.webp" width="1500" height="938" loading="lazy"
-             alt="La solución para: explicas lo mismo por whatsapp, todo el día">
-        <figcaption><span class="et sol">Con un sistema</span></figcaption>
-      </figure>
-    </div>
-
-    <div class="pb-texto">
-      <p class="pb-num">03</p>
-      <h2>Explicas lo mismo por WhatsApp, todo el día</h2>
-      <p class="pb-sintoma">Precio, color, medidas, despacho y plazo. Siete conversaciones abiertas preguntando lo mismo, y cada respuesta te saca de lo que estabas haciendo.</p>
-
-      <div class="pb-dato pb-costo">
-        <h3>Lo que te cuesta</h3>
-        <p>Cada interrupción cuesta más que el minuto que tomó: cortas lo que estabas haciendo y vuelves a partir. Y de noche, cuando la gente decide comprar, no hay nadie.</p>
-      </div>
-
-      <div class="pb-dato pb-sol">
-        <h3>Lo que construimos</h3>
-        <p>Un catálogo en línea con fotos, medidas, precios y disponibilidad. El cliente llega sabiendo qué quiere, y te escribe para comprar, no para preguntar.</p>
-      </div>
-
-      <p class="pb-precio">Desde <b>$69.000</b> <em>+ 1 UF al mes</em>
-        <a href="index.html#cotizar">Estimar mi caso &rarr;</a></p>
     </div>
   </article>
 
-  <article class="pb rv" id="telefono">
-    <div class="pb-par">
-      <figure class="pb-foto">
-        <img src="assets/real-telefono.webp" width="1400" height="933" loading="lazy" alt="Todo se agenda o se pide por teléfono">
-        <figcaption><span class="et hoy">Hoy</span></figcaption>
-      </figure>
-      <figure class="pb-foto pb-foto-sol">
-        <img src="assets/demo-agenda.webp" width="1500" height="938" loading="lazy"
-             alt="La solución para: todo se agenda o se pide por teléfono">
-        <figcaption><span class="et sol">Con un sistema</span></figcaption>
-      </figure>
-    </div>
-
-    <div class="pb-texto">
-      <p class="pb-num">04</p>
-      <h2>Todo se agenda o se pide por teléfono</h2>
-      <p class="pb-sintoma">Mientras atiendes a alguien, el teléfono suena y nadie contesta. La agenda vive en un cuaderno y el que no llega, no avisa.</p>
-
-      <div class="pb-dato pb-costo">
-        <h3>Lo que te cuesta</h3>
-        <p>Cada llamada perdida es una hora que no se llenó, y cada hora vacía ya no se recupera. El cuaderno además no te dice quién falta seguido.</p>
+  <article class="problema" id="whatsapp">
+    <div class="problema-grid">
+      <div class="problema-visual posar" data-ad>
+        <div class="ad-marco">
+          <div class="ad-capas">
+            <img src="assets/real-whatsapp.webp" width="1400" height="933" loading="lazy" alt="El teléfono con mensajes sin responder mientras las manos siguen trabajando">
+            <img src="assets/demo-tienda.webp" width="1500" height="938" loading="lazy" alt="Catálogo en línea con filtros por categoría, precio y disponibilidad">
+          </div>
+        </div>
+        <span class="postit" aria-hidden="true"><span class="postit-papel" style="--r:-2deg"><span class="postit-texto">responder los 18 WhatsApp</span></span></span>
+        <div class="ad-botones" role="group" aria-label="Comparar cómo se ve hoy y con un sistema">
+          <button type="button" data-v="antes" aria-pressed="true">Hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Con un sistema</button>
+        </div>
       </div>
-
-      <div class="pb-dato pb-sol">
-        <h3>Lo que construimos</h3>
-        <p>Agenda en línea donde el cliente ve los bloques libres y reserva solo. El sistema confirma y manda recordatorio, así el teléfono deja de ser el único canal.</p>
+      <div class="problema-texto">
+        <h2>Explicas lo mismo por WhatsApp, todo el día</h2>
+        <p class="pb-sintoma">Precio, medidas, despacho y plazo: siete conversaciones preguntando lo mismo.</p>
+        <div class="pb-partes">
+          <div class="pb-costo">
+            <h3>Lo que te cuesta</h3>
+            <p>Cada respuesta te saca de lo que estabas haciendo, y de noche, cuando la gente decide comprar, nadie contesta.</p>
+          </div>
+          <div class="pb-sol">
+            <h3>Lo que construimos</h3>
+            <p>Un catálogo en línea con fotos, medidas, precios y disponibilidad. Te escriben para comprar, no para preguntar.</p>
+          </div>
+        </div>
+        <div class="pb-precio"><span>Desde</span><b>$69.000 + 1 UF al mes</b><a class="enlace" href="precios.html#cotizar">Estimar mi caso {FLECHA}</a></div>
       </div>
-
-      <p class="pb-precio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em>
-        <a href="index.html#cotizar">Estimar mi caso &rarr;</a></p>
-    </div>
-  </article>
-
-  <article class="pb rv" id="cobranza">
-    <div class="pb-par">
-      <figure class="pb-foto">
-        <img src="assets/real-cobranza.webp" width="1400" height="933" loading="lazy" alt="No sabes si ganaste hasta que cierras el mes">
-        <figcaption><span class="et hoy">Hoy</span></figcaption>
-      </figure>
-      <figure class="pb-foto pb-foto-sol">
-        <img src="assets/demo-cobranza.webp" width="1500" height="938" loading="lazy"
-             alt="La solución para: no sabes si ganaste hasta que cierras el mes">
-        <figcaption><span class="et sol">Con un sistema</span></figcaption>
-      </figure>
-    </div>
-
-    <div class="pb-texto">
-      <p class="pb-num">05</p>
-      <h2>No sabes si ganaste hasta que cierras el mes</h2>
-      <p class="pb-sintoma">Las facturas por cobrar están en un cuaderno, en el correo y en la memoria. Te enteras de que un cliente no pagó cuando necesitas esa plata.</p>
-
-      <div class="pb-dato pb-costo">
-        <h3>Lo que te cuesta</h3>
-        <p>La deuda vieja es la más difícil de cobrar, y mientras más tarde la detectas, menos probable es que la veas. Estás financiando a tus clientes sin haberlo decidido.</p>
-      </div>
-
-      <div class="pb-dato pb-sol">
-        <h3>Lo que construimos</h3>
-        <p>Un módulo de cobranza que ordena quién debe, desde cuándo y por cuánto, con alertas antes de que la deuda envejezca.</p>
-      </div>
-
-      <p class="pb-precio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em>
-        <a href="index.html#cotizar">Estimar mi caso &rarr;</a></p>
     </div>
   </article>
 
-  <article class="pb rv" id="pedidos">
-    <div class="pb-par">
-      <figure class="pb-foto">
-        <img src="assets/real-pedidos.webp" width="1400" height="933" loading="lazy" alt="Los pedidos se pierden entre papeles y mensajes">
-        <figcaption><span class="et hoy">Hoy</span></figcaption>
-      </figure>
-      <figure class="pb-foto pb-foto-sol">
-        <img src="assets/demo-ordenes.webp" width="1500" height="938" loading="lazy"
-             alt="La solución para: los pedidos se pierden entre papeles y mensajes">
-        <figcaption><span class="et sol">Con un sistema</span></figcaption>
-      </figure>
+  <article class="problema" id="telefono">
+    <div class="problema-grid">
+      <div class="problema-visual posar" data-ad>
+        <div class="ad-marco">
+          <div class="ad-capas">
+            <img src="assets/real-telefono.webp" width="1400" height="933" loading="lazy" alt="Un escritorio con el teléfono, la agenda de papel y un celular con llamadas perdidas">
+            <img src="assets/demo-agenda.webp" width="1500" height="938" loading="lazy" alt="Agenda semanal con reservas hechas en línea y confirmaciones automáticas">
+          </div>
+        </div>
+        <span class="postit" aria-hidden="true"><span class="postit-papel" style="--r:2.5deg"><span class="postit-texto">devolver 14 llamadas</span></span></span>
+        <div class="ad-botones" role="group" aria-label="Comparar cómo se ve hoy y con un sistema">
+          <button type="button" data-v="antes" aria-pressed="true">Hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Con un sistema</button>
+        </div>
+      </div>
+      <div class="problema-texto">
+        <h2>Todo se agenda o se pide por teléfono</h2>
+        <p class="pb-sintoma">Mientras atiendes a alguien, el teléfono suena y nadie contesta. La agenda vive en un cuaderno.</p>
+        <div class="pb-partes">
+          <div class="pb-costo">
+            <h3>Lo que te cuesta</h3>
+            <p>Cada llamada perdida es una hora que no se llenó, y esa hora ya no se recupera.</p>
+          </div>
+          <div class="pb-sol">
+            <h3>Lo que construimos</h3>
+            <p>Una agenda en línea donde el cliente ve los bloques libres y reserva solo. El sistema confirma y manda recordatorio.</p>
+          </div>
+        </div>
+        <div class="pb-precio"><span>Desde</span><b>$129.000 + 1 UF al mes</b><a class="enlace" href="precios.html#cotizar">Estimar mi caso {FLECHA}</a></div>
+      </div>
     </div>
+  </article>
 
-    <div class="pb-texto">
-      <p class="pb-num">06</p>
-      <h2>Los pedidos se pierden entre papeles y mensajes</h2>
-      <p class="pb-sintoma">Un pedido llegó por WhatsApp, otro por correo y otro lo anotaron en una hoja. Nadie sabe cuál va primero ni quién quedó a cargo.</p>
-
-      <div class="pb-dato pb-costo">
-        <h3>Lo que te cuesta</h3>
-        <p>El cliente llama a preguntar y no puedes responderle sin revisar tres lugares. Los trabajos que se atrasan son casi siempre los que nadie estaba mirando.</p>
+  <article class="problema" id="cobranza">
+    <div class="problema-grid">
+      <div class="problema-visual posar" data-ad>
+        <div class="ad-marco">
+          <div class="ad-capas">
+            <img src="assets/real-cobranza.webp" width="1400" height="933" loading="lazy" alt="Una pila de facturas en papel junto a una calculadora y un cuaderno">
+            <img src="assets/demo-cobranza.webp" width="1500" height="938" loading="lazy" alt="Módulo de cobranza con las facturas ordenadas por antigüedad de la deuda">
+          </div>
+        </div>
+        <span class="postit" aria-hidden="true"><span class="postit-papel" style="--r:-3deg"><span class="postit-texto">¿quién nos debe?</span></span></span>
+        <div class="ad-botones" role="group" aria-label="Comparar cómo se ve hoy y con un sistema">
+          <button type="button" data-v="antes" aria-pressed="true">Hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Con un sistema</button>
+        </div>
       </div>
-
-      <div class="pb-dato pb-sol">
-        <h3>Lo que construimos</h3>
-        <p>Un tablero donde cada pedido tiene su etapa, su responsable y su plazo. De un vistazo ves qué está atrasado y qué falta por salir.</p>
+      <div class="problema-texto">
+        <h2>No sabes si ganaste hasta que cierras el mes</h2>
+        <p class="pb-sintoma">Las facturas por cobrar están en un cuaderno, en el correo y en la memoria.</p>
+        <div class="pb-partes">
+          <div class="pb-costo">
+            <h3>Lo que te cuesta</h3>
+            <p>Te enteras de que un cliente no pagó cuando necesitas esa plata. Estás financiando a tus clientes sin haberlo decidido.</p>
+          </div>
+          <div class="pb-sol">
+            <h3>Lo que construimos</h3>
+            <p>Un módulo de cobranza que ordena quién debe, desde cuándo y por cuánto, con avisos antes de que la deuda envejezca.</p>
+          </div>
+        </div>
+        <div class="pb-precio"><span>Desde</span><b>$129.000 + 1 UF al mes</b><a class="enlace" href="precios.html#cotizar">Estimar mi caso {FLECHA}</a></div>
       </div>
+    </div>
+  </article>
 
-      <p class="pb-precio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em>
-        <a href="index.html#cotizar">Estimar mi caso &rarr;</a></p>
+  <article class="problema" id="pedidos">
+    <div class="problema-grid">
+      <div class="problema-visual posar" data-ad>
+        <div class="ad-marco">
+          <div class="ad-capas">
+            <img src="assets/real-pedidos.webp" width="1400" height="933" loading="lazy" alt="Papeles con pedidos anotados a mano sobre un mesón, junto a un teléfono">
+            <img src="assets/demo-ordenes.webp" width="1500" height="938" loading="lazy" alt="Tablero de pedidos con la etapa, el responsable y el plazo de cada uno">
+          </div>
+        </div>
+        <span class="postit" aria-hidden="true"><span class="postit-papel" style="--r:3.5deg"><span class="postit-texto">¿cuál va primero?</span></span></span>
+        <div class="ad-botones" role="group" aria-label="Comparar cómo se ve hoy y con un sistema">
+          <button type="button" data-v="antes" aria-pressed="true">Hoy</button>
+          <button type="button" data-v="despues" aria-pressed="false">Con un sistema</button>
+        </div>
+      </div>
+      <div class="problema-texto">
+        <h2>Los pedidos se pierden entre papeles y mensajes</h2>
+        <p class="pb-sintoma">Uno llegó por WhatsApp, otro por correo y otro lo anotaron en una hoja.</p>
+        <div class="pb-partes">
+          <div class="pb-costo">
+            <h3>Lo que te cuesta</h3>
+            <p>El cliente llama a preguntar y no puedes responderle sin revisar tres lugares.</p>
+          </div>
+          <div class="pb-sol">
+            <h3>Lo que construimos</h3>
+            <p>Un tablero donde cada pedido tiene su etapa, su responsable y su plazo. De un vistazo ves qué está atrasado.</p>
+          </div>
+        </div>
+        <div class="pb-precio"><span>Desde</span><b>$129.000 + 1 UF al mes</b><a class="enlace" href="precios.html#cotizar">Estimar mi caso {FLECHA}</a></div>
+      </div>
     </div>
   </article>
   </div>

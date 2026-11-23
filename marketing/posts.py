@@ -338,20 +338,26 @@ def servicios_del_sitio():
 
 
 def etapas_del_sitio():
-    """Las cinco etapas del proceso, con su resumen y su detalle."""
+    """Las cinco etapas del proceso, con su resumen y su detalle.
+
+    Cada etapa es un <article class="etapa proc-etapa"> con su numero y su
+    resumen corto en data-n y data-cu, el nombre en el h2 y el detalle en el
+    primer parrafo."""
     fuente = (RAIZ / "site" / "proceso.body.html").read_text()
-    resumen = re.findall(
-        r'<span class="paso">(\d+)</span>([^<]+)</span>\s*<span class="cu">([^<]+)</span>',
-        fuente)
-    detalles = []
-    for b in re.split(r'<section class="proc-etapa', fuente)[1:]:
-        p = re.search(r"<p[^>]*>(.*?)</p>", b, re.S)
-        detalles.append(limpio(p.group(1)) if p else "")
-    if len(resumen) != len(detalles) or not resumen:
-        raise SystemExit("La estructura de proceso.body.html cambio: hay "
-                         f"{len(resumen)} etapas y {len(detalles)} detalles.")
-    return [(n, limpio(nom), limpio(cu), det)
-            for (n, nom, cu), det in zip(resumen, detalles)]
+    salida = []
+    for b in re.split(r'<article class="etapa proc-etapa"', fuente)[1:]:
+        n = re.search(r'data-n="(\d+)"', b)
+        cu = re.search(r'data-cu="([^"]+)"', b)
+        h2 = re.search(r"<h2>(.*?)</h2>", b, re.S)
+        p = re.search(r'<div class="etapa-texto">.*?<p>(.*?)</p>', b, re.S)
+        if not (n and cu and h2 and p):
+            raise SystemExit("La estructura de proceso.body.html cambio: falta el numero, "
+                             "el resumen, el nombre o el detalle de una etapa.")
+        nombre = re.sub(r'<span class="(?:solo-lector|timbre[^"]*)"[^>]*>.*?</span>', "", h2.group(1))
+        salida.append((n.group(1), limpio(nombre), limpio(cu.group(1)), limpio(p.group(1))))
+    if not salida:
+        raise SystemExit("No se pudo leer ninguna etapa de proceso.body.html.")
+    return salida
 
 
 def _recorta(texto, tope=210):

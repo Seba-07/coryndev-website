@@ -6,7 +6,7 @@
 <title>Precios de software a medida en Chile, publicados | CORYN</title>
 <meta name="description" content="Cuánto cuesta un sistema de gestión, un sitio web, una tienda online o una app con CORYN: puesta en marcha desde $69.000 y acompañamiento desde 1 UF al mes. Precio cerrado antes de empezar.">
 <link rel="canonical" href="https://coryndev.com/precios.html">
-<meta name="theme-color" content="#070e20">
+<meta name="theme-color" content="#eceff5">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -128,26 +128,10 @@
     },
     {
       "@type": "Question",
-      "name": "¿Cuándo empieza a correr el mensual?",
+      "name": "¿Por qué en UF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cuando el sistema entra en uso real en tu negocio, no cuando firmamos. Mientras construimos y probamos, pagas solo la puesta en marcha."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué en UF y cuándo sube?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "En UF para que lo ajuste la inflación y no nosotros. Se revisa una vez al año, en una conversación: sube si tu operación creció y el sistema hace más, no porque subieron nuestros costos. Entremedio no cambia. Qué incluye y cuándo sube, en detalle."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Hay algún costo que no esté en esta página?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Lo que no está acá, no se cobra. Cada servicio dice además qué incluye y qué no incluye, en Servicios ."
+        "text": "Para que lo ajuste la inflación y no nosotros. Así el mensual no cambia por decisión nuestra entre una revisión anual y la siguiente."
       }
     }
   ]
@@ -155,99 +139,84 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=29ead8f9">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="estilos.css?v=206b29c5">
 <script>
-  if ('IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('js-rv');
-  }
+  (function (d) {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.documentElement.classList.add('mov');
+    setTimeout(function () { if (!window.CORYN_MOV) d.documentElement.classList.remove('mov'); }, 3500);
+  })(document);
 </script>
 </head>
-<body>
+<body class="pg-precios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <header class="nav" id="nav">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-      <span>CORYN</span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="que-resolvemos.html">Qué resolvemos</a>
-        <a href="precios.html" class="activa">Precios</a>
-        <a href="proceso.html">Proceso</a>
-        <a href="nosotros.html">Nosotros</a>
+  <div class="wrap nav-fila">
+    <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="servicios.html">Servicios</a>
+      <a href="que-resolvemos.html">Qué resolvemos</a>
+      <a href="precios.html" class="activa" aria-current="page">Precios</a>
+      <a href="proceso.html">Proceso</a>
+      <a href="nosotros.html">Nosotros</a>
     </nav>
-    <div class="nav-right">
-      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="nav-der">
+      <a class="btn btn-wa btn-chico nav-cta" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener" aria-label="Conversemos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg><span>Conversemos</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <p class="eyebrow">Precios</p>
-    <h1>Los precios, publicados</h1>
-    <p>Casi nadie en el rubro los muestra. Acá están: lo que cuesta partir, lo que cuesta cada mes y qué incluye. Sin letra chica.</p>
+<main id="contenido">
+<section class="cabeza">
+  <div class="wrap cabeza-grid">
+    <div class="cabeza-texto">
+      <h1>Los precios, publicados<span class="punto">.</span></h1>
+      <p class="bajada">Casi nadie en el rubro los muestra. Acá están: lo que cuesta partir, lo que cuesta cada mes y qué incluye.</p>
+    </div>
   </div>
 </section>
 
-<!-- Estimador de precios. Fuente unica: el inicio y /precios lo incluyen con
-     {ESTIMADOR}, y marketing/posts.py lee los montos de aqui. -->
-<section id="cotizar" class="estima">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">Inversión</p>
-      <h2>Cuánto costaría lo tuyo</h2>
-      <p>Partes con lo justo para operar y el sistema crece contigo. El precio de
-      entrada es bajo a propósito: lo que nos importa es acompañarte todos los meses,
-      no cobrarte caro una vez.</p>
+<!-- Estimador de precios. Fuente unica: lo incluyen el inicio y /precios,
+     y marketing/posts.py lee los montos del arreglo TIPOS. -->
+<section id="cotizar" class="precio seccion">
+  <div class="wrap precio-grid">
+    <div class="precio-texto">
+      <h2>Los precios están publicados.</h2>
+      <p class="bajada">Elige con qué partes. Pagas poco al empezar y un mensual
+      mientras el sistema te sirva.</p>
+      <ul class="hechos">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin permanencia: te puedes ir cualquier mes.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 8.5-3.5 3.5L9 15.5M15 8.5l3.5 3.5L15 15.5"/></svg>El código y los datos son tuyos desde el primer día.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>El mensual se revisa una vez al año.</li>
+      </ul>
+      <a class="enlace enlace-claro" href="precios.html">Qué cubre cada peso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
-    <div class="est-grid rv">
-      <form class="est-form" id="estForm">
-        <fieldset class="est-paso">
-          <legend>¿Con qué partes?</legend>
-          <div class="est-ops" id="estTipos"></div>
-        </fieldset>
-      </form>
-
-      <aside class="est-panel">
-        <div class="est-caja">
-          <p class="kicker">Acompañamiento mensual</p>
-          <p class="uf"><em class="pre">desde</em><b id="estUf">1 UF</b><span>al mes</span></p>
-          <p class="uf-pesos" id="estUfPeso" hidden></p>
-          <p class="uf-peso">Son 1 UF al mes, o 1,5 UF si es tienda online o app. Va
-          en UF, así lo ajusta la inflación y no nosotros.</p>
-          <p class="uf-incluye">Incluye mantención, respaldos, monitoreo y mejoras
-          pequeñas cada mes. El valor se revisa una vez al año y entremedio no cambia.
-          <a href="servicios.html#soporte">Ver qué incluye y cuándo sube</a></p>
-
-          <div class="est-puesta">
-            <span>Puesta en marcha, una sola vez</span>
-            <b id="estMin">$129.000</b>
-          </div>
-
-          <ul class="est-resumen" id="estResumen"></ul>
-
-          <p class="est-etapas" id="estEtapas" hidden></p>
-
-          <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto.">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
-            Cotizar esto por WhatsApp
-          </a>
-          <p class="est-nota">El "desde", sin letra chica: el precio base cubre el
-          alcance descrito, y si tu caso trae más, se cotiza y se cierra por escrito
-          antes de programar. Nada cambia a mitad de camino. El acompañamiento corre
-          recién cuando el sistema entra en uso.</p>
-        </div>
-      </aside>
-    </div>
+    <form class="hoja cotizacion posar" id="estForm">
+      <div class="cot-cabeza">
+        <div><b>Cotización</b><small>Elige con qué partes</small></div>
+        <span class="folio">CLP</span>
+      </div>
+      <fieldset>
+        <legend class="solo-lector">¿Con qué partes?</legend>
+        <div id="estTipos"></div>
+      </fieldset>
+      <div class="cot-totales">
+        <div><span>Puesta en marcha, una sola vez</span><b id="estMin">desde $129.000</b></div>
+        <div><span>Acompañamiento mensual</span><b id="estUf">1 UF</b></div>
+        <small id="estUfPeso" hidden></small>
+      </div>
+      <p class="cot-nota-app" id="estEtapas" hidden></p>
+      <div class="cot-pie">
+        <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Cotizar esto por WhatsApp</a>
+        <p>El precio base cubre el alcance descrito en <a href="servicios.html">Servicios</a>.
+        Si tu caso trae más, se cotiza y se cierra por escrito antes de programar.</p>
+      </div>
+      <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
+    </form>
   </div>
 </section>
 
@@ -288,8 +257,7 @@
     function pintaPesos () {
       var el = $('estUfPeso');
       if (!UF) { el.hidden = true; return; }
-      el.innerHTML = '≈ <b>' + plata(Math.round(ufMes * UF / 100) * 100) +
-        '</b> al mes, al valor de hoy';
+      el.textContent = '≈ ' + plata(Math.round(ufMes * UF / 100) * 100) + ' al mes, al valor de hoy';
       el.hidden = false;
     }
 
@@ -299,7 +267,6 @@
         var guardado = JSON.parse(localStorage.getItem('coryn_uf') || 'null');
         if (guardado && guardado.fecha === hoy) { UF = guardado.valor; pintaPesos(); return; }
       } catch (e) { /* sin almacenamiento: se consulta igual */ }
-
       // /api/uf la trae del servidor: mindicador.cl no deja consultar desde
       // el navegador, y asi ademas queda guardada medio dia en el borde.
       fetch('/api/uf')
@@ -316,20 +283,13 @@
 
     function calcula () {
       var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
-
-      // Las dos cifras dependen solo de con que se parte. Antes se movian ambas
-      // a la vez con cada casilla y no se entendia que estaba pagando el cliente.
       ufMes = t.uf;
       $('estUf').textContent = String(t.uf).replace('.', ',') + ' UF';
       pintaPesos();
       $('estMin').textContent = 'desde ' + plata(t.base);
-
-      $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>';
-
       var etp = $('estEtapas');
-      if (t.nota) { etp.innerHTML = t.nota; etp.hidden = false; }
+      if (t.nota) { etp.textContent = t.nota; etp.hidden = false; }
       else { etp.hidden = true; }
-
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
         'Puesta en marcha: desde ' + plata(t.base) + '\n' +
@@ -347,91 +307,97 @@
 </script>
 
 
-<!-- ================= QUE CUBRE CADA PESO ================= -->
-<section class="junto claro">
+<!-- ================= DOS COBROS ================= -->
+<section class="cobros seccion">
   <div class="wrap">
-    <div class="junto-cab rv">
-      <p class="eyebrow">Qué cubre cada peso</p>
+    <div class="cabeza-seccion">
       <h2>Dos cobros, y nada más.</h2>
-      <p>Uno al partir y uno cada mes. No hay horas extra, cuotas de licencia ni
-      sorpresas al final. Si algo no está en esta página, no se cobra.</p>
+      <p class="bajada">Uno al partir y uno cada mes. No hay horas extra, licencias
+      ni sorpresas al final: si algo no está en esta página, no se cobra.</p>
     </div>
-
-    <div class="junto-lista">
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 20v-3"/><path d="M9 20v-9"/><path d="M14.5 20v-9"/><path d="M20 20v-9"/></svg>
-        <b>Puesta en marcha, una sola vez</b>
-        <p>Cubre el alcance descrito en cada servicio: levantamiento, construcción,
-        marcha blanca y capacitación. Es bajo a propósito: no es donde ganamos.</p>
+    <figure class="cobros-grafico posar">
+      <div class="cobros-meses" aria-hidden="true">
+        <span class="mes puesta"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span>
       </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h4.5v-4.5H12V12h4.5V7.5H21V3"/></svg>
-        <b>Acompañamiento mensual</b>
-        <p>1 UF al mes, o 1,5 UF en tienda online y app. Incluye mantención,
-        respaldos, monitoreo y mejoras pequeñas. Corre recién cuando el sistema
-        entra en uso, y se revisa una vez al año: entremedio no cambia.</p>
+      <div class="cobros-ejes" aria-hidden="true">
+        <span>Al partir</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
       </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>
-        <b>Sin permanencia ni multa</b>
+      <figcaption class="solo-lector">Un cobro único al partir y después una cuota mensual igual, mes a mes.</figcaption>
+    </figure>
+    <div class="cobros-notas">
+      <div>
+        <p class="cobros-marca"><i></i>Puesta en marcha</p>
+        <h3>Una sola vez</h3>
+        <p>Cubre levantamiento, construcción, marcha blanca y capacitación. Es bajo a
+        propósito: no es donde ganamos.</p>
+      </div>
+      <div>
+        <p class="cobros-marca"><i class="suave"></i>Acompañamiento</p>
+        <h3>1 UF al mes, o 1,5 UF en tienda y app</h3>
+        <p>Corre recién cuando el sistema entra en uso, no cuando firmamos. Mientras
+        construimos y probamos, pagas solo la puesta en marcha.</p>
+      </div>
+      <div>
+        <p class="cobros-marca"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin amarras</p>
+        <h3>Sin permanencia ni multa</h3>
         <p>Puedes irte cualquier mes. El código y los datos quedan a tu nombre desde
         el primer día, así que irse es de verdad posible.</p>
       </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.5"/><path d="M13.5 10.5 20 4"/><path d="M15 4h5v5"/></svg>
-        <b>Si tu caso trae más</b>
-        <p>Se cotiza y se cierra por escrito antes de programar. El número que
-        firmas es el número que pagas: nada cambia a mitad de camino.</p>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUE INCLUYE EL MENSUAL ================= -->
+<section class="seccion" id="mensual">
+  <div class="wrap mensual-grid">
+    <div>
+      <h2>Qué incluye el mensual.</h2>
+      <p class="bajada" style="margin-top:18px">Es lo que separa un sistema que sigue
+      sirviendo de uno que quedó congelado el día de la entrega.</p>
+    </div>
+    <div class="hoja posar" style="padding:clamp(24px,3vw,36px)">
+      <ul class="lista-check">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Atención con prioridad ante fallas</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Mantención, respaldos y actualizaciones de seguridad</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Ajustes y mejoras pequeñas cada mes</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Monitoreo para enterarnos antes que tú</span></li>
+      </ul>
+      <p style="margin-top:22px; padding-top:18px; border-top:1px dashed var(--linea); color:var(--tinta-2)">El
+      valor se revisa una vez al año: sube si tu operación creció y el sistema hace
+      más, no porque subieron nuestros costos. Entremedio no cambia. Las
+      funcionalidades grandes nuevas se cotizan aparte.</p>
     </div>
   </div>
 </section>
 
 <!-- ================= PREGUNTAS ================= -->
-<section class="proceso" style="padding-top:56px; padding-bottom:60px">
-  <div class="wrap" style="max-width:840px">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">Lo que siempre preguntan</p>
-      <h2>Preguntas sobre el precio</h2>
+<section class="seccion" style="background:var(--hoja)">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Lo que siempre preguntan.</h2>
     </div>
     <div class="faq">
       <details>
         <summary>¿Por qué el precio de entrada es tan bajo?</summary>
         <div class="resp">
-          <p>Porque el negocio no es cobrarte caro una vez: es que el sistema te
-          siga sirviendo y sigas con nosotros el año que viene. El grueso de lo
-          que ganamos contigo llega mes a mes, y eso nos obliga a merecerlo.</p>
+          <p>Porque el negocio no es cobrarte caro una vez: es que el sistema te siga
+          sirviendo y sigas con nosotros el año que viene. El grueso de lo que ganamos
+          contigo llega mes a mes, y eso nos obliga a merecerlo.</p>
         </div>
       </details>
       <details>
         <summary>¿Qué pasa si mi caso necesita más que el alcance base?</summary>
         <div class="resp">
-          <p>Te lo decimos en la primera conversación, que no tiene costo. Lo que
-          falte se cotiza aparte y se cierra por escrito antes de programar. Lo que
-          no hacemos es cambiar el precio a mitad de camino.</p>
+          <p>Te lo decimos en la primera conversación, que no tiene costo. Lo que falte
+          se cotiza aparte y se cierra por escrito antes de programar. Lo que no
+          hacemos es cambiar el precio a mitad de camino.</p>
         </div>
       </details>
       <details>
-        <summary>¿Cuándo empieza a correr el mensual?</summary>
+        <summary>¿Por qué en UF?</summary>
         <div class="resp">
-          <p>Cuando el sistema entra en uso real en tu negocio, no cuando firmamos.
-          Mientras construimos y probamos, pagas solo la puesta en marcha.</p>
-        </div>
-      </details>
-      <details>
-        <summary>¿Por qué en UF y cuándo sube?</summary>
-        <div class="resp">
-          <p>En UF para que lo ajuste la inflación y no nosotros. Se revisa una vez
-          al año, en una conversación: sube si tu operación creció y el sistema
-          hace más, no porque subieron nuestros costos. Entremedio no cambia.
-          <a href="servicios.html#soporte">Qué incluye y cuándo sube, en detalle.</a></p>
-        </div>
-      </details>
-      <details>
-        <summary>¿Hay algún costo que no esté en esta página?</summary>
-        <div class="resp">
-          <p>No. Lo que no está acá, no se cobra. Cada servicio dice además qué
-          incluye y qué no incluye, en <a href="servicios.html">Servicios</a>.</p>
+          <p>Para que lo ajuste la inflación y no nosotros. Así el mensual no cambia
+          por decisión nuestra entre una revisión anual y la siguiente.</p>
         </div>
       </details>
     </div>
@@ -439,34 +405,30 @@
 </section>
 
 
-<section class="close">
-  <div class="wrap">
-    <p class="eyebrow">Siguiente paso</p>
-    <h2>¿Tu caso cabe en el precio base?</h2>
-    <p>Escríbenos con lo que marcaste en el estimador y te lo decimos en la primera conversación, sin costo. Si trae más, se cotiza y se cierra por escrito antes de programar.</p>
-    <div class="actions">
-      <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
-        Escríbenos por WhatsApp
-      </a>
-      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
+<section class="cierre">
+  <div class="wrap cierre-grid">
+    <div>
+      <h2>Cuéntanos qué te está costando tiempo.</h2>
+      <p>Media hora, sin costo. Te decimos con honestidad si podemos ayudarte y cuánto costaría.</p>
+      <div class="acciones">
+        <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Conversemos por WhatsApp</a>
+        <a class="enlace enlace-claro" href="contacto.html">Prefiero un formulario</a>
+      </div>
     </div>
-    <div class="lines">
-      <a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a>
-      <a href="https://coryndev.com">coryndev.com</a>
+    <div class="cierre-marca" aria-hidden="true">
+      <svg viewBox="0 0 79.5 84" focusable="false"><path class="c" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path class="p" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
     </div>
   </div>
 </section>
+</main>
 
-<footer class="foot">
+<footer class="pie">
   <div class="wrap">
-    <div class="cols">
-      <div class="foot-marca">
-        <a class="brand" href="index.html">
-          <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-          <span>CORYN</span>
-        </a>
-        <p>Software 100% personalizado para negocios que necesitan que la
-        herramienta calce con su forma de trabajar.</p>
+    <div class="pie-cols">
+      <div class="pie-marca">
+        <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+        <p>Software a medida para negocios que necesitan que la herramienta calce
+        con su forma de trabajar.</p>
       </div>
       <div>
         <h4>Casos</h4>
@@ -486,6 +448,7 @@
         <ul>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="que-resolvemos.html">Qué resolvemos</a></li>
+          <li><a href="precios.html">Precios</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
@@ -493,138 +456,23 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="contacto.html">Enviar un mensaje</a></li>
+          <li><a href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="contacto.html">Formulario</a></li>
           <li><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></li>
         </ul>
-        <p class="foot-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
+        <p class="pie-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
       </div>
     </div>
-    <div class="base">
+    <div class="pie-base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="privacidad.html">Pol&iacute;tica de privacidad</a></span>
+      <a href="privacidad.html">Pol&iacute;tica de privacidad</a>
     </div>
   </div>
 </footer>
 
-<script>
-  // Fondo de la barra al desplazar
-  var nav = document.getElementById('nav');
-  if (!nav.classList.contains('solid-fija')) {
-    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  // Menu de celular
-  var burger = document.getElementById('burger');
-  var links = document.getElementById('navLinks');
-  if (burger && links) {
-  burger.addEventListener('click', function () {
-    var abierto = document.body.classList.toggle('menu-abierto');
-    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-  });
-  links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.focus();
-    }
-  });
-  }
-
-  // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
-  // que comparte un referidor. Sin esto el codigo moria en la primera pagina:
-  // la persona navegaba, se convencia, apretaba WhatsApp y el mensaje salia sin
-  // marca, asi que no habia forma de saber quien la trajo.
-  window.CORYN = window.CORYN || {};
-  (function () {
-    var CLAVE = 'coryn_ref', DIAS = 30;
-
-    // El valor termina dentro de un mensaje de WhatsApp y del formulario, asi
-    // que solo se aceptan letras, numeros y guiones.
-    function limpio (v) {
-      return (v || '').trim().slice(0, 24).replace(/[^A-Za-z0-9_-]/g, '');
-    }
-
-    function guardado () {
-      try {
-        var d = JSON.parse(localStorage.getItem(CLAVE) || 'null');
-        if (d && d.ref && Date.now() < d.vence) return d.ref;
-        if (d) localStorage.removeItem(CLAVE);
-      } catch (e) { /* modo privado, o el navegador bloquea el storage */ }
-      return '';
-    }
-
-    var deUrl = '';
-    try { deUrl = limpio(new URLSearchParams(location.search).get('ref')); } catch (e) {}
-
-    if (deUrl) {
-      try {
-        localStorage.setItem(CLAVE, JSON.stringify({
-          ref: deUrl, vence: Date.now() + DIAS * 864e5
-        }));
-      } catch (e) {}
-    }
-
-    var ref = deUrl || guardado();
-    window.CORYN.ref = ref;
-    if (!ref) return;
-
-    // Si la analitica esta activa, deja constancia de que la visita llego con
-    // codigo. Se encola con el stub que recomienda Vercel porque su script
-    // carga con defer y todavia no existe en este punto.
-    try {
-      window.va = window.va || function () {
-        (window.vaq = window.vaq || []).push(arguments);
-      };
-      window.va('event', { name: 'referido', data: { ref: ref } });
-    } catch (e) {}
-
-    // Se marca en el clic y no al cargar la pagina: el estimador rehace su
-    // enlace de WhatsApp cada vez que cambias la seleccion, y de esta forma
-    // tambien queda marcado sin tener que engancharse a su codigo.
-    document.addEventListener('click', function (e) {
-      var el = e.target;
-      if (el && el.nodeType !== 1) el = el.parentElement;
-      var a = el && el.closest ? el.closest('a[href*="wa.me"]') : null;
-      if (!a) return;
-      var u;
-      try { u = new URL(a.href); } catch (err) { return; }
-      var t = u.searchParams.get('text') || 'Hola CORYN';
-      if (t.indexOf('(Ref:') > -1) return;
-      // Se rearma a mano y no con searchParams.set, que escribe los espacios
-      // como "+"; el resto del sitio los manda como %20.
-      a.href = u.origin + u.pathname + '?text=' +
-               encodeURIComponent(t + ' (Ref: ' + ref + ')');
-    }, true);
-  })();
-
-  // Aparicion progresiva, con red de seguridad si el observer no dispara
-  (function () {
-    if (!document.documentElement.classList.contains('js-rv')) return;
-    var els = document.querySelectorAll('.rv');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    els.forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
-      io.observe(el);
-    });
-    setTimeout(function () {
-      els.forEach(function (el) { el.classList.add('in'); });
-      io.disconnect();
-    }, 2000);
-  })();
-</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="sitio.js?v=4a1c1c0b"></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

@@ -6,7 +6,7 @@
 <title>Desarrollo de software a medida para pymes | CORYN</title>
 <meta name="description" content="Sistemas de gestión, sitios web, tiendas y apps a medida para pymes chilenas. Desde $129.000, con precio cerrado antes de empezar. Primera reunión sin costo.">
 <link rel="canonical" href="https://coryndev.com/">
-<meta name="theme-color" content="#070e20">
+<meta name="theme-color" content="#eceff5">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -86,379 +86,193 @@
   ]
 }
 </script>
-<link rel="preload" as="image" href="assets/real-planilla.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=29ead8f9">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="estilos.css?v=206b29c5">
 <script>
-  if ('IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('js-rv');
-  }
+  (function (d) {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.documentElement.classList.add('mov');
+    setTimeout(function () { if (!window.CORYN_MOV) d.documentElement.classList.remove('mov'); }, 3500);
+  })(document);
 </script>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <header class="nav" id="nav">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-      <span>CORYN</span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="activa">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="que-resolvemos.html">Qué resolvemos</a>
-        <a href="precios.html">Precios</a>
-        <a href="proceso.html">Proceso</a>
-        <a href="nosotros.html">Nosotros</a>
+  <div class="wrap nav-fila">
+    <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="servicios.html">Servicios</a>
+      <a href="que-resolvemos.html">Qué resolvemos</a>
+      <a href="precios.html">Precios</a>
+      <a href="proceso.html">Proceso</a>
+      <a href="nosotros.html">Nosotros</a>
     </nav>
-    <div class="nav-right">
-      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="nav-der">
+      <a class="btn btn-wa btn-chico nav-cta" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener" aria-label="Conversemos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg><span>Conversemos</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<!-- ================= PORTADA ================= -->
-<section class="hero">
-  <figure class="hero-foto">
-    <img src="assets/real-planilla.webp" width="1400" height="933"
-         fetchpriority="high" decoding="async"
-         alt="Un notebook con una planilla abierta entre papeles y notas pegadas, en el mesón de un taller">
-  </figure>
-
+<main id="contenido">
+<!-- ================= PORTADA =================
+     La escena demuestra el mecanismo: correos que el sistema lee y anota.
+     Todos los nombres, folios y montos son de ejemplo. -->
+<section class="portada">
   <div class="wrap">
-    <p class="eyebrow">Desarrollo de software a medida &middot; Chile</p>
-    <h1>Tu negocio ya no cabe <em>en una planilla</em></h1>
-    <p class="lead">
-      Construimos el sistema que ordena tu operación: inventario, ventas y cobros
-      en un solo lugar, hecho a tu medida. <strong>Ni planilla, ni plantilla.</strong>
-    </p>
-    <div class="actions">
-      <a class="btn btn-solid" href="#problemas">Ver qué resolvemos</a>
-      <a class="btn btn-ghost" href="#cotizar">Cómo cotizamos</a>
-    </div>
-  </div>
+    <div class="portada-grid">
+      <div class="portada-texto">
+        <h1>Tu negocio ya no cabe en una planilla<span class="punto">.</span></h1>
+        <p class="bajada">Hacemos el sistema que ordena tu empresa: lo que hoy vive en
+        correos y planillas, en un solo lugar y hecho a tu medida.</p>
+        <div class="acciones">
+          <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Conversemos por WhatsApp</a>
+          <a class="enlace" href="#cotizar">Ver precios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
 
-  <div class="hero-sectores">
-      <div class="promesa">
-        <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.4-5.9"/><path d="m8.6 11.8 2.6 2.6 6-6.4"/></svg></span>
-        <span class="txt"><b>Primera reunión sin costo</b><small>y sin compromiso</small></span>
+      <!-- La escena de la bandeja: tres correos que el sistema lee y anota.
+     La usan el inicio y correo.html; sitio.js la anima.
+     Todos los nombres, folios y montos son de ejemplo. -->
+      <div class="escena" role="img"
+           aria-label="Ejemplo con datos inventados: una orden de compra, una factura y un aviso de pago llegan por correo y el sistema los anota solo en la hoja de ventas">
+        <div class="hoja bandeja">
+          <div class="hoja-barra"><span>Bandeja de entrada</span><small class="cuenta">3 sin leer</small></div>
+          <ul class="correos">
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span>
+              <span class="de">Universidad Demo</span>
+              <span class="asunto">Orden de compra <b class="cifra" data-viaje="OC 2026-0142">2026-0142</b></span>
+              <span class="adj"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L14.5 7"/></svg>OC.pdf</span>
+              <span class="lectura"></span>
+              <span class="visto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            </li>
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+              <span class="de">Insumos Ejemplo Ltda.</span>
+              <span class="asunto">Factura <b class="cifra" data-viaje="Factura 88231">88231</b> por $214.200</span>
+              <span class="adj"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L14.5 7"/></svg>factura.pdf</span>
+              <span class="lectura"></span>
+              <span class="visto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            </li>
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span>
+              <span class="de">Aviso del banco</span>
+              <span class="asunto">Transferencia recibida <b class="cifra" data-viaje="Pago $890.000">$890.000</b></span>
+              <span class="lectura"></span>
+              <span class="visto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hoja sistema">
+          <div class="hoja-barra"><span>Ventas</span></div>
+          <span class="pieza-slot"><i></i></span>
+          <table class="tabla">
+            <thead><tr><th class="col-cliente">Cliente</th><th class="col-doc">Documento</th><th class="n">Monto</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td class="col-cliente">Centro Ejemplo</td><td class="col-doc">Cotización C-0317</td><td class="n">$640.000</td><td><span class="estado">Enviada</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Universidad Demo</td><td class="col-doc">OC 2026-0142</td><td class="n">$1.240.000</td><td><span class="estado ok">Anotada</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Insumos Ejemplo</td><td class="col-doc">Factura 88231</td><td class="n">$214.200</td><td><span class="estado ok">Por pagar</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Clínica Ejemplo</td><td class="col-doc">Pago factura 1187</td><td class="n">$890.000</td><td><span class="estado ok">Pagada</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ejemplo">Datos de ejemplo</p>
       </div>
-      <div class="promesa">
-        <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
-        <span class="txt"><b>Precio cerrado antes de empezar</b><small>sin costos nuevos a mitad de camino</small></span>
-      </div>
-      <div class="promesa">
-        <span class="ic"><svg viewBox="0 0 24 24"><path d="m9 8.5-3.5 3.5L9 15.5M15 8.5l3.5 3.5L15 15.5"/><rect x="2.5" y="3.5" width="19" height="17" rx="2.5"/></svg></span>
-        <span class="txt"><b>El código y los datos son tuyos</b><small>a tu nombre, desde el primer día</small></span>
-      </div>
+
+    </div>
+
+    <div class="sellos" aria-label="Lo que prometemos">
+      <span class="timbre estampa">Primera reunión<br>sin costo</span>
+      <span class="timbre estampa">Precio cerrado<br>antes de empezar</span>
+      <span class="timbre estampa">El código y los datos<br>son tuyos</span>
+    </div>
   </div>
 </section>
 
-<!-- ================= CASO: SISTEMA DE BYSIMMED =================
-     Lo primero despues del encabezado: es la mejor prueba de lo que vendemos.
+<!-- ================= PRUEBA: EL SISTEMA DE BYSIMMED =================
+     Lo primero despues de la portada: es la mejor prueba de lo que vendemos.
      La pantalla es una recreacion con datos de ejemplo, nunca datos reales. -->
-<section class="bys" id="caso">
-  <div class="wrap bys-grid">
-    <div class="bys-texto rv">
-      <p class="eyebrow">Caso real &middot; bySIMMED</p>
-      <h2>Un fabricante con las ventas repartidas en el correo</h2>
-      <p>Cotizaciones, órdenes de compra, facturas y pagos le llegaban por correo.
-      Le hicimos un sistema que los lee y deja cada venta en un solo lugar.</p>
-      <ul class="lista-check">
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Lee lo que llega por correo y lo deja anotado. Una persona
-        confirma con un clic.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Si un cliente pide precio, la cotización queda armada para
-        revisarla y enviarla.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cada venta en una pantalla, de la cotización al cobro.</span></li>
-      </ul>
-      <div class="bys-acciones">
-        <a class="btn btn-solid btn-sm" href="caso-bysimmed-sistema.html">Ver el caso</a>
-        <a class="bys-link" href="correo.html">¿A tu empresa todo le llega por correo? &rarr;</a>
-      </div>
-    </div>
-    <figure class="bys-vista rv">
-      <div class="browser-lite">
-        <div class="bar"><i></i><i></i><i></i></div>
-        <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" decoding="async"
-             alt="Inicio del sistema de bySIMMED con los correos del día ya leídos: una orden de compra, una factura, un pago y un despacho esperando confirmación">
-      </div>
-      <figcaption>El sistema de bySIMMED. Pantalla con datos de ejemplo.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ================= PROBLEMAS (explorador) ================= -->
-<section class="explora claro" id="problemas">
+<section class="prueba seccion" id="caso">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">Empecemos por acá</p>
-      <h2>¿Cuál de estos es tu problema?</h2>
-      <p>No vendemos categorías técnicas. Elige el que te suene: verás cómo se ve hoy,
-      qué construimos para resolverlo y desde cuánto cuesta.</p>
+    <div class="prueba-cabeza">
+      <h2>En bySIMMED, el correo ya se lee solo.</h2>
+      <p class="bajada">Fabrican simuladores médicos y venden a centros de formación
+      clínica en varios países. Su sistema lee las órdenes de compra, facturas y
+      pagos que llegan por correo, y sigue cada venta hasta el cobro.</p>
     </div>
 
-    <div class="exp-grid rv">
-      <div class="exp-lista" role="tablist" aria-label="Problemas que resolvemos">
-        <button class="exp-item activo" role="tab"
-                aria-selected="true" id="tab-0"
-                aria-controls="expPanel" data-i="0">
-          <span class="n">01</span>
-          <span class="tt"><b>Tu operación vive en una planilla</b><small>Y solo una persona entiende cómo funciona</small></span>
-          <span class="prog"></span>
-        </button>
-        <button class="exp-item" role="tab"
-                aria-selected="false" id="tab-1"
-                aria-controls="expPanel" data-i="1">
-          <span class="n">02</span>
-          <span class="tt"><b>Te buscan en Google y no apareces</b><small>Dependes de Instagram y del boca a boca</small></span>
-          <span class="prog"></span>
-        </button>
-        <button class="exp-item" role="tab"
-                aria-selected="false" id="tab-2"
-                aria-controls="expPanel" data-i="2">
-          <span class="n">03</span>
-          <span class="tt"><b>Explicas lo mismo por WhatsApp, todo el día</b><small>Precio, medidas, stock y despacho, veinte veces</small></span>
-          <span class="prog"></span>
-        </button>
-        <button class="exp-item" role="tab"
-                aria-selected="false" id="tab-3"
-                aria-controls="expPanel" data-i="3">
-          <span class="n">04</span>
-          <span class="tt"><b>Todo se agenda o se pide por teléfono</b><small>Y cada llamada perdida es una hora que no se llenó</small></span>
-          <span class="prog"></span>
-        </button>
-      </div>
+    <ol class="linea-venta" aria-label="Una venta, de la cotización al cobro">
+      <li class="estacion"><b>Cotización</b><span>Armada desde el correo</span></li>
+      <li class="estacion"><b>Orden de compra</b><span>Leída y anotada</span></li>
+      <li class="estacion"><b>Fabricación</b><span>El taller la ve en su calendario</span></li>
+      <li class="estacion"><b>Despacho</b><span>Con su guía</span></li>
+      <li class="estacion"><b>Factura</b><span>Al despachar</span></li>
+      <li class="estacion"><b>Cobro</b><span>Con el correo de cobranza listo</span></li>
+    </ol>
 
-      <div class="exp-panel" id="expPanel" role="tabpanel" aria-labelledby="tab-0">
-        <div class="exp-switch" role="group" aria-label="Comparar antes y después">
-          <button type="button" class="on" data-v="antes" aria-pressed="true">
-            <span class="carga" aria-hidden="true"></span><span class="et">Cómo se ve hoy</span>
-          </button>
-          <button type="button" data-v="despues" aria-pressed="false">
-            <span class="carga" aria-hidden="true"></span><span class="et">Cómo debería verse</span>
-          </button>
+    <div class="prueba-cuerpo">
+      <figure class="posar">
+        <div class="hoja">
+          <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
+               alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
         </div>
-        <div class="exp-shot">
-          <div class="barra"><i></i><i></i><i></i><span class="u" id="expUrl">inventario_FINAL_v3_ok (1).xlsx</span></div>
-          <div class="capas">
-            <img class="capa on" id="capaAntes" src="assets/real-planilla.webp"
-                 alt="Un notebook con una planilla abierta entre papeles y notas pegadas">
-            <img class="capa" id="capaDespues" src="assets/demo-medida.webp" alt="" aria-hidden="true">
-          </div>
-        </div>
-        <div class="exp-info">
-          <p class="tag" id="expTag">Cómo se ve hoy</p>
-          <h3 id="expNom">Una planilla que ya nadie controla</h3>
-          <p class="dd" id="expDesc">Stock negativo, fórmulas rotas, filas duplicadas y una
-          columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.</p>
-          <div class="meta" id="expMeta"><span>Solo una persona la entiende</span><span>Sin respaldo</span><span>Errores que nadie ve</span></div>
-          <p class="exp-precio" id="expPrecio">Desde <b>$129.000</b> <em>+ 1 UF al mes</em></p>
-          <a class="btn btn-solid btn-sm" id="expLink" href="#cotizar">Estimar mi caso</a>
+        <figcaption><span class="ejemplo">Pantalla del sistema con datos de ejemplo</span></figcaption>
+      </figure>
+      <div>
+        <figure class="cita">
+          <blockquote>
+            <p>Llegamos con una idea en la cabeza y salimos con un sistema que hoy usamos
+            todos los días. Entendieron cómo trabajamos antes de escribir una sola
+            línea de código.</p>
+          </blockquote>
+          <figcaption>Ivonne Rivera, gerente de bySIMMED</figcaption>
+        </figure>
+        <div class="acciones">
+          <a class="btn btn-blanco" href="caso-bysimmed-sistema.html">Ver el caso completo</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  (function () {
-    var CASOS = [
-      {
-        antes: { url: 'inventario_FINAL_v3_ok (1).xlsx', img: 'assets/real-planilla.webp',
-          alt: 'Planilla de inventario con stock negativo, duplicados y errores de fórmula',
-          nom: 'Una planilla que ya nadie controla',
-          desc: 'Stock negativo, fórmulas rotas, filas duplicadas y una columna de notas que dice "preguntar a Ana". Si esa persona falta, se para todo.',
-          meta: ['Solo una persona la entiende', 'Sin respaldo', 'Errores que nadie ve'] },
-        despues: { url: 'sistema.tuempresa.cl', img: 'assets/demo-medida.webp',
-          alt: 'Panel de un sistema de gestión con indicadores, inventario y alertas',
-          nom: 'La misma operación, ordenada',
-          desc: 'Inventario, ventas y cobros en un solo lugar, con alertas de stock, permisos por persona y respaldo automático. Puedes partir por un módulo.',
-          meta: ['Un módulo para empezar', 'Permisos por rol', 'Alertas automáticas'] },
-        precio: '$129.000', uf: '1 UF' },
-      {
-        antes: { url: 'google.cl/search?q=ferretería+en+maipú', img: 'assets/real-google.webp',
-          alt: 'Un telefono mostrando el mapa con la competencia, dentro del local',
-          nom: 'La competencia aparece, tú no',
-          desc: 'Alguien busca justo lo que vendes, en tu comuna, ahora mismo. Encuentra cuatro negocios y ninguno es el tuyo, porque solo tienes Instagram.',
-          meta: ['Solo redes sociales', 'Sin ficha en Maps', 'Te encuentran de casualidad'] },
-        despues: { url: 'www.tuempresa.cl', img: 'assets/demo-web.webp',
-          alt: 'Sitio web de un negocio local, con foto de la tienda, productos destacados y datos de contacto',
-          nom: 'Tu propio sitio, no el de un portal',
-          desc: 'Con la foto de tu local, tus productos destacados y tu dirección, horario y teléfono siempre a la vista. Aparece en Google y el contacto llega directo a ti.',
-          meta: ['Aparecer en Google', 'Ficha del negocio', 'Contacto directo'] },
-        precio: '$69.000', uf: '1 UF' },
-      {
-        antes: { url: 'WhatsApp · 18 mensajes sin responder', img: 'assets/real-whatsapp.webp',
-          alt: 'El telefono con mensajes sin responder mientras las manos siguen trabajando',
-          nom: 'La misma conversación, todo el día',
-          desc: 'Precio, color, medidas, despacho y plazo. Siete conversaciones abiertas preguntando lo mismo, y cada respuesta te saca de lo que estabas haciendo.',
-          meta: ['Respondes tú siempre', 'Se pierden mensajes', 'Nadie compra de noche'] },
-        despues: { url: 'catalogo.tuempresa.cl', img: 'assets/demo-tienda.webp',
-          alt: 'Catálogo en línea con filtros por categoría, precio y disponibilidad',
-          nom: 'El catálogo responde por ti',
-          desc: 'Tus productos con fotos, medidas, precios y disponibilidad publicados. El cliente llega sabiendo qué quiere, y te escribe para comprar, no para preguntar.',
-          meta: ['Catálogo con filtros', 'Fichas completas', 'Disponible a toda hora'] },
-        precio: '$69.000', uf: '1 UF' },
-      {
-        antes: { url: 'Teléfono · 14 llamadas perdidas hoy', img: 'assets/real-telefono.webp',
-          alt: 'Registro de llamadas con catorce llamadas perdidas en un día',
-          nom: 'Cada llamada perdida es una hora vacía',
-          desc: 'Mientras atiendes a alguien, el teléfono suena y nadie contesta. La agenda vive en un cuaderno y el que no llega no avisa.',
-          meta: ['14 perdidas en un día', 'Agenda en papel', 'Nadie confirma'] },
-        despues: { url: 'reservas.tuempresa.cl', img: 'assets/demo-agenda.webp',
-          alt: 'Agenda semanal con reservas hechas en línea y confirmaciones automáticas',
-          nom: 'Reservan solos, y confirman solos',
-          desc: 'El cliente ve los bloques libres y reserva desde el sitio. El sistema confirma y manda recordatorio, así el teléfono deja de ser el único canal.',
-          meta: ['Agenda en línea', 'Confirmación automática', 'Recordatorios'] },
-        precio: '$129.000', uf: '1 UF' }
-    ];
-    var ESPERA_ANTES = 5000;    // cuanto se ve el problema antes de transformarse
-    var ESPERA_DESPUES = 5000;  // cuanto se queda la solucion antes del siguiente
-    var FUNDIDO = 1100;         // debe coincidir con la transicion del CSS
-
-    var items = Array.prototype.slice.call(document.querySelectorAll('.exp-item'));
-    var botones = Array.prototype.slice.call(document.querySelectorAll('.exp-switch button'));
-    var panel = document.getElementById('expPanel');
-    var lista = document.querySelector('.exp-lista');
-    var cA = document.getElementById('capaAntes');
-    var cD = document.getElementById('capaDespues');
-    var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var actual = 0, estado = 'antes', reloj = null, limpieza = null, visible = false;
-
-    function texto (i) {
-      var c = CASOS[i], v = c[estado];
-      document.getElementById('expUrl').textContent = v.url;
-      document.getElementById('expTag').textContent =
-        estado === 'antes' ? 'Cómo se ve hoy' : 'Cómo debería verse';
-      document.getElementById('expNom').textContent = v.nom;
-      document.getElementById('expDesc').textContent = v.desc;
-      document.getElementById('expMeta').innerHTML =
-        v.meta.map(function (m) { return '<span>' + m + '</span>'; }).join('');
-      document.getElementById('expPrecio').innerHTML =
-        'Desde <b>' + c.precio + '</b> <em>+ ' + c.uf + ' al mes</em>';
-    }
-
-    // Solo se toca el src de la capa invisible: cambiarlo en la visible hace que
-    // el navegador reemplace la imagen de golpe y el fundido se pierde.
-    function fuente (capa, url) {
-      if (capa.getAttribute('src') !== url) capa.setAttribute('src', url);
-    }
-
-    // Reinicia una animacion CSS: hay que forzar un reflow entre quitar y poner.
-    function relanza (el, ms) {
-      if (!el) return;
-      el.style.animation = 'none';
-      void el.offsetWidth;
-      el.style.animation = '';
-      el.style.animationDuration = ms + 'ms';
-    }
-
-    function avisos (ms) {
-      botones.forEach(function (b) {
-        var c = b.querySelector('.carga');
-        if (b.classList.contains('on') && !quieto && visible) relanza(c, ms);
-        else if (c) { c.style.animation = 'none'; }
-      });
-      var p = lista.querySelector('.exp-item.activo .prog');
-      if (!quieto && visible) relanza(p, estado === 'antes' ? ms + ESPERA_DESPUES : ms);
-      else if (p) p.style.animation = 'none';
-    }
-
-    function pinta (i) {
-      var c = CASOS[i];
-      var entra = estado === 'antes' ? cA : cD;
-      var sale  = estado === 'antes' ? cD : cA;
-      var urlEntra = estado === 'antes' ? c.antes.img : c.despues.img;
-      var urlSale  = estado === 'antes' ? c.despues.img : c.antes.img;
-
-      clearTimeout(limpieza);
-      fuente(entra, urlEntra);
-      entra.alt = estado === 'antes' ? c.antes.alt : '';
-
-      panel.classList.add('cambiando');
-      texto(i);
-      cA.classList.toggle('on', estado === 'antes');
-      cD.classList.toggle('on', estado === 'despues');
-      panel.classList.toggle('es-despues', estado === 'despues');
-      panel.setAttribute('aria-labelledby', 'tab-' + i);
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () { panel.classList.remove('cambiando'); });
-      });
-
-      limpieza = setTimeout(function () { fuente(sale, urlSale); }, FUNDIDO + 60);
-
-      items.forEach(function (el, k) {
-        el.classList.toggle('activo', k === i);
-        el.setAttribute('aria-selected', k === i ? 'true' : 'false');
-      });
-      botones.forEach(function (b) {
-        b.classList.toggle('on', b.dataset.v === estado);
-        b.setAttribute('aria-pressed', b.dataset.v === estado ? 'true' : 'false');
-      });
-      actual = i;
-    }
-
-    // El recorrido no se detiene nunca: un clic solo lo reencamina desde ahi.
-    function agenda () {
-      clearTimeout(reloj);
-      if (quieto || !visible) return;
-      var ms = estado === 'antes' ? ESPERA_ANTES : ESPERA_DESPUES;
-      avisos(ms);
-      reloj = setTimeout(function () {
-        if (estado === 'antes') { estado = 'despues'; pinta(actual); }
-        else { estado = 'antes'; pinta((actual + 1) % CASOS.length); }
-        agenda();
-      }, ms);
-    }
-
-    botones.forEach(function (b) {
-      b.addEventListener('click', function () {
-        if (estado !== b.dataset.v) { estado = b.dataset.v; pinta(actual); }
-        agenda();
-      });
-    });
-    items.forEach(function (el) {
-      el.addEventListener('click', function () {
-        var i = +el.dataset.i;
-        if (i !== actual || estado !== 'antes') { estado = 'antes'; pinta(i); }
-        agenda();
-      });
-    });
-
-    CASOS.forEach(function (c) {
-      (new Image()).src = c.antes.img; (new Image()).src = c.despues.img;
-    });
-
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (es) {
-        es.forEach(function (e) {
-          visible = e.isIntersecting;
-          if (visible) agenda();
-          else { clearTimeout(reloj); reloj = null; }
-        });
-      }, { threshold: 0.3 }).observe(document.querySelector('.explora'));
-    }
-  })();
-</script>
-
-<!-- ================= COMPARATIVA ================= -->
-<section class="versus">
+<!-- ================= PROBLEMAS: EL ESCRITORIO DE HOY ================= -->
+<section class="problemas seccion">
   <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">La diferencia</p>
-      <h2>Míralo, no te lo contamos</h2>
-      <p>A la izquierda, una plantilla como las que se venden por cien mil pesos.
-      A la derecha, <a href="https://avenprop.vercel.app/" target="_blank" rel="noopener">AvenProp</a>,
-      un sitio que construimos y que está en línea ahora mismo. Arrastra para comparar.</p>
+    <div class="cabeza-seccion">
+      <h2>¿Cuál de estas te pasa?</h2>
     </div>
+    <div class="mesa">
+      <figure class="marco-video pantalla posar" style="--ar:3/2">
+        <video class="vid" muted loop playsinline preload="none" poster="assets/vid-planilla.webp" aria-hidden="true">
+          <source src="assets/vid-planilla.webm" type="video/webm">
+          <source src="assets/vid-planilla.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <div class="mesa-notas">
+        <a class="postit pegar" href="que-resolvemos.html#planilla"><span class="postit-papel"><span class="postit-texto">Todo vive en una planilla que solo entiende Ana</span><span class="postit-ver">Ver solución <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+        <a class="postit pegar" href="que-resolvemos.html#google"><span class="postit-papel"><span class="postit-texto">Me buscan en Google y no aparezco</span><span class="postit-ver">Ver solución <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+        <a class="postit pegar" href="que-resolvemos.html#whatsapp"><span class="postit-papel"><span class="postit-texto">Respondo lo mismo por WhatsApp todo el día</span><span class="postit-ver">Ver solución <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+        <a class="postit pegar" href="que-resolvemos.html#telefono"><span class="postit-papel"><span class="postit-texto">Pierdo llamadas mientras atiendo</span><span class="postit-ver">Ver solución <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+        <a class="postit pegar" href="que-resolvemos.html#cobranza"><span class="postit-papel"><span class="postit-texto">No sé quién me debe hasta fin de mes</span><span class="postit-ver">Ver solución <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+        <a class="postit pegar" href="que-resolvemos.html#pedidos"><span class="postit-papel"><span class="postit-texto">Los pedidos se pierden entre papeles</span><span class="postit-ver">Ver solución <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="comparador rv">
+<!-- ================= LA DIFERENCIA ================= -->
+<section class="diferencia seccion">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Plantilla o a medida. Arrastra y compara.</h2>
+    </div>
+    <div class="comparador posar">
       <div class="cmp-marco">
         <div class="cmp-barra"><i></i><i></i><i></i><span class="u" id="cmpUrl">plantilla-generica.com</span></div>
         <div class="cmp-lienzo" id="cmpLienzo" style="--pos:46%">
@@ -475,11 +289,11 @@
                  aria-label="Deslizar para comparar la plantilla con el desarrollo a medida">
         </div>
       </div>
-      <p class="cmp-pie">Las dos cargan igual de rápido. Lo que cambia es que una conoce
-      el negocio de su dueña y la otra podría ser de cualquiera.</p>
     </div>
-
-
+    <p class="cmp-pie">A la derecha, <a href="https://avenprop.vercel.app/" target="_blank" rel="noopener">AvenProp</a>,
+    un sitio que hicimos y que está en línea. A la izquierda, una plantilla como las que
+    se venden por cien mil pesos.</p>
+  </div>
 </section>
 
 <script>
@@ -538,181 +352,45 @@
   })();
 </script>
 
+<!-- ================= PRECIO ================= -->
+<!-- Estimador de precios. Fuente unica: lo incluyen el inicio y /precios,
+     y marketing/posts.py lee los montos del arreglo TIPOS. -->
+<section id="cotizar" class="precio seccion">
+  <div class="wrap precio-grid">
+    <div class="precio-texto">
+      <h2>Los precios están publicados.</h2>
+      <p class="bajada">Elige con qué partes. Pagas poco al empezar y un mensual
+      mientras el sistema te sirva.</p>
+      <ul class="hechos">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin permanencia: te puedes ir cualquier mes.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 8.5-3.5 3.5L9 15.5M15 8.5l3.5 3.5L15 15.5"/></svg>El código y los datos son tuyos desde el primer día.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>El mensual se revisa una vez al año.</li>
+      </ul>
+      <a class="enlace enlace-claro" href="precios.html">Qué cubre cada peso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
 
-<!-- ================= EJEMPLOS ================= -->
-<section class="ejemplos claro">
-  <div class="wrap">
-    <div class="reel rv">
-      <div class="reel-cab">
-        <p class="eyebrow">Ejemplos</p>
-        <h3>Lo que puede tener tu negocio</h3>
-        <p>Los dos primeros están en línea y puedes entrar a verlos. Los demás
-        muestran cómo se ve resuelto cada tipo de problema. Ninguno se parece al
-        anterior, porque ningún negocio se parece al de al lado.</p>
+    <form class="hoja cotizacion posar" id="estForm">
+      <div class="cot-cabeza">
+        <div><b>Cotización</b><small>Elige con qué partes</small></div>
+        <span class="folio">CLP</span>
       </div>
-
-      <div class="reel-viewport">
-        <div class="reel-pista" id="reelPista">
-        <figure class="reel-item vivo">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">bysimmed.com</span></div>
-            <img src="assets/vivo-bysimmed.webp" width="1500" height="938" loading="lazy"
-                 alt="bySIMMED: simulación clínica y equipamiento médico">
-          </div>
-          <figcaption><b>bySIMMED <span class="et-vivo">En línea</span></b><span>Simulación clínica, con venta a especialistas en varios países</span></figcaption>
-        </figure>
-
-        <figure class="reel-item vivo">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">avenprop.cl</span></div>
-            <img src="assets/vivo-avenprop.webp" width="1500" height="938" loading="lazy"
-                 alt="AvenProp: corretaje de propiedades y seguros">
-          </div>
-          <figcaption><b>AvenProp <span class="et-vivo">En línea</span></b><span>Corretaje de propiedades y seguros, con captación directa</span></figcaption>
-        </figure>
-
-        <figure class="reel-item">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">www.tuempresa.cl</span></div>
-            <img src="assets/demo-web.webp" width="1500" height="938" loading="lazy"
-                 alt="Sitio web: que te encuentren en google y sepan a qué te dedicas">
-          </div>
-          <figcaption><b>Sitio web</b><span>Que te encuentren en Google y sepan a qué te dedicas</span></figcaption>
-        </figure>
-        <figure class="reel-item">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">agenda.tuempresa.cl</span></div>
-            <img src="assets/demo-agenda.webp" width="1500" height="938" loading="lazy"
-                 alt="Agenda y reservas: bloques disponibles, confirmación automática y recordatorios">
-          </div>
-          <figcaption><b>Agenda y reservas</b><span>Bloques disponibles, confirmación automática y recordatorios</span></figcaption>
-        </figure>
-        <figure class="reel-item">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">tienda.tuempresa.cl</span></div>
-            <img src="assets/demo-tienda.webp" width="1500" height="938" loading="lazy"
-                 alt="Tienda online: catálogo, carro y pago en línea, con el stock siempre al día">
-          </div>
-          <figcaption><b>Tienda online</b><span>Catálogo, carro y pago en línea, con el stock siempre al día</span></figcaption>
-        </figure>
-        <figure class="reel-item movil">
-          <div class="reel-marco fono">
-            <img src="assets/demo-app.webp" width="640" height="1354" loading="lazy"
-                 alt="App para el equipo: el trabajo del día en el bolsillo, aunque no haya señal">
-          </div>
-          <figcaption><b>App para el equipo</b><span>El trabajo del día en el bolsillo, aunque no haya señal</span></figcaption>
-        </figure>
-        <figure class="reel-item">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">panel.tuempresa.cl</span></div>
-            <img src="assets/demo-panel.webp" width="1500" height="938" loading="lazy"
-                 alt="Panel de indicadores: lo que pasó esta semana, sin armar una planilla para saberlo">
-          </div>
-          <figcaption><b>Panel de indicadores</b><span>Lo que pasó esta semana, sin armar una planilla para saberlo</span></figcaption>
-        </figure>
-        <figure class="reel-item">
-          <div class="reel-marco">
-            <div class="reel-barra"><i></i><i></i><i></i><span class="u">despachos.tuempresa.cl</span></div>
-            <img src="assets/demo-ruta.webp" width="1500" height="938" loading="lazy"
-                 alt="Despachos y rutas: cada entrega del día en el mapa, con su estado y su horario">
-          </div>
-          <figcaption><b>Despachos y rutas</b><span>Cada entrega del día en el mapa, con su estado y su horario</span></figcaption>
-        </figure>
-        </div>
+      <fieldset>
+        <legend class="solo-lector">¿Con qué partes?</legend>
+        <div id="estTipos"></div>
+      </fieldset>
+      <div class="cot-totales">
+        <div><span>Puesta en marcha, una sola vez</span><b id="estMin">desde $129.000</b></div>
+        <div><span>Acompañamiento mensual</span><b id="estUf">1 UF</b></div>
+        <small id="estUfPeso" hidden></small>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-  (function () {
-    var pista = document.getElementById('reelPista');
-    if (!pista) return;
-    // Se duplica la lista para que el bucle no tenga costura: la animacion
-    // recorre -50% y en ese punto la copia esta donde arranco el original.
-    // Se hace por guion y no en el HTML para no repetir el marcado a mano.
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var copia = pista.cloneNode(true);
-      // slice() congela la lista: children es una coleccion viva y al ir
-      // moviendo los nodos se vaciaba sola a mitad del recorrido, dejando
-      // fuera la mitad de las copias.
-      Array.prototype.slice.call(copia.children).forEach(function (el) {
-        el.setAttribute('aria-hidden', 'true');
-        var img = el.querySelector('img, video');
-        if (img) img.setAttribute('alt', '');
-        pista.appendChild(el);
-      });
-    }
-  })();
-</script>
-
-<!-- ================= COTIZACION (estimador) ================= -->
-<!-- ================= VOZ DE CLIENTE ================= -->
-<section class="claro cita-voz">
-  <div class="wrap">
-    <blockquote class="cita rv">
-      <span class="eyebrow">Lo que dice una clienta</span>
-      <p>Llegamos con una idea en la cabeza y salimos con un sistema que hoy
-      usamos todos los días. Entendieron cómo trabajamos antes de escribir una
-      sola línea de código.</p>
-      <p class="firma">Ivonne Rivera &middot; Gerente de
-      <a href="caso-bysimmed-sistema.html">bySIMMED</a></p>
-    </blockquote>
-  </div>
-</section>
-
-<!-- Estimador de precios. Fuente unica: el inicio y /precios lo incluyen con
-     {ESTIMADOR}, y marketing/posts.py lee los montos de aqui. -->
-<section id="cotizar" class="estima">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">Inversión</p>
-      <h2>Cuánto costaría lo tuyo</h2>
-      <p>Partes con lo justo para operar y el sistema crece contigo. El precio de
-      entrada es bajo a propósito: lo que nos importa es acompañarte todos los meses,
-      no cobrarte caro una vez.</p>
-    </div>
-
-    <div class="est-grid rv">
-      <form class="est-form" id="estForm">
-        <fieldset class="est-paso">
-          <legend>¿Con qué partes?</legend>
-          <div class="est-ops" id="estTipos"></div>
-        </fieldset>
-      </form>
-
-      <aside class="est-panel">
-        <div class="est-caja">
-          <p class="kicker">Acompañamiento mensual</p>
-          <p class="uf"><em class="pre">desde</em><b id="estUf">1 UF</b><span>al mes</span></p>
-          <p class="uf-pesos" id="estUfPeso" hidden></p>
-          <p class="uf-peso">Son 1 UF al mes, o 1,5 UF si es tienda online o app. Va
-          en UF, así lo ajusta la inflación y no nosotros.</p>
-          <p class="uf-incluye">Incluye mantención, respaldos, monitoreo y mejoras
-          pequeñas cada mes. El valor se revisa una vez al año y entremedio no cambia.
-          <a href="servicios.html#soporte">Ver qué incluye y cuándo sube</a></p>
-
-          <div class="est-puesta">
-            <span>Puesta en marcha, una sola vez</span>
-            <b id="estMin">$129.000</b>
-          </div>
-
-          <ul class="est-resumen" id="estResumen"></ul>
-
-          <p class="est-etapas" id="estEtapas" hidden></p>
-
-          <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto.">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
-            Cotizar esto por WhatsApp
-          </a>
-          <p class="est-nota">El "desde", sin letra chica: el precio base cubre el
-          alcance descrito, y si tu caso trae más, se cotiza y se cierra por escrito
-          antes de programar. Nada cambia a mitad de camino. El acompañamiento corre
-          recién cuando el sistema entra en uso.</p>
-        </div>
-      </aside>
-    </div>
+      <p class="cot-nota-app" id="estEtapas" hidden></p>
+      <div class="cot-pie">
+        <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Cotizar esto por WhatsApp</a>
+        <p>El precio base cubre el alcance descrito en <a href="servicios.html">Servicios</a>.
+        Si tu caso trae más, se cotiza y se cierra por escrito antes de programar.</p>
+      </div>
+      <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
+    </form>
   </div>
 </section>
 
@@ -753,8 +431,7 @@
     function pintaPesos () {
       var el = $('estUfPeso');
       if (!UF) { el.hidden = true; return; }
-      el.innerHTML = '≈ <b>' + plata(Math.round(ufMes * UF / 100) * 100) +
-        '</b> al mes, al valor de hoy';
+      el.textContent = '≈ ' + plata(Math.round(ufMes * UF / 100) * 100) + ' al mes, al valor de hoy';
       el.hidden = false;
     }
 
@@ -764,7 +441,6 @@
         var guardado = JSON.parse(localStorage.getItem('coryn_uf') || 'null');
         if (guardado && guardado.fecha === hoy) { UF = guardado.valor; pintaPesos(); return; }
       } catch (e) { /* sin almacenamiento: se consulta igual */ }
-
       // /api/uf la trae del servidor: mindicador.cl no deja consultar desde
       // el navegador, y asi ademas queda guardada medio dia en el borde.
       fetch('/api/uf')
@@ -781,20 +457,13 @@
 
     function calcula () {
       var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
-
-      // Las dos cifras dependen solo de con que se parte. Antes se movian ambas
-      // a la vez con cada casilla y no se entendia que estaba pagando el cliente.
       ufMes = t.uf;
       $('estUf').textContent = String(t.uf).replace('.', ',') + ' UF';
       pintaPesos();
       $('estMin').textContent = 'desde ' + plata(t.base);
-
-      $('estResumen').innerHTML = '<li><b>' + t.nom + '</b><i>' + plata(t.base) + '</i></li>';
-
       var etp = $('estEtapas');
-      if (t.nota) { etp.innerHTML = t.nota; etp.hidden = false; }
+      if (t.nota) { etp.textContent = t.nota; etp.hidden = false; }
       else { etp.hidden = true; }
-
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
         'Puesta en marcha: desde ' + plata(t.base) + '\n' +
@@ -812,127 +481,54 @@
 </script>
 
 
-<!-- ================= ALINEACION ================= -->
-<section class="junto claro">
-  <div class="wrap">
-    <div class="junto-cab rv">
-      <p class="eyebrow">Cómo ganamos dinero</p>
-      <h2>No entregamos un sistema y desaparecemos.<br>Apostamos a que sigas aquí en tres años.</h2>
-      <p>Trabajamos con pymes chilenas, y eso define cómo cobramos: poco al empezar y
-      todos los meses mientras el sistema te sirva. Nuestro incentivo no es cerrar una
-      venta grande hoy, es que tu operación siga funcionando el año que viene.</p>
-    </div>
-
-    <div class="junto-lista">
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 20v-3"/><path d="M9 20v-9"/><path d="M14.5 20v-9"/><path d="M20 20v-9"/></svg>
-        <b>Cobramos poco al empezar</b>
-        <p>Si el negocio fuera cobrar caro una sola vez, nos daría lo mismo lo que
-        pasara después. Acá el grueso de lo que ganamos contigo llega mes a mes.</p>
-      </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>
-        <b>Puedes irte cualquier mes</b>
-        <p>No hay permanencia ni multa por salir. Eso nos obliga a merecernos el mes
-        siguiente, todos los meses.</p>
-      </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h4.5v-4.5H12V12h4.5V7.5H21V3"/></svg>
-        <b>El mensual se revisa una vez al año</b>
-        <p>Parte en 1 UF, o 1,5 UF en tienda y app. Sube cuando tu operación creció, no
-        por nuestros costos, y solo en esa <a href="servicios.html#soporte">conversación
-        anual</a>: entremedio no cambia.</p>
-      </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.5"/><path d="M13.5 10.5 20 4"/><path d="M15 4h5v5"/></svg>
-        <b>El código y los datos son tuyos</b>
-        <p>A tu nombre desde el primer día. Si te quedas con nosotros tiene que ser
-        porque te sirve, no porque no puedas salir.</p>
-      </div>
+<!-- ================= COMO TRABAJAMOS ================= -->
+<section class="pasos seccion">
+  <div class="wrap pasos-grid">
+    <figure class="marco-video pasos-video posar" style="--ar:1/1">
+      <video class="vid" muted loop playsinline preload="none" poster="assets/vid-conversacion.webp" aria-hidden="true">
+        <source src="assets/vid-conversacion.webm" type="video/webm">
+        <source src="assets/vid-conversacion.mp4" type="video/mp4">
+      </video>
+    </figure>
+    <div>
+      <h2>Todo empieza con una conversación.</h2>
+      <ol class="pasos-lista">
+        <li><span class="n">1</span><div><b>Nos conocemos</b><span class="timbre timbre-chico estampa">Sin costo</span><p>Media hora para entender qué te está costando tiempo o dinero.</p></div></li>
+        <li><span class="n">2</span><div><b>Diseñamos juntos</b><span class="timbre timbre-chico estampa">Sin costo</span><p>Alcance y precio cerrados por escrito, antes de programar.</p></div></li>
+        <li><span class="n">3</span><div><b>Construimos</b><p>Por partes, con avances que puedes probar.</p></div></li>
+        <li><span class="n">4</span><div><b>Probamos</b><p>Marcha blanca con tu equipo y datos reales.</p></div></li>
+        <li><span class="n">5</span><div><b>Te acompañamos</b><p>Mantención y mejoras, mes a mes.</p></div></li>
+      </ol>
+      <a class="enlace" href="proceso.html">Ver el proceso en detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ================= PROCESO ================= -->
-<section class="camino">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">Proceso</p>
-      <h2>Cómo trabajamos</h2>
-      <p>Cinco etapas. Las dos primeras son sin costo y sirven justamente para decidir
-      si vale la pena seguir.</p>
+
+<section class="cierre">
+  <div class="wrap cierre-grid">
+    <div>
+      <h2>Cuéntanos qué te está costando tiempo.</h2>
+      <p>Media hora, sin costo. Te decimos con honestidad si podemos ayudarte y cuánto costaría.</p>
+      <div class="acciones">
+        <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Conversemos por WhatsApp</a>
+        <a class="enlace enlace-claro" href="contacto.html">Prefiero un formulario</a>
+      </div>
     </div>
-
-    <div class="camino-linea" aria-hidden="true"><span></span></div>
-    <div class="etapas">
-        <article class="etp rv">
-          <div class="pieza"><img src="assets/paso-conocemos.webp" alt="Dos personas conversando en una mesa, con un cuaderno abierto" loading="lazy"></div>
-          <span class="np">01</span>
-          <h3>Nos conocemos</h3>
-          <p>Media hora sin costo. Vemos qué te está costando tiempo o dinero, todavía sin hablar de tecnología.</p>
-        </article>
-        <article class="etp rv">
-          <div class="pieza"><img src="assets/paso-disenamos.webp" alt="Un boceto de pantallas dibujado a mano junto a una tableta" loading="lazy"></div>
-          <span class="np">02</span>
-          <h3>Diseñamos juntos</h3>
-          <p>Definimos el alcance por escrito y te mostramos cómo se verá antes de programar nada.</p>
-        </article>
-        <article class="etp rv">
-          <div class="pieza"><img src="assets/paso-construimos.webp" alt="Alguien programando frente a dos pantallas al atardecer" loading="lazy"></div>
-          <span class="np">03</span>
-          <h3>Construimos</h3>
-          <p>Desarrollo por partes, con el sistema real funcionando para que lo pruebes en cada avance.</p>
-        </article>
-        <article class="etp rv">
-          <div class="pieza"><img src="assets/paso-probamos.webp" alt="Dos personas revisando juntas una pantalla, una señalando algo" loading="lazy"></div>
-          <span class="np">04</span>
-          <h3>Probamos</h3>
-          <p>Marcha blanca con tu equipo y datos reales, hasta que responda al día a día.</p>
-        </article>
-        <article class="etp rv">
-          <div class="pieza"><img src="assets/paso-acompanamos.webp" alt="Un escritorio con un mensaje entrando en el teléfono y un panel abierto" loading="lazy"></div>
-          <span class="np">05</span>
-          <h3>Te acompañamos</h3>
-          <p>Mantención y mejoras mes a mes. Lo que entregamos queda funcionando con nuestro nombre encima.</p>
-        </article>
-    </div>
-
-    <p class="camino-pie rv">Cada etapa dice también qué necesito de ti.
-      <a href="proceso.html">Ver el proceso en detalle &rarr;</a></p>
-  </div>
-</section>
-
-
-
-
-<section class="close claro">
-  <div class="wrap">
-    <p class="eyebrow">Siguiente paso</p>
-    <h2>Conversemos 30 minutos, sin costo.</h2>
-    <p>Cuéntanos tu situación y te decimos con honestidad qué se puede resolver con software, qué conviene priorizar y cuánto costaría hacerlo bien.</p>
-    <div class="actions">
-      <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
-        Escríbenos por WhatsApp
-      </a>
-      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
-    </div>
-    <div class="lines">
-      <a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a>
-      <a href="https://coryndev.com">coryndev.com</a>
+    <div class="cierre-marca" aria-hidden="true">
+      <svg viewBox="0 0 79.5 84" focusable="false"><path class="c" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path class="p" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
     </div>
   </div>
 </section>
+</main>
 
-<footer class="foot">
+<footer class="pie">
   <div class="wrap">
-    <div class="cols">
-      <div class="foot-marca">
-        <a class="brand" href="index.html">
-          <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-          <span>CORYN</span>
-        </a>
-        <p>Software 100% personalizado para negocios que necesitan que la
-        herramienta calce con su forma de trabajar.</p>
+    <div class="pie-cols">
+      <div class="pie-marca">
+        <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+        <p>Software a medida para negocios que necesitan que la herramienta calce
+        con su forma de trabajar.</p>
       </div>
       <div>
         <h4>Casos</h4>
@@ -952,6 +548,7 @@
         <ul>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="que-resolvemos.html">Qué resolvemos</a></li>
+          <li><a href="precios.html">Precios</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
@@ -959,138 +556,23 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="contacto.html">Enviar un mensaje</a></li>
+          <li><a href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="contacto.html">Formulario</a></li>
           <li><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></li>
         </ul>
-        <p class="foot-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
+        <p class="pie-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
       </div>
     </div>
-    <div class="base">
+    <div class="pie-base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="privacidad.html">Pol&iacute;tica de privacidad</a></span>
+      <a href="privacidad.html">Pol&iacute;tica de privacidad</a>
     </div>
   </div>
 </footer>
 
-<script>
-  // Fondo de la barra al desplazar
-  var nav = document.getElementById('nav');
-  if (!nav.classList.contains('solid-fija')) {
-    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  // Menu de celular
-  var burger = document.getElementById('burger');
-  var links = document.getElementById('navLinks');
-  if (burger && links) {
-  burger.addEventListener('click', function () {
-    var abierto = document.body.classList.toggle('menu-abierto');
-    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-  });
-  links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.focus();
-    }
-  });
-  }
-
-  // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
-  // que comparte un referidor. Sin esto el codigo moria en la primera pagina:
-  // la persona navegaba, se convencia, apretaba WhatsApp y el mensaje salia sin
-  // marca, asi que no habia forma de saber quien la trajo.
-  window.CORYN = window.CORYN || {};
-  (function () {
-    var CLAVE = 'coryn_ref', DIAS = 30;
-
-    // El valor termina dentro de un mensaje de WhatsApp y del formulario, asi
-    // que solo se aceptan letras, numeros y guiones.
-    function limpio (v) {
-      return (v || '').trim().slice(0, 24).replace(/[^A-Za-z0-9_-]/g, '');
-    }
-
-    function guardado () {
-      try {
-        var d = JSON.parse(localStorage.getItem(CLAVE) || 'null');
-        if (d && d.ref && Date.now() < d.vence) return d.ref;
-        if (d) localStorage.removeItem(CLAVE);
-      } catch (e) { /* modo privado, o el navegador bloquea el storage */ }
-      return '';
-    }
-
-    var deUrl = '';
-    try { deUrl = limpio(new URLSearchParams(location.search).get('ref')); } catch (e) {}
-
-    if (deUrl) {
-      try {
-        localStorage.setItem(CLAVE, JSON.stringify({
-          ref: deUrl, vence: Date.now() + DIAS * 864e5
-        }));
-      } catch (e) {}
-    }
-
-    var ref = deUrl || guardado();
-    window.CORYN.ref = ref;
-    if (!ref) return;
-
-    // Si la analitica esta activa, deja constancia de que la visita llego con
-    // codigo. Se encola con el stub que recomienda Vercel porque su script
-    // carga con defer y todavia no existe en este punto.
-    try {
-      window.va = window.va || function () {
-        (window.vaq = window.vaq || []).push(arguments);
-      };
-      window.va('event', { name: 'referido', data: { ref: ref } });
-    } catch (e) {}
-
-    // Se marca en el clic y no al cargar la pagina: el estimador rehace su
-    // enlace de WhatsApp cada vez que cambias la seleccion, y de esta forma
-    // tambien queda marcado sin tener que engancharse a su codigo.
-    document.addEventListener('click', function (e) {
-      var el = e.target;
-      if (el && el.nodeType !== 1) el = el.parentElement;
-      var a = el && el.closest ? el.closest('a[href*="wa.me"]') : null;
-      if (!a) return;
-      var u;
-      try { u = new URL(a.href); } catch (err) { return; }
-      var t = u.searchParams.get('text') || 'Hola CORYN';
-      if (t.indexOf('(Ref:') > -1) return;
-      // Se rearma a mano y no con searchParams.set, que escribe los espacios
-      // como "+"; el resto del sitio los manda como %20.
-      a.href = u.origin + u.pathname + '?text=' +
-               encodeURIComponent(t + ' (Ref: ' + ref + ')');
-    }, true);
-  })();
-
-  // Aparicion progresiva, con red de seguridad si el observer no dispara
-  (function () {
-    if (!document.documentElement.classList.contains('js-rv')) return;
-    var els = document.querySelectorAll('.rv');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    els.forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
-      io.observe(el);
-    });
-    setTimeout(function () {
-      els.forEach(function (el) { el.classList.add('in'); });
-      io.disconnect();
-    }, 2000);
-  })();
-</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="sitio.js?v=4a1c1c0b"></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

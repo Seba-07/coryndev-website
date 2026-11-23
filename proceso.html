@@ -6,7 +6,7 @@
 <title>Proceso — Cómo trabajamos, etapa por etapa | CORYN</title>
 <meta name="description" content="Las cinco etapas de un proyecto con CORYN: nos conocemos, diseñamos, construimos, probamos y te acompañamos. Qué esperar en cada una.">
 <link rel="canonical" href="https://coryndev.com/proceso.html">
-<meta name="theme-color" content="#070e20">
+<meta name="theme-color" content="#eceff5">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -107,252 +107,146 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=29ead8f9">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="estilos.css?v=206b29c5">
 <script>
-  if ('IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('js-rv');
-  }
+  (function (d) {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.documentElement.classList.add('mov');
+    setTimeout(function () { if (!window.CORYN_MOV) d.documentElement.classList.remove('mov'); }, 3500);
+  })(document);
 </script>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <header class="nav" id="nav">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-      <span>CORYN</span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="que-resolvemos.html">Qué resolvemos</a>
-        <a href="precios.html">Precios</a>
-        <a href="proceso.html" class="activa">Proceso</a>
-        <a href="nosotros.html">Nosotros</a>
+  <div class="wrap nav-fila">
+    <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="servicios.html">Servicios</a>
+      <a href="que-resolvemos.html">Qué resolvemos</a>
+      <a href="precios.html">Precios</a>
+      <a href="proceso.html" class="activa" aria-current="page">Proceso</a>
+      <a href="nosotros.html">Nosotros</a>
     </nav>
-    <div class="nav-right">
-      <a class="btn btn-solid btn-sm nav-cta" href="contacto.html">Conversemos</a>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="nav-der">
+      <a class="btn btn-wa btn-chico nav-cta" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener" aria-label="Conversemos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg><span>Conversemos</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <p class="eyebrow">Proceso</p>
-    <h1>Cómo trabajamos, etapa por etapa</h1>
-    <p>Un proceso definido, para que en cada momento sepas qué está pasando, qué viene después y qué se espera de ti.</p>
-  </div>
-</section>
-
-<section class="proc-oscuro">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch; margin-bottom:26px">
-      <p class="eyebrow">Vista rápida</p>
-      <h2>De la primera llamada a la mejora del mes 12</h2>
-      <p>Cinco etapas. Las dos primeras son sin costo y sirven justamente para decidir
-      si vale la pena seguir.</p>
-    </div>
-    <div class="resumen oscuro rv">
-      <a href="#e01">
-        <span class="qu"><span class="paso">01</span>Nos conocemos</span>
-        <span class="cu">Media hora, sin costo</span>
-      </a>
-      <a href="#e02">
-        <span class="qu"><span class="paso">02</span>Diseñamos juntos la solución</span>
-        <span class="cu">Alcance y precio cerrado</span>
-      </a>
-      <a href="#e03">
-        <span class="qu"><span class="paso">03</span>Construimos con calidad</span>
-        <span class="cu">Demostraciones periódicas</span>
-      </a>
-      <a href="#e04">
-        <span class="qu"><span class="paso">04</span>Probamos y perfeccionamos</span>
-        <span class="cu">Marcha blanca con tu equipo</span>
-      </a>
-      <a href="#e05">
-        <span class="qu"><span class="paso">05</span>Te acompañamos</span>
-        <span class="cu">Acompañamiento incluido</span>
-      </a>
+<main id="contenido">
+<section class="cabeza">
+  <div class="wrap cabeza-grid">
+    <div class="cabeza-texto">
+      <h1>Cómo trabajamos, etapa por etapa<span class="punto">.</span></h1>
+      <p class="bajada">Cinco etapas. Las dos primeras son sin costo y sirven para decidir si vale la pena seguir.</p>
     </div>
   </div>
 </section>
 
-<section class="proc-etapa">
-  <div class="wrap">
-    <article class="et-bloque rv" id="e01">
-      <div class="et-pieza">
-        <img src="assets/paso-conocemos.webp" alt="Dos personas conversando en una mesa, con un cuaderno abierto" loading="lazy">
+<!-- Cinco etapas sobre una linea que avanza con el scroll. marketing/posts.py
+     lee data-n, el h2, data-cu y el primer parrafo de cada etapa. -->
+<section class="seccion" style="padding-top:0">
+  <div class="wrap etapas">
+    <span class="etapas-avance" aria-hidden="true"></span>
+    <article class="etapa proc-etapa" data-n="1" data-cu="Media hora, sin costo">
+      <span class="etapa-n" aria-hidden="true">1</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-conocemos.webp" width="760" height="760" loading="lazy" alt="Dos personas conversando en una mesa, con un cuaderno abierto"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 1: </span>Nos conocemos <span class="timbre timbre-chico estampa">Sin costo</span></h2>
+        <p>Media hora para entender cómo funciona tu negocio hoy y dónde se va el tiempo o el dinero. Al final te decimos con honestidad si podemos ayudarte: a veces la respuesta es que no necesitas desarrollo a medida.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Escuchamos, preguntamos por las excepciones de tu proceso y proponemos por dónde partir.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Que venga quien conoce la operación de verdad, no solo quien aprueba el presupuesto.</dd></div>
+        </dl>
       </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 01</span>
-        <h2>Nos conocemos</h2>
-          <p>Una conversación de media hora, sin costo y sin compromiso. Queremos entender cómo funciona tu negocio hoy y dónde se va el tiempo o el dinero. Todavía no hablamos de tecnología.</p>
-          <p>Al final de esta etapa te decimos con honestidad si creemos que podemos ayudarte. A veces la respuesta es que no necesitas desarrollo a medida, y también te lo vamos a decir.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Escuchamos, preguntamos por las excepciones de tu proceso y proponemos por dónde partir.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Que venga quien conoce la operación de verdad, no solo quien aprueba el presupuesto.</p>
-          </div>
-        </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="2" data-cu="Alcance y precio cerrado">
+      <span class="etapa-n" aria-hidden="true">2</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-disenamos.webp" width="760" height="760" loading="lazy" alt="Un boceto de pantallas dibujado a mano junto a una tableta"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 2: </span>Diseñamos juntos <span class="timbre timbre-chico estampa">Sin costo</span></h2>
+        <p>Definimos por escrito qué entra, qué queda para más adelante y qué no se hace. Ese documento fija el precio, y antes de programar te mostramos las pantallas principales.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Documento de alcance, diseño de las pantallas clave y la propuesta con el precio cerrado.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Revisar el alcance con calma y ser exigente: todo lo que se detecte aquí sale gratis.</dd></div>
+        </dl>
       </div>
-  </article>
+    </article>
+    <article class="etapa proc-etapa" data-n="3" data-cu="Demostraciones periódicas">
+      <span class="etapa-n" aria-hidden="true">3</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-construimos.webp" width="760" height="760" loading="lazy" alt="Alguien programando frente a dos pantallas al atardecer"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 3: </span>Construimos</h2>
+        <p>Desarrollamos por partes y te mostramos avances funcionando, no informes de progreso. En proyectos largos, las primeras partes entran en uso antes de que el resto esté listo.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Desarrollo por etapas, con demostraciones de lo que ya funciona.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Que alguien de tu equipo pruebe cada avance. Un comentario a tiempo evita rehacer trabajo.</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="4" data-cu="Marcha blanca con tu equipo">
+      <span class="etapa-n" aria-hidden="true">4</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-probamos.webp" width="760" height="760" loading="lazy" alt="Dos personas revisando juntas una pantalla, una señalando algo"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 4: </span>Probamos</h2>
+        <p>Marcha blanca: tu equipo usa el sistema con datos reales mientras el método antiguo sigue disponible. Ajustamos hasta que responda al día a día, y recién ahí lo damos por entregado.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Corrección de fallas, ajustes de uso y capacitación al equipo.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Usarlo de verdad durante la marcha blanca. Un sistema que nadie probó falla el primer día.</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="5" data-cu="Acompañamiento incluido">
+      <span class="etapa-n" aria-hidden="true">5</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-acompanamos.webp" width="760" height="760" loading="lazy" alt="Un escritorio con un panel abierto en el notebook y el teléfono al lado"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 5: </span>Te acompañamos</h2>
+        <p>Mantención, respaldos y mejoras a medida que el negocio cambia, con el <a href="precios.html#mensual">acompañamiento mensual</a>. Lo que entregamos queda funcionando con nuestro nombre encima, y el código y los datos son tuyos.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Soporte con prioridad, mejoras mensuales y aviso cuando algo conviene actualizar.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Contarnos cuando el negocio cambie. El software debería cambiar con él.</dd></div>
+        </dl>
+      </div>
+    </article>
   </div>
 </section>
 
-<section class="proc-etapa papel">
-  <div class="wrap">
-    <article class="et-bloque rv invertido" id="e02">
-      <div class="et-pieza">
-        <img src="assets/paso-disenamos.webp" alt="Un boceto de pantallas dibujado a mano junto a una tableta" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 02</span>
-        <h2>Diseñamos juntos la solución</h2>
-          <p>Definimos el alcance por escrito: qué entra, qué queda para más adelante y qué no se hace. Ese documento es el que fija el precio, así que vale la pena discutirlo en detalle.</p>
-          <p>Después dibujamos las pantallas principales y te las mostramos. Es mucho más barato cambiar un diseño que cambiar un sistema ya construido, y por eso insistimos en que aquí nos digas todo lo que no te calce.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Documento de alcance, diseño de las pantallas clave y la propuesta con el precio cerrado.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Revisar el alcance con calma y ser exigente. Todo lo que se detecte aquí sale gratis.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa">
-  <div class="wrap">
-    <article class="et-bloque rv" id="e03">
-      <div class="et-pieza">
-        <img src="assets/paso-construimos.webp" alt="Alguien programando frente a dos pantallas al atardecer" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 03</span>
-        <h2>Construimos con calidad</h2>
-          <p>Desarrollamos por partes y te mostramos avances funcionando cada cierto tiempo. No informes de progreso: el sistema real, para que lo pruebes.</p>
-          <p>En proyectos largos las primeras partes entran en uso antes de que el resto esté listo. Es la mejor forma de detectar temprano si algo no calza con la realidad del día a día.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Desarrollo por etapas, con demostraciones periódicas de lo que ya funciona.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Que alguien de tu equipo pruebe cada avance. Un comentario a tiempo evita rehacer trabajo.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa papel">
-  <div class="wrap">
-    <article class="et-bloque rv invertido" id="e04">
-      <div class="et-pieza">
-        <img src="assets/paso-probamos.webp" alt="Dos personas revisando juntas una pantalla, una señalando algo" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 04</span>
-        <h2>Probamos y perfeccionamos</h2>
-          <p>Marcha blanca: tu equipo usa el sistema con datos reales mientras el método antiguo sigue disponible. Es la etapa donde aparecen los casos raros que ninguna reunión anticipó.</p>
-          <p>Ajustamos hasta que el sistema responda al día a día, no solo a la demostración. Recién ahí lo damos por entregado.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Corrección de fallas, ajustes de uso y capacitación al equipo.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Usarlo de verdad durante la marcha blanca. Un sistema que nadie probó falla el primer día.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa">
-  <div class="wrap">
-    <article class="et-bloque rv" id="e05">
-      <div class="et-pieza">
-        <img src="assets/paso-acompanamos.webp" alt="Un escritorio con un mensaje entrando en el teléfono y un panel abierto" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 05</span>
-        <h2>Te acompañamos</h2>
-          <p>Aquí empieza el acompañamiento mensual: mantención, respaldos, ajustes y mejoras a medida que el negocio cambia. No es un servicio aparte que puedas descartar, va incluido en la forma en que trabajamos.</p>
-          <p>La razón es simple: lo que entregamos queda funcionando con nuestro nombre encima. No hacemos el modelo de entregar y desaparecer, porque un sistema sin mantención deja de servir en un año y eso también es problema nuestro. El código y los datos, eso sí, son tuyos desde el primer día.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Soporte con prioridad, mejoras mensuales y aviso cuando algo conviene actualizar.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Contarnos cuando el negocio cambie. El software debería cambiar con él.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-cita">
-  <div class="wrap">
-    <blockquote class="cita-oscura rv">
-      <span class="eyebrow">Lo que más atrasa un proyecto</span>
-      <p>No es el desarrollo. Es esperar una respuesta del cliente para poder seguir.</p>
-      <p class="firma">Por eso en cada etapa dejamos escrito qué necesitamos de ti y cuándo.
-      Un proyecto con alguien atento del otro lado avanza en la mitad del tiempo que uno
-      donde las dudas quedan sin responder una semana.</p>
-    </blockquote>
+<section class="seccion" style="background:var(--hoja)">
+  <div class="wrap declara">
+    <p>Lo que más atrasa un proyecto no es el desarrollo: es esperar una respuesta.</p>
+    <small>Por eso en cada etapa dejamos escrito qué necesitamos de ti y cuándo.</small>
   </div>
 </section>
 
 
-<section class="close">
-  <div class="wrap">
-    <p class="eyebrow">Siguiente paso</p>
-    <h2>Empecemos por la etapa 1.</h2>
-    <p>Media hora de conversación, sin costo y sin compromiso. Al final te decimos con honestidad si podemos ayudarte.</p>
-    <div class="actions">
-      <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
-        Escríbenos por WhatsApp
-      </a>
-      <a class="btn btn-ghost" href="contacto.html">Enviar un mensaje</a>
+<section class="cierre">
+  <div class="wrap cierre-grid">
+    <div>
+      <h2>Cuéntanos qué te está costando tiempo.</h2>
+      <p>Media hora, sin costo. Te decimos con honestidad si podemos ayudarte y cuánto costaría.</p>
+      <div class="acciones">
+        <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Conversemos por WhatsApp</a>
+        <a class="enlace enlace-claro" href="contacto.html">Prefiero un formulario</a>
+      </div>
     </div>
-    <div class="lines">
-      <a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a>
-      <a href="https://coryndev.com">coryndev.com</a>
+    <div class="cierre-marca" aria-hidden="true">
+      <svg viewBox="0 0 79.5 84" focusable="false"><path class="c" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path class="p" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
     </div>
   </div>
 </section>
+</main>
 
-<footer class="foot">
+<footer class="pie">
   <div class="wrap">
-    <div class="cols">
-      <div class="foot-marca">
-        <a class="brand" href="index.html">
-          <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-          <span>CORYN</span>
-        </a>
-        <p>Software 100% personalizado para negocios que necesitan que la
-        herramienta calce con su forma de trabajar.</p>
+    <div class="pie-cols">
+      <div class="pie-marca">
+        <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+        <p>Software a medida para negocios que necesitan que la herramienta calce
+        con su forma de trabajar.</p>
       </div>
       <div>
         <h4>Casos</h4>
@@ -372,6 +266,7 @@
         <ul>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="que-resolvemos.html">Qué resolvemos</a></li>
+          <li><a href="precios.html">Precios</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
@@ -379,138 +274,23 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="contacto.html">Enviar un mensaje</a></li>
+          <li><a href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="contacto.html">Formulario</a></li>
           <li><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></li>
         </ul>
-        <p class="foot-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
+        <p class="pie-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
       </div>
     </div>
-    <div class="base">
+    <div class="pie-base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="privacidad.html">Pol&iacute;tica de privacidad</a></span>
+      <a href="privacidad.html">Pol&iacute;tica de privacidad</a>
     </div>
   </div>
 </footer>
 
-<script>
-  // Fondo de la barra al desplazar
-  var nav = document.getElementById('nav');
-  if (!nav.classList.contains('solid-fija')) {
-    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  // Menu de celular
-  var burger = document.getElementById('burger');
-  var links = document.getElementById('navLinks');
-  if (burger && links) {
-  burger.addEventListener('click', function () {
-    var abierto = document.body.classList.toggle('menu-abierto');
-    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-  });
-  links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.focus();
-    }
-  });
-  }
-
-  // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
-  // que comparte un referidor. Sin esto el codigo moria en la primera pagina:
-  // la persona navegaba, se convencia, apretaba WhatsApp y el mensaje salia sin
-  // marca, asi que no habia forma de saber quien la trajo.
-  window.CORYN = window.CORYN || {};
-  (function () {
-    var CLAVE = 'coryn_ref', DIAS = 30;
-
-    // El valor termina dentro de un mensaje de WhatsApp y del formulario, asi
-    // que solo se aceptan letras, numeros y guiones.
-    function limpio (v) {
-      return (v || '').trim().slice(0, 24).replace(/[^A-Za-z0-9_-]/g, '');
-    }
-
-    function guardado () {
-      try {
-        var d = JSON.parse(localStorage.getItem(CLAVE) || 'null');
-        if (d && d.ref && Date.now() < d.vence) return d.ref;
-        if (d) localStorage.removeItem(CLAVE);
-      } catch (e) { /* modo privado, o el navegador bloquea el storage */ }
-      return '';
-    }
-
-    var deUrl = '';
-    try { deUrl = limpio(new URLSearchParams(location.search).get('ref')); } catch (e) {}
-
-    if (deUrl) {
-      try {
-        localStorage.setItem(CLAVE, JSON.stringify({
-          ref: deUrl, vence: Date.now() + DIAS * 864e5
-        }));
-      } catch (e) {}
-    }
-
-    var ref = deUrl || guardado();
-    window.CORYN.ref = ref;
-    if (!ref) return;
-
-    // Si la analitica esta activa, deja constancia de que la visita llego con
-    // codigo. Se encola con el stub que recomienda Vercel porque su script
-    // carga con defer y todavia no existe en este punto.
-    try {
-      window.va = window.va || function () {
-        (window.vaq = window.vaq || []).push(arguments);
-      };
-      window.va('event', { name: 'referido', data: { ref: ref } });
-    } catch (e) {}
-
-    // Se marca en el clic y no al cargar la pagina: el estimador rehace su
-    // enlace de WhatsApp cada vez que cambias la seleccion, y de esta forma
-    // tambien queda marcado sin tener que engancharse a su codigo.
-    document.addEventListener('click', function (e) {
-      var el = e.target;
-      if (el && el.nodeType !== 1) el = el.parentElement;
-      var a = el && el.closest ? el.closest('a[href*="wa.me"]') : null;
-      if (!a) return;
-      var u;
-      try { u = new URL(a.href); } catch (err) { return; }
-      var t = u.searchParams.get('text') || 'Hola CORYN';
-      if (t.indexOf('(Ref:') > -1) return;
-      // Se rearma a mano y no con searchParams.set, que escribe los espacios
-      // como "+"; el resto del sitio los manda como %20.
-      a.href = u.origin + u.pathname + '?text=' +
-               encodeURIComponent(t + ' (Ref: ' + ref + ')');
-    }, true);
-  })();
-
-  // Aparicion progresiva, con red de seguridad si el observer no dispara
-  (function () {
-    if (!document.documentElement.classList.contains('js-rv')) return;
-    var els = document.querySelectorAll('.rv');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    els.forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
-      io.observe(el);
-    });
-    setTimeout(function () {
-      els.forEach(function (el) { el.classList.add('in'); });
-      io.disconnect();
-    }, 2000);
-  })();
-</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="sitio.js?v=4a1c1c0b"></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

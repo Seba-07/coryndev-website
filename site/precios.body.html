@@ -1,90 +1,96 @@
 {ESTIMADOR}
 
-<!-- ================= QUE CUBRE CADA PESO ================= -->
-<section class="junto claro">
+<!-- ================= DOS COBROS ================= -->
+<section class="cobros seccion">
   <div class="wrap">
-    <div class="junto-cab rv">
-      <p class="eyebrow">Qué cubre cada peso</p>
+    <div class="cabeza-seccion">
       <h2>Dos cobros, y nada más.</h2>
-      <p>Uno al partir y uno cada mes. No hay horas extra, cuotas de licencia ni
-      sorpresas al final. Si algo no está en esta página, no se cobra.</p>
+      <p class="bajada">Uno al partir y uno cada mes. No hay horas extra, licencias
+      ni sorpresas al final: si algo no está en esta página, no se cobra.</p>
     </div>
-
-    <div class="junto-lista">
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 20v-3"/><path d="M9 20v-9"/><path d="M14.5 20v-9"/><path d="M20 20v-9"/></svg>
-        <b>Puesta en marcha, una sola vez</b>
-        <p>Cubre el alcance descrito en cada servicio: levantamiento, construcción,
-        marcha blanca y capacitación. Es bajo a propósito: no es donde ganamos.</p>
+    <figure class="cobros-grafico posar">
+      <div class="cobros-meses" aria-hidden="true">
+        <span class="mes puesta"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span>
       </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h4.5v-4.5H12V12h4.5V7.5H21V3"/></svg>
-        <b>Acompañamiento mensual</b>
-        <p>1 UF al mes, o 1,5 UF en tienda online y app. Incluye mantención,
-        respaldos, monitoreo y mejoras pequeñas. Corre recién cuando el sistema
-        entra en uso, y se revisa una vez al año: entremedio no cambia.</p>
+      <div class="cobros-ejes" aria-hidden="true">
+        <span>Al partir</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
       </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>
-        <b>Sin permanencia ni multa</b>
+      <figcaption class="solo-lector">Un cobro único al partir y después una cuota mensual igual, mes a mes.</figcaption>
+    </figure>
+    <div class="cobros-notas">
+      <div>
+        <p class="cobros-marca"><i></i>Puesta en marcha</p>
+        <h3>Una sola vez</h3>
+        <p>Cubre levantamiento, construcción, marcha blanca y capacitación. Es bajo a
+        propósito: no es donde ganamos.</p>
+      </div>
+      <div>
+        <p class="cobros-marca"><i class="suave"></i>Acompañamiento</p>
+        <h3>1 UF al mes, o 1,5 UF en tienda y app</h3>
+        <p>Corre recién cuando el sistema entra en uso, no cuando firmamos. Mientras
+        construimos y probamos, pagas solo la puesta en marcha.</p>
+      </div>
+      <div>
+        <p class="cobros-marca"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin amarras</p>
+        <h3>Sin permanencia ni multa</h3>
         <p>Puedes irte cualquier mes. El código y los datos quedan a tu nombre desde
         el primer día, así que irse es de verdad posible.</p>
-      </div>
-      <div class="junto-item rv">
-        <svg class="junto-marca" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.5 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.5"/><path d="M13.5 10.5 20 4"/><path d="M15 4h5v5"/></svg>
-        <b>Si tu caso trae más</b>
-        <p>Se cotiza y se cierra por escrito antes de programar. El número que
-        firmas es el número que pagas: nada cambia a mitad de camino.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ================= QUE INCLUYE EL MENSUAL ================= -->
+<section class="seccion" id="mensual">
+  <div class="wrap mensual-grid">
+    <div>
+      <h2>Qué incluye el mensual.</h2>
+      <p class="bajada" style="margin-top:18px">Es lo que separa un sistema que sigue
+      sirviendo de uno que quedó congelado el día de la entrega.</p>
+    </div>
+    <div class="hoja posar" style="padding:clamp(24px,3vw,36px)">
+      <ul class="lista-check">
+        <li>{CHECK}<span>Atención con prioridad ante fallas</span></li>
+        <li>{CHECK}<span>Mantención, respaldos y actualizaciones de seguridad</span></li>
+        <li>{CHECK}<span>Ajustes y mejoras pequeñas cada mes</span></li>
+        <li>{CHECK}<span>Monitoreo para enterarnos antes que tú</span></li>
+      </ul>
+      <p style="margin-top:22px; padding-top:18px; border-top:1px dashed var(--linea); color:var(--tinta-2)">El
+      valor se revisa una vez al año: sube si tu operación creció y el sistema hace
+      más, no porque subieron nuestros costos. Entremedio no cambia. Las
+      funcionalidades grandes nuevas se cotizan aparte.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ================= PREGUNTAS ================= -->
-<section class="proceso" style="padding-top:56px; padding-bottom:60px">
-  <div class="wrap" style="max-width:840px">
-    <div class="sec-head rv" style="max-width:60ch">
-      <p class="eyebrow">Lo que siempre preguntan</p>
-      <h2>Preguntas sobre el precio</h2>
+<section class="seccion" style="background:var(--hoja)">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Lo que siempre preguntan.</h2>
     </div>
     <div class="faq">
       <details>
         <summary>¿Por qué el precio de entrada es tan bajo?</summary>
         <div class="resp">
-          <p>Porque el negocio no es cobrarte caro una vez: es que el sistema te
-          siga sirviendo y sigas con nosotros el año que viene. El grueso de lo
-          que ganamos contigo llega mes a mes, y eso nos obliga a merecerlo.</p>
+          <p>Porque el negocio no es cobrarte caro una vez: es que el sistema te siga
+          sirviendo y sigas con nosotros el año que viene. El grueso de lo que ganamos
+          contigo llega mes a mes, y eso nos obliga a merecerlo.</p>
         </div>
       </details>
       <details>
         <summary>¿Qué pasa si mi caso necesita más que el alcance base?</summary>
         <div class="resp">
-          <p>Te lo decimos en la primera conversación, que no tiene costo. Lo que
-          falte se cotiza aparte y se cierra por escrito antes de programar. Lo que
-          no hacemos es cambiar el precio a mitad de camino.</p>
+          <p>Te lo decimos en la primera conversación, que no tiene costo. Lo que falte
+          se cotiza aparte y se cierra por escrito antes de programar. Lo que no
+          hacemos es cambiar el precio a mitad de camino.</p>
         </div>
       </details>
       <details>
-        <summary>¿Cuándo empieza a correr el mensual?</summary>
+        <summary>¿Por qué en UF?</summary>
         <div class="resp">
-          <p>Cuando el sistema entra en uso real en tu negocio, no cuando firmamos.
-          Mientras construimos y probamos, pagas solo la puesta en marcha.</p>
-        </div>
-      </details>
-      <details>
-        <summary>¿Por qué en UF y cuándo sube?</summary>
-        <div class="resp">
-          <p>En UF para que lo ajuste la inflación y no nosotros. Se revisa una vez
-          al año, en una conversación: sube si tu operación creció y el sistema
-          hace más, no porque subieron nuestros costos. Entremedio no cambia.
-          <a href="servicios.html#soporte">Qué incluye y cuándo sube, en detalle.</a></p>
-        </div>
-      </details>
-      <details>
-        <summary>¿Hay algún costo que no esté en esta página?</summary>
-        <div class="resp">
-          <p>No. Lo que no está acá, no se cobra. Cada servicio dice además qué
-          incluye y qué no incluye, en <a href="servicios.html">Servicios</a>.</p>
+          <p>Para que lo ajuste la inflación y no nosotros. Así el mensual no cambia
+          por decisión nuestra entre una revisión anual y la siguiente.</p>
         </div>
       </details>
     </div>

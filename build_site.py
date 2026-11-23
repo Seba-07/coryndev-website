@@ -105,7 +105,10 @@ JS_FORMULARIO = '''<script>
 </script>''' % {'backend': S.BACKEND, 'email': S.EMAIL}
 
 
-# slug, titulo, descripcion, clave de menu, (titulo cabecera, bajada, eyebrow), cierre
+# Cada pagina: titulo y descripcion para buscadores, la clave del menu, su
+# cabecera (titulo, bajada, nombre para las migas y, si tiene, su grafico) y
+# su cierre. El cierre es el mismo en todo el sitio; cierre=False lo quita y un
+# dict cambia sus textos.
 PAGINAS = [
     dict(
         slug='index',
@@ -115,11 +118,6 @@ PAGINAS = [
              'Primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
-        preload=('assets/real-planilla.webp',),
-        cierre=('Conversemos 30 minutos, sin costo.',
-                'Cuéntanos tu situación y te decimos con honestidad qué se puede '
-                'resolver con software, qué conviene priorizar y cuánto costaría '
-                'hacerlo bien.'),
     ),
     dict(
         slug='precios',
@@ -128,14 +126,11 @@ PAGINAS = [
              'una app con CORYN: puesta en marcha desde $69.000 y acompañamiento '
              'desde 1 UF al mes. Precio cerrado antes de empezar.',
         activa='precios',
-        cabecera=('Los precios, publicados',
-                  'Casi nadie en el rubro los muestra. Acá están: lo que cuesta '
-                  'partir, lo que cuesta cada mes y qué incluye. Sin letra chica.',
-                  'Precios'),
-        cierre=('¿Tu caso cabe en el precio base?',
-                'Escríbenos con lo que marcaste en el estimador y te lo decimos en '
-                'la primera conversación, sin costo. Si trae más, se cotiza y se '
-                'cierra por escrito antes de programar.'),
+        clase_body='pg-precios',
+        cabecera=dict(titulo='Los precios, publicados.',
+                      bajada='Casi nadie en el rubro los muestra. Acá están: lo que cuesta '
+                             'partir, lo que cuesta cada mes y qué incluye.',
+                      nombre='Precios'),
     ),
     dict(
         slug='servicios',
@@ -143,13 +138,10 @@ PAGINAS = [
         desc='Páginas web, sistemas de gestión, aplicaciones móviles, tiendas online '
              'e integraciones. Con el alcance, los plazos y los límites de cada uno.',
         activa='servicios',
-        cabecera=('Lo que hacemos, dicho en concreto',
-                  'Seis servicios, con lo que incluye cada uno, lo que no incluye y '
-                  'cuánto suele demorar. Sin letra chica.',
-                  'Servicios'),
-        cierre=('¿Cuál de estos se parece a tu problema?',
-                'Si ninguno calza del todo, escríbenos igual. La mayoría de los '
-                'proyectos empieza con alguien que no sabía en qué categoría entraba.'),
+        cabecera=dict(titulo='Lo que hacemos, dicho en concreto.',
+                      bajada='Seis servicios, con lo que incluye cada uno, lo que no '
+                             'incluye y cuánto suele demorar.',
+                      nombre='Servicios'),
     ),
     dict(
         slug='privacidad',
@@ -157,14 +149,14 @@ PAGINAS = [
         desc='Qué datos recoge coryndev.com, para qué los usamos y con quién se '
              'comparten. Sin cookies de publicidad ni seguimiento entre sitios.',
         activa='',
-        clase_body='pg-oscura',
-        cabecera=('Política de privacidad',
-                  'Qué datos recoge este sitio, para qué los usamos y con quién '
-                  'se comparten. En castellano, no en jerga legal.',
-                  'Legal'),
-        cierre=('¿Alguna duda sobre tus datos?',
-                'Escríbenos y te respondemos. Puedes pedirnos qué tenemos tuyo, '
-                'que lo corrijamos o que lo borremos, sin dar explicaciones.'),
+        cabecera=dict(titulo='Política de privacidad.',
+                      bajada='Qué datos recoge este sitio, para qué los usamos y con quién '
+                             'se comparten. En castellano, no en jerga legal.',
+                      nombre='Legal'),
+        cierre=dict(titulo='¿Alguna duda sobre tus datos?',
+                    texto='Escríbenos y te respondemos. Puedes pedirnos qué tenemos tuyo, '
+                          'que lo corrijamos o que lo borremos, sin dar explicaciones.',
+                    secundario=f'<a class="enlace enlace-claro" href="mailto:{S.EMAIL}">{S.EMAIL}</a>'),
     ),
     dict(
         slug='que-resolvemos',
@@ -173,14 +165,10 @@ PAGINAS = [
              'WhatsApp, agendar por teléfono. Qué le cuesta cada uno a tu negocio '
              'y qué construimos.',
         activa='problemas',
-        clase_body='pg-oscura',
-        cabecera=('Cuál de estas se parece a tu semana',
-                  'Seis situaciones que vemos una y otra vez en pymes chilenas. '
-                  'Reconocer la tuya suele ser más útil que saber qué sistema pedir.',
-                  'Qué resolvemos'),
-        cierre=('¿Reconociste alguna?',
-                'Cuéntanos cuál y te decimos con honestidad qué se puede resolver, qué '
-                'conviene priorizar y cuánto costaría hacerlo bien.'),
+        cabecera=dict(titulo='¿Cuál de estas se parece a tu semana?',
+                      bajada='Seis situaciones que vemos una y otra vez en pymes chilenas. '
+                             'Reconocer la tuya sirve más que saber qué sistema pedir.',
+                      nombre='Qué resolvemos'),
     ),
     dict(
         slug='proceso',
@@ -188,33 +176,50 @@ PAGINAS = [
         desc='Las cinco etapas de un proyecto con CORYN: nos conocemos, diseñamos, '
              'construimos, probamos y te acompañamos. Qué esperar en cada una.',
         activa='proceso',
-        cabecera=('Cómo trabajamos, etapa por etapa',
-                  'Un proceso definido, para que en cada momento sepas qué está '
-                  'pasando, qué viene después y qué se espera de ti.',
-                  'Proceso'),
-        cierre=('Empecemos por la etapa 1.',
-                'Media hora de conversación, sin costo y sin compromiso. Al final '
-                'te decimos con honestidad si podemos ayudarte.'),
+        cabecera=dict(titulo='Cómo trabajamos, etapa por etapa.',
+                      bajada='Cinco etapas. Las dos primeras son sin costo y sirven para '
+                             'decidir si vale la pena seguir.',
+                      nombre='Proceso'),
     ),
     dict(
         slug='nosotros',
-        clase_body='pg-oscura',
         titulo='Nosotros — Quiénes están detrás de CORYN',
         desc='Estudio chileno de desarrollo de software a medida. Hablas directamente '
              'con quien programa tu proyecto, sin intermediarios ni vendedores.',
         activa='nosotros',
-        cabecera=('Hablas con quien programa',
-                  'Literalmente. No es una frase de marketing: quien toma la reunión '
-                  'de levantamiento es quien escribe el código y responde el soporte.',
-                  'Nosotros'),
-        cierre=('Conversemos 30 minutos, sin costo.',
-                'Sin vendedores de por medio. La primera conversación es directamente '
-                'con quien va a construir tu proyecto.'),
+        cabecera=dict(titulo='Hablas con quien programa.',
+                      bajada='Quien toma la primera reunión es quien escribe el código y '
+                             'responde cuando algo falla. Sin ejecutivos de cuenta de por medio.',
+                      nombre='Nosotros',
+                      visual=S.video('vid-programando', '1/1')),
+    ),
+    dict(
+        slug='404',
+        titulo='Página no encontrada | CORYN',
+        desc='La dirección que buscas no existe o cambió de lugar.',
+        activa='',
+        cabecera=dict(titulo='Esta página no existe.',
+                      bajada='La dirección que escribiste no está o cambió de lugar. Desde '
+                             'aquí se llega a todo lo demás.',
+                      nombre='Error 404'),
+        cierre=False,
+    ),
+    dict(
+        slug='contacto',
+        titulo='Contacto — Conversemos sobre tu proyecto | CORYN',
+        desc='Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo y '
+             'respuesta en menos de 24 horas hábiles. También por WhatsApp.',
+        activa='',
+        cabecera=dict(titulo='Conversemos sobre tu proyecto.',
+                      bajada='La primera reunión es sin costo y sin compromiso. No '
+                             'necesitas tener claro qué sistema quieres.',
+                      nombre='Contacto'),
+        cierre=False,
+        js_extra=JS_FORMULARIO,
     ),
     dict(
         # Pagina para enlazar en mensajes uno a uno. Fuera del menu y con un
-        # solo boton: cabecera solo con la marca y sin el cierre de siempre,
-        # que trae dos.
+        # solo boton: cabecera solo con la marca y sin el cierre de siempre.
         slug='correo',
         titulo='Si todo te llega por correo: un sistema que lo anota solo | CORYN',
         desc='Cotizaciones, órdenes de compra y facturas que llegan por correo y se '
@@ -222,39 +227,13 @@ PAGINAS = [
         activa='',
         landing=True,
         og_img='assets/og-correo.jpg',
-        cabecera=('Todo te llega por correo, y todo se copia a mano',
-                  'Cotizaciones, órdenes de compra, facturas, avisos de pago. Si hoy '
-                  'alguien los pasa uno por uno a una planilla, mira cómo lo '
-                  'resolvimos en una empresa como la tuya.',
-                  'Para empresas que trabajan por correo'),
-        cierre=None,
-    ),
-    dict(
-        slug='404',
-        titulo='Página no encontrada | CORYN',
-        desc='La dirección que buscas no existe o cambió de lugar.',
-        activa='',
-        cabecera=('Esta página no existe',
-                  'La dirección que escribiste no está o cambió de lugar. '
-                  'Nada grave: desde aquí se llega a todo lo demás.',
-                  'Error 404'),
-        cierre=None,
-    ),
-    dict(
-        slug='contacto',
-        clase_body='pg-oscura',
-        titulo='Contacto — Conversemos sobre tu proyecto | CORYN',
-        desc='Escríbenos y conversemos sobre tu proyecto. Primera reunión sin costo y '
-             'respuesta en menos de 24 horas hábiles. También por WhatsApp.',
-        activa='',
-        cabecera=('Conversemos sobre tu proyecto',
-                  'La primera reunión es sin costo y sin compromiso. Cuéntanos qué '
-                  'te está complicando y te decimos con honestidad qué se puede hacer.',
-                  'Contacto'),
-        cierre=('¿Prefieres escribir por WhatsApp?',
-                'Es la vía más rápida y respondemos el mismo día. Si es fuera de '
-                'horario, deja el mensaje igual y lo vemos a primera hora.'),
-        js_extra=JS_FORMULARIO,
+        cabecera=dict(titulo='Todo te llega por correo, y todo se copia a mano.',
+                      bajada='Cotizaciones, órdenes de compra, facturas, avisos de pago. Si '
+                             'hoy alguien los pasa uno por uno a una planilla, mira cómo lo '
+                             'resolvimos en una empresa como la tuya.',
+                      nombre='Para empresas que trabajan por correo',
+                      visual='{ESCENA}'),
+        cierre=False,
     ),
 ]
 
@@ -384,6 +363,7 @@ def aplicar_fichas(txt):
     # El estimador vive en su propio archivo y lo usan dos paginas; va primero
     # porque dentro trae fichas ({WA}, {WA_NUM}) que se resuelven en el bucle.
     txt = txt.replace('{ESTIMADOR}', (CUERPOS / '_estimador.html').read_text())
+    txt = txt.replace('{ESCENA}', (CUERPOS / '_escena.html').read_text())
     for k, v in FICHAS.items():
         txt = txt.replace(k, v)
     return txt
@@ -395,17 +375,18 @@ def construir_paginas():
     for p in PAGINAS:
         cuerpo = aplicar_fichas((CUERPOS / f"{p['slug'].replace('index', 'inicio')}.body.html").read_text())
         partes = []
-        if p['cabecera']:
-            t, b, e = p['cabecera']
-            partes.append(S.cabecera(t, b, e))
+        c = p['cabecera']
+        if c:
+            partes.append(S.cabecera(c['titulo'], c['bajada'],
+                                     visual=aplicar_fichas(c.get('visual', '')),
+                                     acciones=c.get('acciones', '')))
         partes.append(cuerpo)
-        if p['cierre']:
-            partes.append(S._cierre(*p['cierre'],
-                                    clase_cierre=' claro' if p['slug'] == 'index' else ''))
+        cierre = p.get('cierre', {})
+        if cierre is not False:
+            partes.append(S.cierre(**cierre))
         ld = []
         if p['slug'] not in ('index', '404'):
-            ld.append(migas_ld([('Inicio', 'index.html'),
-                                (p['cabecera'][2] or p['titulo'], None)]))
+            ld.append(migas_ld([('Inicio', 'index.html'), (c['nombre'], None)]))
         if p['slug'] in ('contacto', 'precios'):
             faq = faq_ld(cuerpo)
             if faq:
@@ -416,7 +397,6 @@ def construir_paginas():
         html = S.render(
             titulo=p['titulo'], descripcion=p['desc'], cuerpo='\n\n'.join(partes),
             activa=p['activa'], js_extra=p.get('js_extra', ''),
-            nav_solida=False,
             canonico='' if p['slug'] == 'index' else f"{p['slug']}.html",
             clase_body=p.get('clase_body', ''),
             ld_extra=ld,
@@ -440,19 +420,20 @@ def ficha_caso(c, propio=False):
                                ('Sector', c['sector']),
                                ('Tipo de proyecto', c['tipo']),
                                ('Estado', 'En línea')]
-    dl = '\n'.join(f'        <dt>{k}</dt><dd>{v}</dd>' for k, v in filas)
+    dl = '\n'.join(f'        <div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in filas)
     boton = c.get('boton', (c.get('sitio'), c.get('sitio_url')))
     enlace = ''
     if boton and boton[1]:
         externo = ' target="_blank" rel="noopener"' if boton[1].startswith('http') else ''
-        enlace = f'\n        <a class="btn btn-solid" href="{boton[1]}"{externo}>{boton[0]}</a>'
+        enlace = f'\n      <a class="btn btn-pieza" href="{boton[1]}"{externo}>{boton[0]}</a>'
     titulo = 'Ficha del producto' if propio else 'Ficha del proyecto'
-    return f'''      <aside class="ficha">
-        <h3>{titulo}</h3>
-        <dl>
+    folio = 'Producto propio' if propio else c['sector']
+    return f'''    <aside class="ficha hoja">
+      <div class="hoja-barra"><span>{titulo}</span><span class="folio">{folio}</span></div>
+      <dl>
 {dl}
-        </dl>{enlace}
-      </aside>'''
+      </dl>{enlace}
+    </aside>'''
 
 
 def figura_html(src, alt, pie, ancho, alto, plana=False):
@@ -460,18 +441,12 @@ def figura_html(src, alt, pie, ancho, alto, plana=False):
         # Todavia no hay captura: se deja el hueco a la vista, con el mismo
         # marcador que el resto de los datos por confirmar.
         return f'''        <figure>
-          <div class="browser-lite captura-pendiente">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <p>{S.PENDIENTE} {pie}</p>
-          </div>
+          <div class="hoja captura-pendiente"><p>{S.PENDIENTE} {pie}</p></div>
         </figure>'''
-    # Las capturas de una app no llevan la barra de navegador: no son un sitio.
-    marco = ('<div class="captura-plana">' if plana else
-             '<div class="browser-lite">\n            <div class="bar"><i></i><i></i><i></i></div>')
-    return f'''        <figure>
-          {marco}
-            <img src="{src}" alt="{alt}" width="{ancho}" height="{alto}" loading="lazy">
-          </div>
+    # Las capturas de una app no van en una hoja: no son un documento.
+    marco = 'captura-plana' if plana else 'hoja'
+    return f'''        <figure class="posar">
+          <div class="{marco}"><img src="{src}" alt="{alt}" width="{ancho}" height="{alto}" loading="lazy"></div>
           <figcaption>{pie}</figcaption>
         </figure>'''
 
@@ -485,17 +460,16 @@ def cuerpo_caso(c):
         if i == 0:
             fig = figura_html(c['figura'], c['figura_alt'], c['figura_pie'],
                               c['ancho'], c['alto'], c.get('figura_plana', False))
-            # la primera imagen se ve sin desplazar: no se difiere su carga
-            out.append(fig.replace(' loading="lazy"', '', 1))
+            # la primera imagen se ve sin desplazar: ni carga diferida ni entrada
+            out.append(fig.replace(' loading="lazy"', '', 1).replace(' class="posar"', '', 1))
         if i in extra:
             out.append(figura_html(*extra[i]))
     if c.get('testimonio'):
         cita, firma = c['testimonio']
-        out.append(f'''        <blockquote class="cita caso-cita">
-          <span class="eyebrow">Lo que dice {c['titulo']}</span>
-          <p>{cita}</p>
-          <p class="firma">{firma}</p>
-        </blockquote>''')
+        out.append(f'''        <figure class="cita">
+          <blockquote><p>{cita}</p></blockquote>
+          <figcaption>{firma}</figcaption>
+        </figure>''')
     return '\n'.join(out)
 
 
@@ -507,28 +481,22 @@ def construir_casos():
             pre = 'producto'
             camino = [('Inicio', 'index.html'),
                       ('Productos propios', 'nosotros.html#productos'), (nombre, None)]
-            eyebrow = f"Producto propio &middot; {c['tipo']}"
             titulo = f"{nombre} — Producto propio | CORYN"
-            cierre = S._cierre(
-                'Lo mismo, en tu empresa.',
-                'Leer documentos con IA y cobrar en línea no son cosas de empresas '
-                'grandes. Cuéntanos qué te llega por correo o en papel y te decimos '
-                'cómo se resolvería.',
-                boton_extra='<a class="btn btn-ghost" href="correo.html">'
-                            'Si todo te llega por correo</a>')
+            cierre = S.cierre(
+                titulo='Lo mismo, en tu empresa.',
+                texto='Leer documentos con IA y cobrar en línea no son cosas de empresas '
+                      'grandes. Cuéntanos qué te llega por correo o en papel y te decimos '
+                      'cómo se resolvería.',
+                secundario='<a class="enlace enlace-claro" href="correo.html">Si todo te llega por correo</a>')
         else:
             pre = 'caso'
             camino = [('Inicio', 'index.html'), ('Proyectos', 'nosotros.html#recorrido'),
                       (nombre, None)]
-            eyebrow = f"{c['sector']} &middot; {c['tipo']}"
             titulo = f"{nombre} — Caso de proyecto | CORYN"
-            cierre = S._cierre(
-                'Conversemos 30 minutos, sin costo.',
-                'Cuéntanos tu situación y te decimos con honestidad qué se puede resolver '
-                'con software, qué conviene priorizar y cuánto costaría hacerlo bien.',
-                boton_extra='<a class="btn btn-ghost" href="nosotros.html#recorrido">Ver otros proyectos</a>')
-        cabecera = S.cabecera(c['h1'], c['lead'], eyebrow, migas=camino)
-        cuerpo = f'''<section>
+            cierre = S.cierre(
+                secundario='<a class="enlace enlace-claro" href="nosotros.html#recorrido">Ver otros proyectos</a>')
+        cabecera = S.cabecera(c['h1'], c['lead'], migas=camino)
+        cuerpo = f'''<section class="seccion" style="padding-top:0">
   <div class="wrap caso-grid">
     <article class="caso-body">
 {cuerpo_caso(c)}

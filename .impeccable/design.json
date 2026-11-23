@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "name": "CORYN — Oficina ordenada",
+  "northStar": "Lo que hoy llega desordenado (correos, planillas, papeles) termina ordenado en un sistema hecho a tu medida.",
+  "colorMeta": {
+    "pieza": { "role": "único acento: folios, timbres, resaltado de lectura, estaciones, punto final de los títulos" },
+    "postit": { "role": "solo notas de desorden (antes)" },
+    "wa": { "role": "solo botones de WhatsApp, con texto wa-tinta" },
+    "noche": { "role": "bandas oscuras: prueba, cierre, pie" }
+  },
+  "extensions": {
+    "shadows": {
+      "hoja": "0 1px 1px rgba(10,23,48,.05), 0 14px 30px -18px rgba(10,23,48,.36)",
+      "alta": "0 2px 3px rgba(10,23,48,.06), 0 34px 60px -30px rgba(10,23,48,.55)"
+    },
+    "motion": {
+      "ease": "cubic-bezier(.16,1,.3,1)",
+      "library": "GSAP 3.13 + ScrollTrigger (cdnjs), en sitio.js",
+      "focal": "lectura de la bandeja en la portada: barrido azul, el dato viaja a la hoja de ventas, la fila aparece, la pieza encaja; se pausa fuera de pantalla",
+      "apoyo": ["hojas que se posan (.posar)", "timbres que estampan (.timbre.estampa)", "post-its que se pegan (.postit.pegar)", "estaciones y etapas que se encienden con el scroll", "la pieza encaja en la C del cierre"],
+      "reducido": "con prefers-reduced-motion todo queda en su estado final y los videos no se reproducen; si GSAP no carga en 3,5 s se quita html.mov"
+    },
+    "breakpoints": { "celular": "<=520px", "tablet": "<960px", "dos-columnas": ">=960px", "escena-y-mesa": ">=1040px", "menu-completo": ">=1000px" },
+    "rules": [
+      "Sin etiquetas sobre los títulos",
+      "Sin barras de color a un costado de un recuadro",
+      "Toda pantalla de cliente con datos de ejemplo y su etiqueta",
+      "Cada tema vive en una sola página; el inicio resume y enlaza"
+    ]
+  },
+  "components": {
+    "hoja": { "html": "<div class=\"hoja\"><div class=\"hoja-barra\"><span>Ventas</span><span class=\"folio\">CLP</span></div><p style=\"padding:16px\">Contenido</p></div>" },
+    "timbre": { "html": "<span class=\"timbre\">Precio<br>publicado</span>" },
+    "postit": { "html": "<a class=\"postit\" href=\"#\"><span class=\"postit-papel\"><span class=\"postit-texto\">Los pedidos se pierden entre papeles</span><span class=\"postit-ver\">Ver solución</span></span></a>" },
+    "button-wa": { "html": "<a class=\"btn btn-wa\" href=\"#\">Conversemos por WhatsApp</a>" }
+  }
+}

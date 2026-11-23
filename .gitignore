@@ -24,3 +24,6 @@ marketing/assets/*.b64
 
 # Python
 __pycache__/
+
+# Capturas de revision de diseno (se regeneran)
+.impeccable/review/

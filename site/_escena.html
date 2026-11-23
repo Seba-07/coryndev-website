@@ -1,0 +1,49 @@
+<!-- La escena de la bandeja: tres correos que el sistema lee y anota.
+     La usan el inicio y correo.html; sitio.js la anima.
+     Todos los nombres, folios y montos son de ejemplo. -->
+      <div class="escena" role="img"
+           aria-label="Ejemplo con datos inventados: una orden de compra, una factura y un aviso de pago llegan por correo y el sistema los anota solo en la hoja de ventas">
+        <div class="hoja bandeja">
+          <div class="hoja-barra"><span>Bandeja de entrada</span><small class="cuenta">3 sin leer</small></div>
+          <ul class="correos">
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span>
+              <span class="de">Universidad Demo</span>
+              <span class="asunto">Orden de compra <b class="cifra" data-viaje="OC 2026-0142">2026-0142</b></span>
+              <span class="adj"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L14.5 7"/></svg>OC.pdf</span>
+              <span class="lectura"></span>
+              <span class="visto">{CHECK}</span>
+            </li>
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+              <span class="de">Insumos Ejemplo Ltda.</span>
+              <span class="asunto">Factura <b class="cifra" data-viaje="Factura 88231">88231</b> por $214.200</span>
+              <span class="adj"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L14.5 7"/></svg>factura.pdf</span>
+              <span class="lectura"></span>
+              <span class="visto">{CHECK}</span>
+            </li>
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span>
+              <span class="de">Aviso del banco</span>
+              <span class="asunto">Transferencia recibida <b class="cifra" data-viaje="Pago $890.000">$890.000</b></span>
+              <span class="lectura"></span>
+              <span class="visto">{CHECK}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hoja sistema">
+          <div class="hoja-barra"><span>Ventas</span></div>
+          <span class="pieza-slot"><i></i></span>
+          <table class="tabla">
+            <thead><tr><th class="col-cliente">Cliente</th><th class="col-doc">Documento</th><th class="n">Monto</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td class="col-cliente">Centro Ejemplo</td><td class="col-doc">Cotización C-0317</td><td class="n">$640.000</td><td><span class="estado">Enviada</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Universidad Demo</td><td class="col-doc">OC 2026-0142</td><td class="n">$1.240.000</td><td><span class="estado ok">Anotada</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Insumos Ejemplo</td><td class="col-doc">Factura 88231</td><td class="n">$214.200</td><td><span class="estado ok">Por pagar</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Clínica Ejemplo</td><td class="col-doc">Pago factura 1187</td><td class="n">$890.000</td><td><span class="estado ok">Pagada</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ejemplo">Datos de ejemplo</p>
+      </div>

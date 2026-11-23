@@ -1,174 +1,74 @@
-<section class="proc-oscuro">
-  <div class="wrap">
-    <div class="sec-head rv" style="max-width:60ch; margin-bottom:26px">
-      <p class="eyebrow">Vista rápida</p>
-      <h2>De la primera llamada a la mejora del mes 12</h2>
-      <p>Cinco etapas. Las dos primeras son sin costo y sirven justamente para decidir
-      si vale la pena seguir.</p>
-    </div>
-    <div class="resumen oscuro rv">
-      <a href="#e01">
-        <span class="qu"><span class="paso">01</span>Nos conocemos</span>
-        <span class="cu">Media hora, sin costo</span>
-      </a>
-      <a href="#e02">
-        <span class="qu"><span class="paso">02</span>Diseñamos juntos la solución</span>
-        <span class="cu">Alcance y precio cerrado</span>
-      </a>
-      <a href="#e03">
-        <span class="qu"><span class="paso">03</span>Construimos con calidad</span>
-        <span class="cu">Demostraciones periódicas</span>
-      </a>
-      <a href="#e04">
-        <span class="qu"><span class="paso">04</span>Probamos y perfeccionamos</span>
-        <span class="cu">Marcha blanca con tu equipo</span>
-      </a>
-      <a href="#e05">
-        <span class="qu"><span class="paso">05</span>Te acompañamos</span>
-        <span class="cu">Acompañamiento incluido</span>
-      </a>
-    </div>
+<!-- Cinco etapas sobre una linea que avanza con el scroll. marketing/posts.py
+     lee data-n, el h2, data-cu y el primer parrafo de cada etapa. -->
+<section class="seccion" style="padding-top:0">
+  <div class="wrap etapas">
+    <span class="etapas-avance" aria-hidden="true"></span>
+    <article class="etapa proc-etapa" data-n="1" data-cu="Media hora, sin costo">
+      <span class="etapa-n" aria-hidden="true">1</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-conocemos.webp" width="760" height="760" loading="lazy" alt="Dos personas conversando en una mesa, con un cuaderno abierto"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 1: </span>Nos conocemos <span class="timbre timbre-chico estampa">Sin costo</span></h2>
+        <p>Media hora para entender cómo funciona tu negocio hoy y dónde se va el tiempo o el dinero. Al final te decimos con honestidad si podemos ayudarte: a veces la respuesta es que no necesitas desarrollo a medida.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Escuchamos, preguntamos por las excepciones de tu proceso y proponemos por dónde partir.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Que venga quien conoce la operación de verdad, no solo quien aprueba el presupuesto.</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="2" data-cu="Alcance y precio cerrado">
+      <span class="etapa-n" aria-hidden="true">2</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-disenamos.webp" width="760" height="760" loading="lazy" alt="Un boceto de pantallas dibujado a mano junto a una tableta"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 2: </span>Diseñamos juntos <span class="timbre timbre-chico estampa">Sin costo</span></h2>
+        <p>Definimos por escrito qué entra, qué queda para más adelante y qué no se hace. Ese documento fija el precio, y antes de programar te mostramos las pantallas principales.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Documento de alcance, diseño de las pantallas clave y la propuesta con el precio cerrado.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Revisar el alcance con calma y ser exigente: todo lo que se detecte aquí sale gratis.</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="3" data-cu="Demostraciones periódicas">
+      <span class="etapa-n" aria-hidden="true">3</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-construimos.webp" width="760" height="760" loading="lazy" alt="Alguien programando frente a dos pantallas al atardecer"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 3: </span>Construimos</h2>
+        <p>Desarrollamos por partes y te mostramos avances funcionando, no informes de progreso. En proyectos largos, las primeras partes entran en uso antes de que el resto esté listo.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Desarrollo por etapas, con demostraciones de lo que ya funciona.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Que alguien de tu equipo pruebe cada avance. Un comentario a tiempo evita rehacer trabajo.</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="4" data-cu="Marcha blanca con tu equipo">
+      <span class="etapa-n" aria-hidden="true">4</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-probamos.webp" width="760" height="760" loading="lazy" alt="Dos personas revisando juntas una pantalla, una señalando algo"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 4: </span>Probamos</h2>
+        <p>Marcha blanca: tu equipo usa el sistema con datos reales mientras el método antiguo sigue disponible. Ajustamos hasta que responda al día a día, y recién ahí lo damos por entregado.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Corrección de fallas, ajustes de uso y capacitación al equipo.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Usarlo de verdad durante la marcha blanca. Un sistema que nadie probó falla el primer día.</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="etapa proc-etapa" data-n="5" data-cu="Acompañamiento incluido">
+      <span class="etapa-n" aria-hidden="true">5</span>
+      <figure class="etapa-foto posar"><img src="assets/paso-acompanamos.webp" width="760" height="760" loading="lazy" alt="Un escritorio con un panel abierto en el notebook y el teléfono al lado"></figure>
+      <div class="etapa-texto">
+        <h2><span class="solo-lector">Etapa 5: </span>Te acompañamos</h2>
+        <p>Mantención, respaldos y mejoras a medida que el negocio cambia, con el <a href="precios.html#mensual">acompañamiento mensual</a>. Lo que entregamos queda funcionando con nuestro nombre encima, y el código y los datos son tuyos.</p>
+        <dl class="etapa-dl">
+          <div><dt>Lo que hacemos</dt><dd>Soporte con prioridad, mejoras mensuales y aviso cuando algo conviene actualizar.</dd></div>
+          <div><dt>Lo que necesitamos de ti</dt><dd>Contarnos cuando el negocio cambie. El software debería cambiar con él.</dd></div>
+        </dl>
+      </div>
+    </article>
   </div>
 </section>
 
-<section class="proc-etapa">
-  <div class="wrap">
-    <article class="et-bloque rv" id="e01">
-      <div class="et-pieza">
-        <img src="assets/paso-conocemos.webp" alt="Dos personas conversando en una mesa, con un cuaderno abierto" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 01</span>
-        <h2>Nos conocemos</h2>
-          <p>Una conversación de media hora, sin costo y sin compromiso. Queremos entender cómo funciona tu negocio hoy y dónde se va el tiempo o el dinero. Todavía no hablamos de tecnología.</p>
-          <p>Al final de esta etapa te decimos con honestidad si creemos que podemos ayudarte. A veces la respuesta es que no necesitas desarrollo a medida, y también te lo vamos a decir.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Escuchamos, preguntamos por las excepciones de tu proceso y proponemos por dónde partir.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Que venga quien conoce la operación de verdad, no solo quien aprueba el presupuesto.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa papel">
-  <div class="wrap">
-    <article class="et-bloque rv invertido" id="e02">
-      <div class="et-pieza">
-        <img src="assets/paso-disenamos.webp" alt="Un boceto de pantallas dibujado a mano junto a una tableta" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 02</span>
-        <h2>Diseñamos juntos la solución</h2>
-          <p>Definimos el alcance por escrito: qué entra, qué queda para más adelante y qué no se hace. Ese documento es el que fija el precio, así que vale la pena discutirlo en detalle.</p>
-          <p>Después dibujamos las pantallas principales y te las mostramos. Es mucho más barato cambiar un diseño que cambiar un sistema ya construido, y por eso insistimos en que aquí nos digas todo lo que no te calce.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Documento de alcance, diseño de las pantallas clave y la propuesta con el precio cerrado.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Revisar el alcance con calma y ser exigente. Todo lo que se detecte aquí sale gratis.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa">
-  <div class="wrap">
-    <article class="et-bloque rv" id="e03">
-      <div class="et-pieza">
-        <img src="assets/paso-construimos.webp" alt="Alguien programando frente a dos pantallas al atardecer" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 03</span>
-        <h2>Construimos con calidad</h2>
-          <p>Desarrollamos por partes y te mostramos avances funcionando cada cierto tiempo. No informes de progreso: el sistema real, para que lo pruebes.</p>
-          <p>En proyectos largos las primeras partes entran en uso antes de que el resto esté listo. Es la mejor forma de detectar temprano si algo no calza con la realidad del día a día.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Desarrollo por etapas, con demostraciones periódicas de lo que ya funciona.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Que alguien de tu equipo pruebe cada avance. Un comentario a tiempo evita rehacer trabajo.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa papel">
-  <div class="wrap">
-    <article class="et-bloque rv invertido" id="e04">
-      <div class="et-pieza">
-        <img src="assets/paso-probamos.webp" alt="Dos personas revisando juntas una pantalla, una señalando algo" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 04</span>
-        <h2>Probamos y perfeccionamos</h2>
-          <p>Marcha blanca: tu equipo usa el sistema con datos reales mientras el método antiguo sigue disponible. Es la etapa donde aparecen los casos raros que ninguna reunión anticipó.</p>
-          <p>Ajustamos hasta que el sistema responda al día a día, no solo a la demostración. Recién ahí lo damos por entregado.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Corrección de fallas, ajustes de uso y capacitación al equipo.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Usarlo de verdad durante la marcha blanca. Un sistema que nadie probó falla el primer día.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-etapa">
-  <div class="wrap">
-    <article class="et-bloque rv" id="e05">
-      <div class="et-pieza">
-        <img src="assets/paso-acompanamos.webp" alt="Un escritorio con un mensaje entrando en el teléfono y un panel abierto" loading="lazy">
-      </div>
-      <div class="et-texto">
-        <span class="et-num">Etapa 05</span>
-        <h2>Te acompañamos</h2>
-          <p>Aquí empieza el acompañamiento mensual: mantención, respaldos, ajustes y mejoras a medida que el negocio cambia. No es un servicio aparte que puedas descartar, va incluido en la forma en que trabajamos.</p>
-          <p>La razón es simple: lo que entregamos queda funcionando con nuestro nombre encima. No hacemos el modelo de entregar y desaparecer, porque un sistema sin mantención deja de servir en un año y eso también es problema nuestro. El código y los datos, eso sí, son tuyos desde el primer día.</p>
-        <div class="et-dos">
-          <div class="et-caja">
-            <h3>Lo que hacemos</h3>
-            <p>Soporte con prioridad, mejoras mensuales y aviso cuando algo conviene actualizar.</p>
-          </div>
-          <div class="et-caja">
-            <h3>Lo que necesitamos de ti</h3>
-            <p>Contarnos cuando el negocio cambie. El software debería cambiar con él.</p>
-          </div>
-        </div>
-      </div>
-  </article>
-  </div>
-</section>
-
-<section class="proc-cita">
-  <div class="wrap">
-    <blockquote class="cita-oscura rv">
-      <span class="eyebrow">Lo que más atrasa un proyecto</span>
-      <p>No es el desarrollo. Es esperar una respuesta del cliente para poder seguir.</p>
-      <p class="firma">Por eso en cada etapa dejamos escrito qué necesitamos de ti y cuándo.
-      Un proyecto con alguien atento del otro lado avanza en la mitad del tiempo que uno
-      donde las dudas quedan sin responder una semana.</p>
-    </blockquote>
+<section class="seccion" style="background:var(--hoja)">
+  <div class="wrap declara">
+    <p>Lo que más atrasa un proyecto no es el desarrollo: es esperar una respuesta.</p>
+    <small>Por eso en cada etapa dejamos escrito qué necesitamos de ti y cuándo.</small>
   </div>
 </section>

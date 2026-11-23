@@ -6,7 +6,7 @@
 <title>Si todo te llega por correo: un sistema que lo anota solo | CORYN</title>
 <meta name="description" content="Cotizaciones, órdenes de compra y facturas que llegan por correo y se copian a mano. Lo que hicimos para bySIMMED, desde $129.000 y 1 UF al mes.">
 <link rel="canonical" href="https://coryndev.com/correo.html">
-<meta name="theme-color" content="#070e20">
+<meta name="theme-color" content="#eceff5">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
 <link rel="icon" href="assets/mark.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -107,31 +107,84 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles-v2.css?v=29ead8f9">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="estilos.css?v=206b29c5">
 <script>
-  if ('IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('js-rv');
-  }
+  (function (d) {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.documentElement.classList.add('mov');
+    setTimeout(function () { if (!window.CORYN_MOV) d.documentElement.classList.remove('mov'); }, 3500);
+  })(document);
 </script>
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
-<header class="nav nav-landing" id="nav">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-      <span>CORYN</span>
-    </a>
+<header class="nav" id="nav">
+  <div class="wrap nav-fila">
+    <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <p class="eyebrow">Para empresas que trabajan por correo</p>
-    <h1>Todo te llega por correo, y todo se copia a mano</h1>
-    <p>Cotizaciones, órdenes de compra, facturas, avisos de pago. Si hoy alguien los pasa uno por uno a una planilla, mira cómo lo resolvimos en una empresa como la tuya.</p>
+<main id="contenido">
+<section class="cabeza">
+  <div class="wrap cabeza-grid con-visual">
+    <div class="cabeza-texto">
+      <h1>Todo te llega por correo, y todo se copia a mano<span class="punto">.</span></h1>
+      <p class="bajada">Cotizaciones, órdenes de compra, facturas, avisos de pago. Si hoy alguien los pasa uno por uno a una planilla, mira cómo lo resolvimos en una empresa como la tuya.</p>
+    </div>
+    <div class="cabeza-visual">
+<!-- La escena de la bandeja: tres correos que el sistema lee y anota.
+     La usan el inicio y correo.html; sitio.js la anima.
+     Todos los nombres, folios y montos son de ejemplo. -->
+      <div class="escena" role="img"
+           aria-label="Ejemplo con datos inventados: una orden de compra, una factura y un aviso de pago llegan por correo y el sistema los anota solo en la hoja de ventas">
+        <div class="hoja bandeja">
+          <div class="hoja-barra"><span>Bandeja de entrada</span><small class="cuenta">3 sin leer</small></div>
+          <ul class="correos">
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span>
+              <span class="de">Universidad Demo</span>
+              <span class="asunto">Orden de compra <b class="cifra" data-viaje="OC 2026-0142">2026-0142</b></span>
+              <span class="adj"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L14.5 7"/></svg>OC.pdf</span>
+              <span class="lectura"></span>
+              <span class="visto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            </li>
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+              <span class="de">Insumos Ejemplo Ltda.</span>
+              <span class="asunto">Factura <b class="cifra" data-viaje="Factura 88231">88231</b> por $214.200</span>
+              <span class="adj"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L14.5 7"/></svg>factura.pdf</span>
+              <span class="lectura"></span>
+              <span class="visto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            </li>
+            <li class="correo">
+              <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span>
+              <span class="de">Aviso del banco</span>
+              <span class="asunto">Transferencia recibida <b class="cifra" data-viaje="Pago $890.000">$890.000</b></span>
+              <span class="lectura"></span>
+              <span class="visto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hoja sistema">
+          <div class="hoja-barra"><span>Ventas</span></div>
+          <span class="pieza-slot"><i></i></span>
+          <table class="tabla">
+            <thead><tr><th class="col-cliente">Cliente</th><th class="col-doc">Documento</th><th class="n">Monto</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td class="col-cliente">Centro Ejemplo</td><td class="col-doc">Cotización C-0317</td><td class="n">$640.000</td><td><span class="estado">Enviada</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Universidad Demo</td><td class="col-doc">OC 2026-0142</td><td class="n">$1.240.000</td><td><span class="estado ok">Anotada</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Insumos Ejemplo</td><td class="col-doc">Factura 88231</td><td class="n">$214.200</td><td><span class="estado ok">Por pagar</span></td></tr>
+              <tr class="fila nueva"><td class="col-cliente">Clínica Ejemplo</td><td class="col-doc">Pago factura 1187</td><td class="n">$890.000</td><td><span class="estado ok">Pagada</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ejemplo">Datos de ejemplo</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -140,106 +193,83 @@
      llegar a el. No va en el menu. -->
 
 <!-- ================= EL PROBLEMA ================= -->
-<section class="correo-problema">
+<section class="seccion" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">El problema</p>
-      <h2>El correo no es un sistema, pero se usa como si lo fuera</h2>
+    <div class="cabeza-seccion">
+      <h2>El correo no es un sistema, pero se usa como si lo fuera.</h2>
     </div>
-    <div class="correo-tres">
-      <div class="correo-item rv">
-        <span class="n">01</span>
-        <b>Cada documento se copia a mano</b>
-        <p>La orden de compra llega en PDF y alguien la tipea en la planilla. Con
-        la factura, lo mismo. Con el aviso de pago, lo mismo.</p>
-      </div>
-      <div class="correo-item rv">
-        <span class="n">02</span>
-        <b>Saber en qué va una venta es buscar</b>
-        <p>¿Llegó la orden de compra? ¿Se facturó? ¿Pagaron? La respuesta está en
-        algún correo, si alguien lo encuentra.</p>
-      </div>
-      <div class="correo-item rv">
-        <span class="n">03</span>
-        <b>Lo que se olvida no avisa</b>
-        <p>Una cotización sin respuesta o una factura vencida no aparecen solas.
-        Hay que acordarse.</p>
-      </div>
+    <div class="tres-notas">
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Cada documento se copia a mano a la planilla</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Saber en qué va una venta es buscar en la bandeja</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">La factura vencida no avisa sola</span></span></span>
     </div>
   </div>
 </section>
 
 <!-- ================= QUE HACE EL SISTEMA ================= -->
-<section class="correo-que">
-  <div class="wrap correo-grid">
-    <div class="correo-texto rv">
-      <p class="eyebrow">Lo que hicimos para bySIMMED</p>
-      <h2>Un sistema que lee el correo por ti</h2>
-      <ul class="lista-check">
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Lee lo que llega por correo —órdenes de compra, facturas,
+<section class="seccion" style="background:var(--hoja)">
+  <div class="wrap dos-col">
+    <div>
+      <h2>Lo que hicimos para bySIMMED.</h2>
+      <ul class="lista-check" style="margin-top:30px">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Lee lo que llega por correo —órdenes de compra, facturas,
         pagos y despachos— y lo deja anotado.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Si un cliente pide precio, deja la cotización armada con tu
-        catálogo para que la revises y la envíes.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cada venta en una sola pantalla: cotización, pedido,
-        despacho, factura y cobro.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Muestra lo que falta cobrar y deja listo el correo para
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Si un cliente pide precio, deja la cotización armada con el
+        catálogo para revisarla y enviarla.</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cada venta en una sola pantalla: cotización, pedido, despacho,
+        factura y cobro.</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Muestra lo que falta cobrar y deja listo el correo para
         cobrarlo.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Avisa cuando un insumo baja del mínimo.</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Avisa cuando un insumo baja del mínimo.</span></li>
       </ul>
-      <p class="correo-nota">Tú decides qué se envía solo y qué revisa una persona.
-      <a href="caso-bysimmed-sistema.html">Ver el caso completo</a></p>
+      <p style="margin-top:24px; color:var(--tinta-2)">Tú decides qué se envía solo y qué
+      revisa una persona. <a class="enlace" href="caso-bysimmed-sistema.html">Ver el caso completo</a></p>
     </div>
-    <figure class="correo-vista rv">
-      <div class="browser-lite">
-        <div class="bar"><i></i><i></i><i></i></div>
-        <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" loading="lazy"
-             alt="Inicio del sistema de bySIMMED con los correos del día ya leídos: una orden de compra, una factura, un pago y un despacho esperando confirmación">
+    <figure class="posar">
+      <div class="hoja" style="overflow:hidden">
+        <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
+             alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
       </div>
-      <figcaption>El sistema de bySIMMED. Pantalla con datos de ejemplo.</figcaption>
+      <figcaption style="margin-top:12px"><span class="ejemplo">El sistema de bySIMMED con datos de ejemplo</span></figcaption>
     </figure>
   </div>
 </section>
 
 <!-- ================= VOZ DEL CLIENTE ================= -->
-<section class="correo-voz">
+<section class="seccion voz">
   <div class="wrap">
-    <blockquote class="cita rv">
-      <span class="eyebrow">Lo que dice bySIMMED</span>
-      <p><span class="pendiente">por confirmar</span> Testimonio de bySIMMED sobre el sistema.</p>
-      <p class="firma"><span class="pendiente">por confirmar</span> Nombre y cargo</p>
-    </blockquote>
+    <figure class="cita">
+      <blockquote><p><span class="pendiente">por confirmar</span> Testimonio de bySIMMED sobre el sistema.</p></blockquote>
+      <figcaption><span class="pendiente">por confirmar</span> Nombre y cargo</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- ================= PRECIO Y UNICO BOTON ================= -->
 <section class="correo-precio">
   <div class="wrap">
-    <div class="correo-caja rv">
-      <p class="eyebrow">Cuánto cuesta</p>
-      <h2>Desde $129.000 para partir, y 1 UF al mes</h2>
-      <p>Es el precio publicado de un <a href="precios.html">sistema de gestión</a>.
-      Se puede partir por una parte y sumar el resto después. Si tu caso trae más,
-      se cotiza y se cierra por escrito antes de programar.</p>
-      <p>El mensual corre recién cuando el sistema está en uso. La primera
-      conversación es sin costo.</p>
-      <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20vi%20la%20p%C3%A1gina%20sobre%20el%20correo.%20En%20mi%20empresa%20las%20cotizaciones%20y%20%C3%B3rdenes%20de%20compra%20llegan%20por%20correo.%20%C2%BFPodemos%20conversarlo%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>
-        Conversemos por WhatsApp
-      </a>
+    <div class="correo-caja hoja posar">
+      <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
+      <h2>Desde $129.000 para partir, y 1 UF al mes.</h2>
+      <p>Es el precio publicado de un <a href="precios.html">sistema de gestión</a>. Se
+      puede partir por una parte y sumar el resto después. Si tu caso trae más, se
+      cotiza y se cierra por escrito antes de programar.</p>
+      <p>El mensual corre recién cuando el sistema está en uso. La primera conversación
+      es sin costo.</p>
+      <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20vi%20la%20p%C3%A1gina%20sobre%20el%20correo.%20En%20mi%20empresa%20las%20cotizaciones%20y%20%C3%B3rdenes%20de%20compra%20llegan%20por%20correo.%20%C2%BFPodemos%20conversarlo%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Conversemos por WhatsApp</a>
     </div>
   </div>
 </section>
 
+</main>
 
-<footer class="foot">
+<footer class="pie">
   <div class="wrap">
-    <div class="cols">
-      <div class="foot-marca">
-        <a class="brand" href="index.html">
-          <svg class="marca-svg" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg>
-          <span>CORYN</span>
-        </a>
-        <p>Software 100% personalizado para negocios que necesitan que la
-        herramienta calce con su forma de trabajar.</p>
+    <div class="pie-cols">
+      <div class="pie-marca">
+        <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+        <p>Software a medida para negocios que necesitan que la herramienta calce
+        con su forma de trabajar.</p>
       </div>
       <div>
         <h4>Casos</h4>
@@ -259,6 +289,7 @@
         <ul>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="que-resolvemos.html">Qué resolvemos</a></li>
+          <li><a href="precios.html">Precios</a></li>
           <li><a href="proceso.html">Proceso</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
@@ -266,138 +297,23 @@
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="contacto.html">Enviar un mensaje</a></li>
+          <li><a href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="contacto.html">Formulario</a></li>
           <li><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></li>
         </ul>
-        <p class="foot-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
+        <p class="pie-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
       </div>
     </div>
-    <div class="base">
+    <div class="pie-base">
       <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <span><a href="privacidad.html">Pol&iacute;tica de privacidad</a></span>
+      <a href="privacidad.html">Pol&iacute;tica de privacidad</a>
     </div>
   </div>
 </footer>
 
-<script>
-  // Fondo de la barra al desplazar
-  var nav = document.getElementById('nav');
-  if (!nav.classList.contains('solid-fija')) {
-    var onScroll = function () { nav.classList.toggle('solid', window.scrollY > 24); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  // Menu de celular
-  var burger = document.getElementById('burger');
-  var links = document.getElementById('navLinks');
-  if (burger && links) {
-  burger.addEventListener('click', function () {
-    var abierto = document.body.classList.toggle('menu-abierto');
-    burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-  });
-  links.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && document.body.classList.contains('menu-abierto')) {
-      document.body.classList.remove('menu-abierto');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.focus();
-    }
-  });
-  }
-
-  // Codigo de referido. Llega en la URL desde el QR del volante o desde el link
-  // que comparte un referidor. Sin esto el codigo moria en la primera pagina:
-  // la persona navegaba, se convencia, apretaba WhatsApp y el mensaje salia sin
-  // marca, asi que no habia forma de saber quien la trajo.
-  window.CORYN = window.CORYN || {};
-  (function () {
-    var CLAVE = 'coryn_ref', DIAS = 30;
-
-    // El valor termina dentro de un mensaje de WhatsApp y del formulario, asi
-    // que solo se aceptan letras, numeros y guiones.
-    function limpio (v) {
-      return (v || '').trim().slice(0, 24).replace(/[^A-Za-z0-9_-]/g, '');
-    }
-
-    function guardado () {
-      try {
-        var d = JSON.parse(localStorage.getItem(CLAVE) || 'null');
-        if (d && d.ref && Date.now() < d.vence) return d.ref;
-        if (d) localStorage.removeItem(CLAVE);
-      } catch (e) { /* modo privado, o el navegador bloquea el storage */ }
-      return '';
-    }
-
-    var deUrl = '';
-    try { deUrl = limpio(new URLSearchParams(location.search).get('ref')); } catch (e) {}
-
-    if (deUrl) {
-      try {
-        localStorage.setItem(CLAVE, JSON.stringify({
-          ref: deUrl, vence: Date.now() + DIAS * 864e5
-        }));
-      } catch (e) {}
-    }
-
-    var ref = deUrl || guardado();
-    window.CORYN.ref = ref;
-    if (!ref) return;
-
-    // Si la analitica esta activa, deja constancia de que la visita llego con
-    // codigo. Se encola con el stub que recomienda Vercel porque su script
-    // carga con defer y todavia no existe en este punto.
-    try {
-      window.va = window.va || function () {
-        (window.vaq = window.vaq || []).push(arguments);
-      };
-      window.va('event', { name: 'referido', data: { ref: ref } });
-    } catch (e) {}
-
-    // Se marca en el clic y no al cargar la pagina: el estimador rehace su
-    // enlace de WhatsApp cada vez que cambias la seleccion, y de esta forma
-    // tambien queda marcado sin tener que engancharse a su codigo.
-    document.addEventListener('click', function (e) {
-      var el = e.target;
-      if (el && el.nodeType !== 1) el = el.parentElement;
-      var a = el && el.closest ? el.closest('a[href*="wa.me"]') : null;
-      if (!a) return;
-      var u;
-      try { u = new URL(a.href); } catch (err) { return; }
-      var t = u.searchParams.get('text') || 'Hola CORYN';
-      if (t.indexOf('(Ref:') > -1) return;
-      // Se rearma a mano y no con searchParams.set, que escribe los espacios
-      // como "+"; el resto del sitio los manda como %20.
-      a.href = u.origin + u.pathname + '?text=' +
-               encodeURIComponent(t + ' (Ref: ' + ref + ')');
-    }, true);
-  })();
-
-  // Aparicion progresiva, con red de seguridad si el observer no dispara
-  (function () {
-    if (!document.documentElement.classList.contains('js-rv')) return;
-    var els = document.querySelectorAll('.rv');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    els.forEach(function (el, i) {
-      el.style.transitionDelay = (Math.min(i % 4, 3) * 60) + 'ms';
-      io.observe(el);
-    });
-    setTimeout(function () {
-      els.forEach(function (el) { el.classList.add('in'); });
-      io.disconnect();
-    }, 2000);
-  })();
-</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="sitio.js?v=4a1c1c0b"></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
