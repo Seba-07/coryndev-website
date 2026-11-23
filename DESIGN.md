@@ -174,8 +174,11 @@ Modo Persuade: la acción es escribir por WhatsApp. El logo (C + pieza, #0a1730 
 
 - Contenedor `min(1200px, 100% - 40px)`; secciones con padding vertical
   `clamp(84px, 9vw, 136px)`.
-- Ritmo de fondos: escritorio, banda noche, escritorio, hoja, campo pieza,
-  escritorio, cierre noche. Nunca dos bandas oscuras seguidas.
+- El escritorio es el único fondo claro: no hay franjas blancas de ancho
+  completo. Lo blanco son objetos (hojas) sobre el escritorio.
+- Ritmo de fondos del inicio: escritorio, banda noche (prueba), escritorio,
+  escritorio, campo pieza (precio), escritorio, cierre noche. Nunca dos bandas
+  oscuras seguidas.
 - Grillas de dos columnas desde 960–1040 px; todo apila en una sola columna
   debajo, sin desborde horizontal a 390 px.
 - Cabecera de página interior: h1 + bajada, y a la derecha el gráfico de la
@@ -209,11 +212,15 @@ encenderse.
 - **Línea de venta** (`.linea-venta` / `.estacion`) y **etapas** (`.etapas`):
   la misma gramática de estaciones que se encienden con el scroll.
 - **Cotización** (`site/_estimador.html`): el estimador como documento, sobre el
-  campo azul.
+  campo azul. Vive solo en /precios; su timbre se vuelve a estampar al elegir.
+- **Lista de precios** (`.lista-precios`, `{LISTA_PRECIOS}`): la versión corta
+  del inicio, generada en build_site.py desde el arreglo `TIPOS` del estimador.
+- **Preguntas** (`.faq.hoja`): sobre una hoja, nunca sobre una franja.
 - **Marco de video** (`.marco-video`): video mudo en loop dentro de un marco de
   papel, con póster.
-- **Cierre** (`S.cierre()`): un solo cierre para todo el sitio, con la C y la
-  pieza que encaja.
+- **Cierre** (`S.cierre()`): un solo cierre para todo el sitio. El logo va en
+  su versión aprobada sobre oscuro (C blanca, pieza azul) y la pieza encaja al
+  entrar. El logo nunca se pinta en otro color.
 
 ## Do's and Don'ts
 
@@ -231,3 +238,5 @@ encenderse.
 - Don't: repetir un tema en dos páginas: los problemas viven en Qué resolvemos,
   el cobro en Precios, las etapas en Proceso; el inicio resume y enlaza.
 - Don't: el amarillo del post-it fuera de las notas de desorden.
+- Don't: franjas blancas de ancho completo; el contenido claro va en hojas.
+- Don't: el logo en un color distinto de sus dos colores o del blanco invertido.

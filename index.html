@@ -89,7 +89,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
-<link rel="stylesheet" href="estilos.css?v=206b29c5">
+<link rel="stylesheet" href="estilos.css?v=a05e5b1f">
 <script>
   (function (d) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -131,7 +131,7 @@
         correos y planillas, en un solo lugar y hecho a tu medida.</p>
         <div class="acciones">
           <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Conversemos por WhatsApp</a>
-          <a class="enlace" href="#cotizar">Ver precios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="enlace" href="#precios">Ver precios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -353,133 +353,31 @@
 </script>
 
 <!-- ================= PRECIO ================= -->
-<!-- Estimador de precios. Fuente unica: lo incluyen el inicio y /precios,
-     y marketing/posts.py lee los montos del arreglo TIPOS. -->
-<section id="cotizar" class="precio seccion">
+<section class="precio seccion" id="precios">
   <div class="wrap precio-grid">
     <div class="precio-texto">
       <h2>Los precios están publicados.</h2>
-      <p class="bajada">Elige con qué partes. Pagas poco al empezar y un mensual
-      mientras el sistema te sirva.</p>
-      <ul class="hechos">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin permanencia: te puedes ir cualquier mes.</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 8.5-3.5 3.5L9 15.5M15 8.5l3.5 3.5L15 15.5"/></svg>El código y los datos son tuyos desde el primer día.</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>El mensual se revisa una vez al año.</li>
-      </ul>
-      <a class="enlace enlace-claro" href="precios.html">Qué cubre cada peso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="bajada">Poco al empezar y un mensual mientras el sistema te sirva.</p>
+      <div class="acciones" style="margin-top:34px">
+        <a class="btn btn-blanco" href="precios.html#cotizar">Calcular lo mío</a>
+      </div>
     </div>
-
-    <form class="hoja cotizacion posar" id="estForm">
+    <div class="hoja lista-precios posar">
       <div class="cot-cabeza">
-        <div><b>Cotización</b><small>Elige con qué partes</small></div>
+        <div><b>Lista de precios</b><small>Puesta en marcha, una sola vez</small></div>
         <span class="folio">CLP</span>
       </div>
-      <fieldset>
-        <legend class="solo-lector">¿Con qué partes?</legend>
-        <div id="estTipos"></div>
-      </fieldset>
-      <div class="cot-totales">
-        <div><span>Puesta en marcha, una sola vez</span><b id="estMin">desde $129.000</b></div>
-        <div><span>Acompañamiento mensual</span><b id="estUf">1 UF</b></div>
-        <small id="estUfPeso" hidden></small>
-      </div>
-      <p class="cot-nota-app" id="estEtapas" hidden></p>
-      <div class="cot-pie">
-        <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Cotizar esto por WhatsApp</a>
-        <p>El precio base cubre el alcance descrito en <a href="servicios.html">Servicios</a>.
-        Si tu caso trae más, se cotiza y se cierra por escrito antes de programar.</p>
-      </div>
+      <ul>
+        <li><span>Un sitio web</span><b>desde $69.000</b><small>+ 1 UF al mes</small></li>
+        <li><span>Un sistema de gestión</span><b>desde $129.000</b><small>+ 1 UF al mes</small></li>
+        <li><span>Una app para el celular</span><b>desde $159.000</b><small>+ 1,5 UF al mes</small></li>
+        <li><span>Una tienda online</span><b>desde $189.000</b><small>+ 1,5 UF al mes</small></li>
+      </ul>
+      <p class="lista-pie"><a href="precios.html">Qué cubre cada peso</a></p>
       <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
-    </form>
+    </div>
   </div>
 </section>
-
-<script>
-  (function () {
-    var TIPOS = [
-      { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',
-        base: 129000, uf: 1 },
-      { id: 'web',     nom: 'Un sitio web',          sub: 'Presencia, contacto y que te encuentren',
-        base: 69000,  uf: 1 },
-      { id: 'tienda',  nom: 'Una tienda online',     sub: 'Vender con pago en línea y control de stock',
-        base: 189000, uf: 1.5 },
-      { id: 'app',     nom: 'Una app para el celular',
-        sub: 'Se instala desde el navegador, sin pasar por las tiendas',
-        base: 159000, uf: 1.5,
-        nota: 'La hacemos como aplicación web instalable: se agrega a la pantalla de ' +
-              'inicio, funciona sin conexión y se actualiza sola, sin esperar la ' +
-              'revisión de Apple ni de Google ni pagar sus cuotas anuales. Si tu caso ' +
-              'necesita una app nativa de las tiendas, la cotizamos aparte.' }
-    ];
-    var tipoSel = 'sistema';
-    var UF = null;      // valor del dia, lo trae la API publica
-    var ufMes = 1;      // cuantas UF cobra el plan segun lo marcado
-    var $ = function (id) { return document.getElementById(id); };
-    var plata = function (n) { return '$' + Math.round(n).toLocaleString('es-CL'); };
-
-    function pintaTipos () {
-      $('estTipos').innerHTML = TIPOS.map(function (t, i) {
-        return '<label class="est-op">' +
-          '<input type="radio" name="tipo" value="' + t.id + '"' + (i === 0 ? ' checked' : '') + '>' +
-          '<span class="cuerpo"><b>' + t.nom + '</b><small>' + t.sub + '</small></span>' +
-          '<span class="desde">desde ' + plata(t.base) + '</span></label>';
-      }).join('');
-    }
-
-    // El equivalente en pesos se muestra solo si la API respondio: si falla,
-    // la cifra en UF se basta sola y no queda un hueco ni un valor inventado.
-    function pintaPesos () {
-      var el = $('estUfPeso');
-      if (!UF) { el.hidden = true; return; }
-      el.textContent = '≈ ' + plata(Math.round(ufMes * UF / 100) * 100) + ' al mes, al valor de hoy';
-      el.hidden = false;
-    }
-
-    function traeUf () {
-      var hoy = new Date().toISOString().slice(0, 10);
-      try {
-        var guardado = JSON.parse(localStorage.getItem('coryn_uf') || 'null');
-        if (guardado && guardado.fecha === hoy) { UF = guardado.valor; pintaPesos(); return; }
-      } catch (e) { /* sin almacenamiento: se consulta igual */ }
-      // /api/uf la trae del servidor: mindicador.cl no deja consultar desde
-      // el navegador, y asi ademas queda guardada medio dia en el borde.
-      fetch('/api/uf')
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-        .then(function (d) {
-          var v = d && d.valor;
-          if (!v) return;
-          UF = v;
-          try { localStorage.setItem('coryn_uf', JSON.stringify({ fecha: hoy, valor: v })); } catch (e) {}
-          pintaPesos();
-        })
-        .catch(function () { /* se queda solo la cifra en UF */ });
-    }
-
-    function calcula () {
-      var t = TIPOS.filter(function (x) { return x.id === tipoSel; })[0];
-      ufMes = t.uf;
-      $('estUf').textContent = String(t.uf).replace('.', ',') + ' UF';
-      pintaPesos();
-      $('estMin').textContent = 'desde ' + plata(t.base);
-      var etp = $('estEtapas');
-      if (t.nota) { etp.textContent = t.nota; etp.hidden = false; }
-      else { etp.hidden = true; }
-      var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
-        'Necesito: ' + t.nom.toLowerCase() + '\n' +
-        'Puesta en marcha: desde ' + plata(t.base) + '\n' +
-        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
-        '¿Podemos conversarlo?';
-      $('estWa').href = 'https://wa.me/56948780902?text=' + encodeURIComponent(txt);
-    }
-
-    $('estForm').addEventListener('change', function (e) {
-      if (e.target.name === 'tipo') { tipoSel = e.target.value; calcula(); }
-    });
-
-    pintaTipos(); calcula(); traeUf();
-  })();
-</script>
-
 
 <!-- ================= COMO TRABAJAMOS ================= -->
 <section class="pasos seccion">
@@ -492,14 +390,14 @@
     </figure>
     <div>
       <h2>Todo empieza con una conversación.</h2>
-      <ol class="pasos-lista">
-        <li><span class="n">1</span><div><b>Nos conocemos</b><span class="timbre timbre-chico estampa">Sin costo</span><p>Media hora para entender qué te está costando tiempo o dinero.</p></div></li>
-        <li><span class="n">2</span><div><b>Diseñamos juntos</b><span class="timbre timbre-chico estampa">Sin costo</span><p>Alcance y precio cerrados por escrito, antes de programar.</p></div></li>
-        <li><span class="n">3</span><div><b>Construimos</b><p>Por partes, con avances que puedes probar.</p></div></li>
-        <li><span class="n">4</span><div><b>Probamos</b><p>Marcha blanca con tu equipo y datos reales.</p></div></li>
-        <li><span class="n">5</span><div><b>Te acompañamos</b><p>Mantención y mejoras, mes a mes.</p></div></li>
+      <ol class="pasos-lista pasos-cortos">
+        <li><span class="n">1</span><b>Nos conocemos</b></li>
+        <li><span class="n">2</span><b>Diseñamos juntos</b></li>
+        <li><span class="n">3</span><b>Construimos</b></li>
+        <li><span class="n">4</span><b>Probamos</b></li>
+        <li><span class="n">5</span><b>Te acompañamos</b></li>
       </ol>
-      <a class="enlace" href="proceso.html">Ver el proceso en detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="enlace" href="proceso.html">Qué pasa en cada etapa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>

@@ -140,7 +140,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
-<link rel="stylesheet" href="estilos.css?v=206b29c5">
+<link rel="stylesheet" href="estilos.css?v=a05e5b1f">
 <script>
   (function (d) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -149,7 +149,7 @@
   })(document);
 </script>
 </head>
-<body class="pg-precios">
+<body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <header class="nav" id="nav">
@@ -181,20 +181,8 @@
 
 <!-- Estimador de precios. Fuente unica: lo incluyen el inicio y /precios,
      y marketing/posts.py lee los montos del arreglo TIPOS. -->
-<section id="cotizar" class="precio seccion">
+<section id="cotizar" class="precio precio-solo seccion">
   <div class="wrap precio-grid">
-    <div class="precio-texto">
-      <h2>Los precios están publicados.</h2>
-      <p class="bajada">Elige con qué partes. Pagas poco al empezar y un mensual
-      mientras el sistema te sirva.</p>
-      <ul class="hechos">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin permanencia: te puedes ir cualquier mes.</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 8.5-3.5 3.5L9 15.5M15 8.5l3.5 3.5L15 15.5"/></svg>El código y los datos son tuyos desde el primer día.</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>El mensual se revisa una vez al año.</li>
-      </ul>
-      <a class="enlace enlace-claro" href="precios.html">Qué cubre cada peso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-
     <form class="hoja cotizacion posar" id="estForm">
       <div class="cot-cabeza">
         <div><b>Cotización</b><small>Elige con qué partes</small></div>
@@ -298,8 +286,17 @@
       $('estWa').href = 'https://wa.me/56948780902?text=' + encodeURIComponent(txt);
     }
 
+    // El timbre se vuelve a estampar con cada eleccion: el precio que ves es
+    // el publicado, no uno que cambia segun quien pregunta.
+    var sello = document.querySelector('.cotizacion > .timbre');
+    function reestampa () {
+      if (!window.gsap || !sello || !document.documentElement.classList.contains('mov')) return;
+      window.gsap.fromTo(sello, { scale: 1.45, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.3, ease: 'power3.in', clearProps: 'transform,opacity' });
+    }
+
     $('estForm').addEventListener('change', function (e) {
-      if (e.target.name === 'tipo') { tipoSel = e.target.value; calcula(); }
+      if (e.target.name === 'tipo') { tipoSel = e.target.value; calcula(); reestampa(); }
     });
 
     pintaTipos(); calcula(); traeUf();
@@ -315,7 +312,8 @@
       <p class="bajada">Uno al partir y uno cada mes. No hay horas extra, licencias
       ni sorpresas al final: si algo no está en esta página, no se cobra.</p>
     </div>
-    <figure class="cobros-grafico posar">
+    <div class="hoja cobros-hoja posar">
+    <figure class="cobros-grafico">
       <div class="cobros-meses" aria-hidden="true">
         <span class="mes puesta"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span><span class="mes"></span>
       </div>
@@ -326,23 +324,21 @@
     </figure>
     <div class="cobros-notas">
       <div>
-        <p class="cobros-marca"><i></i>Puesta en marcha</p>
-        <h3>Una sola vez</h3>
+        <h3><i class="muestra" aria-hidden="true"></i>Puesta en marcha, una sola vez</h3>
         <p>Cubre levantamiento, construcción, marcha blanca y capacitación. Es bajo a
         propósito: no es donde ganamos.</p>
       </div>
       <div>
-        <p class="cobros-marca"><i class="suave"></i>Acompañamiento</p>
-        <h3>1 UF al mes, o 1,5 UF en tienda y app</h3>
+        <h3><i class="muestra suave" aria-hidden="true"></i>Acompañamiento: 1 UF al mes, o 1,5 UF en tienda y app</h3>
         <p>Corre recién cuando el sistema entra en uso, no cuando firmamos. Mientras
         construimos y probamos, pagas solo la puesta en marcha.</p>
       </div>
       <div>
-        <p class="cobros-marca"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin amarras</p>
-        <h3>Sin permanencia ni multa</h3>
+        <h3><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8.5 11V7.2a3.8 3.8 0 0 1 7.2-1.7"/></svg>Sin permanencia ni multa</h3>
         <p>Puedes irte cualquier mes. El código y los datos quedan a tu nombre desde
         el primer día, así que irse es de verdad posible.</p>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -371,12 +367,12 @@
 </section>
 
 <!-- ================= PREGUNTAS ================= -->
-<section class="seccion" style="background:var(--hoja)">
+<section class="seccion">
   <div class="wrap">
     <div class="cabeza-seccion">
       <h2>Lo que siempre preguntan.</h2>
     </div>
-    <div class="faq">
+    <div class="faq hoja posar">
       <details>
         <summary>¿Por qué el precio de entrada es tan bajo?</summary>
         <div class="resp">

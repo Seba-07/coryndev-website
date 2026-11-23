@@ -126,7 +126,6 @@ PAGINAS = [
              'una app con CORYN: puesta en marcha desde $69.000 y acompañamiento '
              'desde 1 UF al mes. Precio cerrado antes de empezar.',
         activa='precios',
-        clase_body='pg-precios',
         cabecera=dict(titulo='Los precios, publicados.',
                       bajada='Casi nadie en el rubro los muestra. Acá están: lo que cuesta '
                              'partir, lo que cuesta cada mes y qué incluye.',
@@ -211,8 +210,8 @@ PAGINAS = [
              'respuesta en menos de 24 horas hábiles. También por WhatsApp.',
         activa='',
         cabecera=dict(titulo='Conversemos sobre tu proyecto.',
-                      bajada='La primera reunión es sin costo y sin compromiso. No '
-                             'necesitas tener claro qué sistema quieres.',
+                      bajada='Cuéntanos qué te está complicando. No necesitas tener '
+                             'claro qué sistema quieres.',
                       nombre='Contacto'),
         cierre=False,
         js_extra=JS_FORMULARIO,
@@ -232,7 +231,8 @@ PAGINAS = [
                              'hoy alguien los pasa uno por uno a una planilla, mira cómo lo '
                              'resolvimos en una empresa como la tuya.',
                       nombre='Para empresas que trabajan por correo',
-                      visual='{ESCENA}'),
+                      visual='{ESCENA}',
+                      acciones='<a class="enlace" href="#precio">Ver cuánto cuesta {FLECHA}</a>'),
         cierre=False,
     ),
 ]
@@ -359,11 +359,29 @@ def caso_ld(c, propio=False):
     return d
 
 
+def lista_precios():
+    """La lista corta de precios del inicio, leida del arreglo TIPOS del
+    estimador: los montos siguen viviendo en un solo lugar."""
+    import re
+    fuente = (CUERPOS / '_estimador.html').read_text()
+    tipos = re.findall(r"nom:\s*'([^']+)',\s*sub:\s*'[^']*',\s*base:\s*(\d+),\s*uf:\s*([\d.]+)", fuente)
+    if len(tipos) < 4:
+        raise SystemExit('No se pudieron leer los precios de site/_estimador.html.')
+    filas = []
+    for nom, base, uf in sorted(tipos, key=lambda x: int(x[1])):
+        plata = f"${int(base):,}".replace(',', '.')
+        uf_txt = uf.replace('.', ',').rstrip('0').rstrip(',') if '.' in uf else uf
+        filas.append(f'        <li><span>{nom}</span><b>desde {plata}</b><small>+ {uf_txt} UF al mes</small></li>')
+    return '\n'.join(filas)
+
+
 def aplicar_fichas(txt):
     # El estimador vive en su propio archivo y lo usan dos paginas; va primero
     # porque dentro trae fichas ({WA}, {WA_NUM}) que se resuelven en el bucle.
     txt = txt.replace('{ESTIMADOR}', (CUERPOS / '_estimador.html').read_text())
     txt = txt.replace('{ESCENA}', (CUERPOS / '_escena.html').read_text())
+    if '{LISTA_PRECIOS}' in txt:
+        txt = txt.replace('{LISTA_PRECIOS}', lista_precios())
     for k, v in FICHAS.items():
         txt = txt.replace(k, v)
     return txt
@@ -379,7 +397,7 @@ def construir_paginas():
         if c:
             partes.append(S.cabecera(c['titulo'], c['bajada'],
                                      visual=aplicar_fichas(c.get('visual', '')),
-                                     acciones=c.get('acciones', '')))
+                                     acciones=aplicar_fichas(c.get('acciones', ''))))
         partes.append(cuerpo)
         cierre = p.get('cierre', {})
         if cierre is not False:

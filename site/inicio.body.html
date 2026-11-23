@@ -10,7 +10,7 @@
         correos y planillas, en un solo lugar y hecho a tu medida.</p>
         <div class="acciones">
           <a class="btn btn-wa" href="{WA}" target="_blank" rel="noopener">{WA_SVG}{WA_ETIQUETA}</a>
-          <a class="enlace" href="#cotizar">Ver precios {FLECHA}</a>
+          <a class="enlace" href="#precios">Ver precios {FLECHA}</a>
         </div>
       </div>
 
@@ -183,7 +183,28 @@
 </script>
 
 <!-- ================= PRECIO ================= -->
-{ESTIMADOR}
+<section class="precio seccion" id="precios">
+  <div class="wrap precio-grid">
+    <div class="precio-texto">
+      <h2>Los precios están publicados.</h2>
+      <p class="bajada">Poco al empezar y un mensual mientras el sistema te sirva.</p>
+      <div class="acciones" style="margin-top:34px">
+        <a class="btn btn-blanco" href="precios.html#cotizar">Calcular lo mío</a>
+      </div>
+    </div>
+    <div class="hoja lista-precios posar">
+      <div class="cot-cabeza">
+        <div><b>Lista de precios</b><small>Puesta en marcha, una sola vez</small></div>
+        <span class="folio">CLP</span>
+      </div>
+      <ul>
+{LISTA_PRECIOS}
+      </ul>
+      <p class="lista-pie"><a href="precios.html">Qué cubre cada peso</a></p>
+      <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
+    </div>
+  </div>
+</section>
 
 <!-- ================= COMO TRABAJAMOS ================= -->
 <section class="pasos seccion">
@@ -196,14 +217,14 @@
     </figure>
     <div>
       <h2>Todo empieza con una conversación.</h2>
-      <ol class="pasos-lista">
-        <li><span class="n">1</span><div><b>Nos conocemos</b><span class="timbre timbre-chico estampa">Sin costo</span><p>Media hora para entender qué te está costando tiempo o dinero.</p></div></li>
-        <li><span class="n">2</span><div><b>Diseñamos juntos</b><span class="timbre timbre-chico estampa">Sin costo</span><p>Alcance y precio cerrados por escrito, antes de programar.</p></div></li>
-        <li><span class="n">3</span><div><b>Construimos</b><p>Por partes, con avances que puedes probar.</p></div></li>
-        <li><span class="n">4</span><div><b>Probamos</b><p>Marcha blanca con tu equipo y datos reales.</p></div></li>
-        <li><span class="n">5</span><div><b>Te acompañamos</b><p>Mantención y mejoras, mes a mes.</p></div></li>
+      <ol class="pasos-lista pasos-cortos">
+        <li><span class="n">1</span><b>Nos conocemos</b></li>
+        <li><span class="n">2</span><b>Diseñamos juntos</b></li>
+        <li><span class="n">3</span><b>Construimos</b></li>
+        <li><span class="n">4</span><b>Probamos</b></li>
+        <li><span class="n">5</span><b>Te acompañamos</b></li>
       </ol>
-      <a class="enlace" href="proceso.html">Ver el proceso en detalle {FLECHA}</a>
+      <a class="enlace" href="proceso.html">Qué pasa en cada etapa {FLECHA}</a>
     </div>
   </div>
 </section>
