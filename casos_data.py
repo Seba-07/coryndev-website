@@ -14,6 +14,7 @@ Claves opcionales de cada entrada:
   figuras    {indice de bloque: (src, alt, pie, ancho, alto)}: imagenes que
              van despues de ese bloque. La figura principal va tras el bloque 0.
   figura     None = todavia no hay captura: se muestra un recuadro pendiente.
+  figura_plana  True = sin la barra de navegador (capturas de una app).
   testimonio (cita, firma) al final del cuerpo; con PENDIENTE mientras no llegue.
 """
 
@@ -262,9 +263,12 @@ PRODUCTOS = [
             ('Estado', 'En Google Play')],
   'boton': ('Ver en Google Play',
             'https://play.google.com/store/apps/details?id=com.precioradar'),
-  'figura': None,
-  'figura_alt': '',
-  'figura_pie': 'Capturas de la app.',
+  'figura': 'assets/precioradar-capturas.webp',
+  'figura_alt': 'Tres pantallas de PrecioRadar: escanear la boleta, el gasto del mes por '
+                'supermercado y la comparación de una lista entre supermercados',
+  'figura_pie': 'Escanear la boleta, ver el gasto del mes y comparar supermercados. '
+                'Imágenes de la ficha en Google Play.',
+  'figura_plana': True,
   'ancho': 1400, 'alto': 875,
   'bloques': [
    ('Qué hace',

@@ -455,7 +455,7 @@ def ficha_caso(c, propio=False):
       </aside>'''
 
 
-def figura_html(src, alt, pie, ancho, alto):
+def figura_html(src, alt, pie, ancho, alto, plana=False):
     if not src:
         # Todavia no hay captura: se deja el hueco a la vista, con el mismo
         # marcador que el resto de los datos por confirmar.
@@ -465,9 +465,11 @@ def figura_html(src, alt, pie, ancho, alto):
             <p>{S.PENDIENTE} {pie}</p>
           </div>
         </figure>'''
+    # Las capturas de una app no llevan la barra de navegador: no son un sitio.
+    marco = ('<div class="captura-plana">' if plana else
+             '<div class="browser-lite">\n            <div class="bar"><i></i><i></i><i></i></div>')
     return f'''        <figure>
-          <div class="browser-lite">
-            <div class="bar"><i></i><i></i><i></i></div>
+          {marco}
             <img src="{src}" alt="{alt}" width="{ancho}" height="{alto}" loading="lazy">
           </div>
           <figcaption>{pie}</figcaption>
@@ -482,7 +484,7 @@ def cuerpo_caso(c):
         out.extend('        ' + p for p in parrafos)
         if i == 0:
             fig = figura_html(c['figura'], c['figura_alt'], c['figura_pie'],
-                              c['ancho'], c['alto'])
+                              c['ancho'], c['alto'], c.get('figura_plana', False))
             # la primera imagen se ve sin desplazar: no se difiere su carga
             out.append(fig.replace(' loading="lazy"', '', 1))
         if i in extra:

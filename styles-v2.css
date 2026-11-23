@@ -3542,11 +3542,8 @@ body.pg-oscura .prod-cita .cita .firma{ color:var(--muted); }
 body.pg-oscura > section.nos-productos{ border-top:1px solid rgba(159,186,234,.14); }
 @media (min-width:720px){ .obras.dos{ grid-template-columns:repeat(2, 1fr); } }
 @media (min-width:720px){ .obras.dos .obra-vista{ height:230px; } }
-.obra-vista.vista-pendiente{
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
-}
-.vista-pendiente .pendiente{ color:#f0c27a; }
-.vista-pendiente small{ font-size:13px; color:#9fbaea; }
 
 /* --- pie: segundo titulo dentro de una columna --- */
 .foot ul + h4{ margin-top:26px; }
+/* capturas de una app en las paginas de producto: sin barra de navegador */
+.captura-plana{ border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--lift); }
