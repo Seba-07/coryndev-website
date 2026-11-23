@@ -920,3 +920,6 @@ html.mov .cierre-marca .p{ transform:translateX(70px); opacity:0; }
 .pasos-cortos li{ align-items:center; padding:11px 0; }
 .pasos-cortos b{ font-size:1.25rem; }
 .pasos-cortos li:nth-child(-n+2) .n{ background:var(--hoja); border-color:var(--linea); color:var(--tinta-2); }
+.hoja-lista{ max-width:46rem; margin-inline:auto; padding:clamp(28px, 4vw, 52px); }
+.hoja-lista .lista-check{ margin-top:28px; }
+.hoja-lista-pie{ margin-top:26px; padding-top:20px; border-top:1px dashed var(--linea); color:var(--tinta-2); }
