@@ -17,9 +17,17 @@ WA_ETIQUETA = 'Conversemos por WhatsApp'
 EMAIL = 'contacto@coryndev.com'
 BACKEND = 'https://coryn-backend-production.up.railway.app/api/contact'
 
-# Analitica de Vercel: sin cookies y sin identificadores por persona, solo
-# cuenta paginas vistas en agregado.
-ANALITICA = '<script defer src="/_vercel/insights/script.js"></script>'
+# Analitica de Vercel: sin cookies y sin identificadores por persona. Cuenta
+# paginas vistas y, desde sitio.js, los clics en WhatsApp y en el correo, hasta
+# donde se baja en las paginas que marcan sus tramos y lo que se elige en la
+# calculadora. Las visitas propias no se cuentan: abrir coryndev.com/?yo=1 deja
+# marcado ese navegador (?yo=0 lo desmarca). El script corto va antes que el de
+# Vercel para quedar en su cola antes de la primera visita.
+ANALITICA = ('<script>(function(){window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};'
+             'try{var q=location.search;if(/[?&]yo=1(&|$)/.test(q))localStorage.setItem("coryn_yo","1");'
+             'if(/[?&]yo=0(&|$)/.test(q))localStorage.removeItem("coryn_yo");'
+             'if(localStorage.getItem("coryn_yo"))window.va("beforeSend",function(){return null})}catch(e){}})()</script>\n'
+             '<script defer src="/_vercel/insights/script.js"></script>')
 
 # Movimiento: GSAP y ScrollTrigger con version fija. Van con defer y en orden;
 # sitio.js los usa si llegaron y, si no, la pagina queda en su estado final.

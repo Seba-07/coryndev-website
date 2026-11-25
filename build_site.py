@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         x.tabIndex = x === b ? 0 : -1;
       });
       pinta(+b.getAttribute('data-n'), animar);
+      if (animar && window.CORYN && window.CORYN.marca) window.CORYN.marca('calculadora', { ordenes: +b.getAttribute('data-n') });
     }
     chips.forEach(function (b, i) {
       b.addEventListener('click', function () { elige(b, true); });

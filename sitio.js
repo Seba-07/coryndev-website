@@ -77,6 +77,64 @@
     }, true);
   })();
 
+  /* ---------- medicion ----------
+     Cuenta, en total y sin cookies, los clics en WhatsApp y en el correo, hasta
+     donde se baja en las paginas que marcan sus tramos (data-tramo) y lo que
+     se elige en la calculadora. Cada clic lleva donde ocurrio y, si la persona
+     llego con un codigo de referido, ese codigo. Lo recibe Vercel Web
+     Analytics; desde un navegador marcado con ?yo=1 no se envia nada. */
+  (function () {
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    function marca (nombre, datos) {
+      try { window.va('event', { name: nombre, data: datos || {} }); } catch (e) {}
+    }
+    window.CORYN.marca = marca;
+    function lugarDe (el) {
+      var x = el.closest('[data-lugar],[data-tramo]');
+      if (x) return x.getAttribute('data-lugar') || x.getAttribute('data-tramo');
+      if (el.closest('nav')) return 'menu';
+      if (el.closest('footer')) return 'pie';
+      var s = el.closest('section[id]');
+      return s ? s.id : 'pagina';
+    }
+    d.addEventListener('click', function (e) {
+      var el = e.target;
+      if (el && el.nodeType !== 1) el = el.parentElement;
+      var a = el && el.closest ? el.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      var tipo = h.indexOf('wa.me/') > -1 ? 'whatsapp' : /^mailto:/i.test(h) ? 'correo' : '';
+      if (!tipo) return;
+      var datos = { lugar: lugarDe(a) };
+      if (window.CORYN.ref) datos.ref = window.CORYN.ref;
+      marca(tipo, datos);
+    }, true);
+    var tramos = [].slice.call(d.querySelectorAll('[data-tramo]'));
+    if (tramos.length && 'IntersectionObserver' in window) {
+      // un tramo cuenta una vez por visita, cuando su borde de arriba pasa
+      // el 60 % de la pantalla
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          io.unobserve(en.target);
+          marca('seccion', { nombre: en.target.getAttribute('data-tramo') });
+        });
+      }, { rootMargin: '0px 0px -40% 0px' });
+      tramos.forEach(function (t) { io.observe(t); });
+    }
+    var yo = /[?&]yo=[01](&|$)/.exec(location.search);
+    if (yo) {
+      var nota = d.createElement('p');
+      nota.className = 'aviso-yo';
+      nota.setAttribute('role', 'status');
+      nota.textContent = yo[0].indexOf('1') > -1
+        ? 'Listo: tus visitas desde este navegador ya no se cuentan.'
+        : 'Listo: tus visitas desde este navegador se vuelven a contar.';
+      d.body.appendChild(nota);
+      setTimeout(function () { nota.remove(); }, 6000);
+    }
+  })();
+
   /* ---------- videos: solo mientras se ven ---------- */
   var videos = [].slice.call(d.querySelectorAll('video.vid'));
   if (videos.length && !quieto && 'IntersectionObserver' in window) {
