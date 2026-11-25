@@ -16,6 +16,13 @@ Claves opcionales de cada entrada:
   figura     None = todavia no hay captura: se muestra un recuadro pendiente.
   figura_plana  True = sin la barra de navegador (capturas de una app).
   testimonio (cita, firma) al final del cuerpo; con PENDIENTE mientras no llegue.
+  portada    (src, src celular, alto celular, alt, pie): la figura principal en
+             grande bajo el titulo, en vez de dentro del texto.
+  pantallas  [(titulo, texto, src, alto, alt), ...]: cada funcion con su
+             pantalla en una columna (860 px de ancho), alternando lados. Con
+             intro_pantallas como bajada.
+  decisiones [(titulo, texto), ...]: tarjetas tras las pantallas. Si hay
+             pantallas, el testimonio va despues de las decisiones.
 """
 
 from site_shell import CITA_IVONNE, FIRMA_IVONNE
@@ -51,12 +58,13 @@ CASOS = [
   'figura_pie': 'El inicio de administración: lo que llegó por correo ya está leído y '
                 'cada cosa espera un clic. ' + EJEMPLO,
   'ancho': 1400, 'alto': 875,
-  'figuras': {
-   1: ('assets/bysimmed-venta.webp',
-       'Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro',
-       'Una venta de punta a punta: cotización, orden de compra, fabricación, despacho, '
-       'factura y cobro. ' + EJEMPLO, 1400, 875),
-  },
+  # La figura principal va en grande bajo el titulo, con su version en una
+  # columna para celular (src, src celular, alto celular, alt, pie).
+  'portada': ('assets/bysimmed-bandeja.webp', 'assets/bysimmed-bandeja-movil.webp', 1818,
+              'Inicio de administración del sistema de bySIMMED, con lo que llegó por '
+              'correo ya leído: una orden de compra, una factura, un pago y un despacho, '
+              'cada uno con su botón para confirmarlo',
+              'Lo que llegó por correo, ya leído. Cada cosa espera un clic. ' + EJEMPLO),
   'bloques': [
    ('El problema',
     ['<p>Todo pasaba por el correo. Ahí llegaban los pedidos de precio, las órdenes '
@@ -65,29 +73,50 @@ CASOS = [
      '<p>Para saber si una venta ya tenía orden de compra, si estaba facturada o si '
      'la habían pagado, había que buscar el correo y cruzarlo a mano. Una factura '
      'vencida o una cotización sin respuesta no avisaban solas: había que acordarse.</p>']),
-   ('Qué construimos',
-    ['<p>Un sistema de gestión hecho a la medida de cómo trabaja bySIMMED, que parte '
-     'por el correo:</p>',
-     '<ul>'
-     '<li>Lee los correos que llegan —órdenes de compra, facturas de proveedores, '
-     'pagos y despachos— y deja anotado lo que dicen. Una persona confirma con un clic.</li>'
-     '<li>Cuando un cliente pide precio por correo, deja la cotización armada con el '
-     'catálogo y la lista de precios, y sugiere la respuesta.</li>'
-     '<li>Cada venta se sigue en una sola pantalla: cotización, orden de compra, '
-     'fabricación, despacho, factura y cobro.</li>'
-     '<li>Muestra lo que falta cobrar y deja escrito el correo de cobranza.</li>'
-     '<li>Avisa cuando un insumo baja del mínimo y prepara el pedido de compra.</li>'
-     '</ul>']),
-   ('Las decisiones que importaron',
-    ['<p>Nada sale sin que alguien lo mire. El sistema lee, anota y redacta; una '
-     'persona revisa y aprueba. Un correo de cobro o de seguimiento sale solo '
-     'únicamente si administración enciende esa regla.</p>',
-     '<p>Lo que no sabe, no lo inventa. Si un correo pide un modelo que no está en el '
-     'catálogo, la cotización lo dice en vez de adivinar un precio. Si una respuesta '
-     'necesita un dato que el sistema no tiene, lo deja marcado para completarlo.</p>',
-     '<p>El taller y la oficina miran lo mismo. Producción ve sus pedidos en un '
-     'calendario y avanza cada unidad; administración ve en qué va cada venta sin '
-     'tener que preguntar.</p>']),
+  ],
+  # Que construimos: cada funcion con su pantalla, en una columna (860 px de
+  # ancho). Salen de site/mocks/bysimmed-p-*.html y bysimmed-venta-movil.html.
+  'intro_pantallas': 'Un sistema de gestión hecho a la medida de cómo trabaja '
+                     'bySIMMED, que parte por el correo.',
+  'pantallas': [
+   ('Lee el correo y lo deja anotado',
+    'Órdenes de compra, facturas de proveedores, pagos y despachos: el sistema los '
+    'lee y anota lo que dicen. Una persona confirma con un clic.',
+    'assets/bysimmed-p-correo.webp', 1260,
+    'Un correo con una orden de compra adjunta y, debajo, lo que el sistema leyó de '
+    'él: cliente, número, qué pide, monto y la cotización con que calza'),
+   ('Arma la cotización cuando piden precio',
+    'Si un cliente pide precio por correo, deja la cotización armada con el catálogo '
+    'y la lista de precios, y sugiere la respuesta.',
+    'assets/bysimmed-p-cotizacion.webp', 1238,
+    'Una cotización armada a partir del correo de un hospital, con un modelo que no '
+    'está en el catálogo marcado para completar'),
+   ('Cada venta en una pantalla',
+    'Cotización, orden de compra, fabricación, despacho, factura y cobro. '
+    'Administración ve en qué va cada venta sin tener que preguntar.',
+    'assets/bysimmed-venta-movil.webp', 1134,
+    'Una venta con su avance de la cotización al cobro'),
+   ('Cobra a tiempo',
+    'Muestra lo que falta cobrar y deja escrito el correo de cobranza, para '
+    'revisarlo y enviarlo.',
+    'assets/bysimmed-p-cobranza.webp', 1300,
+    'Tres facturas vencidas y el correo de cobranza de la más antigua, ya escrito'),
+   ('El taller y la bodega, al día',
+    'Producción ve sus pedidos en un calendario y avanza cada unidad. Cuando un '
+    'insumo baja del mínimo, avisa y prepara el pedido de compra.',
+    'assets/bysimmed-p-taller.webp', 1228,
+    'El calendario del taller de la semana y el aviso de un insumo bajo el mínimo'),
+  ],
+  'decisiones': [
+   ('Nada sale sin que alguien lo mire',
+    'El sistema lee, anota y redacta; una persona revisa y aprueba. Un correo sale '
+    'solo únicamente si administración enciende esa regla.'),
+   ('Lo que no sabe, no lo inventa',
+    'Si un correo pide un modelo que no está en el catálogo, la cotización lo dice en '
+    'vez de adivinar un precio.'),
+   ('El taller y la oficina miran lo mismo',
+    'Producción avanza cada unidad en su calendario y administración ve en qué va '
+    'cada venta, sin llamarse para preguntar.'),
   ],
   'testimonio': (CITA_IVONNE, FIRMA_IVONNE),
  },

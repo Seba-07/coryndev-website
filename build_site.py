@@ -564,20 +564,86 @@ def cuerpo_caso(c):
     for i, (titulo, parrafos) in enumerate(c['bloques']):
         out.append(f'        <h2>{titulo}</h2>')
         out.extend('        ' + p for p in parrafos)
-        if i == 0:
+        if i == 0 and not c.get('portada'):
             fig = figura_html(c['figura'], c['figura_alt'], c['figura_pie'],
                               c['ancho'], c['alto'], c.get('figura_plana', False))
             # la primera imagen se ve sin desplazar: ni carga diferida ni entrada
             out.append(fig.replace(' loading="lazy"', '', 1).replace(' class="posar"', '', 1))
         if i in extra:
             out.append(figura_html(*extra[i]))
-    if c.get('testimonio'):
+    if c.get('testimonio') and not c.get('pantallas'):
         cita, firma = c['testimonio']
         out.append(f'''        <figure class="cita">
           <blockquote><p>{cita}</p></blockquote>
           <figcaption>{firma}</figcaption>
         </figure>''')
     return '\n'.join(out)
+
+
+def portada_caso(c):
+    """La figura principal en grande bajo el titulo, con su version de celular."""
+    src, src_movil, alto_movil, alt, pie = c['portada']
+    return f'''<section class="mp-pantalla">
+  <div class="wrap">
+    <figure>
+      <div class="hoja">
+        <picture>
+          <source media="(max-width: 640px)" srcset="{src_movil}" width="860" height="{alto_movil}">
+          <img src="{src}" width="{c['ancho']}" height="{c['alto']}" alt="{alt}">
+        </picture>
+      </div>
+      <figcaption><span class="ejemplo">{pie}</span></figcaption>
+    </figure>
+  </div>
+</section>'''
+
+
+def pantallas_caso(c):
+    """Que construimos (una pantalla por funcion), las decisiones y la cita."""
+    filas = '\n'.join(f'''      <div class="funcion">
+        <div class="funcion-texto">
+          <h3>{titulo}</h3>
+          <p>{texto}</p>
+        </div>
+        <figure class="posar">
+          <div class="hoja"><img src="{src}" width="860" height="{alto}" loading="lazy" alt="{alt}"></div>
+          <figcaption><span class="ejemplo">Datos de ejemplo</span></figcaption>
+        </figure>
+      </div>''' for titulo, texto, src, alto, alt in c['pantallas'])
+    partes = [f'''<section class="seccion" style="padding-top:0">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Qué construimos</h2>
+      <p class="bajada">{c.get('intro_pantallas', '')}</p>
+    </div>
+    <div class="funciones">
+{filas}
+    </div>
+  </div>
+</section>''']
+    tarjetas = '\n'.join(f'''      <div class="decision hoja posar">
+        <h3>{t}</h3>
+        <p>{x}</p>
+      </div>''' for t, x in c.get('decisiones', []))
+    cita = ''
+    if c.get('testimonio'):
+        texto, firma = c['testimonio']
+        cita = f'''
+    <figure class="cita">
+      <blockquote><p>{texto}</p></blockquote>
+      <figcaption>{firma}</figcaption>
+    </figure>'''
+    partes.append(f'''<section class="seccion decisiones-caso" style="padding-top:0">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Las decisiones que importaron</h2>
+    </div>
+    <div class="decisiones">
+{tarjetas}
+    </div>{cita}
+  </div>
+</section>''')
+    return '\n\n'.join(partes)
 
 
 def construir_casos():
@@ -611,14 +677,23 @@ def construir_casos():
 {ficha_caso(c, propio)}
   </div>
 </section>'''
+        partes = [cabecera]
+        if c.get('portada'):
+            partes.append(portada_caso(c))
+        partes.append(cuerpo)
+        if c.get('pantallas'):
+            partes.append(pantallas_caso(c))
+        partes.append(cierre)
+        # Con portada no se precarga: en el celular se baja otra imagen.
+        precarga = (c['figura'],) if c['figura'] and not c.get('portada') else ()
         html = S.render(
             titulo=titulo,
             descripcion=c['meta_desc'],
-            cuerpo='\n\n'.join([cabecera, cuerpo, cierre]),
+            cuerpo='\n\n'.join(partes),
             activa='', og_img=c['figura'] or 'assets/og.jpg', og_tipo='article',
             canonico=f"{pre}-{c['slug']}.html",
             ld_extra=[migas_ld(camino), caso_ld(c, propio)],
-            preload=(c['figura'],) if c['figura'] else ())
+            preload=precarga)
         destino = SALIDA / f"{pre}-{c['slug']}.html"
         destino.write_text(html)
         yield destino

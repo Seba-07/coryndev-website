@@ -950,3 +950,23 @@ html.mov .cierre-marca .p{ transform:translateX(70px); opacity:0; }
 @media (min-width:860px){ .correo-funciones{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
 .prueba .correo-funciones li{ color:var(--en-noche); }
 .prueba .correo-funciones svg{ stroke:#fff; }
+
+/* --- caso con pantallas: cada funcion junto a su pantalla --- */
+.funciones{ display:grid; gap:clamp(56px, 7vw, 104px); }
+.funcion{ display:grid; gap:26px; align-items:center; }
+@media (min-width:860px){
+  .funcion{ grid-template-columns:minmax(0,1fr) minmax(0,430px); gap:clamp(48px, 8vw, 128px); }
+  .funcion:nth-child(even) .funcion-texto{ order:2; }
+}
+.funcion h3{ font-size:clamp(1.55rem, 1.1rem + 1.2vw, 2.2rem); max-width:16ch; }
+.funcion p{ margin-top:14px; color:var(--tinta-2); max-width:30em; font-size:1.08rem; }
+.funcion figure{ width:100%; max-width:430px; justify-self:center; }
+.funcion .hoja{ overflow:hidden; box-shadow:var(--sombra-alta); }
+.funcion img{ width:100%; }
+.funcion figcaption{ margin-top:12px; }
+.decisiones{ display:grid; gap:22px; }
+@media (min-width:860px){ .decisiones{ grid-template-columns:repeat(3, minmax(0,1fr)); } }
+.decision{ padding:clamp(24px, 3vw, 34px); }
+.decision h3{ font-size:1.3rem; }
+.decision p{ margin-top:10px; color:var(--tinta-2); }
+.decisiones-caso .cita{ margin-top:clamp(64px, 7vw, 104px); }
