@@ -46,6 +46,11 @@ FICHAS = {
     '{WA_MP}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
         'Hola CORYN, quiero ver una de mis órdenes de compra de Mercado Público '
         'anotada en el sistema.', safe=''),
+    # El boton bajo la calculadora. JS_HORAS cambia el texto por uno que dice
+    # cuantas ordenes eligio la persona; este queda si no hay JavaScript.
+    '{WA_HORAS}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
+        'Hola CORYN, quiero saber cuántas horas me ahorraría el sistema con mis '
+        'órdenes de compra de Mercado Público.', safe=''),
 }
 
 # mercado-publico.html: cuantas horas al mes se van en las ordenes, a unos 10
@@ -55,12 +60,17 @@ JS_HORAS = '''<script>
   var r = document.getElementById('ordenes');
   if (!r) return;
   var n = document.getElementById('ordenes-n'), h = document.getElementById('horas-n'),
-      d = document.getElementById('horas-dias');
+      d = document.getElementById('horas-dias'), wa = document.getElementById('horas-wa');
   function pintar () {
     var ordenes = +r.value, horas = Math.round(ordenes * 10 / 60), dias = Math.round(horas / 8);
     n.textContent = ordenes;
     h.textContent = (horas === 1 ? 'Una hora' : 'Unas ' + horas + ' horas');
     d.textContent = dias >= 2 ? ', unos ' + dias + ' días de trabajo,' : '';
+    // El mensaje de WhatsApp lleva el numero elegido. El codigo ?ref= se agrega
+    // al hacer clic (sitio.js), asi que aqui el enlace se rearma limpio.
+    if (wa) wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(
+      'Hola CORYN, me llegan unas ' + ordenes + ' órdenes de compra de Mercado Público al mes. ' +
+      '¿Cuántas horas me ahorraría el sistema?');
   }
   r.addEventListener('input', pintar);
   pintar();
