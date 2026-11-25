@@ -970,3 +970,13 @@ html.mov .cierre-marca .p{ transform:translateX(70px); opacity:0; }
 .decision h3{ font-size:1.3rem; }
 .decision p{ margin-top:10px; color:var(--tinta-2); }
 .decisiones-caso .cita{ margin-top:clamp(64px, 7vw, 104px); }
+
+/* mercado-publico.html: cuanto tiempo devuelve el sistema */
+.horas{ max-width:46rem; margin-inline:auto; padding:clamp(28px, 4vw, 52px); scroll-margin-top:calc(var(--nav-h) + 20px); }
+.horas label{ display:block; margin-top:26px; font-weight:600; color:var(--tinta); }
+.horas-control{ display:flex; align-items:center; gap:18px; margin-top:14px; }
+.horas-control input{ flex:1; accent-color:var(--pieza); height:28px; }
+.horas-control output{ min-width:3.2ch; font:700 1.6rem/1 var(--f-titulo); color:var(--tinta); text-align:right; }
+.horas-resultado{ margin-top:26px; padding-top:22px; border-top:1px dashed var(--linea); color:var(--tinta-2); font-size:1.1rem; }
+.horas-resultado b{ display:block; font:700 clamp(2rem, 1.4rem + 2.2vw, 3rem)/1.05 var(--f-titulo); letter-spacing:-.02em; color:var(--pieza); margin-bottom:8px; }
+.horas-nota{ margin-top:14px; color:var(--tinta-3); font-size:.92rem; }

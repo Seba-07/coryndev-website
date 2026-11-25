@@ -15,7 +15,7 @@
                alt="Una orden de compra de Compra Ágil leída del correo: el hospital que la envió, la fecha de entrega, los productos cruzados con el stock de bodega y los pasos que siguen hasta el cobro">
         </picture>
       </div>
-      <figcaption><span class="ejemplo">Una orden de Compra Ágil, leída del correo y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
+      <figcaption><span class="ejemplo">Una orden de Compra Ágil que llegó al correo, leída por la IA y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -30,6 +30,25 @@
       <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Copiar la orden a la planilla</span></span></span>
       <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Preguntar si ya se despachó</span></span></span>
       <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Acordarse de cobrar a los 30 días</span></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUANTO TIEMPO ================= -->
+<section class="seccion" style="padding-top:0" id="horas">
+  <div class="wrap">
+    <div class="horas hoja posar">
+      <h2>Cuánto tiempo te devuelve.</h2>
+      <label for="ordenes">¿Cuántas órdenes de compra te llegan al mes?</label>
+      <div class="horas-control">
+        <input type="range" id="ordenes" min="10" max="300" step="5" value="60">
+        <output id="ordenes-n" for="ordenes">60</output>
+      </div>
+      <p class="horas-resultado"><b id="horas-n">Unas 10 horas</b> al mes<span id="horas-dias"></span>
+      que nadie tendría que pasar copiando órdenes, siguiendo despachos y acordándose de
+      cobrar.</p>
+      <p class="horas-nota">Calculado con unos 10 minutos por orden. Con el sistema, la IA hace
+      ese trabajo y a ti te queda revisar y aprobar.</p>
     </div>
   </div>
 </section>
@@ -83,7 +102,8 @@
       <h2>Te mostramos una de tus órdenes así.</h2>
       <p>Las órdenes de compra de Mercado Público son públicas. Escríbenos el nombre
       de tu empresa y en 48 horas te mostramos una de las tuyas anotada en el
-      sistema. No tienes que mandarnos nada.</p>
+      sistema, y cuántas horas al mes te ahorraría con tus órdenes reales. No tienes
+      que mandarnos nada.</p>
       <p>Si después quieres el sistema, parte en <a href="precios.html#incluye-sistema">$390.000
       y 1 UF al mes</a>, por etapas: cada una se cotiza y se cierra por escrito antes
       de programar.</p>

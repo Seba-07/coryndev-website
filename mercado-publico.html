@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Órdenes de compra de Mercado Público, anotadas solas | CORYN</title>
-<meta name="description" content="Para proveedores del Estado: un sistema que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Lo que hicimos para bySIMMED.">
+<meta name="description" content="Para proveedores del Estado: un sistema con IA que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Tú solo revisas y apruebas. Lo que hicimos para bySIMMED.">
 <link rel="canonical" href="https://coryndev.com/mercado-publico.html">
 <meta name="theme-color" content="#eceff5">
 <link rel="icon" href="assets/favicon-48.png" type="image/png">
@@ -15,14 +15,14 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:url" content="https://coryndev.com/mercado-publico.html">
 <meta property="og:title" content="Órdenes de compra de Mercado Público, anotadas solas | CORYN">
-<meta property="og:description" content="Para proveedores del Estado: un sistema que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Lo que hicimos para bySIMMED.">
+<meta property="og:description" content="Para proveedores del Estado: un sistema con IA que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Tú solo revisas y apruebas. Lo que hicimos para bySIMMED.">
 <meta property="og:image" content="https://coryndev.com/assets/og-mercado-publico.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="CORYN, desarrollo de software a medida en Chile">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Órdenes de compra de Mercado Público, anotadas solas | CORYN">
-<meta name="twitter:description" content="Para proveedores del Estado: un sistema que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Lo que hicimos para bySIMMED.">
+<meta name="twitter:description" content="Para proveedores del Estado: un sistema con IA que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Tú solo revisas y apruebas. Lo que hicimos para bySIMMED.">
 <meta name="twitter:image" content="https://coryndev.com/assets/og-mercado-publico.jpg">
 <script type="application/ld+json">
 {
@@ -78,7 +78,7 @@
       "@id": "https://coryndev.com/mercado-publico.html#pagina",
       "url": "https://coryndev.com/mercado-publico.html",
       "name": "Órdenes de compra de Mercado Público, anotadas solas | CORYN",
-      "description": "Para proveedores del Estado: un sistema que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Lo que hicimos para bySIMMED.",
+      "description": "Para proveedores del Estado: un sistema con IA que lee las órdenes de compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. Tú solo revisas y apruebas. Lo que hicimos para bySIMMED.",
       "inLanguage": "es-CL",
       "isPartOf": { "@id": "https://coryndev.com/#sitio" },
       "about": { "@id": "https://coryndev.com/#coryn" }
@@ -108,7 +108,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
-<link rel="stylesheet" href="estilos.css?v=e4db9119">
+<link rel="stylesheet" href="estilos.css?v=b5002d09">
 <script>
   (function (d) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -131,8 +131,8 @@
   <div class="wrap cabeza-grid">
     <div class="cabeza-texto">
       <h1>Tus órdenes de compra, anotadas solas<span class="punto">.</span></h1>
-      <p class="bajada">Llega una orden de Mercado Público y el sistema la lee, la anota y te avisa qué falta despachar, facturar y cobrar.</p>
-      <div class="acciones"><a class="enlace" href="#demo">Ver una de mis órdenes así <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <p class="bajada">Llega una orden de Mercado Público y la IA la lee, la anota y te avisa qué falta despachar, facturar y cobrar. Tú solo revisas y apruebas.</p>
+      <div class="acciones"><a class="enlace" href="#horas">Calcular cuánto tiempo me ahorra <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -154,7 +154,7 @@
                alt="Una orden de compra de Compra Ágil leída del correo: el hospital que la envió, la fecha de entrega, los productos cruzados con el stock de bodega y los pasos que siguen hasta el cobro">
         </picture>
       </div>
-      <figcaption><span class="ejemplo">Una orden de Compra Ágil, leída del correo y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
+      <figcaption><span class="ejemplo">Una orden de Compra Ágil que llegó al correo, leída por la IA y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -169,6 +169,25 @@
       <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Copiar la orden a la planilla</span></span></span>
       <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Preguntar si ya se despachó</span></span></span>
       <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Acordarse de cobrar a los 30 días</span></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUANTO TIEMPO ================= -->
+<section class="seccion" style="padding-top:0" id="horas">
+  <div class="wrap">
+    <div class="horas hoja posar">
+      <h2>Cuánto tiempo te devuelve.</h2>
+      <label for="ordenes">¿Cuántas órdenes de compra te llegan al mes?</label>
+      <div class="horas-control">
+        <input type="range" id="ordenes" min="10" max="300" step="5" value="60">
+        <output id="ordenes-n" for="ordenes">60</output>
+      </div>
+      <p class="horas-resultado"><b id="horas-n">Unas 10 horas</b> al mes<span id="horas-dias"></span>
+      que nadie tendría que pasar copiando órdenes, siguiendo despachos y acordándose de
+      cobrar.</p>
+      <p class="horas-nota">Calculado con unos 10 minutos por orden. Con el sistema, la IA hace
+      ese trabajo y a ti te queda revisar y aprobar.</p>
     </div>
   </div>
 </section>
@@ -222,7 +241,8 @@
       <h2>Te mostramos una de tus órdenes así.</h2>
       <p>Las órdenes de compra de Mercado Público son públicas. Escríbenos el nombre
       de tu empresa y en 48 horas te mostramos una de las tuyas anotada en el
-      sistema. No tienes que mandarnos nada.</p>
+      sistema, y cuántas horas al mes te ahorraría con tus órdenes reales. No tienes
+      que mandarnos nada.</p>
       <p>Si después quieres el sistema, parte en <a href="precios.html#incluye-sistema">$390.000
       y 1 UF al mes</a>, por etapas: cada una se cotiza y se cierra por escrito antes
       de programar.</p>
@@ -284,7 +304,22 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script defer src="sitio.js?v=4a1c1c0b"></script>
-
+<script>
+(function () {
+  var r = document.getElementById('ordenes');
+  if (!r) return;
+  var n = document.getElementById('ordenes-n'), h = document.getElementById('horas-n'),
+      d = document.getElementById('horas-dias');
+  function pintar () {
+    var ordenes = +r.value, horas = Math.round(ordenes * 10 / 60), dias = Math.round(horas / 8);
+    n.textContent = ordenes;
+    h.textContent = (horas === 1 ? 'Una hora' : 'Unas ' + horas + ' horas');
+    d.textContent = dias >= 2 ? ', unos ' + dias + ' días de trabajo,' : '';
+  }
+  r.addEventListener('input', pintar);
+  pintar();
+})();
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

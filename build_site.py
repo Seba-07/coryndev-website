@@ -48,6 +48,25 @@ FICHAS = {
         'anotada en el sistema.', safe=''),
 }
 
+# mercado-publico.html: cuantas horas al mes se van en las ordenes, a unos 10
+# minutos cada una. Sin JS queda el resultado para 60 ordenes, que ya viene escrito.
+JS_HORAS = '''<script>
+(function () {
+  var r = document.getElementById('ordenes');
+  if (!r) return;
+  var n = document.getElementById('ordenes-n'), h = document.getElementById('horas-n'),
+      d = document.getElementById('horas-dias');
+  function pintar () {
+    var ordenes = +r.value, horas = Math.round(ordenes * 10 / 60), dias = Math.round(horas / 8);
+    n.textContent = ordenes;
+    h.textContent = (horas === 1 ? 'Una hora' : 'Unas ' + horas + ' horas');
+    d.textContent = dias >= 2 ? ', unos ' + dias + ' días de trabajo,' : '';
+  }
+  r.addEventListener('input', pintar);
+  pintar();
+})();
+</script>'''
+
 JS_FORMULARIO = '''<script>
   (function () {
     var form = document.getElementById('contactForm');
@@ -246,18 +265,20 @@ PAGINAS = [
         # fuera del menu, un solo boton y la pantalla grande bajo el titulo.
         slug='mercado-publico',
         titulo='Órdenes de compra de Mercado Público, anotadas solas | CORYN',
-        desc='Para proveedores del Estado: un sistema que lee las órdenes de compra de '
-             'Mercado Público y avisa qué falta despachar, facturar y cobrar. Lo que '
-             'hicimos para bySIMMED.',
+        desc='Para proveedores del Estado: un sistema con IA que lee las órdenes de '
+             'compra de Mercado Público y avisa qué falta despachar, facturar y cobrar. '
+             'Tú solo revisas y apruebas. Lo que hicimos para bySIMMED.',
         activa='',
         landing=True,
         og_img='assets/og-mercado-publico.jpg',
         cabecera=dict(titulo='Tus órdenes de compra, anotadas solas.',
-                      bajada='Llega una orden de Mercado Público y el sistema la lee, la '
-                             'anota y te avisa qué falta despachar, facturar y cobrar.',
+                      bajada='Llega una orden de Mercado Público y la IA la lee, la anota y '
+                             'te avisa qué falta despachar, facturar y cobrar. Tú solo '
+                             'revisas y apruebas.',
                       nombre='Para proveedores del Estado',
-                      acciones='<a class="enlace" href="#demo">Ver una de mis órdenes así {FLECHA}</a>'),
+                      acciones='<a class="enlace" href="#horas">Calcular cuánto tiempo me ahorra {FLECHA}</a>'),
         cierre=False,
+        js_extra=JS_HORAS,
     ),
 ]
 
