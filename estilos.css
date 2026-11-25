@@ -1010,10 +1010,13 @@ html.mov .cierre-marca .p{ transform:translateX(70px); opacity:0; }
 }
 /* Antes de que el script tome la escena, lo que va a animarse espera oculto
    (asi no se ve la hoja llena y luego vacia). Si el script no corre, queda .quieta. */
-html.mov .lp-demo:not(.viva):not(.quieta) .lp-fila td{ color:transparent; }
+html.mov .lp-demo:not(.viva):not(.quieta) .lp-fila td{ color:transparent; animation:lp-tinta .3s 4s forwards; }
 html.mov .lp-demo:not(.viva):not(.quieta) .lp-fila .estado,
 html.mov .lp-demo:not(.viva):not(.quieta) .lp-sello,
-html.mov .lp-demo:not(.viva):not(.quieta) .lp-aviso{ opacity:0; }
+html.mov .lp-demo:not(.viva):not(.quieta) .lp-aviso{ opacity:0; animation:lp-asoma .3s 4s forwards; }
+/* Respaldo: si a los 4 segundos el script no tomo la escena, se muestra completa. */
+@keyframes lp-tinta{ to{ color:var(--tinta); } }
+@keyframes lp-asoma{ to{ opacity:1; } }
 .lp-aviso .hoja-barra{ position:relative; z-index:1; }
 .lp-aviso .hoja-barra small{ color:var(--pieza); font-weight:600; }
 .lp-aviso-cuerpo{ position:relative; z-index:1; display:grid; gap:.28em; padding:.85em 1.15em 1em; color:var(--tinta-2); }
@@ -1241,7 +1244,7 @@ html:not(.mov) .lp-aviso .cifra, .lp-aviso.leido .cifra{ background:var(--pieza-
 @media (min-width:960px){ .lp-muestra .hoja{ max-height:540px; } }
 .lp-muestra .hoja::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:96px; background:linear-gradient(rgba(255,255,255,0), #fff); }
 .lp-muestra img{ width:100%; }
-.lp-muestra .timbre{ position:absolute; right:-16px; top:-24px; --giro:9deg; background:var(--escritorio); font-size:1rem; }
+.lp-muestra .timbre{ position:absolute; right:-16px; bottom:64px; --giro:9deg; background:var(--escritorio); font-size:1rem; z-index:1; }
 .lp-muestra figcaption{ margin-top:18px; }
 
 /* --- el boton que acompana en el celular --- */
@@ -1249,9 +1252,10 @@ html:not(.mov) .lp-aviso .cifra, .lp-aviso.leido .cifra{ background:var(--pieza-
   position:fixed; left:0; right:0; bottom:0; z-index:40;
   padding:10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
   background:var(--escritorio); border-top:1px solid var(--linea);
-  transition:transform .4s var(--ease);
+  transition:transform .4s var(--ease), visibility 0s;
 }
-.lp-barra.fuera{ transform:translateY(110%); }
+/* Fuera de pantalla tampoco recibe el foco del teclado. */
+.lp-barra.fuera{ transform:translateY(110%); visibility:hidden; transition:transform .4s var(--ease), visibility 0s .4s; }
 .lp-barra .btn{ width:100%; min-height:50px; }
 .lp-barra p{ margin-top:6px; text-align:center; font-size:.8rem; color:var(--tinta-2); }
 @media (min-width:760px){ .lp-barra{ display:none; } }
