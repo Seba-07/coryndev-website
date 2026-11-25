@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<!-- La misma orden de ejemplo de mp-orden.html, en una columna para celulares.
+     Datos inventados. Se renderiza a assets/mp-orden-movil.webp (430 de ancho,
+     al doble de resolucion). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ :root{--fondo:#f4f6fa;--card:#fff;--ink:#16233a;--soft:#5b6779;--line:#e2e7ef;--line2:#eef1f6;
+   --nav:#0f2440;--azul:#1f5fe0;--azul-s:#e3ecfd;--ve:#157f4a;--ve-s:#d8f2e3;--am:#a15c07;--am-s:#fcebd0}
+ body{width:430px;background:var(--fondo);font-family:'Inter',system-ui,sans-serif;font-size:14px;color:var(--ink)}
+ .ej{background:var(--am-s);color:var(--am);text-align:center;font-size:11px;font-weight:600;
+   letter-spacing:.08em;text-transform:uppercase;padding:6px 0}
+ .barra{background:var(--nav);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center}
+ .barra b{font-size:15px}.barra span{font-size:12px;color:#b8c7dc}
+ .cnt{padding:16px;display:flex;flex-direction:column;gap:14px}
+ h1{font-size:19px;font-weight:700;letter-spacing:-.01em}
+ .chips{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+ .chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+ .chip.leida{background:var(--ve-s);color:var(--ve)}
+ .chip.leida::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ve)}
+ .chip.tipo{background:var(--azul-s);color:var(--azul)}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ .ch{padding:12px 16px;border-bottom:1px solid var(--line);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+ .dato{padding:11px 16px;border-bottom:1px solid var(--line2);display:flex;justify-content:space-between;gap:14px}
+ .dato:last-child{border-bottom:0}
+ .dato small{font-size:12.5px;color:var(--soft)}
+ .dato b{font-size:14px;font-weight:600;text-align:right}
+ .dato.marca{background:#fffbea}
+ .item{padding:11px 16px;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:1fr auto;gap:3px 12px;align-items:center}
+ .item b{font-size:14px;font-weight:600}.item small{font-size:12.5px;color:var(--soft)}
+ .pill{border-radius:999px;padding:3px 9px;font-size:11.5px;font-weight:600;grid-row:span 2}
+ .pv{background:var(--ve-s);color:var(--ve)}.pa{background:var(--am-s);color:var(--am)}
+ .tot{padding:12px 16px;display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+ .paso{display:grid;grid-template-columns:24px 1fr;gap:12px;padding:11px 16px}
+ .paso .b{width:24px;height:24px;border-radius:50%;border:2.5px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+ .paso.ok .b{background:var(--ve);border-color:var(--ve)}
+ .paso.va .b{border-color:var(--am);background:var(--am-s)}
+ .paso b{display:block;font-size:14px;font-weight:600}.paso.va b{color:var(--am)}
+ .paso span{display:block;font-size:12.5px;color:var(--soft);margin-top:2px;line-height:1.4}
+ .bt{margin:4px 16px 16px;border-radius:9px;padding:12px;text-align:center;font-weight:600;background:var(--azul);color:#fff}
+</style></head><body>
+ <div class="ej">Pantalla con datos de ejemplo</div>
+ <div class="barra"><b>Tu empresa</b><span>4 órdenes nuevas hoy</span></div>
+ <div class="cnt">
+   <div>
+     <h1>Orden de compra 4821-366-AG26</h1>
+     <div class="chips"><span class="chip tipo">Compra Ágil</span><span class="chip leida">Leída del correo hace 3 min</span></div>
+   </div>
+   <div class="card">
+     <div class="ch">Lo que dice la orden</div>
+     <div class="dato"><small>Organismo</small><b>Hospital Demo del Sur</b></div>
+     <div class="dato marca"><small>Entregar antes del</small><b>Viernes 27 de noviembre</b></div>
+     <div class="dato marca"><small>Pago</small><b>30 días desde la recepción</b></div>
+   </div>
+   <div class="card">
+     <div class="ch">Qué pidieron</div>
+     <div class="item"><b>Sonda Foley 16 Fr</b><span class="pill pv">Hay stock</span><small>200 × $1.150</small></div>
+     <div class="item"><b>Jeringa 10 ml</b><span class="pill pv">Hay stock</span><small>1.000 × $95</small></div>
+     <div class="item"><b>Apósito 10 × 12 cm</b><span class="pill pa">Faltan 60</span><small>300 × $420</small></div>
+     <div class="tot"><span>Total con IVA</span><span>$536.690</span></div>
+   </div>
+   <div class="card">
+     <div class="ch">Lo que sigue</div>
+     <div class="paso ok"><span class="b">✓</span><div><b>Aceptada en Mercado Público</b><span>Miércoles 18, 10:12</span></div></div>
+     <div class="paso va"><span class="b"></span><div><b>Armar el despacho</b><span>Los 60 apósitos llegan el martes 24</span></div></div>
+     <div class="paso"><span class="b"></span><div><b>Factura</b><span>Cuando confirmen la recepción</span></div></div>
+     <div class="paso"><span class="b"></span><div><b>Cobro</b><span>30 días después, con el correo de cobranza listo</span></div></div>
+     <div class="bt">Mandar a bodega</div>
+   </div>
+ </div>
+</body></html>

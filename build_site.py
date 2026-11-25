@@ -41,6 +41,11 @@ FICHAS = {
     '{WA_CORREO}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
         'Hola CORYN, vi la página sobre el correo. En mi empresa las cotizaciones '
         'y órdenes de compra llegan por correo. ¿Podemos conversarlo?', safe=''),
+    # El de mercado-publico.html pide la demo con una orden de la empresa; el
+    # codigo ?ref= del mensaje se agrega al final y dice quien es.
+    '{WA_MP}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
+        'Hola CORYN, quiero ver una de mis órdenes de compra de Mercado Público '
+        'anotada en el sistema.', safe=''),
 }
 
 JS_FORMULARIO = '''<script>
@@ -235,6 +240,24 @@ PAGINAS = [
                       nombre='Para empresas que trabajan por correo',
                       visual='{ESCENA}',
                       acciones='<a class="enlace" href="#precio">Ver cuánto cuesta {FLECHA}</a>'),
+        cierre=False,
+    ),
+    dict(
+        # La pagina de los mensajes a proveedores del Estado. Como correo.html:
+        # fuera del menu, un solo boton y la pantalla grande bajo el titulo.
+        slug='mercado-publico',
+        titulo='Órdenes de compra de Mercado Público, anotadas solas | CORYN',
+        desc='Para proveedores del Estado: un sistema que lee las órdenes de compra de '
+             'Mercado Público y avisa qué falta despachar, facturar y cobrar. Lo que '
+             'hicimos para bySIMMED.',
+        activa='',
+        landing=True,
+        og_img='assets/og-mercado-publico.jpg',
+        cabecera=dict(titulo='Tus órdenes de compra, anotadas solas.',
+                      bajada='Llega una orden de Mercado Público y el sistema la lee, la '
+                             'anota y te avisa qué falta despachar, facturar y cobrar.',
+                      nombre='Para proveedores del Estado',
+                      acciones='<a class="enlace" href="#demo">Ver una de mis órdenes así {FLECHA}</a>'),
         cierre=False,
     ),
 ]

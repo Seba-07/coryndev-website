@@ -1,0 +1,87 @@
+<!-- Pagina para los mensajes a proveedores de Mercado Publico. Fuera del menu y
+     con un solo boton, a WhatsApp, al final. Todo lo de arriba son pantallas:
+     la primera es de ejemplo; las de bySIMMED son recreaciones con datos
+     inventados. -->
+
+<!-- ================= LA PANTALLA ================= -->
+<section class="mp-pantalla">
+  <div class="wrap">
+    <figure class="posar">
+      <div class="hoja">
+        <!-- En el celular, la misma orden en una columna: la ancha no se lee. -->
+        <picture>
+          <source media="(max-width: 640px)" srcset="assets/mp-orden-movil.webp" width="860" height="1908">
+          <img src="assets/mp-orden.webp" width="1400" height="875"
+               alt="Una orden de compra de Compra Ágil leída del correo: el hospital que la envió, la fecha de entrega, los productos cruzados con el stock de bodega y los pasos que siguen hasta el cobro">
+        </picture>
+      </div>
+      <figcaption><span class="ejemplo">Una orden de Compra Ágil, leída del correo y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= HOY ================= -->
+<section class="seccion" style="padding-top:0">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Hoy, cada orden es trabajo a mano.</h2>
+    </div>
+    <div class="tres-notas">
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Copiar la orden a la planilla</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Preguntar si ya se despachó</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Acordarse de cobrar a los 30 días</span></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BYSIMMED ================= -->
+<section class="prueba seccion">
+  <div class="wrap">
+    <div class="prueba-cabeza">
+      <h2>Lo hicimos para bySIMMED.</h2>
+      <p class="bajada">Un fabricante chileno de simuladores médicos. Las órdenes de compra,
+      las facturas y los pagos le llegaban por correo y se cruzaban a mano. Hoy el
+      sistema los lee y una persona confirma con un clic.</p>
+    </div>
+    <div class="mp-capturas">
+      <figure class="posar">
+        <div class="hoja">
+          <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" loading="lazy"
+               alt="Inicio de administración del sistema de bySIMMED, con lo que llegó por correo ya leído: una orden de compra, una factura, un pago y un despacho">
+        </div>
+        <figcaption><span class="ejemplo">Lo que llegó por correo, ya leído. Cada cosa espera un clic. Pantalla con datos de ejemplo.</span></figcaption>
+      </figure>
+      <figure class="posar">
+        <div class="hoja">
+          <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
+               alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
+        </div>
+        <figcaption><span class="ejemplo">Cada venta en una pantalla, de la cotización al cobro. Pantalla con datos de ejemplo.</span></figcaption>
+      </figure>
+    </div>
+    <div class="mp-voz">
+      <figure class="cita">
+        <blockquote><p>{CITA_IVONNE}</p></blockquote>
+        <figcaption>{FIRMA_IVONNE}</figcaption>
+      </figure>
+      <a class="btn btn-blanco" href="caso-bysimmed-sistema.html">Ver el caso completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LA OFERTA Y EL UNICO BOTON ================= -->
+<section class="correo-precio seccion" id="demo">
+  <div class="wrap">
+    <div class="correo-caja hoja posar">
+      <span class="timbre estampa" aria-hidden="true">Sin<br>costo</span>
+      <h2>Te mostramos una de tus órdenes así.</h2>
+      <p>Las órdenes de compra de Mercado Público son públicas. Escríbenos el nombre
+      de tu empresa y en 48 horas te mostramos una de las tuyas anotada en el
+      sistema. No tienes que mandarnos nada.</p>
+      <p>Si después quieres el sistema, parte en <a href="precios.html#incluye-sistema">$390.000
+      y 1 UF al mes</a>, por etapas: cada una se cotiza y se cierra por escrito antes
+      de programar.</p>
+      <a class="btn btn-wa" href="{WA_MP}" target="_blank" rel="noopener">{WA_SVG}Quiero ver una de mis órdenes</a>
+    </div>
+  </div>
+</section>
