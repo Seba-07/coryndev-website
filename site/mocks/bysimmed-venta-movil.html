@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<!-- bysimmed-venta.html en una columna, para celulares: los mismos datos
+     inventados. Se renderiza a assets/bysimmed-venta-movil.webp (430 de ancho,
+     al doble de resolucion). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ :root{--bone:#f7f5f0;--card:#fffefb;--ink:#22303a;--soft:#5d6a70;--line:#e3ded3;
+   --teal:#14535d;--teal-d:#0c3d45;--or:#ee5a2a;--or-s:#fde5da;--am:#b45309;--am-s:#fbe8cd}
+ body{width:430px;background:var(--bone);font-family:'Inter',system-ui,sans-serif;font-size:14px;color:var(--ink)}
+ .ej{background:var(--am-s);color:var(--am);text-align:center;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 0}
+ .barra{background:var(--teal-d);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center}
+ .barra b{font-size:16px}.barra span{font-size:12px;color:#b9d6da}
+ .cnt{padding:16px;display:flex;flex-direction:column;gap:14px}
+ h1{font-size:20px;font-weight:700}
+ .sub{font-size:13px;color:var(--soft);margin-top:4px}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ .et{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:11px 16px;position:relative}
+ .et:not(:last-child)::after{content:"";position:absolute;left:28px;top:36px;bottom:-6px;width:3px;background:var(--line)}
+ .et.ok:not(:last-child)::after{background:var(--teal)}
+ .b{width:26px;height:26px;border-radius:50%;border:3px solid var(--line);background:var(--card);display:grid;place-items:center;position:relative;z-index:1}
+ .ok .b{background:var(--teal);border-color:var(--teal)}
+ .va .b{border-color:var(--or);background:var(--or-s)}
+ .va .b::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--or)}
+ .et strong{display:block;font-size:14.5px;font-weight:600}.va strong{color:#b8431b}
+ .et span{display:block;font-size:13px;color:var(--soft);margin-top:2px}
+ .notas{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+ .notas div{padding:12px 14px;border-right:1px solid #efebe2}.notas div:last-child{border-right:0}
+ .notas small{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);font-weight:700}
+ .notas b{display:block;font-size:15px;font-weight:700;margin-top:4px}
+</style></head><body>
+ <div class="ej">Pantalla con datos de ejemplo</div>
+ <div class="barra"><b>bySIMMED</b><span>Pedidos</span></div>
+ <div class="cnt">
+   <div><h1>C-0318 · Universidad Demo</h1><div class="sub">Santiago · pesos chilenos</div></div>
+   <div class="card">
+     <div class="et ok"><span class="b"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><strong>Cotización</strong><span>Enviada el 2 nov</span></div></div>
+     <div class="et ok"><span class="b"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><strong>Orden de compra</strong><span>Llegó por correo el 5 nov</span></div></div>
+     <div class="et va"><span class="b"></span><div><strong>Fabricación</strong><span>2 de 3 unidades listas</span></div></div>
+     <div class="et"><span class="b"></span><div><strong>Despacho</strong><span>Agendado para el 25 nov</span></div></div>
+     <div class="et"><span class="b"></span><div><strong>Factura</strong><span>Al despachar</span></div></div>
+     <div class="et"><span class="b"></span><div><strong>Cobro</strong><span>A 30 días de la factura</span></div></div>
+     <div class="notas">
+       <div><small>Cotizado</small><b>$1.475.600</b></div>
+       <div><small>Facturado</small><b>$0</b></div>
+       <div><small>Cobrado</small><b>$0</b></div>
+     </div>
+   </div>
+ </div>
+</body></html>

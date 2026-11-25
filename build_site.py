@@ -238,7 +238,6 @@ PAGINAS = [
                              'hoy alguien los pasa uno por uno a una planilla, mira cómo lo '
                              'resolvimos en una empresa como la tuya.',
                       nombre='Para empresas que trabajan por correo',
-                      visual='{ESCENA}',
                       acciones='<a class="enlace" href="#precio">Ver cuánto cuesta {FLECHA}</a>'),
         cierre=False,
     ),

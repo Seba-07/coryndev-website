@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<!-- bysimmed-bandeja.html en una columna, para celulares: los mismos datos
+     inventados. Se renderiza a assets/bysimmed-bandeja-movil.webp (430 de
+     ancho, al doble de resolucion). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ :root{--bone:#f7f5f0;--card:#fffefb;--ink:#22303a;--soft:#5d6a70;--line:#e3ded3;
+   --teal:#14535d;--teal-d:#0c3d45;--teal-s:#dcebec;--or:#ee5a2a;
+   --am:#b45309;--am-s:#fbe8cd;--ve:#157f4a;--ve-s:#d3f0df;--bl:#35618f;--bl-s:#dde9f4;--vi:#6d4aad;--vi-s:#ebe4f7}
+ body{width:430px;background:var(--bone);font-family:'Inter',system-ui,sans-serif;font-size:14px;color:var(--ink)}
+ .ej{background:var(--am-s);color:var(--am);text-align:center;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 0}
+ .barra{background:var(--teal-d);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center}
+ .barra b{font-size:16px}.barra span{font-size:12px;color:#b9d6da}
+ .cnt{padding:16px;display:flex;flex-direction:column;gap:14px}
+ h1{font-size:20px;font-weight:700}
+ .sub{font-size:13px;color:var(--soft);margin-top:4px}.sub b{color:var(--ve)}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ .gh{padding:12px 16px;border-bottom:1px solid var(--line);background:#fbf9f4}
+ .gh b{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+ .gh span{display:block;font-size:12.5px;color:var(--soft);margin-top:3px}
+ .it{padding:13px 16px;border-bottom:1px solid #efebe2}
+ .it:last-child{border-bottom:0}
+ .tp{display:inline-block;border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+ .oc{background:var(--teal-s);color:var(--teal)}.fa{background:var(--vi-s);color:var(--vi)}
+ .pa{background:var(--ve-s);color:var(--ve)}.en{background:var(--bl-s);color:var(--bl)}
+ .it b{display:block;font-size:14.5px;font-weight:600;margin-top:8px}
+ .it span.d{display:block;font-size:13px;color:var(--soft);margin-top:3px;line-height:1.4}
+ .it em{font-style:normal;color:var(--ve);font-weight:600}
+ .bt{display:inline-block;margin-top:10px;border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;background:var(--teal-d);color:#fff}
+ .cobrar{padding:14px 16px}
+ .cobrar small{display:block;font-size:12.5px;color:var(--soft)}
+ .cobrar b{display:block;font-size:26px;font-weight:700;margin:4px 0 2px}
+</style></head><body>
+ <div class="ej">Pantalla con datos de ejemplo</div>
+ <div class="barra"><b>bySIMMED</b><span>Administración</span></div>
+ <div class="cnt">
+   <div><h1>Inicio</h1><div class="sub">Correo leído a las 9:40 · <b>6 nuevos</b></div></div>
+   <div class="card">
+     <div class="gh"><b>Para anotar</b><span>Llegaron por correo. Revisa y confirma.</span></div>
+     <div class="it"><span class="tp oc">Orden de compra</span><b>OC 2026-0142 · Universidad Demo</b>
+       <span class="d">3 modelos de sutura · $1.240.000 + IVA · <em>calza con la cotización C-0318</em></span>
+       <span class="bt">Aprobarla y mandar a fabricar</span></div>
+     <div class="it"><span class="tp fa">Factura</span><b>Factura 88231 · Insumos Ejemplo Ltda.</b>
+       <span class="d">Cajas de embalaje, 50 unidades · $214.200</span>
+       <span class="bt">Sí, anotar la factura</span></div>
+     <div class="it"><span class="tp pa">Pago</span><b>Transferencia · Clínica Ejemplo</b>
+       <span class="d">$890.000 · <em>paga completa la factura 1187</em></span>
+       <span class="bt">Sí, anotar el pago</span></div>
+     <div class="it"><span class="tp en">Despacho</span><b>Envío creado · guía 7412 3456</b>
+       <span class="d">2 modelos a Lima, Perú · llega el jueves 26</span>
+       <span class="bt">Sí, anotar el envío</span></div>
+   </div>
+   <div class="card cobrar">
+     <small>Falta cobrar</small><b>$2.430.000</b>
+     <span class="d" style="font-size:13px;color:var(--soft)">3 facturas vencidas · correo de cobranza listo para cada una</span>
+   </div>
+ </div>
+</body></html>

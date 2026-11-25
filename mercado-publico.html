@@ -108,7 +108,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
-<link rel="stylesheet" href="estilos.css?v=4918ea9f">
+<link rel="stylesheet" href="estilos.css?v=5f830d53">
 <script>
   (function (d) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -185,15 +185,21 @@
     <div class="mp-capturas">
       <figure class="posar">
         <div class="hoja">
-          <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" loading="lazy"
-               alt="Inicio de administración del sistema de bySIMMED, con lo que llegó por correo ya leído: una orden de compra, una factura, un pago y un despacho">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/bysimmed-bandeja-movil.webp" width="860" height="1818">
+            <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" loading="lazy"
+                 alt="Inicio de administración del sistema de bySIMMED, con lo que llegó por correo ya leído: una orden de compra, una factura, un pago y un despacho">
+          </picture>
         </div>
         <figcaption><span class="ejemplo">Lo que llegó por correo, ya leído. Cada cosa espera un clic. Pantalla con datos de ejemplo.</span></figcaption>
       </figure>
       <figure class="posar">
         <div class="hoja">
-          <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
-               alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/bysimmed-venta-movil.webp" width="860" height="1134">
+            <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
+                 alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
+          </picture>
         </div>
         <figcaption><span class="ejemplo">Cada venta en una pantalla, de la cotización al cobro. Pantalla con datos de ejemplo.</span></figcaption>
       </figure>

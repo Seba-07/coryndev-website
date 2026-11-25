@@ -1,6 +1,23 @@
 <!-- Pagina para mandar en mensajes uno a uno a negocios que trabajan por
      correo. Un solo boton, a WhatsApp, al final: todo lo de arriba existe para
-     llegar a el. No va en el menu. -->
+     llegar a el. No va en el menu. Las pantallas son recreaciones del sistema de
+     bySIMMED con datos inventados; en el celular va una version en una columna. -->
+
+<!-- ================= LA BANDEJA, YA LEIDA ================= -->
+<section class="mp-pantalla">
+  <div class="wrap">
+    <figure class="posar">
+      <div class="hoja">
+        <picture>
+          <source media="(max-width: 640px)" srcset="assets/bysimmed-bandeja-movil.webp" width="860" height="1818">
+          <img src="assets/bysimmed-bandeja.webp" width="1400" height="875"
+               alt="Inicio de administración del sistema de bySIMMED, con lo que llegó por correo ya leído: una orden de compra, una factura, un pago y un despacho, cada uno con su botón para confirmarlo">
+        </picture>
+      </div>
+      <figcaption><span class="ejemplo">Lo que llegó por correo, ya leído. Cada cosa espera un clic. Pantalla del sistema de bySIMMED con datos de ejemplo.</span></figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- ================= EL PROBLEMA ================= -->
 <section class="seccion" style="padding-top:0">
@@ -16,43 +33,53 @@
   </div>
 </section>
 
-<!-- ================= QUE HACE EL SISTEMA =================
-     Las cinco lineas del caso, sobre una hoja. La pantalla del sistema vive en
-     el caso; aqui la escena de arriba ya muestra como funciona. -->
-<section class="seccion" style="padding-top:0">
+<!-- ================= LO QUE HICIMOS PARA BYSIMMED =================
+     Las cinco lineas del caso, junto a la venta de punta a punta. -->
+<section class="prueba seccion">
   <div class="wrap">
-    <div class="hoja hoja-lista posar">
+    <div class="prueba-cabeza">
       <h2>Lo que hicimos para bySIMMED.</h2>
-      <ul class="lista-check">
-        <li>{CHECK}<span>Lee lo que llega por correo —órdenes de compra, facturas,
-        pagos y despachos— y lo deja anotado.</span></li>
-        <li>{CHECK}<span>Si un cliente pide precio, deja la cotización armada con el
-        catálogo para revisarla y enviarla.</span></li>
-        <li>{CHECK}<span>Cada venta en una sola pantalla: cotización, pedido, despacho,
-        factura y cobro.</span></li>
-        <li>{CHECK}<span>Muestra lo que falta cobrar y deja listo el correo para
-        cobrarlo.</span></li>
-        <li>{CHECK}<span>Avisa cuando un insumo baja del mínimo.</span></li>
-      </ul>
-      <p class="hoja-lista-pie">Tú decides qué se envía solo y qué revisa una persona.
-      <a class="enlace" href="caso-bysimmed-sistema.html">Ver el caso completo</a></p>
+      <p class="bajada">Un fabricante chileno de simuladores médicos. Todo le llegaba por
+      correo y se cruzaba a mano; hoy el sistema lo lee y una persona confirma con un
+      clic.</p>
+    </div>
+    <div class="mp-capturas">
+      <figure class="posar">
+        <div class="hoja">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/bysimmed-venta-movil.webp" width="860" height="1134">
+            <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
+                 alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
+          </picture>
+        </div>
+        <figcaption><span class="ejemplo">Cada venta en una pantalla, de la cotización al cobro. Pantalla con datos de ejemplo.</span></figcaption>
+      </figure>
+    </div>
+    <ul class="lista-check correo-funciones">
+      <li>{CHECK}<span>Lee lo que llega por correo (órdenes de compra, facturas, pagos y
+      despachos) y lo deja anotado.</span></li>
+      <li>{CHECK}<span>Si un cliente pide precio, deja la cotización armada con el
+      catálogo para revisarla y enviarla.</span></li>
+      <li>{CHECK}<span>Cada venta en una sola pantalla: cotización, pedido, despacho,
+      factura y cobro.</span></li>
+      <li>{CHECK}<span>Muestra lo que falta cobrar y deja listo el correo para
+      cobrarlo.</span></li>
+      <li>{CHECK}<span>Avisa cuando un insumo baja del mínimo.</span></li>
+      <li>{CHECK}<span>Tú decides qué se envía solo y qué revisa una persona.</span></li>
+    </ul>
+    <!-- La cita de Ivonne vive en site_shell.py, igual que en el inicio y en el caso. -->
+    <div class="mp-voz">
+      <figure class="cita">
+        <blockquote><p>{CITA_IVONNE}</p></blockquote>
+        <figcaption>{FIRMA_IVONNE}</figcaption>
+      </figure>
+      <a class="btn btn-blanco" href="caso-bysimmed-sistema.html">Ver el caso completo</a>
     </div>
   </div>
 </section>
 
-<!-- ================= VOZ DEL CLIENTE =================
-     La cita de Ivonne vive en site_shell.py, igual que en el inicio y en el caso. -->
-<section class="seccion voz">
-  <div class="wrap">
-    <figure class="cita">
-      <blockquote><p>{CITA_IVONNE}</p></blockquote>
-      <figcaption>{FIRMA_IVONNE}</figcaption>
-    </figure>
-  </div>
-</section>
-
 <!-- ================= PRECIO Y UNICO BOTON ================= -->
-<section class="correo-precio" id="precio">
+<section class="correo-precio seccion" id="precio">
   <div class="wrap">
     <div class="correo-caja hoja posar">
       <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
