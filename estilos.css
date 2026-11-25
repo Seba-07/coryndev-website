@@ -971,16 +971,296 @@ html.mov .cierre-marca .p{ transform:translateX(70px); opacity:0; }
 .decision p{ margin-top:10px; color:var(--tinta-2); }
 .decisiones-caso .cita{ margin-top:clamp(64px, 7vw, 104px); }
 
-/* mercado-publico.html: cuanto tiempo devuelve el sistema */
-.horas{ max-width:46rem; margin-inline:auto; padding:clamp(28px, 4vw, 52px); scroll-margin-top:calc(var(--nav-h) + 20px); }
-.horas label{ display:block; margin-top:26px; font-weight:600; color:var(--tinta); }
-.horas-control{ display:flex; align-items:center; gap:18px; margin-top:14px; }
-.horas-control input{ flex:1; accent-color:var(--pieza); height:28px; }
-.horas-control output{ min-width:3.2ch; font:700 1.6rem/1 var(--f-titulo); color:var(--tinta); text-align:right; }
-.horas-resultado{ margin-top:26px; padding-top:22px; border-top:1px dashed var(--linea); color:var(--tinta-2); font-size:1.1rem; }
-.horas-resultado b{ display:block; font:700 clamp(2rem, 1.4rem + 2.2vw, 3rem)/1.05 var(--f-titulo); letter-spacing:-.02em; color:var(--pieza); margin-bottom:8px; }
-.horas-nota{ margin-top:14px; color:var(--tinta-3); font-size:.92rem; }
-.horas .btn{ margin-top:26px; }
-@media (max-width:560px){ .horas .btn{ width:100%; } }
 .correo-alt{ font-size:.95rem; color:var(--tinta-3); }
 .correo-caja .correo-alt{ margin-top:18px; }
+
+/* ============ mercado-publico.html: la pagina de venta ============
+   La portada es el sistema trabajando. Sin primitivos nuevos: hojas, el azul
+   de la pieza para lo leido, estaciones que giran a rombo, post-its solo para
+   el desorden de hoy, campo azul para la cuenta y timbre para la oferta. */
+
+/* --- portada: la orden entra sola --- */
+.lp-portada{ padding:clamp(18px, 3.2vw, 52px) 0 clamp(56px, 7vw, 104px); overflow:hidden; }
+.lp-portada-grid{ display:grid; gap:20px 24px; grid-template-areas:"t" "d" "b" "a"; }
+.lp-portada h1{ grid-area:t; font-size:clamp(2.05rem, .95rem + 4.6vw, 3.9rem); text-wrap:balance; }
+.lp-portada .bajada{ grid-area:b; margin:0; max-width:30rem; }
+.lp-demo{ grid-area:d; }
+.lp-portada-acciones{ grid-area:a; display:grid; gap:12px; justify-items:start; margin:0; }
+.lp-gratis{ color:var(--tinta-2); font-size:.98rem; max-width:27rem; }
+/* En el celular el boton vive en la barra fija, que tambien dice "sin costo". */
+@media (max-width:759px){ .lp-portada-acciones{ display:none; } .lp-vieja{ display:none; } }
+@media (min-width:1040px){
+  .lp-portada-grid{
+    grid-template-columns:minmax(0, 5.3fr) minmax(0, 6fr); grid-template-rows:1fr auto 1fr;
+    grid-template-areas:"t d" "b d" "a d"; column-gap:56px; row-gap:24px; padding-top:18px;
+  }
+  .lp-portada h1{ align-self:end; font-size:clamp(2.6rem, 4.1vw, 3.9rem); }
+  .lp-portada-acciones{ align-self:start; margin-top:8px; }
+}
+
+.lp-demo{ position:relative; font-size:clamp(12px, 3.3vw, 14px); }
+.lp-demo .hoja{ overflow:hidden; }
+.lp-aviso{ position:relative; z-index:2; width:min(25em, 86%); transform:rotate(-1.4deg); }
+.lp-ordenes{ position:relative; z-index:1; margin:-.3em 0 0 auto; width:100%; transform:rotate(.5deg); }
+.lp-demo > .ejemplo{ margin-top:14px; }
+@media (min-width:1040px){
+  .lp-demo{ font-size:clamp(13.5px, 1.12vw, 16.5px); }
+  .lp-aviso{ position:absolute; top:0; left:0; }
+  .lp-ordenes{ margin:9.5em 0 0 6%; width:94%; }
+}
+/* Antes de que el script tome la escena, lo que va a animarse espera oculto
+   (asi no se ve la hoja llena y luego vacia). Si el script no corre, queda .quieta. */
+html.mov .lp-demo:not(.viva):not(.quieta) .lp-fila td{ color:transparent; }
+html.mov .lp-demo:not(.viva):not(.quieta) .lp-fila .estado,
+html.mov .lp-demo:not(.viva):not(.quieta) .lp-sello,
+html.mov .lp-demo:not(.viva):not(.quieta) .lp-aviso{ opacity:0; }
+.lp-aviso .hoja-barra{ position:relative; z-index:1; }
+.lp-aviso .hoja-barra small{ color:var(--pieza); font-weight:600; }
+.lp-aviso-cuerpo{ position:relative; z-index:1; display:grid; gap:.28em; padding:.85em 1.15em 1em; color:var(--tinta-2); }
+.lp-aviso-oc{ font-weight:700; color:var(--tinta); font-size:1.08em; }
+.lp-aviso .cifra{ font-weight:600; color:var(--tinta); border-radius:3px; padding:0 .15em; transition:background-color .3s, color .3s; }
+.lp-aviso .lectura{ position:absolute; inset:0; background:var(--pieza-suave); transform-origin:left center; transform:scaleX(0); pointer-events:none; }
+html:not(.mov) .lp-aviso .cifra, .lp-aviso.leido .cifra{ background:var(--pieza-suave); color:var(--pieza-tinta); }
+.lp-ordenes .folio b{ font-weight:800; }
+.lp-ordenes .tabla td{ transition:background-color .6s, color .22s; }
+.lp-ordenes .lp-fila.recien td{ background:var(--pieza-suave); }
+.lp-ordenes-pie{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:.7em 1.15em .85em; border-top:1px solid var(--linea-suave); color:var(--tinta-3); font-size:.9em;
+}
+.lp-sello{ --giro:-6deg; }
+/* Solo cuando el script tomo la escena: las filas nuevas esperan su orden. */
+.lp-demo.viva .lp-fila td{ color:transparent; }
+.lp-demo.viva .lp-fila td.puesto{ color:var(--tinta); }
+.lp-demo.viva .lp-fila .estado{ opacity:0; transform:scale(.8); transition:opacity .3s, transform .45s var(--ease); }
+.lp-demo.viva .lp-fila.llena .estado{ opacity:1; transform:none; }
+@media (max-width:520px){
+  .lp-col-oc{ display:none; }
+  .lp-ordenes .tabla th, .lp-ordenes .tabla td{ padding:.62em .85em; }
+}
+
+/* --- hoy: la escena y lo que se pierde --- */
+.lp-hoy{ padding-top:0; }
+.lp-hoy-grid{ display:grid; gap:clamp(34px, 5vw, 64px); align-items:center; }
+@media (min-width:1000px){
+  .lp-hoy-grid{ grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr); }
+  .lp-hoy .cabeza-seccion{ margin-bottom:0; }
+}
+.lp-mesa{ position:relative; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; }
+.lp-mesa .marco-video{ grid-column:1 / -1; transform:rotate(-1deg); }
+.lp-mesa .postit{ position:relative; z-index:2; width:auto; margin-top:-34px; }
+.lp-mesa .postit-papel{ min-height:0; padding:14px 13px 15px; }
+.lp-mesa .postit-texto{ font-size:clamp(1.14rem, .78rem + 1.9vw, 1.62rem); }
+.lp-mesa .postit:nth-of-type(1){ --r:-3deg; }
+.lp-mesa .postit:nth-of-type(2){ --r:2deg; margin-top:-20px; }
+.lp-mesa .postit:nth-of-type(3){ --r:-1.5deg; }
+@media (min-width:760px){
+  .lp-mesa{ display:block; padding-bottom:48px; }
+  .lp-mesa .postit{ position:absolute; width:196px; margin:0; }
+  .lp-mesa .postit-papel{ padding:18px 18px 20px; }
+  .lp-mesa .postit:nth-of-type(1){ left:-14px; top:-30px; }
+  .lp-mesa .postit:nth-of-type(2){ right:-14px; top:36%; margin:0; }
+  .lp-mesa .postit:nth-of-type(3){ left:13%; bottom:0; }
+}
+
+/* --- la vida de una orden: una pantalla fija, cuatro pasos que pasan --- */
+.lp-vida{ padding-top:0; padding-bottom:clamp(36px, 5vw, 72px); }
+.lp-vida-grid{ display:grid; column-gap:clamp(40px, 7vw, 110px); }
+.lp-fija{
+  position:sticky; top:calc(var(--nav-h) + 8px); z-index:3; padding-bottom:16px;
+  background:linear-gradient(var(--escritorio) calc(100% - 16px), rgba(236,239,245,0));
+}
+.lp-orden{ overflow:hidden; font-size:clamp(13px, 3.5vw, 15px); }
+.lp-orden-cab{ display:grid; gap:.15em; padding:1em 1.15em 0; }
+.lp-orden-cab b{ font:700 1.25em/1.2 var(--f-titulo); letter-spacing:-.015em; }
+.lp-orden-cab span{ color:var(--tinta-2); font-size:.95em; }
+.lp-linea{
+  --av:0;
+  position:relative; list-style:none; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr));
+  margin:1.5em 1.15em 0; padding-top:1.6em; text-align:center;
+  font-size:.82em; font-weight:600; color:var(--tinta-3);
+}
+.lp-linea::before,.lp-linea::after{
+  content:""; position:absolute; top:.5em; left:12.5%; right:12.5%; height:3px; margin-top:-1.5px; border-radius:2px;
+}
+.lp-linea::before{ background:var(--linea); }
+.lp-linea::after{ background:var(--pieza); transform-origin:left; transform:scaleX(var(--av)); transition:transform .6s var(--ease); }
+.lp-linea li{ position:relative; transition:color .3s; }
+.lp-linea li::before{
+  content:""; position:absolute; top:-1.6em; left:50%; width:1em; height:1em; margin-left:-.5em;
+  background:var(--hoja); border:3px solid var(--linea); border-radius:3px; z-index:1;
+  transition:background-color .3s, border-color .3s, transform .4s var(--ease);
+}
+.lp-orden[data-paso="2"] .lp-linea{ --av:.3334; }
+.lp-orden[data-paso="3"] .lp-linea{ --av:.6667; }
+.lp-orden[data-paso="4"] .lp-linea{ --av:1; }
+.lp-orden[data-paso="1"] .lp-linea li:nth-child(-n+1),
+.lp-orden[data-paso="2"] .lp-linea li:nth-child(-n+2),
+.lp-orden[data-paso="3"] .lp-linea li:nth-child(-n+3),
+.lp-orden[data-paso="4"] .lp-linea li{ color:var(--tinta); }
+.lp-orden[data-paso="1"] .lp-linea li:nth-child(-n+1)::before,
+.lp-orden[data-paso="2"] .lp-linea li:nth-child(-n+2)::before,
+.lp-orden[data-paso="3"] .lp-linea li:nth-child(-n+3)::before,
+.lp-orden[data-paso="4"] .lp-linea li::before{ background:var(--pieza); border-color:var(--pieza); transform:rotate(45deg) scale(.86); }
+.lp-capas{ display:grid; padding:1.25em 1.15em 1.25em; }
+.lp-capa{
+  grid-area:1 / 1; display:grid; gap:.8em; align-content:start;
+  opacity:0; visibility:hidden; transform:translateY(10px);
+  transition:opacity .3s, transform .5s var(--ease), visibility 0s .3s;
+}
+.lp-orden[data-paso="1"] [data-capa="1"],
+.lp-orden[data-paso="2"] [data-capa="2"],
+.lp-orden[data-paso="3"] [data-capa="3"],
+.lp-orden[data-paso="4"] [data-capa="4"]{ opacity:1; visibility:visible; transform:none; transition-delay:.14s, .14s, 0s; }
+.lp-items{ list-style:none; display:grid; }
+.lp-items li{ display:grid; grid-template-columns:1fr auto auto; gap:.9em; align-items:center; padding:.52em 0; border-bottom:1px solid var(--linea-suave); }
+.lp-items li:last-child{ border-bottom:0; }
+.lp-items b{ font-weight:600; }
+.lp-items i{ font-style:normal; font-size:.8em; }
+.lp-estado-nota{ color:var(--tinta-3); font-size:.88em; }
+.lp-alerta{ display:grid; gap:.2em; padding:.85em 1em; border-radius:8px; background:var(--escritorio); border:1px solid var(--linea); }
+.lp-alerta b{ font:700 1.14em/1.2 var(--f-titulo); letter-spacing:-.01em; }
+.lp-alerta span{ color:var(--tinta-2); font-size:.92em; }
+.lp-alerta-ok{ background:var(--pieza-suave); border-color:transparent; }
+.lp-alerta-ok b{ color:var(--pieza-tinta); }
+.lp-alerta-ok span{ color:var(--pieza-tinta); }
+.lp-boton-falso{
+  justify-self:start; display:inline-flex; align-items:center; min-height:2.9em; padding:0 1.1em;
+  border-radius:10px; background:var(--pieza); color:#fff; font-weight:600; font-size:.95em;
+}
+.lp-datos{ display:grid; grid-template-columns:1fr 1fr; gap:.8em; margin:0; }
+.lp-datos dt{ font-size:.82em; color:var(--tinta-3); }
+.lp-datos dd{ margin:.15em 0 0; font:700 1.12em/1.2 var(--f-titulo); letter-spacing:-.01em; }
+.lp-fija > .ejemplo{ margin-top:12px; }
+.lp-ej-chico{ display:none; }
+@media (max-width:899px){
+  .lp-fija > .ejemplo, .lp-orden .folio, .lp-estado-nota{ display:none; }
+  .lp-ej-chico{ display:inline-flex; }
+  .lp-linea{ margin-top:1.15em; }
+  .lp-capas{ padding:1em 1.15em 1.05em; }
+  .lp-items li{ padding:.42em 0; }
+}
+.lp-pasos{ list-style:none; }
+.lp-paso{ display:grid; align-content:center; min-height:56vh; padding:20px 0; }
+.lp-paso h3{ font-size:clamp(1.6rem, 1.1rem + 1.7vw, 2.5rem); max-width:14ch; }
+.lp-paso p{ margin-top:12px; color:var(--tinta-2); max-width:29em; }
+.js-vida .lp-paso{ opacity:.34; transition:opacity .4s; }
+.js-vida .lp-paso.activo{ opacity:1; }
+@media (min-width:900px){
+  .lp-vida-grid{ grid-template-columns:minmax(0, 530px) minmax(0, 1fr); align-items:start; }
+  .lp-orden{ font-size:17px; }
+  .lp-fija{ top:max(calc(var(--nav-h) + 24px), calc(50vh - 205px)); background:none; padding-bottom:0; }
+  .lp-paso{ min-height:50vh; }
+  .lp-paso:first-child{ min-height:400px; }
+  .lp-paso:last-child{ min-height:400px; }
+}
+
+/* --- cuanto tiempo: el campo azul --- */
+.lp-horas{ background:var(--pieza); color:#fff; padding-block:var(--seccion); scroll-margin-top:var(--nav-h); }
+.lp-horas-grid{ display:grid; gap:clamp(36px, 5vw, 80px); align-items:center; }
+@media (min-width:960px){ .lp-horas-grid{ grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); } }
+.lp-horas h2{ max-width:11ch; }
+.lp-pregunta{ margin-top:26px; font-weight:600; }
+.lp-chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+.lp-chips button{
+  min-width:66px; min-height:50px; padding:0 16px; border-radius:12px; cursor:pointer;
+  border:1.5px solid rgba(255,255,255,.5); background:transparent; color:#fff;
+  font:700 1.08rem/1 var(--f-titulo); letter-spacing:-.01em;
+  transition:background-color .2s, color .2s, border-color .2s;
+}
+.lp-chips button:hover{ border-color:#fff; }
+.lp-chips button[aria-checked="true"]{ background:#fff; border-color:#fff; color:var(--pieza-hondo); }
+.lp-chips button:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+.lp-nota{ margin-top:22px; color:var(--en-pieza); font-size:.95rem; max-width:33em; }
+.lp-cifra{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.1em .32em; }
+.lp-cifra b{ font:800 clamp(4.6rem, 2.6rem + 9vw, 7.6rem)/.86 var(--f-titulo); letter-spacing:-.04em; }
+.lp-cifra span{ font:700 clamp(1.3rem, 1rem + 1.2vw, 1.9rem)/1.1 var(--f-titulo); letter-spacing:-.02em; }
+.lp-dias{ display:flex; gap:8px; margin-top:24px; }
+.lp-dias i{ position:relative; flex:1; max-width:66px; height:22px; border-radius:4px; background:rgba(255,255,255,.22); overflow:hidden; }
+.lp-dias i::after{ content:""; position:absolute; inset:0; background:#fff; transform-origin:left; transform:scaleX(var(--lleno, 0)); transition:transform .55s var(--ease); }
+.lp-leyenda{ margin-top:10px; color:var(--en-pieza); font-size:.85rem; }
+.lp-frase{ margin-top:18px; font-size:1.12rem; max-width:27em; min-height:3.2em; }
+.lp-resultado .btn{ margin-top:22px; }
+.lp-horas .btn:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+@media (max-width:560px){
+  .lp-resultado .btn{ width:100%; }
+  .lp-chips{ gap:7px; flex-wrap:nowrap; }
+  .lp-chips button{ flex:1; min-width:0; padding:0 4px; }
+}
+
+/* --- bysimmed: una tira de pantallas, no una torre --- */
+.lp-tira{
+  display:grid; grid-auto-flow:column; grid-auto-columns:min(66vw, 264px); gap:18px;
+  margin:clamp(40px, 5vw, 64px) -20px 0; padding:8px 20px 22px;
+  overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:var(--noche-2) transparent;
+}
+.lp-tira figure{ scroll-snap-align:center; }
+.lp-tira .hoja{ overflow:hidden; box-shadow:0 30px 60px -30px rgba(0,0,0,.8); }
+.lp-tira img{ width:100%; aspect-ratio:860 / 1240; object-fit:cover; object-position:top; }
+.lp-tira figcaption{ margin-top:12px; color:var(--en-noche); font-size:.95rem; font-weight:600; }
+@media (min-width:1000px){
+  .lp-tira{ grid-auto-flow:row; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:26px; margin-inline:0; padding:0 0 30px; overflow:visible; }
+  .lp-tira figure:nth-child(odd){ transform:rotate(-1.2deg); }
+  .lp-tira figure:nth-child(even){ transform:rotate(1deg) translateY(28px); }
+}
+.lp-prueba .ejemplo{ margin-top:clamp(14px, 3vw, 34px); }
+.lp-voz{ display:grid; gap:24px; justify-items:start; margin-top:clamp(48px, 6vw, 84px); }
+.lp-voz .cita{ max-width:none; }
+.lp-voz .cita p{ max-width:27ch; font-size:clamp(1.5rem, 1.05rem + 1.9vw, 2.6rem); }
+@media (min-width:960px){ .lp-voz{ grid-template-columns:minmax(0, 1fr) auto; align-items:end; column-gap:48px; } }
+
+/* --- la oferta --- */
+.lp-oferta{ scroll-margin-top:var(--nav-h); }
+.lp-oferta-grid{ display:grid; gap:clamp(26px, 5vw, 40px); grid-template-areas:"h" "m" "x"; }
+.lp-oferta h2{ grid-area:h; max-width:13ch; }
+.lp-muestra{ grid-area:m; }
+.lp-oferta-texto{ grid-area:x; }
+@media (min-width:960px){
+  .lp-oferta-grid{
+    grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr); grid-template-rows:1fr auto 1fr;
+    grid-template-areas:"h m" "x m" ". m"; column-gap:clamp(44px, 6vw, 84px); row-gap:0;
+  }
+  .lp-oferta h2{ align-self:end; }
+  .lp-muestra{ align-self:center; }
+}
+.lp-como{ list-style:none; counter-reset:paso; display:grid; gap:18px; margin:6px 0 30px; }
+@media (min-width:960px){ .lp-como{ margin-top:30px; } }
+.lp-como li{ counter-increment:paso; position:relative; padding-left:52px; color:var(--tinta-2); max-width:31em; }
+.lp-como li::before{
+  content:counter(paso); position:absolute; left:0; top:-3px; width:34px; height:34px; display:grid; place-items:center;
+  border:2px solid var(--pieza); border-radius:3px; color:var(--pieza); font:800 1rem/1 var(--f-titulo);
+}
+.lp-como b{ color:var(--tinta); }
+@media (max-width:560px){ .lp-oferta-texto .btn{ width:100%; } }
+.lp-oferta .correo-alt{ margin-top:16px; }
+.lp-oferta .correo-alt a, .lp-letra a{ color:var(--pieza); }
+.lp-firma{ margin-top:26px; font-weight:600; max-width:28em; }
+.lp-letra{ margin-top:14px; padding-top:14px; border-top:1px dashed var(--linea); color:var(--tinta-3); font-size:.92rem; max-width:35em; }
+.lp-muestra{ position:relative; width:min(340px, 80%); justify-self:center; margin-top:14px; }
+.lp-muestra .hoja{ position:relative; overflow:hidden; max-height:400px; box-shadow:var(--sombra-alta); transform:rotate(1.6deg); }
+@media (min-width:960px){ .lp-muestra .hoja{ max-height:540px; } }
+.lp-muestra .hoja::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:96px; background:linear-gradient(rgba(255,255,255,0), #fff); }
+.lp-muestra img{ width:100%; }
+.lp-muestra .timbre{ position:absolute; right:-16px; top:-24px; --giro:9deg; background:var(--escritorio); font-size:1rem; }
+.lp-muestra figcaption{ margin-top:18px; }
+
+/* --- el boton que acompana en el celular --- */
+.lp-barra{
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background:var(--escritorio); border-top:1px solid var(--linea);
+  transition:transform .4s var(--ease);
+}
+.lp-barra.fuera{ transform:translateY(110%); }
+.lp-barra .btn{ width:100%; min-height:50px; }
+.lp-barra p{ margin-top:6px; text-align:center; font-size:.8rem; color:var(--tinta-2); }
+@media (min-width:760px){ .lp-barra{ display:none; } }
+
+/* --- el pie minimo de una pagina de venta --- */
+.pie-minimo{ padding:38px 0 34px; }
+.pie-minimo .wrap{ display:grid; gap:12px; }
+.pie-minimo p{ font-size:.92rem; }
+
+@media (prefers-reduced-motion: reduce){
+  .lp-barra, .lp-capa, .lp-linea::after, .lp-linea li::before, .lp-dias i::after, .js-vida .lp-paso{ transition:none; }
+}

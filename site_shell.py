@@ -169,6 +169,16 @@ PIE = f'''<footer class="pie">
 # pagina para que lo que aparece con el scroll arranque escondido. Si sitio.js
 # no confirma en 3,5 s (la libreria no cargo, hubo un error), se quita la marca
 # y todo queda visible en su estado final.
+# Pie minimo: para una pagina de venta que debe cerrar en su oferta, no en un
+# indice de enlaces. Solo la marca, el correo y lo legal.
+PIE_MINIMO = f'''<footer class="pie pie-minimo">
+  <div class="wrap">
+    {MARCA}
+    <p><a href="mailto:{EMAIL}">{EMAIL}</a> &middot; <a href="privacidad.html">Pol&iacute;tica de privacidad</a></p>
+    <p>&copy; 2026 CORYN. Todos los derechos reservados.</p>
+  </div>
+</footer>'''
+
 HEAD_MOV = '''<script>
   (function (d) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -223,7 +233,7 @@ def video(nombre, proporcion='4/3', clase='marco-video'):
 
 def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
            og_tipo='website', js_extra='', canonico='', clase_body='',
-           ld_extra=(), preload=(), landing=False):
+           ld_extra=(), preload=(), landing=False, pie_minimo=False):
     """Arma una pagina completa a partir del cuerpo.
 
     canonico:   ruta de la pagina para el <link rel=canonical> ('' = portada).
@@ -349,7 +359,7 @@ def render(titulo, descripcion, cuerpo, activa='', og_img='assets/og.jpg',
 {cuerpo}
 </main>
 
-{PIE}
+{PIE_MINIMO if pie_minimo else PIE}
 
 {GSAP}
 <script defer src="sitio.js?v={_firma('sitio.js')}"></script>

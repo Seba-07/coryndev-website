@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<!-- La muestra de la oferta: asi es la orden anotada que recibe cada empresa.
+     Misma plantilla que las demos reales, con datos inventados.
+     Se renderiza a assets/mp-muestra.webp (430 de ancho, al doble de resolucion). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+ *{margin:0;padding:0;box-sizing:border-box}
+ :root{--fondo:#f4f6fa;--card:#fff;--ink:#16233a;--soft:#5b6779;--line:#e2e7ef;--line2:#eef1f6;
+   --nav:#0f2440;--azul:#1f5fe0;--azul-s:#e3ecfd;--ve:#157f4a;--ve-s:#d8f2e3;--am:#a15c07;--am-s:#fcebd0}
+ body{width:430px;background:var(--fondo);font-family:'Inter',system-ui,sans-serif;font-size:14px;color:var(--ink)}
+ .ej{background:var(--azul-s);color:var(--azul);text-align:center;font-size:10.5px;font-weight:700;
+   letter-spacing:.07em;text-transform:uppercase;padding:7px 8px}
+ .barra{background:var(--nav);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+ .barra b{font-size:15px}.barra span{font-size:12px;color:#b8c7dc;white-space:nowrap}
+ .cnt{padding:16px;display:flex;flex-direction:column;gap:14px}
+ h1{font-size:19px;font-weight:700;letter-spacing:-.01em}
+ .chips{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+ .chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+ .chip.leida{background:var(--ve-s);color:var(--ve)}
+ .chip.leida::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ve)}
+ .chip.tipo{background:var(--azul-s);color:var(--azul)}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+ .ch{padding:12px 16px;border-bottom:1px solid var(--line);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+ .dato{padding:11px 16px;border-bottom:1px solid var(--line2);display:flex;justify-content:space-between;gap:16px}
+ .dato:last-child{border-bottom:0}
+ .dato small{font-size:12.5px;color:var(--soft);flex:none}
+ .dato b{font-size:13.5px;font-weight:600;text-align:right}
+ .dato.marca{background:#fffbea}
+ .item{padding:11px 16px;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:1fr auto;gap:3px 12px;align-items:start}
+ .item b{font-size:13.5px;font-weight:600;line-height:1.3}
+ .item small{font-size:12.5px;color:var(--soft)}
+ .item span{font-size:13.5px;font-weight:600;grid-row:span 2;padding-top:1px}
+ .sub{padding:7px 16px;display:flex;justify-content:space-between;font-size:13px;color:var(--soft)}
+ .tot{padding:10px 16px 13px;display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+ .paso{display:grid;grid-template-columns:24px 1fr;gap:12px;padding:11px 16px}
+ .paso .b{width:24px;height:24px;border-radius:50%;border:2.5px solid var(--line);display:grid;place-items:center}
+ .paso.ok .b{background:var(--ve);border-color:var(--ve)}
+ .paso.va .b{border-color:var(--am);background:var(--am-s)}
+ .paso b{display:block;font-size:14px;font-weight:600}.paso.va b{color:var(--am)}
+ .paso span{display:block;font-size:12.5px;color:var(--soft);margin-top:2px;line-height:1.4}
+ .mes{display:grid;grid-template-columns:repeat(3,1fr)}
+ .mes div{padding:12px 14px;border-right:1px solid var(--line2)}.mes div:last-child{border-right:0}
+ .mes small{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);font-weight:700}
+ .mes b{display:block;font-size:19px;font-weight:700;margin-top:4px}
+ .nota{font-size:11.5px;color:var(--soft);line-height:1.45;padding:0 4px 4px}
+</style></head><body>
+ <div class="ej">Ejemplo con datos inventados</div>
+ <div class="barra"><b>Tu empresa</b><span>60 órdenes en noviembre</span></div>
+ <div class="cnt">
+   <div>
+     <h1>Orden de compra 4821-366-AG26</h1>
+     <div class="chips"><span class="chip tipo">Compra Ágil</span><span class="chip leida">Leída por la IA</span></div>
+   </div>
+   <div class="card">
+     <div class="ch">Lo que dice la orden</div>
+     <div class="dato"><small>Organismo</small><b>Hospital Demo del Sur</b></div>
+     <div class="dato"><small>Unidad de compra</small><b>Abastecimiento</b></div>
+     <div class="dato"><small>Enviada</small><b>18 de noviembre</b></div>
+     <div class="dato marca"><small>Pago</small><b>30 días contra la recepción conforme de la factura</b></div>
+   </div>
+   <div class="card">
+     <div class="ch">Qué pidieron</div>
+     <div class="item"><b>Sonda Foley 2 vías 16 Fr</b><span>$230.000</span><small>200 × $1.150</small></div>
+     <div class="item"><b>Jeringa desechable 10 ml</b><span>$95.000</span><small>1.000 × $95</small></div>
+     <div class="item"><b>Apósito transparente 10 × 12 cm</b><span>$126.000</span><small>300 × $420</small></div>
+     <div class="sub"><span>Neto</span><span>$451.000</span></div>
+     <div class="sub"><span>IVA</span><span>$85.690</span></div>
+     <div class="tot"><span>Total</span><span>$536.690</span></div>
+   </div>
+   <div class="card">
+     <div class="ch">Lo que sigue</div>
+     <div class="paso ok"><span class="b"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Aceptada en Mercado Público</b><span>18 de noviembre</span></div></div>
+     <div class="paso va"><span class="b"></span><div><b>Despacho</b><span>Avisa si pasan los días y todavía no sale</span></div></div>
+     <div class="paso "><span class="b"></span><div><b>Factura</b><span>Lista para emitir con los datos de la orden</span></div></div>
+     <div class="paso "><span class="b"></span><div><b>Cobro</b><span>30 días contra la recepción conforme de la factura. Si se pasa del plazo, aparece como vencida</span></div></div>
+   </div>
+   <div class="card">
+     <div class="ch">Sus órdenes de noviembre</div>
+     <div class="mes">
+       <div><small>Órdenes</small><b>60</b></div>
+       <div><small>Organismos</small><b>41</b></div>
+       <div><small>Horas a mano</small><b>~10</b></div>
+     </div>
+   </div>
+   <p class="nota">Ejemplo con datos inventados. Las horas son una estimación: unos 10 minutos
+   por orden.</p>
+ </div>
+</body></html>

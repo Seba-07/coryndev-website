@@ -46,35 +46,214 @@ FICHAS = {
     '{WA_MP}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
         'Hola CORYN, quiero ver una de mis órdenes de compra de Mercado Público '
         'anotada en el sistema.', safe=''),
-    # El boton bajo la calculadora. JS_HORAS cambia el texto por uno que dice
-    # cuantas ordenes eligio la persona; este queda si no hay JavaScript.
-    '{WA_HORAS}': f'https://wa.me/{S.WA_NUM}?text=' + quote(
-        'Hola CORYN, quiero saber cuántas horas me ahorraría el sistema con mis '
-        'órdenes de compra de Mercado Público.', safe=''),
 }
 
-# mercado-publico.html: cuantas horas al mes se van en las ordenes, a unos 10
-# minutos cada una. Sin JS queda el resultado para 60 ordenes, que ya viene escrito.
-JS_HORAS = '''<script>
-(function () {
-  var r = document.getElementById('ordenes');
-  if (!r) return;
-  var n = document.getElementById('ordenes-n'), h = document.getElementById('horas-n'),
-      d = document.getElementById('horas-dias'), wa = document.getElementById('horas-wa');
-  function pintar () {
-    var ordenes = +r.value, horas = Math.round(ordenes * 10 / 60), dias = Math.round(horas / 8);
-    n.textContent = ordenes;
-    h.textContent = (horas === 1 ? 'Una hora' : 'Unas ' + horas + ' horas');
-    d.textContent = dias >= 2 ? ', unos ' + dias + ' días de trabajo,' : '';
-    // El mensaje de WhatsApp lleva el numero elegido. El codigo ?ref= se agrega
-    // al hacer clic (sitio.js), asi que aqui el enlace se rearma limpio.
-    if (wa) wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(
-      'Hola CORYN, me llegan unas ' + ordenes + ' órdenes de compra de Mercado Público al mes. ' +
-      '¿Cuántas horas me ahorraría el sistema?');
-  }
-  r.addEventListener('input', pintar);
-  pintar();
-})();
+# mercado-publico.html. Cuatro piezas, todas con salida digna si algo falla:
+# la cuenta de horas, la pantalla que cambia de estado al recorrer la vida de
+# una orden, el boton fijo del celular y la demostracion de la portada (esta
+# ultima solo con GSAP y si la persona no pidio menos movimiento).
+JS_MP = '''<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var d = document, raiz = d.documentElement;
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- cuanto tiempo devuelve ---------- */
+  (function () {
+    var chips = [].slice.call(d.querySelectorAll('.lp-chips button'));
+    if (!chips.length) return;
+    var num = d.getElementById('horas-n'), frase = d.getElementById('horas-frase'),
+        dias = d.getElementById('horas-dias'), wa = d.getElementById('horas-wa');
+    var bloques = [], mostrado = { v: +num.textContent };
+    for (var i = 0; i < 7; i++) { var b = d.createElement('i'); dias.appendChild(b); bloques.push(b); }
+    function pinta (ordenes, animar) {
+      var horas = Math.round(ordenes * 10 / 60), jornadas = horas / 8;
+      bloques.forEach(function (b, i) {
+        b.style.setProperty('--lleno', Math.max(0, Math.min(1, jornadas - i)).toFixed(2));
+      });
+      var enteros = Math.floor(jornadas), resto = jornadas - enteros;
+      frase.textContent = jornadas < 1
+        ? 'Son pocas horas, pero cada orden olvidada es un despacho atrasado o un cobro que se pasa.'
+        : (resto >= 0.2 ? 'Más de ' : 'Unos ') + enteros + (enteros === 1 ? ' día' : ' días') +
+          ' de trabajo que nadie tendría que pasar copiando órdenes.';
+      if (animar && window.gsap && !quieto) {
+        window.gsap.to(mostrado, { v: horas, duration: 0.6, ease: 'power2.out', overwrite: true,
+          onUpdate: function () { num.textContent = Math.round(mostrado.v); } });
+      } else { mostrado.v = horas; num.textContent = horas; }
+      // El mensaje de WhatsApp lleva el numero elegido. El codigo ?ref= se agrega
+      // al hacer clic (sitio.js), asi que aqui el enlace se rearma limpio.
+      if (wa) wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(
+        'Hola CORYN, me llegan unas ' + ordenes + ' órdenes de compra de Mercado Público al mes. ' +
+        'Quiero ver una de mis órdenes anotada en el sistema.');
+    }
+    function elige (b, animar) {
+      chips.forEach(function (x) {
+        x.setAttribute('aria-checked', x === b ? 'true' : 'false');
+        x.tabIndex = x === b ? 0 : -1;
+      });
+      pinta(+b.getAttribute('data-n'), animar);
+    }
+    chips.forEach(function (b, i) {
+      b.addEventListener('click', function () { elige(b, true); });
+      b.addEventListener('keydown', function (e) {
+        var k = e.key, j = (k === 'ArrowRight' || k === 'ArrowDown') ? i + 1
+                         : (k === 'ArrowLeft' || k === 'ArrowUp') ? i - 1 : -1;
+        if (j < 0 || j >= chips.length) return;
+        e.preventDefault(); chips[j].focus(); elige(chips[j], true);
+      });
+    });
+    elige(chips.filter(function (b) { return b.getAttribute('aria-checked') === 'true'; })[0] || chips[0], false);
+  })();
+
+  /* ---------- la vida de una orden ---------- */
+  (function () {
+    var orden = d.querySelector('.lp-orden'), fija = d.querySelector('.lp-fija'),
+        pasos = [].slice.call(d.querySelectorAll('.lp-paso'));
+    if (!orden || !fija || !pasos.length) return;
+    raiz.classList.add('js-vida');
+    var pendiente = false, actual = 0;
+    function mide () {
+      pendiente = false;
+      var alto = window.innerHeight;
+      // En el celular la pantalla queda fija arriba: el paso activo es el que se
+      // lee en el espacio que queda debajo de ella.
+      var foco = window.innerWidth < 900 ? (Math.min(fija.getBoundingClientRect().bottom, alto) + alto) / 2 : alto / 2;
+      var mejor = 0, dist = Infinity;
+      pasos.forEach(function (p, i) {
+        var r = p.getBoundingClientRect(), x = Math.abs((r.top + r.bottom) / 2 - foco);
+        if (x < dist) { dist = x; mejor = i; }
+      });
+      if (mejor + 1 === actual) return;
+      actual = mejor + 1;
+      orden.setAttribute('data-paso', actual);
+      pasos.forEach(function (p, i) { p.classList.toggle('activo', i === mejor); });
+    }
+    function pide () { if (!pendiente) { pendiente = true; requestAnimationFrame(mide); } }
+    window.addEventListener('scroll', pide, { passive: true });
+    window.addEventListener('resize', pide);
+    mide();
+  })();
+
+  /* ---------- el boton que acompana en el celular ----------
+     Se retira donde ya hay un boton a la vista (la cuenta, la oferta) y mientras
+     se lee la secuencia de la orden, que necesita el alto completo. */
+  (function () {
+    var barra = d.querySelector('.lp-barra');
+    if (!barra || !('IntersectionObserver' in window)) return;
+    var motivos = {};
+    function pone () {
+      var fuera = false;
+      for (var k in motivos) if (motivos[k]) fuera = true;
+      barra.classList.toggle('fuera', fuera);
+    }
+    function mira (clave, sel, opciones, hastaElFinal) {
+      var el = d.querySelector(sel);
+      if (!el) return;
+      new IntersectionObserver(function (es) {
+        var e = es[0];
+        motivos[clave] = e.isIntersecting || (hastaElFinal && e.boundingClientRect.top < 0);
+        pone();
+      }, opciones || {}).observe(el);
+    }
+    mira('oferta', '.lp-oferta', { rootMargin: '0px 0px -25% 0px' }, true);
+    mira('cuenta', '#horas-wa');
+    mira('vida', '.lp-vida-grid', { rootMargin: '-45% 0px -45% 0px' });
+  })();
+
+  /* ---------- la portada: la orden entra sola ----------
+     Llega el aviso de una orden, el sistema lo lee (resaltado azul), los datos
+     viajan a la hoja y la fila queda anotada. Tres ordenes y se repite; se
+     detiene fuera de pantalla. Sin esto, la hoja se ve completa. */
+  (function () {
+    var demo = d.querySelector('.lp-demo');
+    if (!demo) return;
+    if (quieto || !window.gsap || !window.ScrollTrigger || !raiz.classList.contains('mov')) { demo.classList.add('quieta'); return; }
+    try {
+    var gsap = window.gsap, ST = window.ScrollTrigger;
+    var aviso = demo.querySelector('.lp-aviso'), barra = aviso.querySelector('.lectura'),
+        filas = [].slice.call(demo.querySelectorAll('.lp-fila')),
+        cuenta = demo.querySelector('.lp-cuenta'), sello = demo.querySelector('.lp-sello'),
+        nuevas = demo.querySelector('.lp-nuevas'), campo = {};
+    function anota (n) {
+      cuenta.textContent = base + n;
+      if (nuevas) nuevas.textContent = n === 0 ? 'Sin órdenes nuevas todavía' : n === 1 ? '1 orden nueva hoy' : n + ' órdenes nuevas hoy';
+    }
+    ['oc', 'org', 'total', 'prod'].forEach(function (k) { campo[k] = aviso.querySelector('[data-campo="' + k + '"]'); });
+    var base = parseInt(cuenta.textContent, 10) - filas.length;
+    var viajes = [0, 1, 2].map(function () {
+      var s = d.createElement('span');
+      s.className = 'viaje'; s.setAttribute('aria-hidden', 'true');
+      demo.appendChild(s);
+      return s;
+    });
+
+    function carga (i) {
+      ['oc', 'org', 'total', 'prod'].forEach(function (k) { campo[k].textContent = filas[i].getAttribute('data-' + k); });
+      aviso.classList.remove('leido');
+    }
+    function reinicia () {
+      filas.forEach(function (f) {
+        f.classList.remove('llena', 'recien');
+        [].forEach.call(f.cells, function (c) { c.classList.remove('puesto'); });
+      });
+      anota(0);
+      gsap.set(sello, { opacity: 0 });
+    }
+    function vuela (i, k, n) {
+      var destino = filas[i].querySelector('[data-celda="' + k + '"]');
+      if (!destino || !destino.offsetParent) return;   // columna oculta en el celular
+      var v = viajes[n], r0 = demo.getBoundingClientRect(),
+          a = campo[k].getBoundingClientRect(), b = destino.getBoundingClientRect();
+      v.textContent = campo[k].textContent;
+      var hasta = k === 'total' ? b.right - r0.left - v.offsetWidth - 8 : b.left - r0.left + 4;
+      gsap.timeline()
+        .fromTo(v, { x: a.left - r0.left, y: a.top - r0.top - 3, opacity: 0, scale: 0.9 },
+                   { opacity: 1, scale: 1, duration: 0.16, ease: 'power2.out' })
+        .to(v, { x: hasta, y: b.top - r0.top + 3, duration: 0.62, ease: 'power3.inOut' })
+        .call(function () { destino.classList.add('puesto'); })
+        .to(v, { opacity: 0, duration: 0.18 });
+    }
+
+    var paso = 3.1, tl = gsap.timeline({ repeat: -1, paused: true });
+    tl.call(reinicia, null, 0);
+    filas.forEach(function (f, i) {
+      var t = 0.25 + i * paso;
+      tl.call(carga, [i], t)
+        .fromTo(aviso, { x: 0, y: -30, rotation: -5, opacity: 0 },
+                       { x: 0, y: 0, rotation: -1.4, opacity: 1, duration: 0.7, ease: 'expo.out' }, t + 0.02)
+        .fromTo(barra, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.55, ease: 'power2.inOut' }, t + 0.7)
+        .call(function () { aviso.classList.add('leido'); }, null, t + 1.25)
+        .to(barra, { opacity: 0, duration: 0.25 }, t + 1.27)
+        .call(vuela, [i, 'org', 0], t + 1.35)
+        .call(vuela, [i, 'oc', 1], t + 1.5)
+        .call(vuela, [i, 'total', 2], t + 1.65)
+        .call(function () {
+          [].forEach.call(f.cells, function (c) { c.classList.add('puesto'); });
+          f.classList.add('llena', 'recien');
+          anota(i + 1);
+          gsap.fromTo(cuenta.parentNode, { scale: 1.18 }, { scale: 1, duration: 0.45, ease: 'expo.out' });
+          setTimeout(function () { f.classList.remove('recien'); }, 900);
+        }, null, t + 2.5);
+      // El ultimo aviso se queda a la vista, ya leido, hasta que el ciclo vuelve a empezar.
+      if (i < filas.length - 1) tl.to(aviso, { x: -26, opacity: 0, duration: 0.3, ease: 'power2.in' }, t + 2.7);
+    });
+    var fin = 0.25 + filas.length * paso;
+    tl.fromTo(sello, { opacity: 0, scale: 1.5, rotation: -6 },
+                     { opacity: 1, scale: 1, rotation: -6, duration: 0.28, ease: 'power3.in' }, fin)
+      .to(aviso, { x: -26, opacity: 0, duration: 0.3, ease: 'power2.in' }, fin + 2.9)
+      .to(sello, { opacity: 0, duration: 0.3 }, fin + 2.9);
+
+    demo.classList.add('viva');
+    reinicia();
+    ST.create({
+      trigger: demo, start: 'top bottom', end: 'bottom top',
+      onToggle: function (s) { if (s.isActive && !d.hidden) tl.play(); else tl.pause(); }
+    });
+    d.addEventListener('visibilitychange', function () {
+      if (d.hidden) tl.pause(); else if (ST.isInViewport(demo)) tl.play();
+    });
+    } catch (err) { demo.classList.remove('viva'); demo.classList.add('quieta'); }
+  })();
+});
 </script>'''
 
 JS_FORMULARIO = '''<script>
@@ -271,8 +450,9 @@ PAGINAS = [
         cierre=False,
     ),
     dict(
-        # La pagina de los mensajes a proveedores del Estado. Como correo.html:
-        # fuera del menu, un solo boton y la pantalla grande bajo el titulo.
+        # La pagina de venta para proveedores del Estado: la enlazan los mensajes.
+        # Fuera del menu, con su propia portada (la demostracion viva), un pie
+        # minimo y un solo pedido: ver una de tus ordenes.
         slug='mercado-publico',
         titulo='Órdenes de compra de Mercado Público, anotadas solas | CORYN',
         desc='Para proveedores del Estado: un sistema con IA que lee las órdenes de '
@@ -280,15 +460,12 @@ PAGINAS = [
              'Tú solo revisas y apruebas. Lo que hicimos para bySIMMED.',
         activa='',
         landing=True,
+        pie_minimo=True,
         og_img='assets/og-mercado-publico.jpg',
-        cabecera=dict(titulo='Tus órdenes de compra, anotadas solas.',
-                      bajada='Llega una orden de Mercado Público y la IA la lee, la anota y '
-                             'te avisa qué falta despachar, facturar y cobrar. Tú solo '
-                             'revisas y apruebas.',
-                      nombre='Para proveedores del Estado',
-                      acciones='<a class="enlace" href="#horas">Calcular cuánto tiempo me ahorra {FLECHA}</a>'),
+        cabecera=None,
+        nombre='Para proveedores del Estado',
         cierre=False,
-        js_extra=JS_HORAS,
+        js_extra=JS_MP,
     ),
 ]
 
@@ -524,7 +701,7 @@ def construir_paginas():
             partes.append(S.cierre(**cierre))
         ld = []
         if p['slug'] not in ('index', '404'):
-            ld.append(migas_ld([('Inicio', 'index.html'), (c['nombre'], None)]))
+            ld.append(migas_ld([('Inicio', 'index.html'), ((c or p)['nombre'], None)]))
         if p['slug'] in ('contacto', 'precios'):
             faq = faq_ld(cuerpo)
             if faq:
@@ -541,6 +718,7 @@ def construir_paginas():
             preload=p.get('preload', ()),
             og_img=p.get('og_img', 'assets/og.jpg'),
             landing=p.get('landing', False),
+            pie_minimo=p.get('pie_minimo', False),
         )
         if p['slug'] == '404':
             # que los buscadores no la guarden como si fuera contenido

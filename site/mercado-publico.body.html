@@ -1,116 +1,257 @@
-<!-- Pagina para los mensajes a proveedores de Mercado Publico. Fuera del menu y
-     con un solo boton, a WhatsApp, al final. Todo lo de arriba son pantallas:
-     la primera es de ejemplo; las de bySIMMED son recreaciones con datos
-     inventados. -->
+<!-- Pagina de venta para proveedores de Mercado Publico. Fuera del menu.
+     La portada es el sistema trabajando: una orden llega, se lee y queda anotada.
+     Todas las pantallas llevan datos inventados; las de bySIMMED son recreaciones.
+     El movimiento vive en JS_MP (build_site.py) y en sitio.js. -->
 
-<!-- ================= LA PANTALLA ================= -->
-<section class="mp-pantalla">
-  <div class="wrap">
-    <figure class="posar">
-      <div class="hoja">
-        <!-- En el celular, la misma orden en una columna: la ancha no se lee. -->
-        <picture>
-          <source media="(max-width: 640px)" srcset="assets/mp-orden-movil.webp" width="860" height="1908">
-          <img src="assets/mp-orden.webp" width="1400" height="875"
-               alt="Una orden de compra de Compra Ágil leída del correo: el hospital que la envió, la fecha de entrega, los productos cruzados con el stock de bodega y los pasos que siguen hasta el cobro">
-        </picture>
+<!-- ================= PORTADA: LA ORDEN ENTRA SOLA ================= -->
+<section class="lp-portada">
+  <div class="wrap lp-portada-grid">
+    <h1>Tus órdenes de Mercado Público, anotadas solas<span class="punto">.</span></h1>
+    <p class="bajada">La IA lee cada orden apenas llega, la anota y te avisa qué falta
+    despachar, facturar y cobrar. Tú solo revisas y apruebas.</p>
+
+    <div class="lp-demo" role="img"
+         aria-label="Ejemplo con datos inventados: llegan tres órdenes de compra de Mercado Público y el sistema las anota solas en la hoja de órdenes del mes">
+      <div class="hoja lp-aviso">
+        <div class="hoja-barra"><span>Mercado Público</span><small>Nueva orden de compra</small></div>
+        <div class="lp-aviso-cuerpo">
+          <p class="lp-aviso-oc">Orden <b class="cifra" data-campo="oc">4821-366-AG26</b></p>
+          <p><b class="cifra" data-campo="org">Hospital Demo del Sur</b> · <span data-campo="prod">3 productos</span></p>
+          <p>Total <b class="cifra" data-campo="total">$536.690</b> · pago a 30 días</p>
+        </div>
+        <span class="lectura"></span>
       </div>
-      <figcaption><span class="ejemplo">Una orden de Compra Ágil que llegó al correo, leída por la IA y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
-    </figure>
+
+      <div class="hoja lp-ordenes">
+        <div class="hoja-barra"><span>Órdenes de noviembre</span><span class="folio"><b class="lp-cuenta">40</b> anotadas</span></div>
+        <table class="tabla">
+          <thead><tr><th>Organismo</th><th class="lp-col-oc">Orden</th><th class="n">Total</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr class="lp-fila" data-oc="4821-366-AG26" data-org="Hospital Demo del Sur" data-total="$536.690" data-prod="3 productos">
+              <td data-celda="org">Hospital Demo del Sur</td><td class="lp-col-oc" data-celda="oc">4821-366-AG26</td><td class="n" data-celda="total">$536.690</td><td><span class="estado ok">Anotada</span></td></tr>
+            <tr class="lp-fila" data-oc="2207-91-AG26" data-org="CESFAM Ejemplo Norte" data-total="$184.450" data-prod="2 productos">
+              <td data-celda="org">CESFAM Ejemplo Norte</td><td class="lp-col-oc" data-celda="oc">2207-91-AG26</td><td class="n" data-celda="total">$184.450</td><td><span class="estado ok">Anotada</span></td></tr>
+            <tr class="lp-fila" data-oc="1630-512-AG26" data-org="Hospital Demo Centro" data-total="$1.240.000" data-prod="5 productos">
+              <td data-celda="org">Hospital Demo Centro</td><td class="lp-col-oc" data-celda="oc">1630-512-AG26</td><td class="n" data-celda="total">$1.240.000</td><td><span class="estado ok">Anotada</span></td></tr>
+            <tr class="lp-vieja"><td>Clínica Ejemplo</td><td class="lp-col-oc">0915-204-AG26</td><td class="n">$92.300</td><td><span class="estado">Despachada</span></td></tr>
+            <tr class="lp-vieja"><td>Consultorio Demo</td><td class="lp-col-oc">3310-77-AG26</td><td class="n">$318.900</td><td><span class="estado">Por cobrar</span></td></tr>
+          </tbody>
+        </table>
+        <div class="lp-ordenes-pie"><span class="lp-nuevas">3 órdenes nuevas hoy</span><span class="timbre timbre-chico lp-sello" aria-hidden="true">Nadie<br>las copió</span></div>
+      </div>
+      <p class="ejemplo">Datos de ejemplo</p>
+    </div>
+
+    <div class="acciones lp-portada-acciones">
+      <a class="btn btn-wa" href="{WA_MP}" target="_blank" rel="noopener">{WA_SVG}Quiero ver una de mis órdenes</a>
+      <p class="lp-gratis">Sin costo. Tus órdenes son públicas: no tienes que mandarnos nada.</p>
+    </div>
   </div>
 </section>
 
 <!-- ================= HOY ================= -->
-<section class="seccion" style="padding-top:0">
+<section class="seccion lp-hoy">
+  <div class="wrap lp-hoy-grid">
+    <div class="cabeza-seccion">
+      <h2>Hoy, cada orden depende de que alguien se acuerde.</h2>
+      <p class="bajada">Copiarla a la planilla, preguntar si salió el despacho, facturar,
+      cobrar a los 30 días. Con decenas de órdenes al mes, alguna se pasa.</p>
+    </div>
+    <div class="lp-mesa">
+      <figure class="marco-video posar" style="--ar:4/3">
+        <video class="vid" muted loop playsinline preload="none" poster="assets/vid-bodega.webp" aria-hidden="true">
+          <source src="assets/vid-bodega.webm" type="video/webm">
+          <source src="assets/vid-bodega.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Se nos pasó el plazo de entrega</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Esa factura nunca se emitió</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Nos deben desde octubre</span></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LA VIDA DE UNA ORDEN =================
+     La pantalla queda fija y cambia de estado mientras pasan los cuatro pasos. -->
+<section class="seccion lp-vida">
   <div class="wrap">
     <div class="cabeza-seccion">
-      <h2>Hoy, cada orden es trabajo a mano.</h2>
+      <h2>El sistema la sigue hasta el cobro.</h2>
     </div>
-    <div class="tres-notas">
-      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Copiar la orden a la planilla</span></span></span>
-      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Preguntar si ya se despachó</span></span></span>
-      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Acordarse de cobrar a los 30 días</span></span></span>
+    <div class="lp-vida-grid">
+      <div class="lp-fija">
+        <div class="hoja lp-orden" data-paso="1" role="img"
+             aria-label="Ejemplo con datos inventados: una orden de compra en el sistema, que pasa de anotada a despachada, por facturar y por cobrar">
+          <div class="hoja-barra"><span>Orden 4821-366-AG26</span><span class="folio">Compra Ágil</span><small class="ejemplo lp-ej-chico">Datos de ejemplo</small></div>
+          <div class="lp-orden-cab">
+            <b>Hospital Demo del Sur</b>
+            <span>$536.690 · pago a 30 días</span>
+          </div>
+          <ol class="lp-linea" aria-hidden="true">
+            <li>Anotada</li><li>Despacho</li><li>Factura</li><li>Cobro</li>
+          </ol>
+          <div class="lp-capas">
+            <div class="lp-capa" data-capa="1">
+              <ul class="lp-items">
+                <li><span>Sonda Foley 2 vías 16 Fr</span><b>200</b><i class="estado ok">SF-16</i></li>
+                <li><span>Jeringa desechable 10 ml</span><b>1.000</b><i class="estado ok">JR-10</i></li>
+                <li><span>Apósito transparente 10 × 12</span><b>300</b><i class="estado ok">AP-1012</i></li>
+              </ul>
+              <p class="lp-estado-nota">Leída por la IA hace 3 minutos. Cada producto, con tu código.</p>
+            </div>
+            <div class="lp-capa" data-capa="2">
+              <p class="lp-alerta"><b>Sin despachar hace 3 días</b><span>Aceptada el miércoles 18. Todavía no sale de bodega.</span></p>
+              <span class="lp-boton-falso">Marcar como despachada</span>
+            </div>
+            <div class="lp-capa" data-capa="3">
+              <p class="lp-alerta lp-alerta-ok"><b>El hospital confirmó la recepción</b><span>Lunes 30. Ya se puede facturar.</span></p>
+              <dl class="lp-datos">
+                <div><dt>Por facturar</dt><dd>$536.690</dd></div>
+                <div><dt>A nombre de</dt><dd>Hospital Demo del Sur</dd></div>
+              </dl>
+            </div>
+            <div class="lp-capa" data-capa="4">
+              <p class="lp-alerta"><b>Vencida hace 5 días</b><span>Facturada el 1 de diciembre. Debió pagarse el 31.</span></p>
+              <dl class="lp-datos">
+                <div><dt>Por cobrar este mes</dt><dd>$4.870.000</dd></div>
+                <div><dt>Vencidas</dt><dd>2 órdenes</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <p class="ejemplo">Pantalla de ejemplo con datos inventados</p>
+      </div>
+
+      <ol class="lp-pasos">
+        <li class="lp-paso" data-paso="1">
+          <h3>Entra sola</h3>
+          <p>La orden llega de Mercado Público y queda anotada con su organismo, sus
+          productos, sus montos y su forma de pago. La IA calza cada producto con tu
+          catálogo.</p>
+        </li>
+        <li class="lp-paso" data-paso="2">
+          <h3>Te avisa lo que no ha salido</h3>
+          <p>Si una orden lleva días sin despacharse, aparece arriba. Cuando sale, alguien
+          la marca con un clic.</p>
+        </li>
+        <li class="lp-paso" data-paso="3">
+          <h3>Te recuerda facturar</h3>
+          <p>Apenas el organismo confirma la recepción, la orden pasa a “por facturar”, con
+          todos sus datos a la vista.</p>
+        </li>
+        <li class="lp-paso" data-paso="4">
+          <h3>No se te pasa un cobro</h3>
+          <p>Cuenta los días de pago por ti. Si una factura se vence, lo ves ese mismo
+          día, no a fin de mes.</p>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
 <!-- ================= CUANTO TIEMPO ================= -->
-<section class="seccion" style="padding-top:0" id="horas">
-  <div class="wrap">
-    <div class="horas hoja posar">
+<section class="lp-horas" id="horas">
+  <div class="wrap lp-horas-grid">
+    <div class="lp-horas-pregunta">
       <h2>Cuánto tiempo te devuelve.</h2>
-      <label for="ordenes">¿Cuántas órdenes de compra te llegan al mes?</label>
-      <div class="horas-control">
-        <input type="range" id="ordenes" min="10" max="300" step="5" value="60">
-        <output id="ordenes-n" for="ordenes">60</output>
+      <p class="lp-pregunta" id="ordenes-p">¿Cuántas órdenes de compra te llegan al mes?</p>
+      <div class="lp-chips" role="radiogroup" aria-labelledby="ordenes-p">
+        <button type="button" role="radio" aria-checked="false" data-n="30">30</button>
+        <button type="button" role="radio" aria-checked="true" data-n="60">60</button>
+        <button type="button" role="radio" aria-checked="false" data-n="100">100</button>
+        <button type="button" role="radio" aria-checked="false" data-n="150">150</button>
+        <button type="button" role="radio" aria-checked="false" data-n="200">200</button>
+        <button type="button" role="radio" aria-checked="false" data-n="300">300</button>
       </div>
-      <p class="horas-resultado"><b id="horas-n">Unas 10 horas</b> al mes<span id="horas-dias"></span>
-      que nadie tendría que pasar copiando órdenes, siguiendo despachos y acordándose de
-      cobrar.</p>
-      <p class="horas-nota">Calculado con unos 10 minutos por orden. Con el sistema, la IA hace
-      ese trabajo y a ti te queda revisar y aprobar.</p>
+      <p class="lp-nota">Es una estimación: unos 10 minutos por orden entre anotarla,
+      seguirla y cobrarla. Con tus órdenes reales lo medimos contigo.</p>
+    </div>
+    <div class="lp-resultado">
+      <p class="lp-cifra"><b id="horas-n">10</b><span>horas al mes</span></p>
+      <div class="lp-dias" id="horas-dias" aria-hidden="true"></div>
+      <p class="lp-leyenda" aria-hidden="true">Cada bloque es una jornada de 8 horas</p>
+      <p class="lp-frase" id="horas-frase" aria-live="polite">Más de 1 día de trabajo que nadie tendría que pasar copiando órdenes.</p>
       <!-- El script le pone al mensaje cuantas ordenes eligio la persona. -->
-      <a class="btn btn-wa" id="horas-wa" href="{WA_HORAS}" target="_blank" rel="noopener">{WA_SVG}Calcularlo con mis órdenes reales</a>
+      <a class="btn btn-blanco" id="horas-wa" href="{WA_MP}" target="_blank" rel="noopener">{WA_SVG}Quiero ver una de mis órdenes</a>
     </div>
   </div>
 </section>
 
 <!-- ================= BYSIMMED ================= -->
-<section class="prueba seccion">
+<section class="prueba seccion lp-prueba">
   <div class="wrap">
     <div class="prueba-cabeza">
-      <h2>Lo hicimos para bySIMMED.</h2>
-      <p class="bajada">Un fabricante chileno de simuladores médicos. Las órdenes de compra,
-      las facturas y los pagos le llegaban por correo y se cruzaban a mano. Hoy el
-      sistema los lee y una persona confirma con un clic.</p>
+      <h2>Ya funciona en una empresa real.</h2>
+      <p class="bajada">bySIMMED fabrica simuladores médicos en Chile y usa el sistema todos
+      los días: lee las órdenes de compra que le llegan por correo y sigue cada venta
+      hasta el cobro. Contigo partimos por lo primero: que tus órdenes entren solas y no
+      se te pase un despacho, una factura ni un cobro.</p>
     </div>
-    <div class="mp-capturas">
+    <div class="lp-tira" role="group" aria-label="Pantallas del sistema de bySIMMED, con datos de ejemplo">
       <figure class="posar">
-        <div class="hoja">
-          <picture>
-            <source media="(max-width: 640px)" srcset="assets/bysimmed-bandeja-movil.webp" width="860" height="1818">
-            <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" loading="lazy"
-                 alt="Inicio de administración del sistema de bySIMMED, con lo que llegó por correo ya leído: una orden de compra, una factura, un pago y un despacho">
-          </picture>
-        </div>
-        <figcaption><span class="ejemplo">Lo que llegó por correo, ya leído. Cada cosa espera un clic. Pantalla con datos de ejemplo.</span></figcaption>
+        <div class="hoja"><img src="assets/bysimmed-p-correo.webp" width="860" height="1260" loading="lazy"
+             alt="Un correo con una orden de compra adjunta y, debajo, lo que el sistema leyó de él"></div>
+        <figcaption>Lee el correo y lo deja anotado</figcaption>
       </figure>
       <figure class="posar">
-        <div class="hoja">
-          <picture>
-            <source media="(max-width: 640px)" srcset="assets/bysimmed-venta-movil.webp" width="860" height="1134">
-            <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
-                 alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
-          </picture>
-        </div>
-        <figcaption><span class="ejemplo">Cada venta en una pantalla, de la cotización al cobro. Pantalla con datos de ejemplo.</span></figcaption>
+        <div class="hoja"><img src="assets/bysimmed-venta-movil.webp" width="860" height="1134" loading="lazy"
+             alt="Una venta con su avance de la cotización al cobro"></div>
+        <figcaption>Cada venta, de la cotización al cobro</figcaption>
+      </figure>
+      <figure class="posar">
+        <div class="hoja"><img src="assets/bysimmed-p-cobranza.webp" width="860" height="1300" loading="lazy"
+             alt="Tres facturas vencidas y el correo de cobranza de la más antigua, ya escrito"></div>
+        <figcaption>Muestra lo que falta cobrar</figcaption>
+      </figure>
+      <figure class="posar">
+        <div class="hoja"><img src="assets/bysimmed-p-taller.webp" width="860" height="1228" loading="lazy"
+             alt="El calendario del taller de la semana y el aviso de un insumo bajo el mínimo"></div>
+        <figcaption>El taller y la oficina miran lo mismo</figcaption>
       </figure>
     </div>
-    <div class="mp-voz">
+    <p class="ejemplo">Pantallas del sistema de bySIMMED, con datos de ejemplo</p>
+    <div class="lp-voz">
       <figure class="cita">
         <blockquote><p>{CITA_IVONNE}</p></blockquote>
         <figcaption>{FIRMA_IVONNE}</figcaption>
       </figure>
-      <a class="btn btn-blanco" href="caso-bysimmed-sistema.html">Ver el caso completo</a>
+      <a class="enlace enlace-claro" href="caso-bysimmed-sistema.html">Ver el caso completo {FLECHA}</a>
     </div>
   </div>
 </section>
 
-<!-- ================= LA OFERTA Y EL UNICO BOTON ================= -->
-<section class="correo-precio seccion" id="demo">
-  <div class="wrap">
-    <div class="correo-caja hoja posar">
+<!-- ================= LA OFERTA ================= -->
+<section class="seccion lp-oferta" id="demo">
+  <div class="wrap lp-oferta-grid">
+    <h2>Te muestro una de tus órdenes así.</h2>
+    <figure class="lp-muestra posar">
+      <div class="hoja"><img src="assets/mp-muestra.webp" width="860" height="2388" loading="lazy"
+           alt="Ejemplo de lo que recibes: una orden de compra anotada, con su organismo, sus productos, su forma de pago y las horas del mes"></div>
       <span class="timbre estampa" aria-hidden="true">Sin<br>costo</span>
-      <h2>Te mostramos una de tus órdenes así.</h2>
-      <p>Las órdenes de compra de Mercado Público son públicas. Escríbenos el nombre
-      de tu empresa y en 48 horas te mostramos una de las tuyas anotada en el
-      sistema, y cuántas horas al mes te ahorraría con tus órdenes reales. No tienes
-      que mandarnos nada.</p>
-      <p>Si después quieres el sistema, la primera etapa cuesta <a href="precios.html#incluye-sistema">$390.000
-      y 1 UF al mes</a>, e incluye que tus órdenes de Mercado Público entren solas. Lo
-      que venga después se cotiza y se cierra por escrito antes de programar.</p>
+      <figcaption><span class="ejemplo">Así es lo que te llega. Ejemplo con datos inventados.</span></figcaption>
+    </figure>
+    <div class="lp-oferta-texto">
+      <ol class="lp-como">
+        <li><b>Me dices el nombre de tu empresa.</b> Nada más: tus órdenes de Mercado
+        Público son públicas.</li>
+        <li><b>En 48 horas te llega</b> una de tus órdenes anotada, y cuántas horas al mes
+        te ahorraría.</li>
+        <li><b>Si te sirve, conversamos.</b> Si no, no te escribo más.</li>
+      </ol>
       <a class="btn btn-wa" href="{WA_MP}" target="_blank" rel="noopener">{WA_SVG}Quiero ver una de mis órdenes</a>
-      <p class="correo-alt">¿Prefieres el correo? Escríbenos a <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      <p class="correo-alt">¿Prefieres el correo? Responde el que te mandé o escribe a <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      <p class="lp-firma">Soy Sebastián, de CORYN. Yo programo el sistema y yo contesto este
+      WhatsApp.</p>
+      <p class="lp-letra">Si después quieres el sistema, la primera etapa cuesta
+      <a href="precios.html#incluye-sistema">$390.000 y 1 UF al mes</a>, e incluye que tus
+      órdenes de Mercado Público entren solas. Lo que venga después se cotiza y se cierra
+      por escrito antes de programar.</p>
     </div>
   </div>
 </section>
+
+<!-- El boton que acompana en el celular; JS_MP lo muestra pasada la portada. -->
+<div class="lp-barra">
+  <a class="btn btn-wa" href="{WA_MP}" target="_blank" rel="noopener">{WA_SVG}Ver una de mis órdenes</a>
+  <p>Sin costo. No tienes que mandarnos nada.</p>
+</div>

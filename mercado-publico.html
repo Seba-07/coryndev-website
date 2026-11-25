@@ -108,7 +108,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Caveat:wght@600;700&family=Schibsted+Grotesk:wght@400..700&display=swap">
-<link rel="stylesheet" href="estilos.css?v=ef8c7113">
+<link rel="stylesheet" href="estilos.css?v=a2624990">
 <script>
   (function (d) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -127,180 +127,271 @@
 </header>
 
 <main id="contenido">
-<section class="cabeza">
-  <div class="wrap cabeza-grid">
-    <div class="cabeza-texto">
-      <h1>Tus órdenes de compra, anotadas solas<span class="punto">.</span></h1>
-      <p class="bajada">Llega una orden de Mercado Público y la IA la lee, la anota y te avisa qué falta despachar, facturar y cobrar. Tú solo revisas y apruebas.</p>
-      <div class="acciones"><a class="enlace" href="#horas">Calcular cuánto tiempo me ahorra <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </div>
-  </div>
-</section>
+<!-- Pagina de venta para proveedores de Mercado Publico. Fuera del menu.
+     La portada es el sistema trabajando: una orden llega, se lee y queda anotada.
+     Todas las pantallas llevan datos inventados; las de bySIMMED son recreaciones.
+     El movimiento vive en JS_MP (build_site.py) y en sitio.js. -->
 
-<!-- Pagina para los mensajes a proveedores de Mercado Publico. Fuera del menu y
-     con un solo boton, a WhatsApp, al final. Todo lo de arriba son pantallas:
-     la primera es de ejemplo; las de bySIMMED son recreaciones con datos
-     inventados. -->
+<!-- ================= PORTADA: LA ORDEN ENTRA SOLA ================= -->
+<section class="lp-portada">
+  <div class="wrap lp-portada-grid">
+    <h1>Tus órdenes de Mercado Público, anotadas solas<span class="punto">.</span></h1>
+    <p class="bajada">La IA lee cada orden apenas llega, la anota y te avisa qué falta
+    despachar, facturar y cobrar. Tú solo revisas y apruebas.</p>
 
-<!-- ================= LA PANTALLA ================= -->
-<section class="mp-pantalla">
-  <div class="wrap">
-    <figure class="posar">
-      <div class="hoja">
-        <!-- En el celular, la misma orden en una columna: la ancha no se lee. -->
-        <picture>
-          <source media="(max-width: 640px)" srcset="assets/mp-orden-movil.webp" width="860" height="1908">
-          <img src="assets/mp-orden.webp" width="1400" height="875"
-               alt="Una orden de compra de Compra Ágil leída del correo: el hospital que la envió, la fecha de entrega, los productos cruzados con el stock de bodega y los pasos que siguen hasta el cobro">
-        </picture>
+    <div class="lp-demo" role="img"
+         aria-label="Ejemplo con datos inventados: llegan tres órdenes de compra de Mercado Público y el sistema las anota solas en la hoja de órdenes del mes">
+      <div class="hoja lp-aviso">
+        <div class="hoja-barra"><span>Mercado Público</span><small>Nueva orden de compra</small></div>
+        <div class="lp-aviso-cuerpo">
+          <p class="lp-aviso-oc">Orden <b class="cifra" data-campo="oc">4821-366-AG26</b></p>
+          <p><b class="cifra" data-campo="org">Hospital Demo del Sur</b> · <span data-campo="prod">3 productos</span></p>
+          <p>Total <b class="cifra" data-campo="total">$536.690</b> · pago a 30 días</p>
+        </div>
+        <span class="lectura"></span>
       </div>
-      <figcaption><span class="ejemplo">Una orden de Compra Ágil que llegó al correo, leída por la IA y anotada. Pantalla de ejemplo con datos inventados.</span></figcaption>
-    </figure>
+
+      <div class="hoja lp-ordenes">
+        <div class="hoja-barra"><span>Órdenes de noviembre</span><span class="folio"><b class="lp-cuenta">40</b> anotadas</span></div>
+        <table class="tabla">
+          <thead><tr><th>Organismo</th><th class="lp-col-oc">Orden</th><th class="n">Total</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr class="lp-fila" data-oc="4821-366-AG26" data-org="Hospital Demo del Sur" data-total="$536.690" data-prod="3 productos">
+              <td data-celda="org">Hospital Demo del Sur</td><td class="lp-col-oc" data-celda="oc">4821-366-AG26</td><td class="n" data-celda="total">$536.690</td><td><span class="estado ok">Anotada</span></td></tr>
+            <tr class="lp-fila" data-oc="2207-91-AG26" data-org="CESFAM Ejemplo Norte" data-total="$184.450" data-prod="2 productos">
+              <td data-celda="org">CESFAM Ejemplo Norte</td><td class="lp-col-oc" data-celda="oc">2207-91-AG26</td><td class="n" data-celda="total">$184.450</td><td><span class="estado ok">Anotada</span></td></tr>
+            <tr class="lp-fila" data-oc="1630-512-AG26" data-org="Hospital Demo Centro" data-total="$1.240.000" data-prod="5 productos">
+              <td data-celda="org">Hospital Demo Centro</td><td class="lp-col-oc" data-celda="oc">1630-512-AG26</td><td class="n" data-celda="total">$1.240.000</td><td><span class="estado ok">Anotada</span></td></tr>
+            <tr class="lp-vieja"><td>Clínica Ejemplo</td><td class="lp-col-oc">0915-204-AG26</td><td class="n">$92.300</td><td><span class="estado">Despachada</span></td></tr>
+            <tr class="lp-vieja"><td>Consultorio Demo</td><td class="lp-col-oc">3310-77-AG26</td><td class="n">$318.900</td><td><span class="estado">Por cobrar</span></td></tr>
+          </tbody>
+        </table>
+        <div class="lp-ordenes-pie"><span class="lp-nuevas">3 órdenes nuevas hoy</span><span class="timbre timbre-chico lp-sello" aria-hidden="true">Nadie<br>las copió</span></div>
+      </div>
+      <p class="ejemplo">Datos de ejemplo</p>
+    </div>
+
+    <div class="acciones lp-portada-acciones">
+      <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20quiero%20ver%20una%20de%20mis%20%C3%B3rdenes%20de%20compra%20de%20Mercado%20P%C3%BAblico%20anotada%20en%20el%20sistema." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Quiero ver una de mis órdenes</a>
+      <p class="lp-gratis">Sin costo. Tus órdenes son públicas: no tienes que mandarnos nada.</p>
+    </div>
   </div>
 </section>
 
 <!-- ================= HOY ================= -->
-<section class="seccion" style="padding-top:0">
+<section class="seccion lp-hoy">
+  <div class="wrap lp-hoy-grid">
+    <div class="cabeza-seccion">
+      <h2>Hoy, cada orden depende de que alguien se acuerde.</h2>
+      <p class="bajada">Copiarla a la planilla, preguntar si salió el despacho, facturar,
+      cobrar a los 30 días. Con decenas de órdenes al mes, alguna se pasa.</p>
+    </div>
+    <div class="lp-mesa">
+      <figure class="marco-video posar" style="--ar:4/3">
+        <video class="vid" muted loop playsinline preload="none" poster="assets/vid-bodega.webp" aria-hidden="true">
+          <source src="assets/vid-bodega.webm" type="video/webm">
+          <source src="assets/vid-bodega.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Se nos pasó el plazo de entrega</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Esa factura nunca se emitió</span></span></span>
+      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Nos deben desde octubre</span></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LA VIDA DE UNA ORDEN =================
+     La pantalla queda fija y cambia de estado mientras pasan los cuatro pasos. -->
+<section class="seccion lp-vida">
   <div class="wrap">
     <div class="cabeza-seccion">
-      <h2>Hoy, cada orden es trabajo a mano.</h2>
+      <h2>El sistema la sigue hasta el cobro.</h2>
     </div>
-    <div class="tres-notas">
-      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Copiar la orden a la planilla</span></span></span>
-      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Preguntar si ya se despachó</span></span></span>
-      <span class="postit pegar"><span class="postit-papel"><span class="postit-texto">Acordarse de cobrar a los 30 días</span></span></span>
+    <div class="lp-vida-grid">
+      <div class="lp-fija">
+        <div class="hoja lp-orden" data-paso="1" role="img"
+             aria-label="Ejemplo con datos inventados: una orden de compra en el sistema, que pasa de anotada a despachada, por facturar y por cobrar">
+          <div class="hoja-barra"><span>Orden 4821-366-AG26</span><span class="folio">Compra Ágil</span><small class="ejemplo lp-ej-chico">Datos de ejemplo</small></div>
+          <div class="lp-orden-cab">
+            <b>Hospital Demo del Sur</b>
+            <span>$536.690 · pago a 30 días</span>
+          </div>
+          <ol class="lp-linea" aria-hidden="true">
+            <li>Anotada</li><li>Despacho</li><li>Factura</li><li>Cobro</li>
+          </ol>
+          <div class="lp-capas">
+            <div class="lp-capa" data-capa="1">
+              <ul class="lp-items">
+                <li><span>Sonda Foley 2 vías 16 Fr</span><b>200</b><i class="estado ok">SF-16</i></li>
+                <li><span>Jeringa desechable 10 ml</span><b>1.000</b><i class="estado ok">JR-10</i></li>
+                <li><span>Apósito transparente 10 × 12</span><b>300</b><i class="estado ok">AP-1012</i></li>
+              </ul>
+              <p class="lp-estado-nota">Leída por la IA hace 3 minutos. Cada producto, con tu código.</p>
+            </div>
+            <div class="lp-capa" data-capa="2">
+              <p class="lp-alerta"><b>Sin despachar hace 3 días</b><span>Aceptada el miércoles 18. Todavía no sale de bodega.</span></p>
+              <span class="lp-boton-falso">Marcar como despachada</span>
+            </div>
+            <div class="lp-capa" data-capa="3">
+              <p class="lp-alerta lp-alerta-ok"><b>El hospital confirmó la recepción</b><span>Lunes 30. Ya se puede facturar.</span></p>
+              <dl class="lp-datos">
+                <div><dt>Por facturar</dt><dd>$536.690</dd></div>
+                <div><dt>A nombre de</dt><dd>Hospital Demo del Sur</dd></div>
+              </dl>
+            </div>
+            <div class="lp-capa" data-capa="4">
+              <p class="lp-alerta"><b>Vencida hace 5 días</b><span>Facturada el 1 de diciembre. Debió pagarse el 31.</span></p>
+              <dl class="lp-datos">
+                <div><dt>Por cobrar este mes</dt><dd>$4.870.000</dd></div>
+                <div><dt>Vencidas</dt><dd>2 órdenes</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <p class="ejemplo">Pantalla de ejemplo con datos inventados</p>
+      </div>
+
+      <ol class="lp-pasos">
+        <li class="lp-paso" data-paso="1">
+          <h3>Entra sola</h3>
+          <p>La orden llega de Mercado Público y queda anotada con su organismo, sus
+          productos, sus montos y su forma de pago. La IA calza cada producto con tu
+          catálogo.</p>
+        </li>
+        <li class="lp-paso" data-paso="2">
+          <h3>Te avisa lo que no ha salido</h3>
+          <p>Si una orden lleva días sin despacharse, aparece arriba. Cuando sale, alguien
+          la marca con un clic.</p>
+        </li>
+        <li class="lp-paso" data-paso="3">
+          <h3>Te recuerda facturar</h3>
+          <p>Apenas el organismo confirma la recepción, la orden pasa a “por facturar”, con
+          todos sus datos a la vista.</p>
+        </li>
+        <li class="lp-paso" data-paso="4">
+          <h3>No se te pasa un cobro</h3>
+          <p>Cuenta los días de pago por ti. Si una factura se vence, lo ves ese mismo
+          día, no a fin de mes.</p>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
 <!-- ================= CUANTO TIEMPO ================= -->
-<section class="seccion" style="padding-top:0" id="horas">
-  <div class="wrap">
-    <div class="horas hoja posar">
+<section class="lp-horas" id="horas">
+  <div class="wrap lp-horas-grid">
+    <div class="lp-horas-pregunta">
       <h2>Cuánto tiempo te devuelve.</h2>
-      <label for="ordenes">¿Cuántas órdenes de compra te llegan al mes?</label>
-      <div class="horas-control">
-        <input type="range" id="ordenes" min="10" max="300" step="5" value="60">
-        <output id="ordenes-n" for="ordenes">60</output>
+      <p class="lp-pregunta" id="ordenes-p">¿Cuántas órdenes de compra te llegan al mes?</p>
+      <div class="lp-chips" role="radiogroup" aria-labelledby="ordenes-p">
+        <button type="button" role="radio" aria-checked="false" data-n="30">30</button>
+        <button type="button" role="radio" aria-checked="true" data-n="60">60</button>
+        <button type="button" role="radio" aria-checked="false" data-n="100">100</button>
+        <button type="button" role="radio" aria-checked="false" data-n="150">150</button>
+        <button type="button" role="radio" aria-checked="false" data-n="200">200</button>
+        <button type="button" role="radio" aria-checked="false" data-n="300">300</button>
       </div>
-      <p class="horas-resultado"><b id="horas-n">Unas 10 horas</b> al mes<span id="horas-dias"></span>
-      que nadie tendría que pasar copiando órdenes, siguiendo despachos y acordándose de
-      cobrar.</p>
-      <p class="horas-nota">Calculado con unos 10 minutos por orden. Con el sistema, la IA hace
-      ese trabajo y a ti te queda revisar y aprobar.</p>
+      <p class="lp-nota">Es una estimación: unos 10 minutos por orden entre anotarla,
+      seguirla y cobrarla. Con tus órdenes reales lo medimos contigo.</p>
+    </div>
+    <div class="lp-resultado">
+      <p class="lp-cifra"><b id="horas-n">10</b><span>horas al mes</span></p>
+      <div class="lp-dias" id="horas-dias" aria-hidden="true"></div>
+      <p class="lp-leyenda" aria-hidden="true">Cada bloque es una jornada de 8 horas</p>
+      <p class="lp-frase" id="horas-frase" aria-live="polite">Más de 1 día de trabajo que nadie tendría que pasar copiando órdenes.</p>
       <!-- El script le pone al mensaje cuantas ordenes eligio la persona. -->
-      <a class="btn btn-wa" id="horas-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20quiero%20saber%20cu%C3%A1ntas%20horas%20me%20ahorrar%C3%ADa%20el%20sistema%20con%20mis%20%C3%B3rdenes%20de%20compra%20de%20Mercado%20P%C3%BAblico." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Calcularlo con mis órdenes reales</a>
+      <a class="btn btn-blanco" id="horas-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20quiero%20ver%20una%20de%20mis%20%C3%B3rdenes%20de%20compra%20de%20Mercado%20P%C3%BAblico%20anotada%20en%20el%20sistema." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Quiero ver una de mis órdenes</a>
     </div>
   </div>
 </section>
 
 <!-- ================= BYSIMMED ================= -->
-<section class="prueba seccion">
+<section class="prueba seccion lp-prueba">
   <div class="wrap">
     <div class="prueba-cabeza">
-      <h2>Lo hicimos para bySIMMED.</h2>
-      <p class="bajada">Un fabricante chileno de simuladores médicos. Las órdenes de compra,
-      las facturas y los pagos le llegaban por correo y se cruzaban a mano. Hoy el
-      sistema los lee y una persona confirma con un clic.</p>
+      <h2>Ya funciona en una empresa real.</h2>
+      <p class="bajada">bySIMMED fabrica simuladores médicos en Chile y usa el sistema todos
+      los días: lee las órdenes de compra que le llegan por correo y sigue cada venta
+      hasta el cobro. Contigo partimos por lo primero: que tus órdenes entren solas y no
+      se te pase un despacho, una factura ni un cobro.</p>
     </div>
-    <div class="mp-capturas">
+    <div class="lp-tira" role="group" aria-label="Pantallas del sistema de bySIMMED, con datos de ejemplo">
       <figure class="posar">
-        <div class="hoja">
-          <picture>
-            <source media="(max-width: 640px)" srcset="assets/bysimmed-bandeja-movil.webp" width="860" height="1818">
-            <img src="assets/bysimmed-bandeja.webp" width="1400" height="875" loading="lazy"
-                 alt="Inicio de administración del sistema de bySIMMED, con lo que llegó por correo ya leído: una orden de compra, una factura, un pago y un despacho">
-          </picture>
-        </div>
-        <figcaption><span class="ejemplo">Lo que llegó por correo, ya leído. Cada cosa espera un clic. Pantalla con datos de ejemplo.</span></figcaption>
+        <div class="hoja"><img src="assets/bysimmed-p-correo.webp" width="860" height="1260" loading="lazy"
+             alt="Un correo con una orden de compra adjunta y, debajo, lo que el sistema leyó de él"></div>
+        <figcaption>Lee el correo y lo deja anotado</figcaption>
       </figure>
       <figure class="posar">
-        <div class="hoja">
-          <picture>
-            <source media="(max-width: 640px)" srcset="assets/bysimmed-venta-movil.webp" width="860" height="1134">
-            <img src="assets/bysimmed-venta.webp" width="1400" height="875" loading="lazy"
-                 alt="Una venta en el sistema de bySIMMED, con su avance de la cotización al cobro">
-          </picture>
-        </div>
-        <figcaption><span class="ejemplo">Cada venta en una pantalla, de la cotización al cobro. Pantalla con datos de ejemplo.</span></figcaption>
+        <div class="hoja"><img src="assets/bysimmed-venta-movil.webp" width="860" height="1134" loading="lazy"
+             alt="Una venta con su avance de la cotización al cobro"></div>
+        <figcaption>Cada venta, de la cotización al cobro</figcaption>
+      </figure>
+      <figure class="posar">
+        <div class="hoja"><img src="assets/bysimmed-p-cobranza.webp" width="860" height="1300" loading="lazy"
+             alt="Tres facturas vencidas y el correo de cobranza de la más antigua, ya escrito"></div>
+        <figcaption>Muestra lo que falta cobrar</figcaption>
+      </figure>
+      <figure class="posar">
+        <div class="hoja"><img src="assets/bysimmed-p-taller.webp" width="860" height="1228" loading="lazy"
+             alt="El calendario del taller de la semana y el aviso de un insumo bajo el mínimo"></div>
+        <figcaption>El taller y la oficina miran lo mismo</figcaption>
       </figure>
     </div>
-    <div class="mp-voz">
+    <p class="ejemplo">Pantallas del sistema de bySIMMED, con datos de ejemplo</p>
+    <div class="lp-voz">
       <figure class="cita">
         <blockquote><p>Llegamos con una idea en la cabeza y salimos con un sistema que hoy usamos todos los días. Entendieron cómo trabajamos antes de escribir una sola línea de código.</p></blockquote>
         <figcaption>Ivonne Rivera, gerente de bySIMMED</figcaption>
       </figure>
-      <a class="btn btn-blanco" href="caso-bysimmed-sistema.html">Ver el caso completo</a>
+      <a class="enlace enlace-claro" href="caso-bysimmed-sistema.html">Ver el caso completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ================= LA OFERTA Y EL UNICO BOTON ================= -->
-<section class="correo-precio seccion" id="demo">
-  <div class="wrap">
-    <div class="correo-caja hoja posar">
+<!-- ================= LA OFERTA ================= -->
+<section class="seccion lp-oferta" id="demo">
+  <div class="wrap lp-oferta-grid">
+    <h2>Te muestro una de tus órdenes así.</h2>
+    <figure class="lp-muestra posar">
+      <div class="hoja"><img src="assets/mp-muestra.webp" width="860" height="2388" loading="lazy"
+           alt="Ejemplo de lo que recibes: una orden de compra anotada, con su organismo, sus productos, su forma de pago y las horas del mes"></div>
       <span class="timbre estampa" aria-hidden="true">Sin<br>costo</span>
-      <h2>Te mostramos una de tus órdenes así.</h2>
-      <p>Las órdenes de compra de Mercado Público son públicas. Escríbenos el nombre
-      de tu empresa y en 48 horas te mostramos una de las tuyas anotada en el
-      sistema, y cuántas horas al mes te ahorraría con tus órdenes reales. No tienes
-      que mandarnos nada.</p>
-      <p>Si después quieres el sistema, la primera etapa cuesta <a href="precios.html#incluye-sistema">$390.000
-      y 1 UF al mes</a>, e incluye que tus órdenes de Mercado Público entren solas. Lo
-      que venga después se cotiza y se cierra por escrito antes de programar.</p>
+      <figcaption><span class="ejemplo">Así es lo que te llega. Ejemplo con datos inventados.</span></figcaption>
+    </figure>
+    <div class="lp-oferta-texto">
+      <ol class="lp-como">
+        <li><b>Me dices el nombre de tu empresa.</b> Nada más: tus órdenes de Mercado
+        Público son públicas.</li>
+        <li><b>En 48 horas te llega</b> una de tus órdenes anotada, y cuántas horas al mes
+        te ahorraría.</li>
+        <li><b>Si te sirve, conversamos.</b> Si no, no te escribo más.</li>
+      </ol>
       <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20quiero%20ver%20una%20de%20mis%20%C3%B3rdenes%20de%20compra%20de%20Mercado%20P%C3%BAblico%20anotada%20en%20el%20sistema." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Quiero ver una de mis órdenes</a>
-      <p class="correo-alt">¿Prefieres el correo? Escríbenos a <a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></p>
+      <p class="correo-alt">¿Prefieres el correo? Responde el que te mandé o escribe a <a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></p>
+      <p class="lp-firma">Soy Sebastián, de CORYN. Yo programo el sistema y yo contesto este
+      WhatsApp.</p>
+      <p class="lp-letra">Si después quieres el sistema, la primera etapa cuesta
+      <a href="precios.html#incluye-sistema">$390.000 y 1 UF al mes</a>, e incluye que tus
+      órdenes de Mercado Público entren solas. Lo que venga después se cotiza y se cierra
+      por escrito antes de programar.</p>
     </div>
   </div>
 </section>
+
+<!-- El boton que acompana en el celular; JS_MP lo muestra pasada la portada. -->
+<div class="lp-barra">
+  <a class="btn btn-wa" href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20quiero%20ver%20una%20de%20mis%20%C3%B3rdenes%20de%20compra%20de%20Mercado%20P%C3%BAblico%20anotada%20en%20el%20sistema." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.93 11.93 0 0 0 5.71 1.454h.006c6.585 0 11.946-5.359 11.949-11.945a11.87 11.87 0 0 0-3.48-8.408"/></svg>Ver una de mis órdenes</a>
+  <p>Sin costo. No tienes que mandarnos nada.</p>
+</div>
 
 </main>
 
-<footer class="pie">
+<footer class="pie pie-minimo">
   <div class="wrap">
-    <div class="pie-cols">
-      <div class="pie-marca">
-        <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
-        <p>Software a medida para negocios que necesitan que la herramienta calce
-        con su forma de trabajar.</p>
-      </div>
-      <div>
-        <h4>Casos</h4>
-        <ul>
-          <li><a href="caso-bysimmed-sistema.html">bySIMMED &middot; sistema</a></li>
-          <li><a href="caso-bysimmed.html">bySIMMED &middot; sitio web</a></li>
-          <li><a href="caso-avenprop.html">AvenProp</a></li>
-        </ul>
-        <h4>Productos propios</h4>
-        <ul>
-          <li><a href="producto-enumera.html">Enumera</a></li>
-          <li><a href="producto-precioradar.html">PrecioRadar</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Empresa</h4>
-        <ul>
-          <li><a href="servicios.html">Servicios</a></li>
-          <li><a href="que-resolvemos.html">Qué resolvemos</a></li>
-          <li><a href="precios.html">Precios</a></li>
-          <li><a href="proceso.html">Proceso</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="https://wa.me/56948780902?text=Hola%20CORYN%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="contacto.html">Formulario</a></li>
-          <li><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a></li>
-        </ul>
-        <p class="pie-nota">Respondemos en menos de 24 horas h&aacute;biles.</p>
-      </div>
-    </div>
-    <div class="pie-base">
-      <span>&copy; 2026 CORYN. Todos los derechos reservados.</span>
-      <a href="privacidad.html">Pol&iacute;tica de privacidad</a>
-    </div>
+    <a class="marca" href="index.html" aria-label="CORYN, ir al inicio"><svg class="marca-c" viewBox="0 0 79.5 84" aria-hidden="true" focusable="false"><path fill="currentColor" d="M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z"/><path fill="#1f5fe0" d="M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1A2.6 2.6 0 0 1 62.5 47.9V36.1A2.6 2.6 0 0 1 65.1 33.5Z"/></svg><span>CORYN</span></a>
+    <p><a href="mailto:contacto@coryndev.com">contacto@coryndev.com</a> &middot; <a href="privacidad.html">Pol&iacute;tica de privacidad</a></p>
+    <p>&copy; 2026 CORYN. Todos los derechos reservados.</p>
   </div>
 </footer>
 
@@ -308,25 +399,207 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script defer src="sitio.js?v=4a1c1c0b"></script>
 <script>
-(function () {
-  var r = document.getElementById('ordenes');
-  if (!r) return;
-  var n = document.getElementById('ordenes-n'), h = document.getElementById('horas-n'),
-      d = document.getElementById('horas-dias'), wa = document.getElementById('horas-wa');
-  function pintar () {
-    var ordenes = +r.value, horas = Math.round(ordenes * 10 / 60), dias = Math.round(horas / 8);
-    n.textContent = ordenes;
-    h.textContent = (horas === 1 ? 'Una hora' : 'Unas ' + horas + ' horas');
-    d.textContent = dias >= 2 ? ', unos ' + dias + ' días de trabajo,' : '';
-    // El mensaje de WhatsApp lleva el numero elegido. El codigo ?ref= se agrega
-    // al hacer clic (sitio.js), asi que aqui el enlace se rearma limpio.
-    if (wa) wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(
-      'Hola CORYN, me llegan unas ' + ordenes + ' órdenes de compra de Mercado Público al mes. ' +
-      '¿Cuántas horas me ahorraría el sistema?');
-  }
-  r.addEventListener('input', pintar);
-  pintar();
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var d = document, raiz = d.documentElement;
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- cuanto tiempo devuelve ---------- */
+  (function () {
+    var chips = [].slice.call(d.querySelectorAll('.lp-chips button'));
+    if (!chips.length) return;
+    var num = d.getElementById('horas-n'), frase = d.getElementById('horas-frase'),
+        dias = d.getElementById('horas-dias'), wa = d.getElementById('horas-wa');
+    var bloques = [], mostrado = { v: +num.textContent };
+    for (var i = 0; i < 7; i++) { var b = d.createElement('i'); dias.appendChild(b); bloques.push(b); }
+    function pinta (ordenes, animar) {
+      var horas = Math.round(ordenes * 10 / 60), jornadas = horas / 8;
+      bloques.forEach(function (b, i) {
+        b.style.setProperty('--lleno', Math.max(0, Math.min(1, jornadas - i)).toFixed(2));
+      });
+      var enteros = Math.floor(jornadas), resto = jornadas - enteros;
+      frase.textContent = jornadas < 1
+        ? 'Son pocas horas, pero cada orden olvidada es un despacho atrasado o un cobro que se pasa.'
+        : (resto >= 0.2 ? 'Más de ' : 'Unos ') + enteros + (enteros === 1 ? ' día' : ' días') +
+          ' de trabajo que nadie tendría que pasar copiando órdenes.';
+      if (animar && window.gsap && !quieto) {
+        window.gsap.to(mostrado, { v: horas, duration: 0.6, ease: 'power2.out', overwrite: true,
+          onUpdate: function () { num.textContent = Math.round(mostrado.v); } });
+      } else { mostrado.v = horas; num.textContent = horas; }
+      // El mensaje de WhatsApp lleva el numero elegido. El codigo ?ref= se agrega
+      // al hacer clic (sitio.js), asi que aqui el enlace se rearma limpio.
+      if (wa) wa.href = wa.href.split('?')[0] + '?text=' + encodeURIComponent(
+        'Hola CORYN, me llegan unas ' + ordenes + ' órdenes de compra de Mercado Público al mes. ' +
+        'Quiero ver una de mis órdenes anotada en el sistema.');
+    }
+    function elige (b, animar) {
+      chips.forEach(function (x) {
+        x.setAttribute('aria-checked', x === b ? 'true' : 'false');
+        x.tabIndex = x === b ? 0 : -1;
+      });
+      pinta(+b.getAttribute('data-n'), animar);
+    }
+    chips.forEach(function (b, i) {
+      b.addEventListener('click', function () { elige(b, true); });
+      b.addEventListener('keydown', function (e) {
+        var k = e.key, j = (k === 'ArrowRight' || k === 'ArrowDown') ? i + 1
+                         : (k === 'ArrowLeft' || k === 'ArrowUp') ? i - 1 : -1;
+        if (j < 0 || j >= chips.length) return;
+        e.preventDefault(); chips[j].focus(); elige(chips[j], true);
+      });
+    });
+    elige(chips.filter(function (b) { return b.getAttribute('aria-checked') === 'true'; })[0] || chips[0], false);
+  })();
+
+  /* ---------- la vida de una orden ---------- */
+  (function () {
+    var orden = d.querySelector('.lp-orden'), fija = d.querySelector('.lp-fija'),
+        pasos = [].slice.call(d.querySelectorAll('.lp-paso'));
+    if (!orden || !fija || !pasos.length) return;
+    raiz.classList.add('js-vida');
+    var pendiente = false, actual = 0;
+    function mide () {
+      pendiente = false;
+      var alto = window.innerHeight;
+      // En el celular la pantalla queda fija arriba: el paso activo es el que se
+      // lee en el espacio que queda debajo de ella.
+      var foco = window.innerWidth < 900 ? (Math.min(fija.getBoundingClientRect().bottom, alto) + alto) / 2 : alto / 2;
+      var mejor = 0, dist = Infinity;
+      pasos.forEach(function (p, i) {
+        var r = p.getBoundingClientRect(), x = Math.abs((r.top + r.bottom) / 2 - foco);
+        if (x < dist) { dist = x; mejor = i; }
+      });
+      if (mejor + 1 === actual) return;
+      actual = mejor + 1;
+      orden.setAttribute('data-paso', actual);
+      pasos.forEach(function (p, i) { p.classList.toggle('activo', i === mejor); });
+    }
+    function pide () { if (!pendiente) { pendiente = true; requestAnimationFrame(mide); } }
+    window.addEventListener('scroll', pide, { passive: true });
+    window.addEventListener('resize', pide);
+    mide();
+  })();
+
+  /* ---------- el boton que acompana en el celular ----------
+     Se retira donde ya hay un boton a la vista (la cuenta, la oferta) y mientras
+     se lee la secuencia de la orden, que necesita el alto completo. */
+  (function () {
+    var barra = d.querySelector('.lp-barra');
+    if (!barra || !('IntersectionObserver' in window)) return;
+    var motivos = {};
+    function pone () {
+      var fuera = false;
+      for (var k in motivos) if (motivos[k]) fuera = true;
+      barra.classList.toggle('fuera', fuera);
+    }
+    function mira (clave, sel, opciones, hastaElFinal) {
+      var el = d.querySelector(sel);
+      if (!el) return;
+      new IntersectionObserver(function (es) {
+        var e = es[0];
+        motivos[clave] = e.isIntersecting || (hastaElFinal && e.boundingClientRect.top < 0);
+        pone();
+      }, opciones || {}).observe(el);
+    }
+    mira('oferta', '.lp-oferta', { rootMargin: '0px 0px -25% 0px' }, true);
+    mira('cuenta', '#horas-wa');
+    mira('vida', '.lp-vida-grid', { rootMargin: '-45% 0px -45% 0px' });
+  })();
+
+  /* ---------- la portada: la orden entra sola ----------
+     Llega el aviso de una orden, el sistema lo lee (resaltado azul), los datos
+     viajan a la hoja y la fila queda anotada. Tres ordenes y se repite; se
+     detiene fuera de pantalla. Sin esto, la hoja se ve completa. */
+  (function () {
+    var demo = d.querySelector('.lp-demo');
+    if (!demo) return;
+    if (quieto || !window.gsap || !window.ScrollTrigger || !raiz.classList.contains('mov')) { demo.classList.add('quieta'); return; }
+    try {
+    var gsap = window.gsap, ST = window.ScrollTrigger;
+    var aviso = demo.querySelector('.lp-aviso'), barra = aviso.querySelector('.lectura'),
+        filas = [].slice.call(demo.querySelectorAll('.lp-fila')),
+        cuenta = demo.querySelector('.lp-cuenta'), sello = demo.querySelector('.lp-sello'),
+        nuevas = demo.querySelector('.lp-nuevas'), campo = {};
+    function anota (n) {
+      cuenta.textContent = base + n;
+      if (nuevas) nuevas.textContent = n === 0 ? 'Sin órdenes nuevas todavía' : n === 1 ? '1 orden nueva hoy' : n + ' órdenes nuevas hoy';
+    }
+    ['oc', 'org', 'total', 'prod'].forEach(function (k) { campo[k] = aviso.querySelector('[data-campo="' + k + '"]'); });
+    var base = parseInt(cuenta.textContent, 10) - filas.length;
+    var viajes = [0, 1, 2].map(function () {
+      var s = d.createElement('span');
+      s.className = 'viaje'; s.setAttribute('aria-hidden', 'true');
+      demo.appendChild(s);
+      return s;
+    });
+
+    function carga (i) {
+      ['oc', 'org', 'total', 'prod'].forEach(function (k) { campo[k].textContent = filas[i].getAttribute('data-' + k); });
+      aviso.classList.remove('leido');
+    }
+    function reinicia () {
+      filas.forEach(function (f) {
+        f.classList.remove('llena', 'recien');
+        [].forEach.call(f.cells, function (c) { c.classList.remove('puesto'); });
+      });
+      anota(0);
+      gsap.set(sello, { opacity: 0 });
+    }
+    function vuela (i, k, n) {
+      var destino = filas[i].querySelector('[data-celda="' + k + '"]');
+      if (!destino || !destino.offsetParent) return;   // columna oculta en el celular
+      var v = viajes[n], r0 = demo.getBoundingClientRect(),
+          a = campo[k].getBoundingClientRect(), b = destino.getBoundingClientRect();
+      v.textContent = campo[k].textContent;
+      var hasta = k === 'total' ? b.right - r0.left - v.offsetWidth - 8 : b.left - r0.left + 4;
+      gsap.timeline()
+        .fromTo(v, { x: a.left - r0.left, y: a.top - r0.top - 3, opacity: 0, scale: 0.9 },
+                   { opacity: 1, scale: 1, duration: 0.16, ease: 'power2.out' })
+        .to(v, { x: hasta, y: b.top - r0.top + 3, duration: 0.62, ease: 'power3.inOut' })
+        .call(function () { destino.classList.add('puesto'); })
+        .to(v, { opacity: 0, duration: 0.18 });
+    }
+
+    var paso = 3.1, tl = gsap.timeline({ repeat: -1, paused: true });
+    tl.call(reinicia, null, 0);
+    filas.forEach(function (f, i) {
+      var t = 0.25 + i * paso;
+      tl.call(carga, [i], t)
+        .fromTo(aviso, { x: 0, y: -30, rotation: -5, opacity: 0 },
+                       { x: 0, y: 0, rotation: -1.4, opacity: 1, duration: 0.7, ease: 'expo.out' }, t + 0.02)
+        .fromTo(barra, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.55, ease: 'power2.inOut' }, t + 0.7)
+        .call(function () { aviso.classList.add('leido'); }, null, t + 1.25)
+        .to(barra, { opacity: 0, duration: 0.25 }, t + 1.27)
+        .call(vuela, [i, 'org', 0], t + 1.35)
+        .call(vuela, [i, 'oc', 1], t + 1.5)
+        .call(vuela, [i, 'total', 2], t + 1.65)
+        .call(function () {
+          [].forEach.call(f.cells, function (c) { c.classList.add('puesto'); });
+          f.classList.add('llena', 'recien');
+          anota(i + 1);
+          gsap.fromTo(cuenta.parentNode, { scale: 1.18 }, { scale: 1, duration: 0.45, ease: 'expo.out' });
+          setTimeout(function () { f.classList.remove('recien'); }, 900);
+        }, null, t + 2.5);
+      // El ultimo aviso se queda a la vista, ya leido, hasta que el ciclo vuelve a empezar.
+      if (i < filas.length - 1) tl.to(aviso, { x: -26, opacity: 0, duration: 0.3, ease: 'power2.in' }, t + 2.7);
+    });
+    var fin = 0.25 + filas.length * paso;
+    tl.fromTo(sello, { opacity: 0, scale: 1.5, rotation: -6 },
+                     { opacity: 1, scale: 1, rotation: -6, duration: 0.28, ease: 'power3.in' }, fin)
+      .to(aviso, { x: -26, opacity: 0, duration: 0.3, ease: 'power2.in' }, fin + 2.9)
+      .to(sello, { opacity: 0, duration: 0.3 }, fin + 2.9);
+
+    demo.classList.add('viva');
+    reinicia();
+    ST.create({
+      trigger: demo, start: 'top bottom', end: 'bottom top',
+      onToggle: function (s) { if (s.isActive && !d.hidden) tl.play(); else tl.pause(); }
+    });
+    d.addEventListener('visibilitychange', function () {
+      if (d.hidden) tl.pause(); else if (ST.isInViewport(demo)) tl.play();
+    });
+    } catch (err) { demo.classList.remove('viva'); demo.classList.add('quieta'); }
+  })();
+});
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
