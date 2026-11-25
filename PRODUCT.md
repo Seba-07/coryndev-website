@@ -16,8 +16,9 @@ chicos. Lo ven en el notebook de la oficina o en el celular entre una cosa y otr
 
 - Creer: un sistema hecho a su medida ordena lo que hoy llega desordenado, y ya
   funciona en una empresa real (bySIMMED).
-- Ver: el precio está publicado (puesta en marcha desde $69.000 y un mensual
-  desde 1 UF, sin permanencia).
+- Ver: el precio está publicado (puesta en marcha desde $149.000 y un mensual
+  desde 0,5 UF, sin permanencia). Bajo el mercado, pero sin verse sospechosamente
+  barato: el cliente es una pyme que no paga lo que paga una empresa consolidada.
 - Hacer: escribir por WhatsApp. El formulario de contacto es la vía secundaria.
 
 ## Prueba disponible

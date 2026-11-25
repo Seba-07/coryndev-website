@@ -130,7 +130,7 @@ después:
 | # | Carrusel | Por qué acá |
 |---|---|---|
 | 1 | `caso-1` Tu operación vive en una planilla | El más universal, y donde más aportas |
-| 2 | `caso-2` Te buscan en Google y no apareces | El de entrada más barata ($69.000) |
+| 2 | `caso-2` Te buscan en Google y no apareces | El de entrada más barata ($149.000) |
 | 3 | `caso-3` Explicas lo mismo por WhatsApp | El que más se reconoce al toque |
 | 4 | `caso-5` No sabes si ganaste hasta fin de mes | Duele y se entiende sin explicar |
 | 5 | `caso-4` Todo se agenda por teléfono | Más de nicho: servicios con hora |

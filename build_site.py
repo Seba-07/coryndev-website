@@ -114,7 +114,7 @@ PAGINAS = [
         slug='index',
         titulo='Desarrollo de software a medida para pymes | CORYN',
         desc='Sistemas de gestión, sitios web, tiendas y apps a medida para pymes '
-             'chilenas. Desde $129.000, con precio cerrado antes de empezar. '
+             'chilenas. Desde $149.000, con precio cerrado antes de empezar. '
              'Primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
@@ -123,8 +123,8 @@ PAGINAS = [
         slug='precios',
         titulo='Precios de software a medida en Chile, publicados | CORYN',
         desc='Cuánto cuesta un sistema de gestión, un sitio web, una tienda online o '
-             'una app con CORYN: puesta en marcha desde $69.000 y acompañamiento '
-             'desde 1 UF al mes. Precio cerrado antes de empezar.',
+             'una app con CORYN: puesta en marcha desde $149.000 y acompañamiento '
+             'desde 0,5 UF al mes. Precio cerrado antes de empezar.',
         activa='precios',
         cabecera=dict(titulo='Los precios, publicados.',
                       bajada='Casi nadie en el rubro los muestra. Acá están: lo que cuesta '
@@ -222,7 +222,7 @@ PAGINAS = [
         slug='correo',
         titulo='Si todo te llega por correo: un sistema que lo anota solo | CORYN',
         desc='Cotizaciones, órdenes de compra y facturas que llegan por correo y se '
-             'copian a mano. Lo que hicimos para bySIMMED, desde $129.000 y 1 UF al mes.',
+             'copian a mano. Lo que hicimos para bySIMMED, desde $390.000 y 1 UF al mes.',
         activa='',
         landing=True,
         og_img='assets/og-correo.jpg',
@@ -290,9 +290,9 @@ def faq_ld(cuerpo):
 SERVICIOS_LD = [
     ('Sistemas de gestión (ERP / CRM)',
      'Inventario, ventas, clientes y cobros en un solo lugar. Se puede partir '
-     'por un módulo y crecer desde ahí.', 129000),
+     'por un módulo y crecer desde ahí.', 390000),
     ('Páginas web',
-     'Sitios para que te encuentren en Google y sepan a qué te dedicas.', 69000),
+     'Sitios para que te encuentren en Google y sepan a qué te dedicas.', 149000),
     ('Aplicaciones móviles',
      'Apps para iOS y Android, o instalables desde el navegador.', None),
     ('Tiendas online',
@@ -359,20 +359,83 @@ def caso_ld(c, propio=False):
     return d
 
 
-def lista_precios():
-    """La lista corta de precios del inicio, leida del arreglo TIPOS del
-    estimador: los montos siguen viviendo en un solo lugar."""
+def _tipos():
+    """Los tipos de proyecto con su precio de partida, leidos del arreglo TIPOS
+    del estimador: los montos viven en un solo lugar."""
     import re
     fuente = (CUERPOS / '_estimador.html').read_text()
-    tipos = re.findall(r"nom:\s*'([^']+)',\s*sub:\s*'[^']*',\s*base:\s*(\d+),\s*uf:\s*([\d.]+)", fuente)
+    tipos = re.findall(r"id:\s*'(\w+)',\s*nom:\s*'([^']+)',\s*sub:\s*'[^']*',\s*base:\s*(\d+),\s*uf:\s*([\d.]+)", fuente)
     if len(tipos) < 4:
         raise SystemExit('No se pudieron leer los precios de site/_estimador.html.')
-    filas = []
-    for nom, base, uf in sorted(tipos, key=lambda x: int(x[1])):
+    salida = []
+    for id_, nom, base, uf in tipos:
         plata = f"${int(base):,}".replace(',', '.')
-        uf_txt = uf.replace('.', ',').rstrip('0').rstrip(',') if '.' in uf else uf
-        filas.append(f'        <li><span>{nom}</span><b>desde {plata}</b><small>+ {uf_txt} UF al mes</small></li>')
+        uf_txt = uf.replace('.', ',') if '.' in uf else uf
+        salida.append(dict(id=id_, nom=nom, base=int(base), plata=plata, uf=uf_txt))
+    return salida
+
+
+def lista_precios():
+    """La lista corta de precios del inicio."""
+    filas = [f'        <li><span>{t["nom"]}</span><b>desde {t["plata"]}</b><small>+ {t["uf"]} UF al mes</small></li>'
+             for t in sorted(_tipos(), key=lambda x: x['base'])]
     return '\n'.join(filas)
+
+
+# Que cubre cada precio de partida. Es un alcance chico a proposito: lo justo
+# para empezar a usarlo. Lo demas se cotiza y se cierra por escrito.
+ALCANCES = {
+    'sistema': (
+        ['Un primer módulo completo, hecho a tu medida: inventario, pedidos, clientes o cobranza.',
+         'Hasta 10 usuarios, cada uno con su clave y lo que le toca ver.',
+         'Tus datos de hoy, cargados desde tus planillas.',
+         'Un panel con los números que tú decides mirar, y exportar a Excel.',
+         'Funciona en el computador y en el celular, con respaldo diario.',
+         'Dos sesiones de capacitación con tu equipo.'],
+        'más módulos, conexiones con otros sistemas (correo, SII, banco, pasarela de pago) '
+        'y ordenar datos históricos desordenados.'),
+    'web': (
+        ['Un sitio de hasta 4 páginas: inicio, lo que vendes, quiénes son y contacto.',
+         'Diseño propio, adaptado a celular.',
+         'Botón de WhatsApp y un formulario que llega a tu correo.',
+         'Lo básico para aparecer en Google, y te ayudamos a dejar lista tu ficha de Google Maps.',
+         'Publicación con dominio y certificado de seguridad.'],
+        'más páginas, tienda o pagos en línea, redactar todos los textos y fotos profesionales.'),
+    'tienda': (
+        ['Catálogo con categorías, filtros y buscador, con hasta 100 productos cargados por nosotros.',
+         'Carro y pago en línea con Mercado Pago, Webpay o Flow. El convenio lo firmas tú.',
+         'Stock que se descuenta con cada venta, y correos de confirmación y de despacho.',
+         'Despacho con tarifas por comuna, o retiro en tu local.',
+         'Un panel para que agregues y edites productos y veas los pedidos.'],
+        'cargar más productos por ti, conectar con tu sistema de inventario o con un courier, '
+        'y fotos o descripciones de productos.'),
+    'app': (
+        ['Una app que se instala desde el navegador en iPhone y Android, sin pasar por las tiendas.',
+         'Hasta dos funciones principales, por ejemplo registrar visitas y pedidos, con hasta 10 usuarios.',
+         'Funciona sin señal y se sincroniza cuando vuelve.',
+         'Usa la cámara y la ubicación del teléfono, y avisa con notificaciones.',
+         'Un panel web para revisar lo que registra tu equipo.'],
+        'publicarla en App Store y Google Play, más funciones y conexiones con otros sistemas.'),
+}
+
+
+def partidas():
+    """Que incluye cada precio de partida, en el orden del estimador."""
+    bloques = []
+    for t in _tipos():
+        incluye, aparte = ALCANCES[t['id']]
+        li = '\n'.join(f'            <li>{S.CHECK}<span>{x}</span></li>' for x in incluye)
+        bloques.append(f'''      <article class="hoja partida posar" id="incluye-{t['id']}">
+        <div class="hoja-barra"><span>{t['nom']}</span><span class="folio">desde {t['plata']}</span></div>
+        <div class="partida-cuerpo">
+          <ul class="lista-check">
+{li}
+          </ul>
+          <p class="partida-aparte"><b>Se cotiza aparte:</b> {aparte}</p>
+          <p class="partida-mes">Más {t['uf']} UF al mes de acompañamiento.</p>
+        </div>
+      </article>''')
+    return '\n'.join(bloques)
 
 
 def aplicar_fichas(txt):
@@ -382,6 +445,8 @@ def aplicar_fichas(txt):
     txt = txt.replace('{ESCENA}', (CUERPOS / '_escena.html').read_text())
     if '{LISTA_PRECIOS}' in txt:
         txt = txt.replace('{LISTA_PRECIOS}', lista_precios())
+    if '{PARTIDAS}' in txt:
+        txt = txt.replace('{PARTIDAS}', partidas())
     for k, v in FICHAS.items():
         txt = txt.replace(k, v)
     return txt

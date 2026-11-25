@@ -700,7 +700,7 @@ html:not(.mov) .estacion b, .estacion.on b{ color:#fff; }
 .cobros-hoja{ padding:clamp(24px, 3.4vw, 44px); }
 .cobros-grafico{ margin-top:8px; }
 .cobros-meses{ display:grid; grid-template-columns:2.6fr repeat(12, minmax(0,1fr)); gap:6px; align-items:end; height:220px; }
-.mes{ position:relative; background:var(--pieza-suave); border-radius:3px 3px 0 0; height:30%; }
+.mes{ position:relative; background:var(--pieza-suave); border-radius:3px 3px 0 0; height:12%; min-height:14px; }
 .mes.puesta{ background:var(--pieza); height:100%; }
 .cobros-ejes{ display:grid; grid-template-columns:2.6fr repeat(12, minmax(0,1fr)); gap:6px; margin-top:10px; font-size:.8rem; color:var(--tinta-3); text-align:center; }
 .cobros-ejes span:first-child{ text-align:left; }
@@ -923,3 +923,16 @@ html.mov .cierre-marca .p{ transform:translateX(70px); opacity:0; }
 .hoja-lista{ max-width:46rem; margin-inline:auto; padding:clamp(28px, 4vw, 52px); }
 .hoja-lista .lista-check{ margin-top:28px; }
 .hoja-lista-pie{ margin-top:26px; padding-top:20px; border-top:1px dashed var(--linea); color:var(--tinta-2); }
+
+/* --- precios: que incluye cada precio de partida --- */
+.partidas{ display:grid; gap:22px; }
+@media (min-width:900px){ .partidas{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:26px; } }
+.partida{ overflow:hidden; scroll-margin-top:calc(var(--nav-h) + 20px); }
+.partida .hoja-barra{ font-size:1.02rem; padding:16px 22px; }
+.partida .hoja-barra span:first-child{ font:700 1.15rem/1.2 var(--f-titulo); letter-spacing:-.015em; }
+.partida-cuerpo{ padding:20px 22px 22px; }
+.partida .lista-check{ gap:10px; }
+.partida .lista-check li{ font-size:.98rem; }
+.partida-aparte{ margin-top:18px; padding-top:14px; border-top:1px dashed var(--linea); color:var(--tinta-2); font-size:.95rem; }
+.partida-aparte b{ color:var(--tinta); }
+.partida-mes{ margin-top:8px; color:var(--tinta-3); font-size:.92rem; }

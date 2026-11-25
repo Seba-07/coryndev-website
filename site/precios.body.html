@@ -1,5 +1,22 @@
 {ESTIMADOR}
 
+<!-- ================= QUE INCLUYE CADA PRECIO DE PARTIDA =================
+     Los montos salen del arreglo TIPOS del estimador y los alcances de
+     ALCANCES en build_site.py. -->
+<section class="seccion" id="incluye">
+  <div class="wrap">
+    <div class="cabeza-seccion">
+      <h2>Qué incluye el precio de partida.</h2>
+      <p class="bajada">Un alcance chico a propósito: lo justo para empezar a usarlo.
+      Lo que tu caso necesite además se cotiza y se cierra por escrito antes de
+      programar.</p>
+    </div>
+    <div class="partidas">
+{PARTIDAS}
+    </div>
+  </div>
+</section>
+
 <!-- ================= DOS COBROS ================= -->
 <section class="cobros seccion">
   <div class="wrap">
@@ -25,7 +42,7 @@
         propósito: no es donde ganamos.</p>
       </div>
       <div>
-        <h3><i class="muestra suave" aria-hidden="true"></i>Acompañamiento: 1 UF al mes, o 1,5 UF en tienda y app</h3>
+        <h3><i class="muestra suave" aria-hidden="true"></i>Acompañamiento: 0,5 UF al mes en un sitio web, 1 UF en un sistema y 1,5 UF en tienda o app</h3>
         <p>Corre recién cuando el sistema entra en uso, no cuando firmamos. Mientras
         construimos y probamos, pagas solo la puesta en marcha.</p>
       </div>
@@ -49,15 +66,15 @@
     </div>
     <div class="hoja posar" style="padding:clamp(24px,3vw,36px)">
       <ul class="lista-check">
-        <li>{CHECK}<span>Atención con prioridad ante fallas</span></li>
-        <li>{CHECK}<span>Mantención, respaldos y actualizaciones de seguridad</span></li>
-        <li>{CHECK}<span>Ajustes y mejoras pequeñas cada mes</span></li>
-        <li>{CHECK}<span>Monitoreo para enterarnos antes que tú</span></li>
+        <li>{CHECK}<span>El servidor donde funciona, con su certificado de seguridad</span></li>
+        <li>{CHECK}<span>Respaldos y actualizaciones de seguridad</span></li>
+        <li>{CHECK}<span>Atención con prioridad ante fallas, y monitoreo para enterarnos antes que tú</span></li>
+        <li>{CHECK}<span>Ajustes y mejoras pequeñas: hasta 1 hora al mes en un sitio web y hasta 2 en sistemas, tiendas y apps</span></li>
       </ul>
       <p style="margin-top:22px; padding-top:18px; border-top:1px dashed var(--linea); color:var(--tinta-2)">El
       valor se revisa una vez al año: sube si tu operación creció y el sistema hace
-      más, no porque subieron nuestros costos. Entremedio no cambia. Las
-      funcionalidades grandes nuevas se cotizan aparte.</p>
+      más, no porque subieron nuestros costos. Entremedio no cambia. Lo que pase
+      de esas horas, o una funcionalidad grande nueva, se cotiza aparte.</p>
     </div>
   </div>
 </section>
@@ -70,7 +87,7 @@
     </div>
     <div class="faq hoja posar">
       <details>
-        <summary>¿Por qué el precio de entrada es tan bajo?</summary>
+        <summary>¿Por qué cobran poco al empezar?</summary>
         <div class="resp">
           <p>Porque el negocio no es cobrarte caro una vez: es que el sistema te siga
           sirviendo y sigas con nosotros el año que viene. El grueso de lo que ganamos

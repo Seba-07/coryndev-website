@@ -258,12 +258,12 @@ def _precios():
     <div class="caja">El precio se <b>cierra por escrito antes de empezar</b>.
     Si tu caso trae más, se cotiza aparte: nada cambia a mitad de camino.</div>"""),
         ("Cada mes", """    <p class="rot">Acompañamiento</p>
-    <h2>Y cada mes,<br><em>1 UF</em></h2>
-    <p class="texto">1,5 UF si es tienda online o app. Cubre:</p>
+    <h2>Y cada mes,<br><em>desde 0,5 UF</em></h2>
+    <p class="texto">0,5 UF en un sitio web, 1 UF en un sistema y 1,5 UF en tienda o app. Cubre:</p>
     <div class="lista">
       <div><i>&#9679;</i><span>Mantención, respaldos y actualizaciones</span></div>
       <div><i>&#9679;</i><span>Monitoreo, para enterarnos antes que tú</span></div>
-      <div><i>&#9679;</i><span>Ajustes y mejoras pequeñas todos los meses</span></div>
+      <div><i>&#9679;</i><span>Ajustes y mejoras pequeñas cada mes</span></div>
       <div><i>&#9679;</i><span>Atención con prioridad ante fallas</span></div>
     </div>"""),
         ("Sin permanencia", """    <p class="rot">Lo que nos obliga</p>

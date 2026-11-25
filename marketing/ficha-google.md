@@ -132,12 +132,12 @@ del sitio, que es la fuente única:
 
 | Servicio | Precio desde | Descripción corta |
 |---|---|---|
-| Sistema de gestión (ERP / CRM) | $129.000 | Inventario, ventas, clientes y cobros en un solo lugar, con permisos y respaldo. |
-| Página web | $69.000 | Tu sitio propio, hecho para que Google lo entienda y te muestre. |
-| Tienda online | $189.000 | Catálogo, carro y pago en línea, con el stock siempre al día. |
-| Aplicación móvil | $159.000 | Se instala desde el navegador, sin pasar por las tiendas de apps. |
+| Sistema de gestión (ERP / CRM) | $390.000 | Inventario, ventas, clientes y cobros en un solo lugar, con permisos y respaldo. |
+| Página web | $149.000 | Tu sitio propio, hecho para que Google lo entienda y te muestre. |
+| Tienda online | $390.000 | Catálogo, carro y pago en línea, con el stock siempre al día. |
+| Aplicación móvil | $490.000 | Se instala desde el navegador, sin pasar por las tiendas de apps. |
 | Integraciones y automatizaciones | Según alcance | Que los sistemas que ya usas se hablen entre sí y dejes de copiar datos. |
-| Acompañamiento mensual | 1 UF al mes | Mantención, respaldos, monitoreo y mejoras. Sin permanencia. |
+| Acompañamiento mensual | Desde 0,5 UF al mes | Mantención, respaldos, monitoreo y mejoras. Sin permanencia. |
 
 > Si cambias un precio acá, cámbialo también en el estimador de
 > `site/inicio.body.html`, que es de donde salen. No hay nada que los sincronice.
@@ -227,9 +227,9 @@ Google deja que el dueño publique preguntas y las responda. Conviene dejarlas
 cargadas, porque si no las escribe cualquiera:
 
 **¿Cuánto cuesta un sistema a medida?**
-> Una página web parte en $69.000, un sistema de gestión en $129.000, una app en
-> $159.000 y una tienda online en $189.000, más un acompañamiento mensual desde
-> 1 UF. En coryndev.com puedes calcular lo tuyo y el precio se cierra por escrito
+> Una página web parte en $149.000, un sistema de gestión en $390.000, una tienda
+> online en $390.000 y una app en $490.000, más un acompañamiento mensual desde
+> 0,5 UF. En coryndev.com puedes calcular lo tuyo y el precio se cierra por escrito
 > antes de empezar.
 
 **¿Trabajan con empresas fuera de Santiago?**
@@ -295,10 +295,10 @@ abajo no llevan cifras.
 
 | Nombre | Precio | Descripcion |
 |---|---|---|
-| Sistemas de gestion (ERP / CRM) | 129000 | Reemplaza las planillas y ordena la operacion completa en un solo lugar: inventario, ventas, clientes y cobros. Puedes partir por un modulo y crecer desde ahi. |
-| Paginas web | 69000 | Sitios corporativos, catalogos y paginas de captacion. Rapidos, adaptados a celular y pensados para que el visitante haga algo. |
-| Aplicaciones moviles | 159000 | Aplicaciones para iOS y Android, publicadas en las tiendas o distribuidas internamente a tu equipo. |
-| Tiendas online | 189000 | Comercio electronico cuando una plataforma estandar no alcanza: catalogos complejos, precios por cliente o reglas propias de despacho. |
+| Sistemas de gestion (ERP / CRM) | 390000 | Reemplaza las planillas y ordena la operacion completa en un solo lugar: inventario, ventas, clientes y cobros. Puedes partir por un modulo y crecer desde ahi. |
+| Paginas web | 149000 | Sitios corporativos, catalogos y paginas de captacion. Rapidos, adaptados a celular y pensados para que el visitante haga algo. |
+| Aplicaciones moviles | 490000 | Aplicaciones para iPhone y Android. Parten como app instalable desde el navegador, y se publican en App Store y Google Play cuando el proyecto lo pide. |
+| Tiendas online | 390000 | Comercio electronico cuando una plataforma estandar no alcanza: catalogos complejos, precios por cliente o reglas propias de despacho. |
 | Integraciones y automatizaciones | *(vacio)* | Conectamos sistemas que hoy no se hablan, para eliminar el trabajo de copiar datos de un lado a otro. |
 | Acompanamiento mensual | *(vacio)* | Acompana todo lo que entregamos y se cobra aparte de la puesta en marcha. Es lo que separa un sistema que sigue sirviendo de uno que quedo congelado el dia de la entrega. |
 

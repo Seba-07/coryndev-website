@@ -12,14 +12,14 @@
         <div id="estTipos"></div>
       </fieldset>
       <div class="cot-totales">
-        <div><span>Puesta en marcha, una sola vez</span><b id="estMin">desde $129.000</b></div>
+        <div><span>Puesta en marcha, una sola vez</span><b id="estMin">desde $390.000</b></div>
         <div><span>Acompañamiento mensual</span><b id="estUf">1 UF</b></div>
         <small id="estUfPeso" hidden></small>
       </div>
       <p class="cot-nota-app" id="estEtapas" hidden></p>
       <div class="cot-pie">
         <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="{WA}">{WA_SVG}Cotizar esto por WhatsApp</a>
-        <p>El precio base cubre el alcance descrito en <a href="servicios.html">Servicios</a>.
+        <p>El precio de partida cubre <a href="#incluye">lo que detallamos abajo</a>.
         Si tu caso trae más, se cotiza y se cierra por escrito antes de programar.</p>
       </div>
       <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
@@ -31,14 +31,14 @@
   (function () {
     var TIPOS = [
       { id: 'sistema', nom: 'Un sistema de gestión', sub: 'Sacar la operación de las planillas',
-        base: 129000, uf: 1 },
+        base: 390000, uf: 1 },
       { id: 'web',     nom: 'Un sitio web',          sub: 'Presencia, contacto y que te encuentren',
-        base: 69000,  uf: 1 },
+        base: 149000, uf: 0.5 },
       { id: 'tienda',  nom: 'Una tienda online',     sub: 'Vender con pago en línea y control de stock',
-        base: 189000, uf: 1.5 },
+        base: 390000, uf: 1.5 },
       { id: 'app',     nom: 'Una app para el celular',
         sub: 'Se instala desde el navegador, sin pasar por las tiendas',
-        base: 159000, uf: 1.5,
+        base: 490000, uf: 1.5,
         nota: 'La hacemos como aplicación web instalable: se agrega a la pantalla de ' +
               'inicio, funciona sin conexión y se actualiza sola, sin esperar la ' +
               'revisión de Apple ni de Google ni pagar sus cuotas anuales. Si tu caso ' +
