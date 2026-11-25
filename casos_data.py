@@ -18,6 +18,8 @@ Claves opcionales de cada entrada:
   testimonio (cita, firma) al final del cuerpo; con PENDIENTE mientras no llegue.
 """
 
+from site_shell import CITA_IVONNE, FIRMA_IVONNE
+
 PENDIENTE = '<span class="pendiente">por confirmar</span>'
 
 # Pie comun a las pantallas del sistema de bySIMMED. Son recreaciones con
@@ -87,8 +89,7 @@ CASOS = [
      'calendario y avanza cada unidad; administración ve en qué va cada venta sin '
      'tener que preguntar.</p>']),
   ],
-  'testimonio': (PENDIENTE + ' Testimonio de bySIMMED sobre el sistema.',
-                 PENDIENTE + ' Nombre y cargo'),
+  'testimonio': (CITA_IVONNE, FIRMA_IVONNE),
  },
  {
   'slug': 'bysimmed',

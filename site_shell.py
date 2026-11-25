@@ -35,6 +35,14 @@ FLECHA = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wid
 
 PENDIENTE = '<span class="pendiente">por confirmar</span>'
 
+# Cita de Ivonne Rivera, autorizada para publicarse con nombre y cargo. La usan
+# el inicio, correo.html y el caso del sistema: se cambia solo aqui. Si llega un
+# testimonio especifico sobre el sistema, reemplaza a este en el caso y en correo.
+CITA_IVONNE = ('Llegamos con una idea en la cabeza y salimos con un sistema que hoy '
+               'usamos todos los días. Entendieron cómo trabajamos antes de escribir '
+               'una sola línea de código.')
+FIRMA_IVONNE = 'Ivonne Rivera, gerente de bySIMMED'
+
 # El logo: la C y la pieza que encaja. Trazos del archivo maestro de marca.
 C_TRAZO = 'M73.7 69.55A42 42 0 1 1 73.7 14.45L60.11 26.25A24 24 0 1 0 60.11 57.75Z'
 P_TRAZO = ('M65.1 33.5H76.9A2.6 2.6 0 0 1 79.5 36.1V47.9A2.6 2.6 0 0 1 76.9 50.5H65.1'

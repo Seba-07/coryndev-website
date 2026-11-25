@@ -28,6 +28,8 @@ FICHAS = {
     '{CRUZ}': S.CRUZ,
     '{FLECHA}': S.FLECHA,
     '{PENDIENTE}': S.PENDIENTE,
+    '{CITA_IVONNE}': S.CITA_IVONNE,
+    '{FIRMA_IVONNE}': S.FIRMA_IVONNE,
     '{WA}': S.WA,
     '{WA_SVG}': S.WA_SVG,
     '{WA_ETIQUETA}': S.WA_ETIQUETA,
