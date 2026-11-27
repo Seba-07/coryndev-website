@@ -330,7 +330,7 @@ PAGINAS = [
         slug='index',
         titulo='Desarrollo de software a medida para pymes | CORYN',
         desc='Sistemas de gestión, sitios web, tiendas y apps a medida para pymes '
-             'chilenas. Desde $149.000, con precio cerrado antes de empezar. '
+             'chilenas. Desde $149.000 más IVA, con precio cerrado antes de empezar. '
              'Primera reunión sin costo.',
         activa='inicio',
         cabecera=None,
@@ -340,7 +340,7 @@ PAGINAS = [
         titulo='Precios de software a medida en Chile, publicados | CORYN',
         desc='Cuánto cuesta un sistema de gestión, un sitio web, una tienda online o '
              'una app con CORYN: puesta en marcha desde $149.000 y acompañamiento '
-             'desde 0,5 UF al mes. Precio cerrado antes de empezar.',
+             'desde 0,5 UF al mes, más IVA. Precio cerrado antes de empezar.',
         activa='precios',
         cabecera=dict(titulo='Los precios, publicados.',
                       bajada='Casi nadie en el rubro los muestra. Acá están: lo que cuesta '
@@ -438,7 +438,7 @@ PAGINAS = [
         slug='correo',
         titulo='Si todo te llega por correo: un sistema que lo anota solo | CORYN',
         desc='Cotizaciones, órdenes de compra y facturas que llegan por correo y se '
-             'copian a mano. Lo que hicimos para bySIMMED, desde $390.000 y 1 UF al mes.',
+             'copian a mano. Lo que hicimos para bySIMMED, desde $390.000 y 1 UF al mes, más IVA.',
         activa='',
         landing=True,
         og_img='assets/og-correo.jpg',

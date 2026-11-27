@@ -19,7 +19,7 @@
       <p class="cot-nota-app" id="estEtapas" hidden></p>
       <div class="cot-pie">
         <a class="btn btn-wa" id="estWa" target="_blank" rel="noopener" href="{WA}">{WA_SVG}Cotizar esto por WhatsApp</a>
-        <p>El precio de partida cubre <a href="#incluye">lo que detallamos abajo</a>.
+        <p>Valores más IVA. El precio de partida cubre <a href="#incluye">lo que detallamos abajo</a>.
         Si tu caso trae más, se cotiza y se cierra por escrito antes de programar.</p>
       </div>
       <span class="timbre estampa" aria-hidden="true">Precio<br>publicado</span>
@@ -99,8 +99,8 @@
       else { etp.hidden = true; }
       var txt = 'Hola CORYN, estuve en el estimador del sitio.\n\n' +
         'Necesito: ' + t.nom.toLowerCase() + '\n' +
-        'Puesta en marcha: desde ' + plata(t.base) + '\n' +
-        'Acompañamiento: ' + $('estUf').textContent + ' al mes\n\n' +
+        'Puesta en marcha: desde ' + plata(t.base) + ' + IVA\n' +
+        'Acompañamiento: ' + $('estUf').textContent + ' al mes + IVA\n\n' +
         '¿Podemos conversarlo?';
       $('estWa').href = 'https://wa.me/{WA_NUM}?text=' + encodeURIComponent(txt);
     }
